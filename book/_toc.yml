@@ -20,7 +20,7 @@ parts:
       - file: theory/uncertainty_propagation_monte_carlo_gum
       - file: book/theory/Sensitivity_Coefficients_Uncertainty
       - file: book/theory/simulations_for_uncertainty
-      - file: book/theory/example_exam
+      - file: book/theory/exam_example.md
   - caption: Statistics for measurements
     chapters: 
     - file: statistics/basic_statistics
