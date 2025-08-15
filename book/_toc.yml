@@ -18,9 +18,9 @@ parts:
       - file: theory/general_measurement_system_analysis
       - file: theory/significant_digits
       - file: theory/uncertainty_propagation_monte_carlo_gum
-      - file: book/theory/Sensitivity_Coefficients_Uncertainty
-      - file: book/theory/simulations_for_uncertainty
-      - file: book/theory/exam_example
+      - file: theory/Sensitivity_Coefficients_Uncertainty
+      - file: theory/simulations_for_uncertainty
+      - file: theory/exam_example
   - caption: Statistics for measurements
     chapters: 
     - file: statistics/basic_statistics

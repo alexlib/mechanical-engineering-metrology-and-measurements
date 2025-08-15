@@ -1,10 +1,5 @@
 # Mars Rover Temperature Measurement & Uncertainty Analysis
 
-*A Jupyter/Markdown Notebook for Mechanical Engineering Metrology and Measurements (MEMM)*
-
-**Author:** [Your Name/Student ID]
-**Date:** November 2, 2024 (Aligned with MEMM course dates)
-
 ## 1. Introduction: The Challenge of Measurement in Extreme Environments
 
 The Mars rover engineering team requires **precise temperature measurements** to ensure the proper functioning of mechanical parts in **extreme environmental conditions**, ranging from **-150°C to +60°C**. As research engineers, our task is to select the right instrument and design a robust testing and analysis plan on Earth, ultimately quantifying the measurement uncertainty.
