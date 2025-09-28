@@ -51,3 +51,23 @@ Basic probability, calculus, and comfort with Python arrays.
 - [How to estimate the uncertainty of a slope for static calibration or regression](uncertainty_of_a_slope.ipynb)
 - [Propagating uncertainty using Monte-Carlo simulations](uncertainty_propagation_monte_carlo_gum.ipynb)
 <!-- AUTOGEN_END -->
+
+## Ordered reading (suggested)
+
+Follow this sequence when teaching or self-studying. The order moves from foundational lab practice and best-practice guidance, to measurement-system analysis and elementary worked examples, then to uncertainty concepts and quantitative propagation methods (analytical & Monte Carlo), and finishes with advanced case studies and community presentations.
+
+1. [laboratory_notebook.ipynb](laboratory_notebook.ipynb) — practical lab notebook practices and data recording.
+2. [best_practice_summary.ipynb](best_practice_summary.ipynb) — concise recommendations for reporting and reproducibility.
+3. [teaching_measurement_uncertainty.ipynb](teaching_measurement_uncertainty.ipynb) — pedagogical overview of uncertainty.
+4. [standartization.ipynb](standartization.ipynb) — standards and common terminology.
+5. [general_measurement_system_analysis.ipynb](general_measurement_system_analysis.ipynb) — system-level thinking and error sources.
+6. [simple_example.ipynb](simple_example.ipynb) — a short worked example linking practice and theory.
+7. [example_from_best_practice.ipynb](example_from_best_practice.ipynb) — illustrated application of best practices.
+8. [uncertainty_example.ipynb](uncertainty_example.ipynb) — basic uncertainty calculations and interpretation.
+9. [uncertainty_of_a_slope.ipynb](uncertainty_of_a_slope.ipynb) — propagation for regression-derived quantities.
+10. [uncertainty_propagation_monte_carlo_gum.ipynb](uncertainty_propagation_monte_carlo_gum.ipynb) — Monte Carlo propagation following GUM ideas.
+11. [simulations_for_uncertainty.ipynb](simulations_for_uncertainty.ipynb) — simulation-driven exploration of uncertainty.
+12. [uncertainty_analysis_NASA.ipynb](uncertainty_analysis_NASA.ipynb) — applied example from NASA guidance.
+13. [iaea_uncertainty_presentation.ipynb](iaea_uncertainty_presentation.ipynb) — community presentation and advanced perspectives.
+
+Rationale: this ordering lets students first acquire good lab habits and reporting skills, then build a conceptual toolbox for system analysis, then learn measurement uncertainty in increasing rigor (examples → slope propagation → Monte Carlo → case studies). Use the checklists added to notebooks to guide in-class or lab activities.
