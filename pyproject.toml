@@ -1,0 +1,9 @@
+[project]
+name = "mechanical-engineering-metrology-and-measurements"
+version = "0.1.0"
+description = "Jupyter book with Python snippets for the course Mechanical Engineering Metrology and Measurements"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "jupyter-book>=1.0.4.post1",
+]
