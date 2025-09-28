@@ -15,3 +15,11 @@ Suggested maintenance
 
 Prerequisites
 None — archive is reference only.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Notebooks with MyST Markdown](markdown-notebooks.md)
+- [Markdown Files](markdown.md)
+- [Content with notebooks](notebook.ipynb)
+<!-- AUTOGEN_END -->

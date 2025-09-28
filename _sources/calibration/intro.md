@@ -26,3 +26,21 @@ Suggested exercises
 
 Prerequisites
 Basic regression, statistics, and familiarity with plotting in Python.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Linearity error example](Lineariy_error_example.ipynb)
+- [Calibration of non-linear (logarithmic) function](calibration_curve_log_log.ipynb)
+- [Hysteresis example](calibration_error_analysis 2.ipynb)
+- [Hysteresis and regression analysis example](calibration_error_analysis_pressure.ipynb)
+- [Calibration of non-linear relations](calibration_non_linear_relations.ipynb)
+- [Calibration and uncertainty analysis - virtual experiment](full_calibration_analysis_example.ipynb)
+- [## Hysteresis and log-log calibration example](hysteresis_error_analysis.ipynb)
+- [## Introduction to linear regression](introduction_linear_regression.ipynb)
+- [## LVDT example](lvdt_calibration_2.ipynb)
+- [Micrometer calibration using gage block](micrometer_calibration.ipynb)
+- [Calibration and uncertainty analysis - virtual experiment](pressure_calibration_example.ipynb)
+- [Lecture 6](regression_analysis.ipynb)
+- [Sensitivity estimate example](sensitivity_analysis.ipynb)
+<!-- AUTOGEN_END -->

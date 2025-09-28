@@ -17,3 +17,17 @@ Suggested activity
 
 Prerequisites
 Complete core chapters first (theory, statistics, a2d).
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Basic error analysis](basic_error_analysis.ipynb)
+- [doppler](doppler.ipynb)
+- [Homework no. 1](homework_1.ipynb)
+- [## Homework no. 1 example](homework_example_1.ipynb)
+- [## Amplitude, frequency, period, and phase](input_output_sin_1st_order.ipynb)
+- [Statistical parameters using probability density function](mean_variance_probability_function.ipynb)
+- [Compare normal and log-normal random variables](normal_vs_lognormal.ipynb)
+- [Isn't it clear that the plot is not like "random variable" ?](q2_ex3.ipynb)
+- [Run the random data generator and plot the scatter](random_data_for_hw_1.ipynb)
+<!-- AUTOGEN_END -->

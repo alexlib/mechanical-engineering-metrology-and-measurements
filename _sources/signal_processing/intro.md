@@ -26,3 +26,15 @@ Suggested exercises
 
 Prerequisites
 Discrete signals, sampling basics, and NumPy FFT usage.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Using FFT-based filter to reduce noise](FFT_based_filtering.ipynb)
+- [Symbolic evaluation of Fourier coefficients](Fourier_coefficients_analytical_evaluation_periodic_ramp_function.ipynb)
+- [Fourier transforms with windowing](Fourier_transform_with_windowing.ipynb)
+- [Fourier transforms](Fourier_transforms_pure_sine.ipynb)
+- [Using FFT the right way to find the correct spectrum](Frequency_content_of_a_periodic_signal.ipynb)
+- [## FFT demo of a real, periodic signal](fft_of_multi_frequency_signal_window.ipynb)
+- [Digitizing the signal using pure Python](proving_periods.ipynb)
+<!-- AUTOGEN_END -->

@@ -26,3 +26,17 @@ Suggested exercises
 
 Prerequisites
 Ordinary differential equations basics and elementary signal processing.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Log decrement method](2nd_order_system_step_function_log_decrement.ipynb)
+- [Example of pre-measurement design](design_choice_2nd_order_pressure_transducer.ipynb)
+- [1st order dynamic system](first_order_time_response.ipynb)
+- [Plot power spectrum of experimental data](load_plot_spectrum_turbulent_data_jet.ipynb)
+- [Lab Worksheet: Measurement of Unknown Mass using Vibrating Beam](mass_measurement_using_vibrations.ipynb)
+- [Fast Fourier Transform (FFT) of a sum of two sine signals](simple_fft_two_sine.ipynb)
+- [Spectrum example](spectrum_example.ipynb)
+- [Step responses of dynamical systems](step_response.ipynb)
+- [Symbolic evaluation of Fourier series coefficients](symbolic_evaluation_Fourier_coefficients.ipynb)
+<!-- AUTOGEN_END -->

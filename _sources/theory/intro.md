@@ -27,3 +27,27 @@ Suggested exercises
 
 Prerequisites
 Basic probability, calculus, and comfort with Python arrays.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Sensitivity Coefficients in Uncertainty Budgets](Sensitivity_Coefficients_Uncertainty.md)
+- [Short summary of the ``Measurement good practice guide '' by NPL](best_practice_summary.ipynb)
+- [Mars Rover Temperature Measurement & Uncertainty Analysis](exam_example.md)
+- [Using AI tools to learn uncertainty](example_from_best_practice.ipynb)
+- [Engineering Example: Uncertainty Analysis in Mechanical Measurements](example_uncertainty_analysis.md)
+- [## General measurement system diagram](general_measurement_system_analysis.ipynb)
+- [Uncertainty in simple terms from IAEA](iaea_uncertainty_presentation.ipynb)
+- [Laboratory Notebook](laboratory_notebook.ipynb)
+- [Significant digits](significant_digits.md)
+- [Simple example of mechanical measurement with uncertainty analysis](simple_example.ipynb)
+- [Using simulations to explain uncertainty](simulations_for_uncertainty.ipynb)
+- [Standardization](standartization.ipynb)
+- [Teaching Measurement in the Introductory Physics Laboratory](teaching_measurement_introductory_physics_lab.md)
+- [Teaching uncertainty in mechanical measurements](teaching_measurement_uncertainty.ipynb)
+- [Uncertainty 101](uncertainty101.md)
+- [Uncertainty Analysis](uncertainty_analysis_NASA.ipynb)
+- [uncertainty_example](uncertainty_example.ipynb)
+- [How to estimate the uncertainty of a slope for static calibration or regression](uncertainty_of_a_slope.ipynb)
+- [Propagating uncertainty using Monte-Carlo simulations](uncertainty_propagation_monte_carlo_gum.ipynb)
+<!-- AUTOGEN_END -->

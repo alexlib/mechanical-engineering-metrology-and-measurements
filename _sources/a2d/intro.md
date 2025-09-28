@@ -25,3 +25,13 @@ Suggested exercises
 
 Prerequisites
 Basic Fourier theory and sampling concepts.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Analog to digital (A/D) and Digital to Analog (d/A) conversion example](Reconstruction_periodic_signal_Cardinal_series.ipynb)
+- [Signal construction and helper functions for the frequency content class](create_plot_signal.ipynb)
+- [Mimic A/D conversion](mimic_analog_to_digital_conversion.ipynb)
+- [Digital to Analog conversion using sinc](reconstruct_with_sinc.ipynb)
+- [Sampling, clipping and aliasing](sampling_aliasing_examples.ipynb)
+<!-- AUTOGEN_END -->
