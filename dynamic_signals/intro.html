@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Sensitivity Coefficients in Uncertainty Budgets &#8212; Introduction to Measurements for Mechanical Engineers</title>
+    <title>Dynamic Signals — Introduction and Learning Goals &#8212; Introduction to Measurements for Mechanical Engineers</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'theory/Sensitivity_Coefficients_Uncertainty';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'dynamic_signals/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Calibration — Introduction and Learning Goals" href="../calibration/intro.html" />
+    <link rel="prev" title="Signal Processing — Introduction and Learning Goals" href="../signal_processing/intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,12 +179,12 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Theory — Introduction and Learning Goals</a></li>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../theory/intro.html">Theory — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">Statistics — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a2d/intro.html">Analog-to-Digital (A2D) — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signal_processing/intro.html">Signal Processing — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/intro.html">Dynamic Signals — Introduction and Learning Goals</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dynamic Signals — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calibration/intro.html">Calibration — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../unsorted/intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archive/intro.html">Archive — Notes and Historical Material</a></li>
@@ -261,7 +259,7 @@
       
       
       
-      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course/issues/new?title=Issue%20on%20page%20%2Ftheory/Sensitivity_Coefficients_Uncertainty.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course/issues/new?title=Issue%20on%20page%20%2Fdynamic_signals/intro.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +289,7 @@
       
       
       
-      <li><a href="../_sources/theory/Sensitivity_Coefficients_Uncertainty.md" target="_blank"
+      <li><a href="../_sources/dynamic_signals/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -362,9 +360,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -375,30 +371,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sensitivity Coefficients in Uncertainty Budgets</h1>
+    <h1>Dynamic Signals — Introduction and Learning Goals</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-sensitivity-coefficients">Introduction to Sensitivity Coefficients</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-case-direct-measurements">Simple Case: Direct Measurements</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-building-height-measurement">Practical Example: Building Height Measurement</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-coefficients">Sensitivity Coefficients</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calculations">Example Calculations</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-temperature-effects">Special Case: Temperature Effects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-to-remember">Key Points to Remember</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-budget-example">Uncertainty Budget Example</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -408,180 +385,37 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sensitivity-coefficients-in-uncertainty-budgets">
-<h1>Sensitivity Coefficients in Uncertainty Budgets<a class="headerlink" href="#sensitivity-coefficients-in-uncertainty-budgets" title="Link to this heading">#</a></h1>
-<p>From the blog of <a class="reference external" href="https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets/">https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets/</a></p>
-<section id="introduction-to-sensitivity-coefficients">
-<h2>Introduction to Sensitivity Coefficients<a class="headerlink" href="#introduction-to-sensitivity-coefficients" title="Link to this heading">#</a></h2>
-<div class="admonition-key-concept admonition">
-<p class="admonition-title">Key Concept</p>
-<p>When analyzing measurement uncertainty, sensitivity coefficients tell us how much an error in an input affects the final result.</p>
-</div>
-<section id="simple-case-direct-measurements">
-<h3>Simple Case: Direct Measurements<a class="headerlink" href="#simple-case-direct-measurements" title="Link to this heading">#</a></h3>
-<p>For a measurement with three error sources:</p>
-<div class="math notranslate nohighlight">
-\[Y = y + x_1 + x_2 + x_3\]</div>
-<p>where:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="dynamic-signals-introduction-and-learning-goals">
+<h1>Dynamic Signals — Introduction and Learning Goals<a class="headerlink" href="#dynamic-signals-introduction-and-learning-goals" title="Link to this heading">#</a></h1>
+<p>Short summary
+Time-domain and dynamical-system behavior: step responses, first/second order systems, and vibration-based measurements.</p>
+<p>Learning objectives</p>
 <ul class="simple">
-<li><p>Y is the measurement result</p></li>
-<li><p>y is the true value (unknown)</p></li>
-<li><p>x₁, x₂, x₃ are errors from different sources</p></li>
+<li><p>Interpret first- and second-order system responses and key parameters (time constant, damping, natural frequency).</p></li>
+<li><p>Extract physical quantities (e.g., mass from vibrations) from measured signals.</p></li>
+<li><p>Link time-domain responses to frequency content.</p></li>
 </ul>
-<p>In this case, sensitivity coefficients = 1 because each error directly maps to the result.</p>
-<p>The law of propagation of uncertainty states:</p>
-<div class="math notranslate nohighlight">
-\[U_C = \sqrt{\sum_{i=1}^{n} c_i^2u_i^2}\]</div>
-<p>where:</p>
+<p>Key concepts (brief)</p>
 <ul class="simple">
-<li><p>U_C is combined uncertainty</p></li>
-<li><p>c_i is sensitivity coefficient for each source</p></li>
-<li><p>u_i is standard uncertainty for each source</p></li>
+<li><p>Step response, log-decrement, and damping ratio estimation.</p></li>
+<li><p>Modal interpretation for simple systems and measurement-driven parameter estimation.</p></li>
+<li><p>Practical considerations: sensor dynamics and filtering.</p></li>
 </ul>
-</section>
-</section>
-<section id="practical-example-building-height-measurement">
-<h2>Practical Example: Building Height Measurement<a class="headerlink" href="#practical-example-building-height-measurement" title="Link to this heading">#</a></h2>
-<figure class="align-default" id="building-height">
-<a class="reference internal image-reference" href="theory/building_measurement.png"><img alt="theory/building_measurement.png" src="theory/building_measurement.png" style="height: 300px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Measuring building height using clinometer and tape measure</span><a class="headerlink" href="#building-height" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>The height H is calculated as:</p>
-<div class="math notranslate nohighlight">
-\[H = h_1 + L \times \tan(\theta)\]</div>
-<p>where:</p>
+<p>Recommended notebooks to run</p>
 <ul class="simple">
-<li><p>h₁ = height of clinometer</p></li>
-<li><p>L = horizontal distance</p></li>
-<li><p>θ = measured angle</p></li>
+<li><p>first_order_time_response.ipynb</p></li>
+<li><p>step_response.ipynb</p></li>
+<li><p>2nd_order_system_step_function_log_decrement.ipynb</p></li>
+<li><p>mass_measurement_using_vibrations.ipynb</p></li>
+<li><p>design_choice_2nd_order_pressure_transducer.ipynb</p></li>
 </ul>
-<section id="sensitivity-coefficients">
-<h3>Sensitivity Coefficients<a class="headerlink" href="#sensitivity-coefficients" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p>For clinometer height (h₁):</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial H}{\partial h_1} = 1\]</div>
-</li>
-<li><p>For horizontal distance (L):</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial H}{\partial L} = \tan(\theta)\]</div>
-</li>
-<li><p>For angle (θ):</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial H}{\partial \theta} = L \times \sec^2(\theta)\]</div>
-</li>
-</ol>
-</section>
-<section id="example-calculations">
-<h3>Example Calculations<a class="headerlink" href="#example-calculations" title="Link to this heading">#</a></h3>
-<p>For measurements:</p>
+<p>Suggested exercises</p>
 <ul class="simple">
-<li><p>h₁ = 1.65 m</p></li>
-<li><p>L = 10 m</p></li>
-<li><p>θ = 58°</p></li>
+<li><p>Estimate time constant and uncertainty from a noisy step response.</p></li>
+<li><p>Use a recorded vibration signal to estimate a lumped mass or natural frequency.</p></li>
 </ul>
-<p>Results:</p>
-<ul class="simple">
-<li><p>ΔL = 10mm → ΔH = 16mm (sensitivity = 1.6)</p></li>
-<li><p>Δθ = 0.5° → ΔH = 316mm (sensitivity = 632 mm/deg)</p></li>
-</ul>
-</section>
-</section>
-<section id="special-case-temperature-effects">
-<h2>Special Case: Temperature Effects<a class="headerlink" href="#special-case-temperature-effects" title="Link to this heading">#</a></h2>
-<p>For thermal expansion:</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial L}{\partial T} = \alpha L\]</div>
-<p>Where:</p>
-<ul class="simple">
-<li><p>α = coefficient of thermal expansion (e.g., 12×10⁻⁶/°C for steel)</p></li>
-<li><p>L = measured length</p></li>
-</ul>
-<figure class="align-default" id="cosine-error">
-<a class="reference internal image-reference" href="theory/cosine_error.png"><img alt="theory/cosine_error.png" src="theory/cosine_error.png" style="height: 250px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Non-linear sensitivity in cosine error</span><a class="headerlink" href="#cosine-error" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="key-points-to-remember">
-<h2>Key Points to Remember<a class="headerlink" href="#key-points-to-remember" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Sensitivity coefficients = 1 when:</p>
-<ul class="simple">
-<li><p>Measuring directly</p></li>
-<li><p>Using Type A evaluations (repeatability studies)</p></li>
-</ul>
-</li>
-<li><p>Must calculate sensitivity coefficients when:</p>
-<ul class="simple">
-<li><p>Combining multiple measurements mathematically</p></li>
-<li><p>Dealing with temperature effects</p></li>
-<li><p>Working with angular measurements</p></li>
-<li><p>Considering environmental influences</p></li>
-</ul>
-</li>
-<li><p>Units must be consistent:</p>
-<ul class="simple">
-<li><p>Dimensionless when input/output units match</p></li>
-<li><p>Include proper conversion when units differ</p></li>
-</ul>
-</li>
-</ol>
-<div class="admonition-best-practice admonition">
-<p class="admonition-title">Best Practice</p>
-<p>When sensitivity is not constant, evaluate at the uncertainty value to get worst-case scenario, but be careful to:</p>
-<ol class="arabic simple">
-<li><p>Check if sensitivity keeps increasing with error</p></li>
-<li><p>Consider using expanded uncertainty value</p></li>
-</ol>
-</div>
-</section>
-<section id="uncertainty-budget-example">
-<h2>Uncertainty Budget Example<a class="headerlink" href="#uncertainty-budget-example" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Source</p></th>
-<th class="head"><p>Value</p></th>
-<th class="head"><p>Distribution</p></th>
-<th class="head"><p>Divisor</p></th>
-<th class="head"><p>Sensitivity</p></th>
-<th class="head"><p>Standard Uncertainty</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>L</p></td>
-<td><p>±50.5mm</p></td>
-<td><p>Normal (95%)</p></td>
-<td><p>2</p></td>
-<td><p>1.6</p></td>
-<td><p>40.4mm</p></td>
-</tr>
-<tr class="row-odd"><td><p>h₁</p></td>
-<td><p>±8.75mm</p></td>
-<td><p>Normal (95%)</p></td>
-<td><p>2</p></td>
-<td><p>1.0</p></td>
-<td><p>4.4mm</p></td>
-</tr>
-<tr class="row-even"><td><p>θ</p></td>
-<td><p>±1°</p></td>
-<td><p>Normal</p></td>
-<td><p>1</p></td>
-<td><p>632mm/deg</p></td>
-<td><p>632mm</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>The combined standard uncertainty:</p>
-<div class="math notranslate nohighlight">
-\[u_c = \sqrt{(40.4)^2 + (4.4)^2 + (632)^2} = 633.4\text{ mm}\]</div>
-</section>
+<p>Prerequisites
+Ordinary differential equations basics and elementary signal processing.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -597,7 +431,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./theory"
+            path: "./dynamic_signals"
         },
         predefinedOutput: true
     }
@@ -614,38 +448,30 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="../signal_processing/intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Signal Processing — Introduction and Learning Goals</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../calibration/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Calibration — Introduction and Learning Goals</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-sensitivity-coefficients">Introduction to Sensitivity Coefficients</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-case-direct-measurements">Simple Case: Direct Measurements</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-building-height-measurement">Practical Example: Building Height Measurement</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-coefficients">Sensitivity Coefficients</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calculations">Example Calculations</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-temperature-effects">Special Case: Temperature Effects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-to-remember">Key Points to Remember</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-budget-example">Uncertainty Budget Example</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
