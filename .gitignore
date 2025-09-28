@@ -9,3 +9,5 @@ book/_build/*
 .vscode/PythonImportHelper-v2-Completion.json
 uv.lock
 .python-version
+/book/theory/uncertainty101_files/libs/bootstrap
+/book/theory/uncertainty101_files

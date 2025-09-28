@@ -1,0 +1,25 @@
+format: jb-book
+root: intro
+
+chapters:
+  # Foundations and good-practice (start here)
+  - file: laboratory_notebook
+  - file: best_practice_summary
+  - file: teaching_measurement_uncertainty
+  - file: standartization
+
+  # Measurement-system analysis and simple examples
+  - file: general_measurement_system_analysis
+  - file: simple_example
+  - file: example_from_best_practice
+
+  # Basic uncertainty concepts and measurements
+  - file: uncertainty_example
+  - file: uncertainty101        # <<--- added
+  - file: uncertainty_of_a_slope
+
+  # Uncertainty propagation methods and simulation
+  - file: uncertainty_propagation_monte_carlo_gum
+  - file: simulations_for_uncertainty
+  - file: uncertainty_analysis_NASA
+  - file: iaea_uncertainty_presentation

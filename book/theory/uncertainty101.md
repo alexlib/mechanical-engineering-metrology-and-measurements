@@ -1,12 +1,5 @@
 # Uncertainty 101
 
-## This course is about:
-
-***The science of good measurement***
-
-__Good means low uncertainty__
-
-
 ## Uncertainty
 
 ![uncertainty](fig/uncertainty-ahead.jpg)
