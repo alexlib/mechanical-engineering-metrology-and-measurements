@@ -444,13 +444,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Mechanical Engineering Metrology and Measurements (MEMM)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbook-and-relevant-books">Textbook and relevant books:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metrology-measurements-course-introduction">Metrology &amp; Measurements — Course Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-prerequisites">Recommended prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-book">How to use this book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-environment-notes">Quick environment notes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright-information">Copyright Information</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -473,6 +484,51 @@ It does not discuss any particular topic in depth—for more information, check 
 <section id="textbook-and-relevant-books">
 <h2>Textbook and relevant books:<a class="headerlink" href="#textbook-and-relevant-books" title="Link to this heading">#</a></h2>
 <p>This course follows the <span id="id1">[<a class="reference internal" href="#id5" title="R.S. Figliola and D.E. Beasley. Theory and Design for Mechanical Measurements. Wiley, 2020.">Figliola and Beasley, 2020</a>]</span>. It is also recommended to consult with <span id="id2">[<a class="reference internal" href="#id6" title="P.F. Dunn and M.P. Davis. Measurement and Data Analysis for Engineering and Science. CRC Press, 4 edition, 2017.">Dunn and Davis, 2017</a>]</span> and <span id="id3">[<a class="reference internal" href="#id7" title="A.J. Wheeler and A.R. Ganji. Introduction to Engineering Experimentation. Prentince Hall, 2009.">Wheeler and Ganji, 2009</a>]</span></p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="metrology-measurements-course-introduction">
+<h1>Metrology &amp; Measurements — Course Introduction<a class="headerlink" href="#metrology-measurements-course-introduction" title="Link to this heading">#</a></h1>
+<p>This book collects practical notebooks and concise explanations to teach core concepts in mechanical engineering metrology and measurements. Content emphasizes hands-on examples, reproducible analyses, and problem-solving skills appropriate for undergraduate laboratory and lecture use.</p>
+<section id="learning-objectives">
+<h2>Learning objectives<a class="headerlink" href="#learning-objectives" title="Link to this heading">#</a></h2>
+<p>By the end of this course/readings, students will be able to:</p>
+<ul class="simple">
+<li><p>Explain fundamental measurement concepts: accuracy, precision, resolution, and uncertainty.</p></li>
+<li><p>Apply statistical tools to analyze measurement data (distributions, confidence intervals, t‑tests, outlier detection).</p></li>
+<li><p>Perform calibration and regression analysis for common sensors and instruments.</p></li>
+<li><p>Analyze dynamic signals using time‑domain and frequency‑domain methods (FFT, windowing, spectral interpretation).</p></li>
+<li><p>Understand sampling, aliasing, and basic reconstruction for A/D systems.</p></li>
+<li><p>Model simple measurement systems (first and second order) and interpret step/impulse responses.</p></li>
+<li><p>Propagate measurement uncertainty (analytical and Monte Carlo) and report results following good practice.</p></li>
+<li><p>Implement reproducible experiments and analyses using Python and Jupyter notebooks.</p></li>
+</ul>
+</section>
+<section id="recommended-prerequisites">
+<h2>Recommended prerequisites<a class="headerlink" href="#recommended-prerequisites" title="Link to this heading">#</a></h2>
+<p>Students should be comfortable with:</p>
+<ul class="simple">
+<li><p>Calculus and basic differential equations</p></li>
+<li><p>Linear algebra (vectors, matrices)</p></li>
+<li><p>Introductory probability and statistics</p></li>
+<li><p>Basics of signals and systems (sinusoids, frequency, convolution helpful but not required)</p></li>
+<li><p>Basic Python programming (variables, functions, NumPy arrays)</p></li>
+<li><p>Familiarity with Jupyter notebooks and command-line usage is helpful</p></li>
+</ul>
+</section>
+<section id="how-to-use-this-book">
+<h2>How to use this book<a class="headerlink" href="#how-to-use-this-book" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Navigate chapters via the table of contents. Each chapter contains short explanatory pages and runnable notebooks for labs and examples.</p></li>
+<li><p>Do the notebooks interactively: create a local virtual environment, install requirements, and run the notebooks in Jupyter Lab/Notebook.</p></li>
+<li><p>Work through the “unsorted” and “archive” content only after core topics; many items are homework examples or experimental notes.</p></li>
+<li><p>Instructors: adopt notebooks as lab exercises, add assessment items, and redistribute with solutions for guided learning.</p></li>
+</ul>
+</section>
+<section id="quick-environment-notes">
+<h2>Quick environment notes<a class="headerlink" href="#quick-environment-notes" title="Link to this heading">#</a></h2>
+<p>Recommended Python ecosystem: Python 3.9+, NumPy, SciPy, Matplotlib, pandas, jupyter-book, myst-nb. Add a pinned requirements.txt in the repo root for reproducible builds.</p>
+<hr class="docutils" />
+<p>Start with the “theory”, “statistics”, and “a2d” chapters, then proceed to “signal_processing”, “dynamic_signals”, and “calibration” for lab work and examples.</p>
 </section>
 <section id="table-of-contents">
 <h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
@@ -639,13 +695,24 @@ It does not discuss any particular topic in depth—for more information, check 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Mechanical Engineering Metrology and Measurements (MEMM)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#textbook-and-relevant-books">Textbook and relevant books:</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metrology-measurements-course-introduction">Metrology &amp; Measurements — Course Introduction</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-objectives">Learning objectives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recommended-prerequisites">Recommended prerequisites</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-this-book">How to use this book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-environment-notes">Quick environment notes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of contents</a><ul class="nav section-nav flex-column">
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#copyright-information">Copyright Information</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
