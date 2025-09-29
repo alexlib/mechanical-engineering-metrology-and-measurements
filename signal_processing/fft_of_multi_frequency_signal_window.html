@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -62,8 +62,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'signal_processing/fft_of_multi_frequency_signal_window';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Log decrement method" href="../dynamic_signals/2nd_order_system_step_function_log_decrement.html" />
-    <link rel="prev" title="Using FFT-based filter to reduce noise" href="FFT_based_filtering.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -126,6 +124,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -181,73 +181,15 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory of experiments and measurements</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../theory/example_uncertainty_analysis.html">Engineering Example: Uncertainty Analysis in Mechanical Measurements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/standartization.html">Standardization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/laboratory_notebook.html">Laboratory Notebook</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/uncertainty101.html">Uncertainty 101</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/iaea_uncertainty_presentation.html">Uncertainty in simple terms from IAEA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/best_practice_summary.html">Short summary of the ``Measurement good practice guide ‘’ by NPL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/simple_example.html">Simple example of mechanical measurement with uncertainty analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/example_from_best_practice.html">Using AI tools to learn uncertainty</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/uncertainty_of_a_slope.html">How to estimate the uncertainty of a slope for static calibration or regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/general_measurement_system_analysis.html">General measurement system diagram</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/significant_digits.html">Significant digits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/uncertainty_propagation_monte_carlo_gum.html">Propagating uncertainty using Monte-Carlo simulations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/Sensitivity_Coefficients_Uncertainty.html">Sensitivity Coefficients in Uncertainty Budgets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../theory/simulations_for_uncertainty.html">Using simulations to explain uncertainty</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../theory/exam_example.html">Mars Rover Temperature Measurement &amp; Uncertainty Analysis</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics for measurements</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../statistics/basic_statistics.html">Very basic review of some statistics terms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../statistics/distributions.html">Probability Distributions and the Central Limit Theorem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../statistics/Lecture_5.html">Lecture 5 - probability and statistics</a></li>
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../calibration/regression_analysis.html">Lecture 6</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../statistics/outliers_example.html">Outliers</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calibration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../calibration/sensitivity_analysis.html">Sensitivity estimate example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../calibration/micrometer_calibration.html">Micrometer calibration using gage block</a></li>
-
-<li class="toctree-l1"><a class="reference internal" href="../calibration/full_calibration_analysis_example.html">Calibration and uncertainty analysis - virtual experiment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../calibration/calibration_curve_log_log.html">Calibration of non-linear (logarithmic) function</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../calibration/calibration_error_analysis_pressure.html">Hysteresis and regression analysis example</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analog to digital (A/D) and D/A</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../a2d/mimic_analog_to_digital_conversion.html">Mimic A/D conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../a2d/Reconstruction_periodic_signal_Cardinal_series.html">Analog to digital (A/D) and Digital to Analog (d/A) conversion example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../a2d/sampling_aliasing_examples.html">Sampling, clipping and aliasing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../a2d/reconstruct_with_sinc.html">Digital to Analog conversion using sinc</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Signal processing</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="proving_periods.html">Digitizing the signal using pure Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Frequency_content_of_a_periodic_signal.html">Using FFT the right way to find the correct spectrum</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fourier_transforms_pure_sine.html">Fourier transforms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Fourier_coefficients_analytical_evaluation_periodic_ramp_function.html">Symbolic evaluation of Fourier coefficients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FFT_based_filtering.html">Using FFT-based filter to reduce noise</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">FFT demo of a real, periodic signal</a></li>
-
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic signals</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/2nd_order_system_step_function_log_decrement.html">Log decrement method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/first_order_time_response.html">1st order dynamic system</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/design_choice_2nd_order_pressure_transducer.html">Example of pre-measurement design</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/step_response.html">Step responses of dynamical systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/load_plot_spectrum_turbulent_data_jet.html">Plot power spectrum of experimental data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/spectrum_example.html">Spectrum example</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/simple_fft_two_sine.html">Fast Fourier Transform (FFT) of a sum of two sine signals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/mass_measurement_using_vibrations.html">Lab Worksheet: Measurement of Unknown Mass using Vibrating Beam</a></li>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../theory/intro.html">Theory — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">Statistics — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a2d/intro.html">Analog-to-Digital (A2D) — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Signal Processing — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/intro.html">Dynamic Signals — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration/intro.html">Calibration — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsorted/intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/intro.html">Archive — Notes and Historical Material</a></li>
 </ul>
 
     </div>
@@ -519,7 +461,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12bcac214223f31e3b3f26f18c2df2397c5816be34f706e39e5180620a8d3619.png" src="../_images/12bcac214223f31e3b3f26f18c2df2397c5816be34f706e39e5180620a8d3619.png" />
+<img alt="../_images/4e5ce59927b9c7c33387e882187f7cd2728f7419a4db9f6747d716afcc297567.png" src="../_images/4e5ce59927b9c7c33387e882187f7cd2728f7419a4db9f6747d716afcc297567.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -594,7 +536,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/82ba2fa013fb462d76edfdca054efe1692c8b31ae9ddba2d8dd1f603bfb72fa3.png" src="../_images/82ba2fa013fb462d76edfdca054efe1692c8b31ae9ddba2d8dd1f603bfb72fa3.png" />
+<img alt="../_images/ff66a3d04f09d54f0bef766cee48effd195bbb422f74459893ebefe78661f581.png" src="../_images/ff66a3d04f09d54f0bef766cee48effd195bbb422f74459893ebefe78661f581.png" />
 </div>
 </div>
 </section>
@@ -616,10 +558,10 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7bf1eab86010&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1d6d270e3f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/c83859fa503c54364d8f7d5ccd8031e4fffb837fcd30e1844c5cd89f9fae4a00.png" src="../_images/c83859fa503c54364d8f7d5ccd8031e4fffb837fcd30e1844c5cd89f9fae4a00.png" />
+<img alt="../_images/a8e6627283b5d3895355302db6ae365adcbbd5d4377da8337b81d89255ea5aad.png" src="../_images/a8e6627283b5d3895355302db6ae365adcbbd5d4377da8337b81d89255ea5aad.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -647,7 +589,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1abe7646212e4f53b5459cda39e982dcaf1cffff82aaf662188ad0edca4755e7.png" src="../_images/1abe7646212e4f53b5459cda39e982dcaf1cffff82aaf662188ad0edca4755e7.png" />
+<img alt="../_images/d5b42370818785d46ea8a45cff728c4cf0240bfb671e15b1ae317186eb3a6111.png" src="../_images/d5b42370818785d46ea8a45cff728c4cf0240bfb671e15b1ae317186eb3a6111.png" />
 </div>
 </div>
 </section>
@@ -677,10 +619,10 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>18.9 μs ± 981 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16.2 μs ± 908 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>14.2 μs ± 1.23 μs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.82 μs ± 242 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
@@ -690,7 +632,7 @@ b) windowing with DC treatment</p>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">g1</span><span class="p">[:</span><span class="mi">301</span><span class="p">]</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;fft(g1)&#39;</span><span class="p">)</span>
 
-<span class="nn">File ~/miniforge3/envs/book/lib/python3.11/site-packages/IPython/core/interactiveshell.py:2504,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="nn">File ~\Downloads\Github\mechanical-engineering-metrology-and-measurements\.venv\Lib\site-packages\IPython\core\interactiveshell.py:2504,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2502</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2503</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">2504</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -699,21 +641,21 @@ b) windowing with DC treatment</p>
 <span class="g g-Whitespace">   </span><span class="mi">2508</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
 <span class="g g-Whitespace">   </span><span class="mi">2509</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
 
-<span class="nn">File ~/miniforge3/envs/book/lib/python3.11/site-packages/IPython/core/magics/execution.py:1230,</span> in <span class="ni">ExecutionMagics.timeit</span><span class="nt">(self, line, cell, local_ns)</span>
+<span class="nn">File ~\Downloads\Github\mechanical-engineering-metrology-and-measurements\.venv\Lib\site-packages\IPython\core\magics\execution.py:1230,</span> in <span class="ni">ExecutionMagics.timeit</span><span class="nt">(self, line, cell, local_ns)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1227</span>         <span class="k">if</span> <span class="n">time_number</span> <span class="o">&gt;=</span> <span class="mf">0.2</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1228</span>             <span class="k">break</span>
 <span class="ne">-&gt; </span><span class="mi">1230</span> <span class="n">all_runs</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">repeat</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1231</span> <span class="n">best</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">all_runs</span><span class="p">)</span> <span class="o">/</span> <span class="n">number</span>
 <span class="g g-Whitespace">   </span><span class="mi">1232</span> <span class="n">worst</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">all_runs</span><span class="p">)</span> <span class="o">/</span> <span class="n">number</span>
 
-<span class="nn">File ~/miniforge3/envs/book/lib/python3.11/timeit.py:208,</span> in <span class="ni">Timer.repeat</span><span class="nt">(self, repeat, number)</span>
+<span class="nn">File ~\AppData\Roaming\uv\python\cpython-3.12.11-windows-x86_64-none\Lib\timeit.py:208,</span> in <span class="ni">Timer.repeat</span><span class="nt">(self, repeat, number)</span>
 <span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repeat</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">208</span>     <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">return</span> <span class="n">r</span>
 
-<span class="nn">File ~/miniforge3/envs/book/lib/python3.11/site-packages/IPython/core/magics/execution.py:184,</span> in <span class="ni">Timer.timeit</span><span class="nt">(self, number)</span>
+<span class="nn">File ~\Downloads\Github\mechanical-engineering-metrology-and-measurements\.venv\Lib\site-packages\IPython\core\magics\execution.py:184,</span> in <span class="ni">Timer.timeit</span><span class="nt">(self, number)</span>
 <span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="n">gc</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
 <span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">184</span>     <span class="n">timing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="p">)</span>
@@ -722,13 +664,13 @@ b) windowing with DC treatment</p>
 
 <span class="nn">File &lt;magic-timeit&gt;:1,</span> in <span class="ni">inner</span><span class="nt">(_it, _timer)</span>
 
-<span class="nn">File ~/miniforge3/envs/book/lib/python3.11/site-packages/numpy/fft/_pocketfft.py:215,</span> in <span class="ni">fft</span><span class="nt">(a, n, axis, norm, out)</span>
+<span class="nn">File ~\Downloads\Github\mechanical-engineering-metrology-and-measurements\.venv\Lib\site-packages\numpy\fft\_pocketfft.py:215,</span> in <span class="ni">fft</span><span class="nt">(a, n, axis, norm, out)</span>
 <span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
 <span class="ne">--&gt; </span><span class="mi">215</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_raw_fft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">return</span> <span class="n">output</span>
 
-<span class="nn">File ~/miniforge3/envs/book/lib/python3.11/site-packages/numpy/fft/_pocketfft.py:101,</span> in <span class="ni">_raw_fft</span><span class="nt">(a, n, axis, is_real, is_forward, norm, out)</span>
+<span class="nn">File ~\Downloads\Github\mechanical-engineering-metrology-and-measurements\.venv\Lib\site-packages\numpy\fft\_pocketfft.py:101,</span> in <span class="ni">_raw_fft</span><span class="nt">(a, n, axis, is_real, is_forward, norm, out)</span>
 <span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">elif</span> <span class="p">((</span><span class="n">shape</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 <span class="g g-Whitespace">     </span><span class="mi">98</span>       <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">or</span> <span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">!=</span> <span class="n">n_out</span><span class="p">)):</span>
 <span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;output array has wrong shape.&quot;</span><span class="p">)</span>
@@ -1009,24 +951,6 @@ b) windowing with DC treatment</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="FFT_based_filtering.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Using FFT-based filter to reduce noise</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="../dynamic_signals/2nd_order_system_step_function_log_decrement.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Log decrement method</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
