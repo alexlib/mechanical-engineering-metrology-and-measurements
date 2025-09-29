@@ -28,6 +28,10 @@ Suggested exercises
 Prerequisites
 Basic probability, calculus, and comfort with Python arrays.
 
+### Checklist for the 8-step uncertainty analysis process
+See [checklist.md](checklist.md) for a detailed 9-step checklist to guide uncertainty analyses.
+
+
 <!-- AUTOGEN_START -->
 ## Pages in this chapter
 
