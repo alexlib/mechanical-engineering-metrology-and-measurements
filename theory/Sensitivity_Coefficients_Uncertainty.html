@@ -385,18 +385,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-sensitivity-coefficients">Introduction to Sensitivity Coefficients</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-case-direct-measurements">Simple Case: Direct Measurements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-sensitivity-coefficients">What Are Sensitivity Coefficients?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-sensitivity-coefficients-important">Why Are Sensitivity Coefficients Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-measurements-sensitivity-coefficient-1">Direct Measurements: Sensitivity Coefficient = 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-sensitivity-coefficients-vary">When Sensitivity Coefficients Vary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-building-height-measurement">Example: Building Height Measurement</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-building-height-measurement">Practical Example: Building Height Measurement</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-coefficients">Sensitivity Coefficients</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calculations">Example Calculations</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-sensitivity">Visualizing Sensitivity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-temperature-effects">Special Case: Temperature Effects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-to-remember">Key Points to Remember</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-tips">Practical Tips</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-budget-example">Uncertainty Budget Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
 </ul>
             </nav>
         </div>
@@ -410,142 +411,93 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sensitivity-coefficients-in-uncertainty-budgets">
 <h1>Sensitivity Coefficients in Uncertainty Budgets<a class="headerlink" href="#sensitivity-coefficients-in-uncertainty-budgets" title="Link to this heading">#</a></h1>
-<p><em>Source: <a class="reference external" href="https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets">engineering.com</a></em></p>
-<section id="introduction-to-sensitivity-coefficients">
-<h2>Introduction to Sensitivity Coefficients<a class="headerlink" href="#introduction-to-sensitivity-coefficients" title="Link to this heading">#</a></h2>
+<p><em>Source: <a class="reference external" href="https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets/">engineering.com</a></em></p>
+<section id="what-are-sensitivity-coefficients">
+<h2>What Are Sensitivity Coefficients?<a class="headerlink" href="#what-are-sensitivity-coefficients" title="Link to this heading">#</a></h2>
+<p>Sensitivity coefficients quantify how much a change in an input variable affects the output of a measurement. They are crucial for calculating combined uncertainty when multiple sources of error are present.</p>
 <blockquote>
-<div><p><strong>Key Concept:</strong><br />
-When analyzing measurement uncertainty, sensitivity coefficients tell us how much an error in an input affects the final result.</p>
+<div><p><strong>In other words:</strong><br />
+Sensitivity coefficients act as multipliers for each uncertainty source, showing how much each source contributes to the final uncertainty.</p>
 </div></blockquote>
+</section>
 <hr class="docutils" />
-<section id="simple-case-direct-measurements">
-<h3>Simple Case: Direct Measurements<a class="headerlink" href="#simple-case-direct-measurements" title="Link to this heading">#</a></h3>
-<p>For a measurement with three error sources:</p>
+<section id="why-are-sensitivity-coefficients-important">
+<h2>Why Are Sensitivity Coefficients Important?<a class="headerlink" href="#why-are-sensitivity-coefficients-important" title="Link to this heading">#</a></h2>
+<p>When combining uncertainties from different sources, simply adding them is not enough. Each source may affect the result differently, depending on the measurement equation. Sensitivity coefficients ensure that each uncertainty is weighted correctly.</p>
+<p><strong>Example:</strong><br />
+If you measure a length directly, the uncertainty in your ruler is applied directly (<span class="math notranslate nohighlight">\(c = 1\)</span>).<br />
+If you calculate an area (<span class="math notranslate nohighlight">\(A = l \times w\)</span>), the uncertainty in each dimension is scaled by how much it affects the area.</p>
+</section>
+<hr class="docutils" />
+<section id="direct-measurements-sensitivity-coefficient-1">
+<h2>Direct Measurements: Sensitivity Coefficient = 1<a class="headerlink" href="#direct-measurements-sensitivity-coefficient-1" title="Link to this heading">#</a></h2>
+<p>For a simple sum:</p>
 <div class="math notranslate nohighlight">
 \[
 Y = y + x_1 + x_2 + x_3
 \]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(Y\)</span> is the measurement result</p></li>
-<li><p><span class="math notranslate nohighlight">\(y\)</span> is the true value (unknown)</p></li>
-<li><p><span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span> are errors from different sources</p></li>
-</ul>
-<p>In this case, sensitivity coefficients <span class="math notranslate nohighlight">\(c_i = 1\)</span> because each error directly maps to the result.</p>
-<p>The law of propagation of uncertainty states:</p>
+<p>Each error source (<span class="math notranslate nohighlight">\(x_i\)</span>) affects <span class="math notranslate nohighlight">\(Y\)</span> directly, so <span class="math notranslate nohighlight">\(c_i = 1\)</span>.</p>
+<p>Combined uncertainty:</p>
 <div class="math notranslate nohighlight">
 \[
 U_C = \sqrt{\sum_{i=1}^{n} c_i^2 u_i^2}
 \]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(U_C\)</span> is combined uncertainty</p></li>
-<li><p><span class="math notranslate nohighlight">\(c_i\)</span> is sensitivity coefficient for each source</p></li>
-<li><p><span class="math notranslate nohighlight">\(u_i\)</span> is standard uncertainty for each source</p></li>
-</ul>
-</section>
 </section>
 <hr class="docutils" />
-<section id="practical-example-building-height-measurement">
-<h2>Practical Example: Building Height Measurement<a class="headerlink" href="#practical-example-building-height-measurement" title="Link to this heading">#</a></h2>
-<p><img alt="Measuring building height using clinometer and tape measure" src="theory/building_measurement.png" />{ height=300px }</p>
-<p>The height <span class="math notranslate nohighlight">\(H\)</span> is calculated as:</p>
+<section id="when-sensitivity-coefficients-vary">
+<h2>When Sensitivity Coefficients Vary<a class="headerlink" href="#when-sensitivity-coefficients-vary" title="Link to this heading">#</a></h2>
+<p>For more complex equations, the effect of each input is not always direct. Sensitivity coefficients are found by taking the partial derivative of the output with respect to each input.</p>
+<section id="example-building-height-measurement">
+<h3>Example: Building Height Measurement<a class="headerlink" href="#example-building-height-measurement" title="Link to this heading">#</a></h3>
+<p><img alt="Measuring building height using clinometer and tape measure" src="https://res.cloudinary.com/engineering-com/image/upload/w_640,h_640,c_limit,q_auto,f_auto/Sensitivity_4_y3whmc.jpg" />{ height=300px }</p>
+<p>The height is calculated as:</p>
 <div class="math notranslate nohighlight">
 \[
 H = h_1 + L \cdot \tan(\theta)
 \]</div>
-<p>where:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(h_1\)</span> = height of clinometer</p></li>
 <li><p><span class="math notranslate nohighlight">\(L\)</span> = horizontal distance</p></li>
 <li><p><span class="math notranslate nohighlight">\(\theta\)</span> = measured angle</p></li>
 </ul>
-<section id="sensitivity-coefficients">
-<h3>Sensitivity Coefficients<a class="headerlink" href="#sensitivity-coefficients" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p>For clinometer height (<span class="math notranslate nohighlight">\(h_1\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[
-   \frac{\partial H}{\partial h_1} = 1
-   \]</div>
-</li>
-<li><p>For horizontal distance (<span class="math notranslate nohighlight">\(L\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[
-   \frac{\partial H}{\partial L} = \tan(\theta)
-   \]</div>
-</li>
-<li><p>For angle (<span class="math notranslate nohighlight">\(\theta\)</span>):</p>
-<div class="math notranslate nohighlight">
-\[
-   \frac{\partial H}{\partial \theta} = L \cdot \sec^2(\theta)
-   \]</div>
-</li>
-</ol>
-</section>
-<section id="example-calculations">
-<h3>Example Calculations<a class="headerlink" href="#example-calculations" title="Link to this heading">#</a></h3>
-<p>Given:</p>
+<p><strong>Sensitivity coefficients:</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(h_1 = 1.65\)</span> m</p></li>
-<li><p><span class="math notranslate nohighlight">\(L = 10\)</span> m</p></li>
-<li><p><span class="math notranslate nohighlight">\(\theta = 58^\circ\)</span></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(h_1\)</span>: <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial h_1} = 1\)</span></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(L\)</span>: <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial L} = \tan(\theta)\)</span></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\theta\)</span>: <span class="math notranslate nohighlight">\(\frac{\partial H}{\partial \theta} = L \cdot \sec^2(\theta)\)</span></p></li>
 </ul>
-<p>Results:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta L = 10\)</span> mm <span class="math notranslate nohighlight">\(\rightarrow\)</span> <span class="math notranslate nohighlight">\(\Delta H = 16\)</span> mm (sensitivity = 1.6)</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta \theta = 0.5^\circ \rightarrow \Delta H = 316\)</span> mm (sensitivity = 632 mm/deg)</p></li>
-</ul>
+<p><strong>Interpretation:</strong><br />
+A small error in <span class="math notranslate nohighlight">\(\theta\)</span> can cause a large error in <span class="math notranslate nohighlight">\(H\)</span>, especially at steep angles.</p>
 </section>
+</section>
+<hr class="docutils" />
+<section id="visualizing-sensitivity">
+<h2>Visualizing Sensitivity<a class="headerlink" href="#visualizing-sensitivity" title="Link to this heading">#</a></h2>
+<p>The blog post shows how the sensitivity coefficient for angle (<span class="math notranslate nohighlight">\(\theta\)</span>) increases rapidly as the angle increases. This means that at higher angles, even a small error in measuring <span class="math notranslate nohighlight">\(\theta\)</span> can lead to a large error in the calculated height.</p>
+<p><img alt="Sensitivity coefficient for angle" src="https://res.cloudinary.com/engineering-com/image/upload/w_640,h_640,c_limit,q_auto,f_auto/Sensitivity_5_oqw9xw.jpg" />{ height=250px }</p>
 </section>
 <hr class="docutils" />
 <section id="special-case-temperature-effects">
 <h2>Special Case: Temperature Effects<a class="headerlink" href="#special-case-temperature-effects" title="Link to this heading">#</a></h2>
-<p>For thermal expansion:</p>
+<p>For measurements affected by temperature, such as thermal expansion:</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial L}{\partial T} = \alpha L
 \]</div>
-<p>Where:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> = coefficient of thermal expansion (e.g., <span class="math notranslate nohighlight">\(12 \times 10^{-6}/^\circ\)</span>C for steel)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span> = coefficient of thermal expansion</p></li>
 <li><p><span class="math notranslate nohighlight">\(L\)</span> = measured length</p></li>
 </ul>
-<p><img alt="Non-linear sensitivity in cosine error" src="theory/cosine_error.png" />{ height=250px }</p>
+<p>A small temperature change can have a significant effect on long measurements.</p>
 </section>
 <hr class="docutils" />
-<section id="key-points-to-remember">
-<h2>Key Points to Remember<a class="headerlink" href="#key-points-to-remember" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>Sensitivity coefficients <span class="math notranslate nohighlight">\(= 1\)</span> when:</p>
+<section id="practical-tips">
+<h2>Practical Tips<a class="headerlink" href="#practical-tips" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Measuring directly</p></li>
-<li><p>Using Type A evaluations (repeatability studies)</p></li>
+<li><p><strong>Always check units:</strong> Sensitivity coefficients may have units. Make sure all uncertainties are in compatible units before combining.</p></li>
+<li><p><strong>Nonlinear equations:</strong> For nonlinear relationships, sensitivity coefficients can change depending on the value of the input. Evaluate them at the expected value or at the uncertainty limit for worst-case analysis.</p></li>
+<li><p><strong>Environmental factors:</strong> Consider temperature, humidity, and other environmental effects in your uncertainty budget.</p></li>
 </ul>
-</li>
-<li><p>Must calculate sensitivity coefficients when:</p>
-<ul class="simple">
-<li><p>Combining multiple measurements mathematically</p></li>
-<li><p>Dealing with temperature effects</p></li>
-<li><p>Working with angular measurements</p></li>
-<li><p>Considering environmental influences</p></li>
-</ul>
-</li>
-<li><p>Units must be consistent:</p>
-<ul class="simple">
-<li><p>Dimensionless when input/output units match</p></li>
-<li><p>Include proper conversion when units differ</p></li>
-</ul>
-</li>
-</ol>
-<blockquote>
-<div><p><strong>Best Practice:</strong><br />
-When sensitivity is not constant, evaluate at the uncertainty value to get worst-case scenario, but be careful to:</p>
-<ol class="arabic simple">
-<li><p>Check if sensitivity keeps increasing with error</p></li>
-<li><p>Consider using expanded uncertainty value</p></li>
-</ol>
-</div></blockquote>
 </section>
 <hr class="docutils" />
 <section id="uncertainty-budget-example">
@@ -590,6 +542,24 @@ When sensitivity is not constant, evaluate at the uncertainty value to get worst
 \[
 u_c = \sqrt{(40.4)^2 + (4.4)^2 + (632)^2} = 633.4~\text{mm}
 \]</div>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Sensitivity coefficients show how much each input affects the output.</p></li>
+<li><p>Use partial derivatives to calculate sensitivity coefficients for each input.</p></li>
+<li><p>Always include sensitivity coefficients in your uncertainty budget.</p></li>
+<li><p>Pay special attention to inputs with large sensitivity coefficients—they dominate the uncertainty.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets/">Sensitivity Coefficients in Uncertainty Budgets (engineering.com)</a></p></li>
+<li><p><a class="reference external" href="https://www.bipm.org/en/publications/guides/gum.html">Guide to the Expression of Uncertainty in Measurement (GUM)</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -639,18 +609,19 @@ u_c = \sqrt{(40.4)^2 + (4.4)^2 + (632)^2} = 633.4~\text{mm}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction-to-sensitivity-coefficients">Introduction to Sensitivity Coefficients</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-case-direct-measurements">Simple Case: Direct Measurements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-sensitivity-coefficients">What Are Sensitivity Coefficients?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-are-sensitivity-coefficients-important">Why Are Sensitivity Coefficients Important?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#direct-measurements-sensitivity-coefficient-1">Direct Measurements: Sensitivity Coefficient = 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#when-sensitivity-coefficients-vary">When Sensitivity Coefficients Vary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-building-height-measurement">Example: Building Height Measurement</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-building-height-measurement">Practical Example: Building Height Measurement</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-coefficients">Sensitivity Coefficients</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-calculations">Example Calculations</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-sensitivity">Visualizing Sensitivity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-case-temperature-effects">Special Case: Temperature Effects</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points-to-remember">Key Points to Remember</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-tips">Practical Tips</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-budget-example">Uncertainty Budget Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further Reading</a></li>
 </ul>
   </nav></div>
 

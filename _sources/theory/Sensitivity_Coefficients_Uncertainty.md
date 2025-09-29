@@ -1,145 +1,130 @@
 # Sensitivity Coefficients in Uncertainty Budgets
 
-_Source: [engineering.com](https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets)_
+_Source: [engineering.com](https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets/)_
 
-## Introduction to Sensitivity Coefficients
+## What Are Sensitivity Coefficients?
 
-> **Key Concept:**  
-> When analyzing measurement uncertainty, sensitivity coefficients tell us how much an error in an input affects the final result.
+Sensitivity coefficients quantify how much a change in an input variable affects the output of a measurement. They are crucial for calculating combined uncertainty when multiple sources of error are present.
+
+> **In other words:**  
+> Sensitivity coefficients act as multipliers for each uncertainty source, showing how much each source contributes to the final uncertainty.
 
 ---
 
-### Simple Case: Direct Measurements
+## Why Are Sensitivity Coefficients Important?
 
-For a measurement with three error sources:
+When combining uncertainties from different sources, simply adding them is not enough. Each source may affect the result differently, depending on the measurement equation. Sensitivity coefficients ensure that each uncertainty is weighted correctly.
+
+**Example:**  
+If you measure a length directly, the uncertainty in your ruler is applied directly ($c = 1$).  
+If you calculate an area ($A = l \times w$), the uncertainty in each dimension is scaled by how much it affects the area.
+
+---
+
+## Direct Measurements: Sensitivity Coefficient = 1
+
+For a simple sum:
 
 $$
 Y = y + x_1 + x_2 + x_3
 $$
 
-where:
+Each error source ($x_i$) affects $Y$ directly, so $c_i = 1$.
 
-- $Y$ is the measurement result  
-- $y$ is the true value (unknown)  
-- $x_1$, $x_2$, $x_3$ are errors from different sources
-
-In this case, sensitivity coefficients $c_i = 1$ because each error directly maps to the result.
-
-The law of propagation of uncertainty states:
+Combined uncertainty:
 
 $$
 U_C = \sqrt{\sum_{i=1}^{n} c_i^2 u_i^2}
 $$
 
-where:
-
-- $U_C$ is combined uncertainty  
-- $c_i$ is sensitivity coefficient for each source  
-- $u_i$ is standard uncertainty for each source
-
 ---
 
-## Practical Example: Building Height Measurement
+## When Sensitivity Coefficients Vary
 
-![Measuring building height using clinometer and tape measure](building_measurement.png){ height=300px }
+For more complex equations, the effect of each input is not always direct. Sensitivity coefficients are found by taking the partial derivative of the output with respect to each input.
 
-The height $H$ is calculated as:
+### Example: Building Height Measurement
+
+![Measuring building height using clinometer and tape measure](https://res.cloudinary.com/engineering-com/image/upload/w_640,h_640,c_limit,q_auto,f_auto/Sensitivity_4_y3whmc.jpg){ height=300px }
+
+The height is calculated as:
 
 $$
 H = h_1 + L \cdot \tan(\theta)
 $$
 
-where:
-
-- $h_1$ = height of clinometer  
-- $L$ = horizontal distance  
+- $h_1$ = height of clinometer
+- $L$ = horizontal distance
 - $\theta$ = measured angle
 
-### Sensitivity Coefficients
+**Sensitivity coefficients:**
 
-1. For clinometer height ($h_1$):
+- For $h_1$: $\frac{\partial H}{\partial h_1} = 1$
+- For $L$: $\frac{\partial H}{\partial L} = \tan(\theta)$
+- For $\theta$: $\frac{\partial H}{\partial \theta} = L \cdot \sec^2(\theta)$
 
-   $$
-   \frac{\partial H}{\partial h_1} = 1
-   $$
+**Interpretation:**  
+A small error in $\theta$ can cause a large error in $H$, especially at steep angles.
 
-2. For horizontal distance ($L$):
+---
 
-   $$
-   \frac{\partial H}{\partial L} = \tan(\theta)
-   $$
+## Visualizing Sensitivity
 
-3. For angle ($\theta$):
+The blog post shows how the sensitivity coefficient for angle ($\theta$) increases rapidly as the angle increases. This means that at higher angles, even a small error in measuring $\theta$ can lead to a large error in the calculated height.
 
-   $$
-   \frac{\partial H}{\partial \theta} = L \cdot \sec^2(\theta)
-   $$
-
-### Example Calculations
-
-Given:
-
-- $h_1 = 1.65$ m  
-- $L = 10$ m  
-- $\theta = 58^\circ$
-
-Results:
-
-- $\Delta L = 10$ mm $\rightarrow$ $\Delta H = 16$ mm (sensitivity = 1.6)
-- $\Delta \theta = 0.5^\circ \rightarrow \Delta H = 316$ mm (sensitivity = 632 mm/deg)
+![Sensitivity coefficient for angle](https://res.cloudinary.com/engineering-com/image/upload/w_640,h_640,c_limit,q_auto,f_auto/Sensitivity_5_oqw9xw.jpg){ height=250px }
 
 ---
 
 ## Special Case: Temperature Effects
 
-For thermal expansion:
+For measurements affected by temperature, such as thermal expansion:
 
 $$
 \frac{\partial L}{\partial T} = \alpha L
 $$
 
-Where:
-
-- $\alpha$ = coefficient of thermal expansion (e.g., $12 \times 10^{-6}/^\circ$C for steel)
+- $\alpha$ = coefficient of thermal expansion
 - $L$ = measured length
 
-![Non-linear sensitivity in cosine error](cosine_error.png){ height=250px }
+A small temperature change can have a significant effect on long measurements.
 
 ---
 
-## Key Points to Remember
+## Practical Tips
 
-1. Sensitivity coefficients $= 1$ when:
-   - Measuring directly
-   - Using Type A evaluations (repeatability studies)
-
-2. Must calculate sensitivity coefficients when:
-   - Combining multiple measurements mathematically
-   - Dealing with temperature effects
-   - Working with angular measurements
-   - Considering environmental influences
-
-3. Units must be consistent:
-   - Dimensionless when input/output units match
-   - Include proper conversion when units differ
-
-> **Best Practice:**  
-> When sensitivity is not constant, evaluate at the uncertainty value to get worst-case scenario, but be careful to:  
-> 1. Check if sensitivity keeps increasing with error  
-> 2. Consider using expanded uncertainty value
+- **Always check units:** Sensitivity coefficients may have units. Make sure all uncertainties are in compatible units before combining.
+- **Nonlinear equations:** For nonlinear relationships, sensitivity coefficients can change depending on the value of the input. Evaluate them at the expected value or at the uncertainty limit for worst-case analysis.
+- **Environmental factors:** Consider temperature, humidity, and other environmental effects in your uncertainty budget.
 
 ---
 
 ## Uncertainty Budget Example
 
-| Source | Value      | Distribution | Divisor | Sensitivity | Standard Uncertainty |
-|--------|------------|--------------|---------|-------------|---------------------|
-| $L$    | $\pm 50.5$ mm | Normal (95%) | 2       | 1.6         | 40.4 mm             |
-| $h_1$  | $\pm 8.75$ mm | Normal (95%) | 2       | 1.0         | 4.4 mm              |
-| $\theta$ | $\pm 1^\circ$ | Normal      | 1       | 632 mm/deg  | 632 mm              |
+| Source    | Value         | Distribution | Divisor | Sensitivity | Standard Uncertainty |
+|-----------|---------------|--------------|---------|-------------|---------------------|
+| $L$       | $\pm 50.5$ mm | Normal (95%) | 2       | 1.6         | 40.4 mm             |
+| $h_1$     | $\pm 8.75$ mm | Normal (95%) | 2       | 1.0         | 4.4 mm              |
+| $\theta$  | $\pm 1^\circ$ | Normal       | 1       | 632 mm/deg  | 632 mm              |
 
 Combined standard uncertainty:
 
 $$
 u_c = \sqrt{(40.4)^2 + (4.4)^2 + (632)^2} = 633.4~\text{mm}
 $$
+
+---
+
+## Summary
+
+- Sensitivity coefficients show how much each input affects the output.
+- Use partial derivatives to calculate sensitivity coefficients for each input.
+- Always include sensitivity coefficients in your uncertainty budget.
+- Pay special attention to inputs with large sensitivity coefficients—they dominate the uncertainty.
+
+---
+
+## Further Reading
+
+- [Sensitivity Coefficients in Uncertainty Budgets (engineering.com)](https://www.engineering.com/sensitivity-coefficients-in-uncertainty-budgets/)
+- [Guide to the Expression of Uncertainty in Measurement (GUM)](https://www.bipm.org/en/publications/guides/gum.html)
