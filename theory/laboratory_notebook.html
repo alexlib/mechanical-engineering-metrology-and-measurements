@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -60,6 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'theory/laboratory_notebook';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Uncertainty 101" href="uncertainty101.html" />
+    <link rel="prev" title="Standardization" href="standartization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -179,15 +179,73 @@
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Theory — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">Statistics — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../a2d/intro.html">Analog-to-Digital (A2D) — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../signal_processing/intro.html">Signal Processing — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/intro.html">Dynamic Signals — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../calibration/intro.html">Calibration — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../unsorted/intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../archive/intro.html">Archive — Notes and Historical Material</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Theory of experiments and measurements</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="example_uncertainty_analysis.html">Engineering Example: Uncertainty Analysis in Mechanical Measurements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="standartization.html">Standardization</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Laboratory Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uncertainty101.html">Uncertainty 101</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iaea_uncertainty_presentation.html">Uncertainty in simple terms from IAEA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="best_practice_summary.html">Short summary of the ``Measurement good practice guide ‘’ by NPL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_example.html">Simple example of mechanical measurement with uncertainty analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_from_best_practice.html">Using AI tools to learn uncertainty</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uncertainty_of_a_slope.html">How to estimate the uncertainty of a slope for static calibration or regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general_measurement_system_analysis.html">General measurement system diagram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="significant_digits.html">Significant digits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uncertainty_propagation_monte_carlo_gum.html">Propagating uncertainty using Monte-Carlo simulations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sensitivity_Coefficients_Uncertainty.html">Sensitivity Coefficients in Uncertainty Budgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulations_for_uncertainty.html">Using simulations to explain uncertainty</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="exam_example.html">Mars Rover Temperature Measurement &amp; Uncertainty Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Statistics for measurements</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../statistics/basic_statistics.html">Very basic review of some statistics terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/distributions.html">Probability Distributions and the Central Limit Theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/Lecture_5.html">Lecture 5 - probability and statistics</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../calibration/regression_analysis.html">Lecture 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/outliers_example.html">Outliers</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calibration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calibration/sensitivity_analysis.html">Sensitivity estimate example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration/micrometer_calibration.html">Micrometer calibration using gage block</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../calibration/full_calibration_analysis_example.html">Calibration and uncertainty analysis - virtual experiment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration/calibration_curve_log_log.html">Calibration of non-linear (logarithmic) function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration/calibration_error_analysis_pressure.html">Hysteresis and regression analysis example</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Analog to digital (A/D) and D/A</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../a2d/mimic_analog_to_digital_conversion.html">Mimic A/D conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a2d/Reconstruction_periodic_signal_Cardinal_series.html">Analog to digital (A/D) and Digital to Analog (d/A) conversion example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a2d/sampling_aliasing_examples.html">Sampling, clipping and aliasing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a2d/reconstruct_with_sinc.html">Digital to Analog conversion using sinc</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Signal processing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/proving_periods.html">Digitizing the signal using pure Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/Frequency_content_of_a_periodic_signal.html">Using FFT the right way to find the correct spectrum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/Fourier_transforms_pure_sine.html">Fourier transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/Fourier_coefficients_analytical_evaluation_periodic_ramp_function.html">Symbolic evaluation of Fourier coefficients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/FFT_based_filtering.html">Using FFT-based filter to reduce noise</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/fft_of_multi_frequency_signal_window.html">FFT demo of a real, periodic signal</a></li>
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dynamic signals</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/2nd_order_system_step_function_log_decrement.html">Log decrement method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/first_order_time_response.html">1st order dynamic system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/design_choice_2nd_order_pressure_transducer.html">Example of pre-measurement design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/step_response.html">Step responses of dynamical systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/load_plot_spectrum_turbulent_data_jet.html">Plot power spectrum of experimental data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/spectrum_example.html">Spectrum example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/simple_fft_two_sine.html">Fast Fourier Transform (FFT) of a sum of two sine signals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/mass_measurement_using_vibrations.html">Lab Worksheet: Measurement of Unknown Mass using Vibrating Beam</a></li>
 </ul>
 
     </div>
@@ -427,6 +485,24 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="standartization.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Standardization</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="uncertainty101.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Uncertainty 101</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
