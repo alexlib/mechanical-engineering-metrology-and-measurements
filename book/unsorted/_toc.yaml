@@ -1,0 +1,23 @@
+format: jb-book
+root: intro
+
+chapters:
+  - file: best_practice_summary
+  - file: checklist
+  - file: exam_example
+  - file: example_from_best_practice
+  - file: example_uncertainty_analysis
+  - file: general_measurement_system_analysis
+  - file: iaea_uncertainty_presentation
+  - file: laboratory_notebook
+  - file: Sensitivity_Coefficients_Uncertainty
+  - file: significant_digits
+  - file: simple_example
+  - file: simulations_for_uncertainty
+  - file: standartization
+  - file: teaching_measurement_uncertainty
+  - file: uncertainty101
+  - file: uncertainty_analysis_NASA
+  - file: uncertainty_example
+  - file: uncertainty_of_a_slope
+  - file: uncertainty_propagation_monte_carlo_gum
