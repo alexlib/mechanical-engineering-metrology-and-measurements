@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Self-training exercises &#8212; Introduction to Measurements for Mechanical Engineers</title>
+    <title>Basic error analysis &#8212; Introduction to Measurements for Mechanical Engineers</title>
   
   
   
@@ -59,7 +59,7 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'unsorted/homework_1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory/basic_error_analysis';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -182,13 +182,13 @@
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../theory/intro.html">Theory — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Theory — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">Statistics — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../a2d/intro.html">Analog-to-Digital (A2D) — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../signal_processing/intro.html">Signal Processing — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/intro.html">Dynamic Signals — Introduction and Learning Goals</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../calibration/intro.html">Calibration — Introduction and Learning Goals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsorted/intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../archive/intro.html">Archive — Notes and Historical Material</a></li>
 </ul>
 
@@ -261,7 +261,7 @@
       
       
       
-      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course/issues/new?title=Issue%20on%20page%20%2Funsorted/homework_1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course/issues/new?title=Issue%20on%20page%20%2Ftheory/basic_error_analysis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -291,7 +291,7 @@
       
       
       
-      <li><a href="../_sources/unsorted/homework_1.ipynb" target="_blank"
+      <li><a href="../_sources/theory/basic_error_analysis.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -375,7 +375,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Self-training exercises</h1>
+    <h1>Basic error analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,8 +385,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-errors">Random errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-errors">Statistical errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-error-estimate">Total error estimate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-measured-values-in-estimating-parameters">Use of measured values in estimating parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-if-x-1-and-x-2-are-dependent-then">Note: if <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> are dependent, then</a></li>
 </ul>
             </nav>
         </div>
@@ -398,58 +406,102 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="self-training-exercises">
-<h1>Self-training exercises<a class="headerlink" href="#self-training-exercises" title="Link to this heading">#</a></h1>
-<section id="question-1">
-<h2>Question 1<a class="headerlink" href="#question-1" title="Link to this heading">#</a></h2>
-<p>In our laboratory you will not use the <strong>distance</strong> measurements. There is a tool for this, called <strong>linear variable differential transformer (LVDT)</strong>.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-error-analysis">
+<h1>Basic error analysis<a class="headerlink" href="#basic-error-analysis" title="Link to this heading">#</a></h1>
+<p>This part is the simplified error analysis that we will extend through the course with the more precise definitions
+and analysis using regressions, calibration, statistics, dynamics, etc.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pylab</span> inline 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%pylab is deprecated, use %matplotlib inline and import the required libraries.
+Populating the interactive namespace from numpy and matplotlib
+</pre></div>
+</div>
+</div>
+</div>
+<section id="errors">
+<h2>Errors<a class="headerlink" href="#errors" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Read and summarize the principle of action of LVDT</p></li>
-<li><p>An engineer wants to calibrate the LVDT tool, using micrometer. The system looks like this:</p></li>
+<li><p>Systematic errors</p></li>
+<li><p>Random errors</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../img/lvdt.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../_images/b9f12154275989a077b2bc7c2d6b3c20f438ef6d182b638cc973d303ca7330b4.png"><img alt="../_images/b9f12154275989a077b2bc7c2d6b3c20f438ef6d182b638cc973d303ca7330b4.png" src="../_images/b9f12154275989a077b2bc7c2d6b3c20f438ef6d182b638cc973d303ca7330b4.png" style="width: 600px;" />
-</a>
-</div>
-</div>
-<p>Please, describe the system according to the general system scheme:</p>
-<ul class="simple">
-<li><p>what is the sensor in Figure 1.12?</p></li>
-<li><p>what is the signal of the sensor output ?</p></li>
-<li><p>what is the transducer?</p></li>
-<li><p>what is the signal after transducer?</p></li>
-<li><p>what kind of signal conditioning the LVDT does?</p></li>
-<li><p>what kind of output there is after the system?</p></li>
-<li><p>is there a feedback?</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s1">&#39;../img/generalized_measurement_system.png&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<a class="reference internal image-reference" href="../_images/77ab379c15383d252ada493fc48cb6317458e333dd0f5e497058db0ee1147576.png"><img alt="../_images/77ab379c15383d252ada493fc48cb6317458e333dd0f5e497058db0ee1147576.png" src="../_images/77ab379c15383d252ada493fc48cb6317458e333dd0f5e497058db0ee1147576.png" style="width: 600px;" />
-</a>
-</div>
-</div>
 </section>
-<section id="question-2">
-<h2>Question 2<a class="headerlink" href="#question-2" title="Link to this heading">#</a></h2>
-<p><strong>Calibration and regression</strong></p>
-<p>Each group runs the notebook to get their own original set of data in terms of two arrays (at least 5-6 samples long): concentration <span class="math notranslate nohighlight">\(c\)</span> (in particles per million, ppm) versus transmissivity <span class="math notranslate nohighlight">\(T\)</span> (in percents, 100% is completely transparent, i.e. clear water): <a class="reference external" href="http://mybinder.org/repo/alexlib/engineering_experiments_measurements_course/random_data_for_hw_1.ipynb">LINK</a> (** use Cell -&gt; Run All **)</p>
+<section id="id1">
+<h2>Errors<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>This is a calibration data, the process temperature depends on the concentration. Plot the data <span class="math notranslate nohighlight">\(c = f(T)\)</span></p></li>
-<li><p>Find the sensitivity, the input range, the output range (full scale output) and the relevant errors.</p></li>
-<li><p>Find out what would be the concentration if in the experiment we measure <span class="math notranslate nohighlight">\(T = 35.6\%\)</span></p></li>
+<li><p>equipment/tool precision error</p></li>
+<li><p>human error</p></li>
+<li><p>external environmental effects</p></li>
 </ol>
+</section>
+<section id="random-errors">
+<h2>Random errors<a class="headerlink" href="#random-errors" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>tool precision (below the resolution)</p></li>
+<li><p>statistical errors</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="example">
+<h2>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p>Digital voltemeter measures 10.32 kV, it means its precision is 0.01kV, however the equipment has a sticker with the
+statement of the basic calibrated errors and it says 1% of the measured value, i.e. 0.1kV for the given case. We use
+the maximum error contribution $<span class="math notranslate nohighlight">\( \Delta = max ( x_i ) = max(0.1, 0.01) = 0.1 [kV] \)</span>$</p>
+</section>
+<section id="statistical-errors">
+<h2>Statistical errors<a class="headerlink" href="#statistical-errors" title="Link to this heading">#</a></h2>
+<p>We will study the basics of the statistical analysis (histograms, distributions, statistical tests) but for beginning
+we can use the simple terms.</p>
+<p>If we assume that the random errors are distributed randomly from the normal distribution (Gaussian distribution), then
+we can believe that the expected value <span class="math notranslate nohighlight">\( x_0 \)</span> and the deviations <span class="math notranslate nohighlight">\( \sigma \)</span> will describe well the distribution such
+that in 68% of cases our measured sample is within the range <span class="math notranslate nohighlight">\((x_0 -\sigma, x_0 + \sigma)\)</span>. So we believe that our central value is the <span class="math notranslate nohighlight">\(x_0\)</span> .</p>
+<p>Since we always measure only <span class="math notranslate nohighlight">\(N\)</span> samples (finite number) we can at best estimate the arithmetic average <span class="math notranslate nohighlight">\(\overline{x}\)</span> and standard deviation <span class="math notranslate nohighlight">\(S_x\)</span> of the sample. So what we can measure is</p>
+<div class="math notranslate nohighlight">
+\[ x_0 \approx \overline{x} = \frac{1}{N} \sum\limits_{i=1}^{N} x_i \]</div>
+<div class="math notranslate nohighlight">
+\[ \sigma \approx S_x = \sqrt{\frac{1}{N-1} \sum\limits_{i=1}^{N} \left( x_i - \overline{x} \right)^2 } \]</div>
+<p>we can see that <span class="math notranslate nohighlight">\(S_x \to \sigma/\sqrt{N}\)</span></p>
+</section>
+<section id="total-error-estimate">
+<h2>Total error estimate<a class="headerlink" href="#total-error-estimate" title="Link to this heading">#</a></h2>
+<p>If we can assume that only these two error sources are present, i.e. the equipment error <span class="math notranslate nohighlight">\(\Delta\)</span> and the statistical,
+random error <span class="math notranslate nohighlight">\(\sigma/\sqrt{N}\)</span>, then we can estimate the total error using the root-of-sum-squares method (there are also other methods too): $<span class="math notranslate nohighlight">\( \Delta(x) = \sqrt{\Delta^2 + \sigma/N^2 } \)</span>$</p>
+</section>
+<section id="id2">
+<h2>Example<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>Use the linear scale to measure in [cm]:
+10.0, 10.0, 9.9, 10.1, 9.6, 9.9, 10.3, 10.1, 10.0</p>
+<p>precision of the scale is 0.1 cm</p>
+<p>We get <span class="math notranslate nohighlight">\(\overline{x} = 9.99\,\)</span> cm, <span class="math notranslate nohighlight">\(S = 0.179\,\)</span> cm</p>
+<p>Then the statistical analysis error is <span class="math notranslate nohighlight">\(S/\sqrt{N} = 0.00566\ \mathrm{cm}\)</span></p>
+<p>And the total error estimate is: <span class="math notranslate nohighlight">\(\Delta(x) = \sqrt{0.1^2 + 0.00566^2} = 0.1149\,\)</span> cm</p>
+<p>and the output of the measurement is <span class="math notranslate nohighlight">\(x = \left( 9.99 \pm 0.012 \right)\,\)</span> cm</p>
+<p>note the use of the <em>significant digits</em> (we cannot report what we cannot know)</p>
+</section>
+<section id="use-of-measured-values-in-estimating-parameters">
+<h2>Use of measured values in estimating parameters<a class="headerlink" href="#use-of-measured-values-in-estimating-parameters" title="Link to this heading">#</a></h2>
+<p>Typically we use several measurements and use functions to combine them into parameters, i.e. <span class="math notranslate nohighlight">\(y = f(x_1, x_2)\)</span></p>
+<p>Then if we measured <span class="math notranslate nohighlight">\(x\)</span> with the error <span class="math notranslate nohighlight">\(\Delta_x\)</span>, how large would be the error of <span class="math notranslate nohighlight">\(\Delta(y)\)</span>?</p>
+<p>The answer is simple $<span class="math notranslate nohighlight">\(\Delta_y = \Delta(f) = \left|\frac{df}{dx}\right|\Delta_x\)</span>$</p>
+<p>if it’s a function of several variables: <span class="math notranslate nohighlight">\(y = f(x_1,x_2)\)</span>, then: $<span class="math notranslate nohighlight">\(\Delta_y=\sqrt{\left(\frac{\partial f}{\partial x_1} \Delta x_1 \right)^2 + \left(\frac{\partial f}{\partial x_2} \Delta x_2 \right)^2}\)</span>$</p>
+</section>
+<section id="id3">
+<h2>Example<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<p>Volume of a cylinder is measured using the radius <span class="math notranslate nohighlight">\(r = 5.0 \pm 0.1\)</span> cm and its height, <span class="math notranslate nohighlight">\(h = 1.30 \pm 0.1\)</span> cm. The volume is estimated using $<span class="math notranslate nohighlight">\(V = \pi r^2 h \)</span>$</p>
+<p>Therefore we got <span class="math notranslate nohighlight">\( V = 1020.98 \)</span> cm<span class="math notranslate nohighlight">\(^3\)</span> and the error is estimated according to the derivatives.</p>
+<p><span class="math notranslate nohighlight">\( \frac{\partial V}{\partial r} = 2 \pi r h\)</span></p>
+<p><span class="math notranslate nohighlight">\( \frac{\partial V}{\partial h} = \pi r^2 \)</span></p>
+<p><span class="math notranslate nohighlight">\(\Delta(V) = \sqrt{(2\pi r \Delta r)^2 + (\pi r^2 \Delta h)^2}  = 41.58\,\)</span> cm<span class="math notranslate nohighlight">\(^3\)</span></p>
+<p><span class="math notranslate nohighlight">\( V = 1021.0 \pm 41.6 \,\)</span> cm<span class="math notranslate nohighlight">\(^3\)</span></p>
+</section>
+<section id="note-if-x-1-and-x-2-are-dependent-then">
+<h2>Note: if <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> are dependent, then<a class="headerlink" href="#note-if-x-1-and-x-2-are-dependent-then" title="Link to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\Delta_y=\left|\frac{\partial f}{\partial x_1} \Delta x_1 \right| + \left|\frac{\partial f}{\partial x_2} \Delta x_2 \right| \]</div>
 </section>
 </section>
 
@@ -466,7 +518,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./unsorted"
+            path: "./theory"
         },
         predefinedOutput: true
     }
@@ -499,8 +551,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-1">Question 1</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#question-2">Question 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#errors">Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-errors">Random errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">Example:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-errors">Statistical errors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#total-error-estimate">Total error estimate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-of-measured-values-in-estimating-parameters">Use of measured values in estimating parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-if-x-1-and-x-2-are-dependent-then">Note: if <span class="math notranslate nohighlight">\(x_1\)</span> and <span class="math notranslate nohighlight">\(x_2\)</span> are dependent, then</a></li>
 </ul>
   </nav></div>
 
