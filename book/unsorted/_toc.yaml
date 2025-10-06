@@ -2,22 +2,22 @@ format: jb-book
 root: intro
 
 chapters:
-  - file: best_practice_summary
-  - file: checklist
-  - file: exam_example
-  - file: example_from_best_practice
-  - file: example_uncertainty_analysis
-  - file: general_measurement_system_analysis
-  - file: iaea_uncertainty_presentation
-  - file: laboratory_notebook
-  - file: Sensitivity_Coefficients_Uncertainty
-  - file: significant_digits
-  - file: simple_example
-  - file: simulations_for_uncertainty
-  - file: standartization
-  - file: teaching_measurement_uncertainty
-  - file: uncertainty101
-  - file: uncertainty_analysis_NASA
-  - file: uncertainty_example
-  - file: uncertainty_of_a_slope
-  - file: uncertainty_propagation_monte_carlo_gum
+  - file: best_practice_summary.ipynb
+  - file: checklist.ipynb
+  - file: exam_example.ipynb
+  - file: example_from_best_practice.ipynb
+  - file: example_uncertainty_analysis.ipynb
+  - file: general_measurement_system_analysis.ipynb
+  - file: iaea_uncertainty_presentation.ipynb
+  - file: laboratory_notebook.ipynb
+  - file: Sensitivity_Coefficients_Uncertainty.ipynb
+  - file: significant_digits.ipynb
+  - file: simple_example.ipynb
+  - file: simulations_for_uncertainty.ipynb
+  - file: standartization.ipynb
+  - file: teaching_measurement_uncertainty.ipynb
+  - file: uncertainty101.ipynb
+  - file: uncertainty_analysis_NASA.ipynb
+  - file: uncertainty_example.ipynb
+  - file: uncertainty_of_a_slope.ipynb
+  - file: uncertainty_propagation_monte_carlo_gum.ipynb

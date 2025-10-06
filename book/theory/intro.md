@@ -73,5 +73,6 @@ Follow this sequence when teaching or self-studying. The order moves from founda
 11. [simulations_for_uncertainty.ipynb](simulations_for_uncertainty.ipynb) — simulation-driven exploration of uncertainty.
 12. [uncertainty_analysis_NASA.ipynb](uncertainty_analysis_NASA.ipynb) — applied example from NASA guidance.
 13. [iaea_uncertainty_presentation.ipynb](iaea_uncertainty_presentation.ipynb) — community presentation and advanced perspectives.
+14. [Watch the 1 hr video by Fluke - leading measurement equipment company](https://www.fluke.com/en-us/learn/blog/electrical-calibration/introduction-iso-guide-expression-uncertainty-measurement-gum)
 
 Rationale: this ordering lets students first acquire good lab habits and reporting skills, then build a conceptual toolbox for system analysis, then learn measurement uncertainty in increasing rigor (examples → slope propagation → Monte Carlo → case studies). Use the checklists added to notebooks to guide in-class or lab activities.
