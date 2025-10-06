@@ -27,6 +27,7 @@ chapters:
   - file: general_measurement_system_analysis
   - file: simple_example
   - file: example_from_best_practice
+  - file: uncertainty_sources_notebook
 
   # Basic uncertainty concepts and measurements
   - file: uncertainty_example
