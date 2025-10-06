@@ -1,3 +1,5 @@
 {
-    "python.defaultInterpreterPath": "/home/users/.edm/envs/mdd/bin/python"
+    "python.defaultInterpreterPath": "./.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true
 }

@@ -11,3 +11,4 @@ uv.lock
 .python-version
 /book/theory/uncertainty101_files/libs/bootstrap
 /book/theory/uncertainty101_files
+.vscode/settings.json
