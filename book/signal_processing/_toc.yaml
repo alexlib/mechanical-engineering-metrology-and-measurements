@@ -1,0 +1,11 @@
+format: jb-book
+root: intro
+
+chapters:
+  - file: FFT_based_filtering
+  - file: Fourier_coefficients_analytical_evaluation_periodic_ramp_function
+  - file: Fourier_transform_with_windowing
+  - file: Fourier_transforms_pure_sine
+  - file: Frequency_content_of_a_periodic_signal
+  - file: fft_of_multi_frequency_signal_window
+  - file: proving_periods

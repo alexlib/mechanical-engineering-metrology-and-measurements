@@ -1,0 +1,18 @@
+format: jb-book
+root: intro
+
+chapters:
+  - file: basic_statistics
+  - file: Central_limit_theorem_illustration
+  - file: chi_square_test_example
+  - file: distributions
+  - file: estimate_mean_variance_median_using_pdf
+  - file: Exploring+different+distribution
+  - file: histogram_to_distribution
+  - file: Lecture_5
+  - file: outliers_example
+  - file: outliers_example-2
+  - file: outliers_example_pairs
+  - file: outliers_example_two
+  - file: t-distribution
+  - file: t-test

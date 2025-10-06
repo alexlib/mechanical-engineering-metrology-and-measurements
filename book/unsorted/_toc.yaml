@@ -21,3 +21,7 @@ chapters:
   - file: uncertainty_example.ipynb
   - file: uncertainty_of_a_slope.ipynb
   - file: uncertainty_propagation_monte_carlo_gum.ipynb
+  - file: normal_vs_lognormal.ipynb
+  - file: q2_ex3.ipynb
+  - file: random_data_for_hw_1.ipynb
+  - file: input_output_sin_1st_order.ipynb
