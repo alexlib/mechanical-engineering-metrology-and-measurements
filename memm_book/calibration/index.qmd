@@ -1,0 +1,52 @@
+---
+title: "Calibration"
+---
+
+# Calibration — Introduction and Learning Goals
+
+Short summary
+Calibration methods and error analysis for sensors: linear & nonlinear regression, hysteresis, sensitivity, and full calibration workflow.
+
+Learning objectives
+- Perform linear regression for sensor calibration and compute confidence intervals.
+- Analyze hysteresis and nonlinearity errors.
+- Design calibration experiments and propagate calibration uncertainty into measurements.
+
+Key concepts (brief)
+- Regression residuals, standard error, and calibration curve interpretation.
+- Hysteresis and repeatability characterization.
+- Sensitivity analysis and combining calibration with measurement uncertainty.
+
+Recommended notebooks to run
+- micrometer_calibration.ipynb
+- regression_analysis.ipynb
+- full_calibration_analysis_example.ipynb
+- hysteresis_error_analysis.ipynb
+- calibration_non_linear_relations.ipynb
+
+Suggested exercises
+- Calibrate a sample dataset, report calibration equation and uncertainty.
+- Compare linear vs nonlinear fits and discuss choice and impact on measurements.
+
+Prerequisites
+Basic regression, statistics, and familiarity with plotting in Python.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [create best fit](Lineariy_error_example.qmd) — p = np.polyfit(x,y,1) print (p) y_fit = np.polyval(p,x) `
+- [create two signals: concentration and temperature](calibration_curve_log_log.qmd) — c = StringIO(""" 1.095406121 3.887032952 6.956500526 9.486921797 \ 13.96944459 14.86018043 23.19810833 24.53008787 \ 24.72311112 37.44113657 38.05523491 54.1881169""")
+- [Sensitivity error example](calibration_error_analysis 2.qmd)
+- [increasing](calibration_error_analysis_pressure.qmd) — xi = array(0.0, 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0) yi = array(-1.12, 0.21, 1.18, 2.09, 3.33, 4.50, 5.26, 6.59, 7.73, 8.68, 9.80) # decreasing xd = xi.copy() yd = a…
+- [read the data](calibration_non_linear_relations.qmd) — import numpy as np x = np.array(0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0, 100.0) # cm y = np.array(0.4, 1.0, 2.3, 6.9, 15.8, 36.4, 110.1, 253.2) # Volt `
+- [degrees of freedom = number of bins minus the (order of the fit + 1):](full_calibration_analysis_example.qmd) — print ('Number of degrees of freedom, K - (m+1) = %d' % (K - 2)) `
+- [Sensitivity error example](hysteresis_error_analysis.qmd)
+- [Calibration — Introduction and Learning Goals](intro.qmd) — Short summary Calibration methods and error analysis for sensors: linear & nonlinear regression, hysteresis, sensitivity, and full calibration workflow.
+- [allows to use everything from Numpy and Matplotlib like in Matlab, without np. and plt.](introduction_linear_regression.qmd) — from IPython.display import Image # allows to show images from the web: Image(filename='hysteresis_example.png',width=400) `
+- [Peak-Peak Voltage (mV)](lvdt_calibration_2.qmd) — V = 98.8, 86.0, 74.0, 61.2, 47.2, 32.8, 20.4, 5.2, 8.4, 21.2, 35.2, 49.2, 63.2, 75.2, 88.4, 100.8 # Displacement x = range(0,16) # (mm) # % Error err = 1, 0, -3, -5, -7, -8, -21,…
+- [Image('https://www.higherprecision.com/images/blog_images/higherprecision_gageblocks.jpg',width=500)](micrometer_calibration.qmd) — `
+- [degrees of freedom = number of bins minus the (order of the fit + 1):](pressure_calibration_example.qmd) — print ('Number of degrees of freedom, K - (m+1) = %d' % (K - 2)) `
+- [%load '../scripts/linear_regression.py'](regression_analysis.qmd) — # or import sys sys.path.append('../scripts') from linear_regression import linreg `
+- [pl.legend(('$y$','$x^{1.2}$'),loc='best')](sensitivity_analysis.qmd) — `
+
+<!-- AUTOGEN_END -->

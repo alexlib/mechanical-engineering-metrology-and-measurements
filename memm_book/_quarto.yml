@@ -1,25 +1,27 @@
 project:
   type: book
-
 book:
-  title: "Mechanical Engineering Metrology and Measurements (MEMM)"
-  author: "Alex Liberzon"
-  date: "10/20/2025"
+  title: Mechanical Engineering Metrology and Measurements (MEMM)
+  author: Alex Liberzon
   chapters:
-    - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
-
-bibliography: references.bib
-
+  - index.qmd
+  - part: "Metrology theory"
+    chapters: 
+      - theory/index.qmd
+      - calibration/index.qmd
+  - part: "Statistics"
+    chapters:
+      - statistics/index.qmd
+  - part: "Signal Processing"
+    chapters:
+      - signal_processing/index.qmd
+      - a2d/index.qmd
+  - part: "Dynamic Signals"
+    chapters:
+      - dynamic_signals/index.qmd
+  
 format:
   html:
-    theme:
-      - cosmo
-      - brand
-  pdf:
-    documentclass: scrreprt
-
-
-
+    toc: true
+    toc-depth: 2
+bibliography: references.bib

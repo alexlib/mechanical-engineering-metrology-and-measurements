@@ -1,0 +1,115 @@
+---
+title: Sensitivity estimate example
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.18.1
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as pl
+%pylab inline
+
+import sys
+sys.path.append('../scripts')
+from linear_regression import linreg
+
+from IPython.core.display import Image 
+Image(filename='../img/sensitivity_error_example.png',width=400) 
+```
+
+```{python}
+x = np.array([0.5, 1.0, 2.0, 5.0, 10.0, 20.0, 50.0, 100.0])
+y = np.array([0.4, 1.0, 2.3, 6.9, 15.8, 36.4, 110.1, 253.2])
+```
+
+```{python}
+pl.plot(x,y,'--o')
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$y$ [V]')
+pl.title('Calibration curve')
+```
+
+Sensitivity, $K$ is:
+
+$ K_i  = \left( \frac{\partial y}{\partial x} \right)_{x_i} $
+
+```{python}
+K = np.diff(y)/np.diff(x)
+print (K)
+```
+
+```{python}
+pl.plot(x[1:],K,'--o')
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$K$ [V/cm]')
+pl.title('Sensitivity')
+```
+
+Instead of working with non-linear curve of sensitivity we can use the usual trick: the logarithmic scale
+
+```{python}
+pl.loglog(x,y,'--o')
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$y$ [V]')
+pl.title('Logarithmic scale')
+```
+
+```{python}
+logK = np.diff(np.log10(y))/np.diff(np.log10(x))
+print( logK)
+pl.plot(x[1:],logK,'--o')
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$K$ [V/cm]')
+pl.title('Logarithmic sensitivity')
+pl.plot([x[1],x[-1]],[1.2,1.2],'r--')
+```
+
+```{python}
+pl.loglog(x,y,'o',x,x**(1.2))
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$y$ [V]')
+pl.title('Logarithmic scale')
+pl.legend(('$y$','$x^{1.2}$'),loc='best')
+```
+
+```{python}
+pl.plot(x,y-x**(1.2),'o')
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$y - y_c$ [V]')
+pl.title('Deviation plot')
+# pl.legend(('$y$','$x^{1.2}$'),loc='best')
+```
+
+## Regression analysis
+Following the recipe of http://www.answermysearches.com/how-to-do-a-simple-linear-regression-in-python/124/
+
+```{python}
+print (linreg(np.log10(x),np.log10(y)))
+```
+
+```{python}
+pl.loglog(x,y,'o',x,x**(1.21)-0.01252)
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$y$ [V]')
+pl.title('Logarithmic scale')
+pl.legend(('$y$','$x^{1.2}$'),loc='best')
+```
+
+```{python}
+pl.plot(x,y-(x**(1.21)-0.01252),'o')
+pl.xlabel('$x$ [cm]')
+pl.ylabel('$y - y_c$ [V]')
+pl.title('Deviation plot');
+# pl.legend(('$y$','$x^{1.2}$'),loc='best')
+```

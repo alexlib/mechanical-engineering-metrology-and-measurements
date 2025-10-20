@@ -1,0 +1,107 @@
+---
+title: Using AI tools to learn uncertainty
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.18.1
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+1. Get a free PDF of one of the recommended sources, e.g. https://www.esscolab.com/uploads/files/measurement-guide.pdf 
+2. Upload this PDF to one of the AI tools, and ask questions, e.g.
+   
+https://askyourpdf.com/conversations/d/2d36eb11-2d38-46e5-bbf0-e62027ed9112
+
+
+
+
+*Question*: can you show me a real calculation example?
+
+*Answer*: Sure! Here is a real calculation example to demonstrate the estimation and calculation of overall uncertainty in measurements:
+
+____    
+
+
+Let us say we want to measure the length of a piece of string using 
+a tape measure. We take 10 repeated readings and calculate the mean 
+and standard deviation of these readings.
+
+    Type A Evaluation:
+        Mean of the 10 readings: x = 5.017 m
+        Estimated standard deviation of the mean: s/n = 0.007 m
+
+    Type B Evaluation:
+        Uncertainty due to the tape measure: ±0.25 mm
+        Uncertainty due to the string not lying straight: ±0.03 m
+        Uncertainty due to the temperature effect: ±0.58 mm
+
+    Combining Uncertainties:
+        Summation in quadrature for Type A and Type B uncertainties:
+            0.007 m (Type A) squared = 0.000049 m^2
+            0.25 mm (Type B) squared = 0.000625 m^2
+            0.03 m (Type B) squared = 0.0009 m^2
+            0.58 mm (Type B) squared = 0.0003364 m^2
+        Combined standard uncertainty = square root of the sum of the squared uncertainties = 0.0253 m
+
+    Expressing the Uncertainty:
+        Using a coverage factor of k = 2 (for a 95% confidence level):
+            Expanded uncertainty = combined standard uncertainty * k = 0.0253 m * 2 = 0.0506 m
+
+Therefore, the overall uncertainty in the measurement of the length of the string is 0.0506 meters.
+
+SOURCES:
+
+    Page 20: Measurement Good Practice Guide No. 11 (Issue 2)
+    Page 27: Measurement Good Practice Guide No. 11 (Issue 2)
+
+
+### what are 8 steps to estimate and express uncertainty? 
+
+The eight steps to estimate and express uncertainty in measurements are as follows:
+
+    Determine the objective of the measurement and identify the necessary measurements and calculations to obtain the final result.
+
+    Perform the required measurements.
+
+    Estimate the uncertainty of each input quantity that contributes to the final result and express them in similar terms.
+
+    Determine if the errors of the input quantities are independent of each other. If not, additional calculations or information may be needed.
+
+    Calculate the measurement result, including any known corrections such as calibration factors.
+
+    Combine the individual uncertainties to find the combined standard uncertainty using appropriate methods (e.g., summation in quadrature).
+
+    Express the uncertainty using a coverage factor, along with the size of the uncertainty interval, and state the level of confidence.
+
+    Document the measurement result, uncertainty, and the methodology used to obtain them.
+
+SOURCES:
+
+    Page 19: Measurement Good Practice Guide No. 11 (Issue 2)
+    Page 27: Measurement Good Practice Guide No. 11 (Issue 2)
+
+### Additional sources
+
+Thanks to this blog: 
+
+https://www.isobudgets.com/best-measurement-uncertainty-guide-for-beginners/
+
+1. NPL MGPG No. 11 – A Beginner’s Guide to Uncertainty of Measurement https://www.isobudgets.com/pdf/documents/04_NPL_MGPG_No11.pdf
+
+2. UKAS M3003 – The Expression of uncertainty and Confidence in Measurement https://www.isobudgets.com/pdf/documents/02_UKAS_M3003.pdf
+
+3. EA 4/02 – Expression of the Uncertainty of Measurement in Calibration https://www.isobudgets.com/pdf/documents/05_EA_4-02.pdf
+
+4. BIPM JCGM 100:2008 – Guide to the Expression of Uncertainty in Measurement https://www.isobudgets.com/pdf/documents/03_BIPM_JCGM100.pdf
+
+5. NIST Technical Note 1297 – Guidelines for the Evaluating and Expressing the Uncertainty of NIST Measurement Results https://www.isobudgets.com/pdf/documents/01_NIST_TN1297.pdf
+
+6. https://www.isobudgets.com/pdf/documents/07_NASA_NHBK873919-3.pdf 
+
+

@@ -1,0 +1,37 @@
+---
+title: "Unsorted"
+---
+
+# Unsorted — Guide and How to Use These Notebooks
+
+Short summary
+Collection of homework examples, exploratory notebooks, and early drafts. Use after core chapters.
+
+How to use this folder
+- Treat items here as worked problems or extra practice.
+- Instructors can adapt these as homework with minor edits.
+
+Representative notebooks
+- homework_1.ipynb, homework_example_1.ipynb
+- basic_error_analysis.ipynb, mean_variance_probability_function.ipynb
+- doppler.ipynb, input_output_sin_1st_order.ipynb
+
+Suggested activity
+- Select one homework notebook per week and convert it into a short graded assignment with automated tests or solution notebook.
+
+Prerequisites
+Complete core chapters first (theory, statistics, a2d).
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [%loadpy /Users/alex/Documents/MyPython/doppler.py](doppler.qmd) — `
+- [## Question 1](homework_1.qmd) — In our laboratory you will not use the **distance** measurements. There is a tool for this, called **linear variable differential transformer (LVDT)**. 1. Read and summarize the p…
+- [x = np.sort(np.random.rand(5,1)*55)](homework_example_1.qmd) — # y = `
+- [A periodic function can be characterized by the properties: amplitude, frequency, period, and phase. Let's exemplify these properties for a pediodic function composed by a single frequency, the sine wave or sinusoid [trigonometric function](http://en.wikipedia.org/wiki/Trigonometric_functions):](input_output_sin_1st_order.qmd) — $$ x(t) = Asin(2 \pi f t + \phi) $$ Where $A$ is the amplitude, $f$ the frequency, $\phi$ the phase, and $T=1/f$ the period of the function $x(t)$. We can define $\omega=2\pi f =…
+- [Unsorted — Guide and How to Use These Notebooks](intro.qmd) — Short summary Collection of homework examples, exploratory notebooks, and early drafts. Use after core chapters.
+- [picking 150 of from a normal distrubution](normal_vs_lognormal.qmd) — # with mean 0 and standard deviation 1 samp1 = norm.rvs(loc=0,scale=1,size=150) numargs = lognorm.numargs s = 0.9, * numargs rv = lognorm(s) samp2 = rv.rvs(size=150)
+- [fitted distribution](q2_ex3.qmd) — pdf_fitted = norm.pdf(x,loc=param0,scale=param1) `
+- [```{python}](random_data_for_hw_1.qmd) — %run ../scripts/create_random_data {python} #| jupyter: {outputs_hidden: false} from random import randint c, T = create_random_set(randint(5,20)) print('\n'.join('{0:.3f} {1:.3f}…
+
+<!-- AUTOGEN_END -->

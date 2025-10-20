@@ -1,0 +1,46 @@
+---
+title: "Signal Processing"
+---
+
+# Signal Processing — Introduction and Learning Goals
+
+Short summary
+Frequency-domain tools for measurement signals: FFT, windowing, spectral interpretation, and basic filtering.
+
+Learning objectives
+- Compute and interpret discrete Fourier transforms and spectra.
+- Understand windowing, spectral leakage, and resolution trade-offs.
+- Apply simple spectral filtering and reconstruction concepts.
+
+Key concepts (brief)
+- Frequency resolution, Nyquist limit, and window-induced spectral effects.
+- Interpreting power spectra vs amplitude spectra.
+- Practical filtering: time-domain vs frequency-domain considerations.
+
+Recommended notebooks to run
+- simple_fft_two_sine.ipynb
+- spectrum_example.ipynb
+- FFT_based_filtering.ipynb
+- Fourier_transform_with_windowing.ipynb
+- Frequency_content_of_a_periodic_signal.ipynb
+
+Suggested exercises
+- Demonstrate aliasing by downsampling and explain observed artifacts.
+- Compare window functions on a mixed-frequency signal and discuss leakage.
+
+Prerequisites
+Discrete signals, sampling basics, and NumPy FFT usage.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [redefine default figure size and fonts](FFT_based_filtering.qmd) — import matplotlib as mpl mpl.rc('font', size=16) mpl.rc('figure',figsize=(12,8)) mpl.rc('lines', linewidth=1, color='lightblue',linestyle=':',marker='o') `
+- [init_printing(pretty_print=True,use_latex=True)](Fourier_coefficients_analytical_evaluation_periodic_ramp_function.qmd) — # %matplotlib inline # import matplotlib.pyplot as plt from numpy import arange `
+- [Given:](Fourier_transform_with_windowing.qmd) — f_s = 100.0 # sampling frequency (Hz) T = 3.0 # total actual sample time (s)
+- [We sample a signal at fs = 200 Hz and record 256 points"](Fourier_transforms_pure_sine.qmd) — # true values A = 1.0 # Volt, amplitude ff = 10.0 # Hz, signal frequency, zero harmonics
+- [redefine default figure size and fonts](Frequency_content_of_a_periodic_signal.qmd) — import matplotlib as mpl mpl.rc('font', size=16) mpl.rc('figure',figsize=(12,10)) mpl.rc('lines', linewidth=1, color='lightblue',linestyle=':',marker='o') `
+- [redefine default figure size and fonts](fft_of_multi_frequency_signal_window.qmd) — import matplotlib as mpl # mpl.rc('text', usetex = True) mpl.rc('font', family = 'sans serif',size=16) mpl.rc('figure',figsize=(12,8)) mpl.rc('lines', linewidth=1, color='lightblu…
+- [Signal Processing — Introduction and Learning Goals](intro.qmd) — Short summary Frequency-domain tools for measurement signals: FFT, windowing, spectral interpretation, and basic filtering.
+- [from https://stackoverflow.com/questions/15112964/digitizing-an-analog-signal](proving_periods.qmd) — from __future__ import division
+
+<!-- AUTOGEN_END -->

@@ -1,0 +1,48 @@
+---
+title: "Dynamic Signals"
+---
+
+# Dynamic Signals — Introduction and Learning Goals
+
+Short summary
+Time-domain and dynamical-system behavior: step responses, first/second order systems, and vibration-based measurements.
+
+Learning objectives
+- Interpret first- and second-order system responses and key parameters (time constant, damping, natural frequency).
+- Extract physical quantities (e.g., mass from vibrations) from measured signals.
+- Link time-domain responses to frequency content.
+
+Key concepts (brief)
+- Step response, log-decrement, and damping ratio estimation.
+- Modal interpretation for simple systems and measurement-driven parameter estimation.
+- Practical considerations: sensor dynamics and filtering.
+
+Recommended notebooks to run
+- first_order_time_response.ipynb
+- step_response.ipynb
+- 2nd_order_system_step_function_log_decrement.ipynb
+- mass_measurement_using_vibrations.ipynb
+- design_choice_2nd_order_pressure_transducer.ipynb
+
+Suggested exercises
+- Estimate time constant and uncertainty from a noisy step response.
+- Use a recorded vibration signal to estimate a lumped mass or natural frequency.
+
+Prerequisites
+Ordinary differential equations basics and elementary signal processing.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Define transfer function](2nd_order_system_step_function_log_decrement.qmd) — k = 1 # sensitivity wn = 546.72 # rad/s z=0.2 # damping
+- [Define transfer function](design_choice_2nd_order_pressure_transducer.qmd) — fd = 1200 # Hz fn = fd/(np.sqrt(1-0.5**2)) wn = fn/(2*np.pi) # rad/s z=0.5 # damping k = 1 # sensitivity
+- [Step function](first_order_time_response.qmd) — # for a step function, take user input on final and initial values. y_i = 1.0 y_f = 3.0
+- [Dynamic Signals — Introduction and Learning Goals](intro.qmd) — Short summary Time-domain and dynamical-system behavior: step responses, first/second order systems, and vibration-based measurements.
+- [u = np.loadtxt('../data/data_for_FFT.txt')](load_plot_spectrum_turbulent_data_jet.qmd) — data = np.loadtxt('../data/p40_20.ts') # data source: # http://ldvproc.nambis.de/data/ektdata.html `
+- [Python script for simulated signal](mass_measurement_using_vibrations.qmd) — # ... `
+- [Number of samplepoints](simple_fft_two_sine.qmd) — N = 600 # sample spacing T = 1.0 / 800.0 x = np.linspace(0.0, N*T, N) y = np.sin(50.0 * 2.0*np.pi*x) + 0.5*np.sin(80.0 * 2.0*np.pi*x) yf = fft(y)
+- [subtract the DC:](spectrum_example.qmd) — yf = y - np.mean(y) `
+- [plt.title('Step response')](step_response.qmd) — # plt.show() `
+- [```{python}](symbolic_evaluation_Fourier_coefficients.qmd) — #| jupyter: {outputs_hidden: false} from sympy import * init_printing(pretty_print=True,use_latex=True) %matplotlib inline import matplotlib.pyplot as plt {python} #| jupyter: {ou…
+
+<!-- AUTOGEN_END -->

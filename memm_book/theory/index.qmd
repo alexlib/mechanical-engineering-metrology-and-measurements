@@ -1,0 +1,89 @@
+---
+title: "Theory"
+---
+
+# Theory — Introduction and Learning Goals
+
+Short summary
+This chapter covers measurement theory: uncertainty concepts, best practices, measurement-system analysis, and worked Monte Carlo examples.
+
+Learning objectives
+- Understand types of measurement uncertainty and how to report them.
+- Distinguish repeatability vs reproducibility, bias, and systematic errors.
+- Apply basic uncertainty propagation (analytical and Monte Carlo).
+- Recognize good-practice recommendations for lab notebooks and reporting.
+
+Key concepts (brief)
+- GUM-style uncertainty vs Type A/B estimates.
+- Propagation of uncertainty for slopes and model parameters.
+- Role of simulations (Monte Carlo) to validate analytical propagation.
+
+Recommended notebooks to run
+- uncertainty_example.ipynb
+- uncertainty_of_a_slope.ipynb
+- uncertainty_propagation_monte_carlo_gum.ipynb
+- teaching_measurement_uncertainty.ipynb
+- best_practice_summary.ipynb
+
+Suggested exercises
+- Compute and compare analytical and Monte Carlo propagation on a simple function.
+- Prepare a short lab report following the best-practice notebook checklist.
+
+Prerequisites
+Basic probability, calculus, and comfort with Python arrays.
+
+### Checklist for the 8-step uncertainty analysis process
+See [checklist.md](checklist.qmd) for a detailed 9-step checklist to guide uncertainty analyses.
+
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Sensitivity Coefficients in Uncertainty Budgets](Sensitivity_Coefficients_Uncertainty.qmd) — _Source: _
+- [This part is the simplified error analysis that we will extend through the course with the more precise definitions](basic_error_analysis.qmd) — and analysis using regressions, calibration, statistics, dynamics, etc. ### Errors 1. Systematic errors 1. Random errors ### Errors 1. equipment/tool precision error 1. human erro…
+- [### Link to the source of good practice guides:](best_practice_summary.qmd) — https://www.npl.co.uk/resources/gpgs ## What is a measurement A measurement is a single value that is measured at a single point in time. It is a process of giving a value (number…
+- [The Engineer's 9-Step Uncertainty Analysis Checklist](checklist.qmd) — This checklist provides a systematic framework for conducting a thorough uncertainty analysis. It begins with the strategic purpose (Step 0) and moves through the tactical executi…
+- [Mars Rover Temperature Measurement & Uncertainty Analysis](exam_example.qmd) — ## 1. Introduction: The Challenge of Measurement in Extreme Environments
+- [1. Get a free PDF of one of the recommended sources, e.g. https://www.esscolab.com/uploads/files/measurement-guide.pdf](example_from_best_practice.qmd) — 2. Upload this PDF to one of the AI tools, and ask questions, e.g. https://askyourpdf.com/conversations/d/2d36eb11-2d38-46e5-bbf0-e62027ed9112 *Question*: can you show me a real c…
+- [Engineering Example: Uncertainty Analysis in Mechanical Measurements](example_uncertainty_analysis.qmd) — ## Introduction to the Engineering Problem
+- [```{python}](general_measurement_system_analysis.qmd) — #| slideshow: {slide_type: slide} from IPython.display import Image Image('../img/generalized_measurement_system.png') ` ### Purpose Our purpose to analyse every measurement accor…
+- [Uncertainty Budget of Hot-Wire Anemometer](hot-wire_uncertainty_budget.qmd) — Isothermal turbulent air flow in a wind tunnel with temperature rise due to friction. Evaluation according to the 8-step GUM method.
+- [see https://www.iaea.org/sites/default/files/21/12/9_measurement_and_uncertainty.pdf](iaea_uncertainty_presentation.qmd) — ## Measurement of physical properties is a random process - pressure, velocity, temperature are some examples of physical properties of complex physical processes, these are rando…
+- [Theory — Introduction and Learning Goals](intro.qmd) — Short summary This chapter covers measurement theory: uncertainty concepts, best practices, measurement-system analysis, and worked Monte Carlo examples.
+- [It is strongly recommended to keep a good laboratory notebook for the course. Please consult a couple of sources on the meaning, importance, requirements, tips and tricks of keeping a notebook.](laboratory_notebook.qmd) — 1. 2. 3. 4. 5.
+- [Significant digits](significant_digits.qmd) — - Engineering measurements are generally accurate to at most only a few digits -- three digits of accuracy is considered ''standard'' for engineering analysis
+- [## Source:](simple_example.qmd) — https://www.npl.co.uk/resources/gpgs no 131 ## 1. Decide what you measure and what you need to find out from measurements In this example we want to measure **length of a string**…
+- [Why Simulation is the Future of Uncertainty Evaluation](simulations_for_uncertainty.qmd) — ## Introduction
+- [Measurements are useful only when they can be compared. Traceability is the property of a measurement result that provides an unbroken chain of calibrations to a reference standard, with a stated uncertainty at each step. Good traceability makes results from different labs, instruments, or times comparable and defensible.](standartization.qmd) — Key points - Traceability links your instrument to a reference standard (ideally an SI realization) through documented calibration steps. - Every calibration step should include a…
+- [JUPYTER NOTEBOOK: Surface Roughness Measurement with GUM-Based Uncertainty Analysis](surface_roughness_budget.qmd) — # Author: Alex Liberzon and Perplexity Pro # Course: Metrology for Mechanical Engineering # Purpose: Single notebook implementing surface roughness measurement and full GUM-based…
+- [Teaching Measurement in the Introductory Physics Laboratory](teaching_measurement_introductory_physics_lab.qmd) — **Saalih Allie and Andy Buffler**, University of Cape Town, South Africa\ **Bob Campbell and Fred Lubben**, University of York, UK\ **Dimitris Evangelinos, Dimitris Psillos, Odyss…
+- [Following this paper by Bluestein: ![link](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwig-unH74-DAxXf3QIHHdtXAAkQFnoECBEQAQ&url=https%3A%2F%2Fpeer.asee.org%2Fteaching-measurement-uncertainty-in-a-mechanical-engineering-technology-laboratory.pdf&usg=AOvVaw1qkqg_h-in_gNoZDEDFrmP&opi=89978449)](teaching_measurement_uncertainty.qmd) — ## Definitions and assumptions: - many students hired for roles that involve measurements and tests - modern methods of data collection utilize measurement uncertainty analysis -…
+- [Uncertainty 101](uncertainty101.qmd) — ## Uncertainty
+- [Uncertainty is calculated to support decisions based on measurements.](uncertainty_analysis_NASA.qmd) — Therefore, uncertainty estimates should realistically reflect the measurement process. In this regard, the person tasked with conducting an uncertainty analysis must be knowledgea…
+- [changed code](uncertainty_example.qmd) — import numpy as np import matplotlib.pyplot as plt from scipy.stats import norm
+- [data of resistance measurements: voltage vs current](uncertainty_of_a_slope.qmd) — import numpy as np import matplotlib.pyplot as plt
+- [Example usage](uncertainty_propagation_monte_carlo_gum.qmd) — height_measurements = 10.02, 10.03, 10.01, 10.02, 10.03, 10.02, 10.01, 10.02, 10.03, 10.02 resolution = 0.01 # mm monte_carlo_cube_volume(height_measurements, resolution) `
+- [Set random seed for reproducibility](uncertainty_sources_notebook.qmd) — np.random.seed(42)
+
+<!-- AUTOGEN_END -->
+
+## Ordered reading (suggested)
+
+Follow this sequence when teaching or self-studying. The order moves from foundational lab practice and best-practice guidance, to measurement-system analysis and elementary worked examples, then to uncertainty concepts and quantitative propagation methods (analytical & Monte Carlo), and finishes with advanced case studies and community presentations.
+
+1. [laboratory_notebook.ipynb](laboratory_notebook.qmd) — practical lab notebook practices and data recording.
+2. [best_practice_summary.ipynb](best_practice_summary.qmd) — concise recommendations for reporting and reproducibility.
+3. [teaching_measurement_uncertainty.ipynb](teaching_measurement_uncertainty.qmd) — pedagogical overview of uncertainty.
+4. [standartization.ipynb](standartization.qmd) — standards and common terminology.
+5. [general_measurement_system_analysis.ipynb](general_measurement_system_analysis.qmd) — system-level thinking and error sources.
+6. [simple_example.ipynb](simple_example.qmd) — a short worked example linking practice and theory.
+7. [example_from_best_practice.ipynb](example_from_best_practice.qmd) — illustrated application of best practices.
+8. [uncertainty_example.ipynb](uncertainty_example.qmd) — basic uncertainty calculations and interpretation.
+9. [uncertainty_of_a_slope.ipynb](uncertainty_of_a_slope.qmd) — propagation for regression-derived quantities.
+10. [uncertainty_propagation_monte_carlo_gum.ipynb](uncertainty_propagation_monte_carlo_gum.qmd) — Monte Carlo propagation following GUM ideas.
+11. [simulations_for_uncertainty.ipynb](simulations_for_uncertainty.qmd) — simulation-driven exploration of uncertainty.
+12. [uncertainty_analysis_NASA.ipynb](uncertainty_analysis_NASA.qmd) — applied example from NASA guidance.
+13. [iaea_uncertainty_presentation.ipynb](iaea_uncertainty_presentation.qmd) — community presentation and advanced perspectives.
+14. [Watch the 1 hr video by Fluke - leading measurement equipment company](https://www.fluke.com/en-us/learn/blog/electrical-calibration/introduction-iso-guide-expression-uncertainty-measurement-gum)
+
+Rationale: this ordering lets students first acquire good lab habits and reporting skills, then build a conceptual toolbox for system analysis, then learn measurement uncertainty in increasing rigor (examples → slope propagation → Monte Carlo → case studies). Use the checklists added to notebooks to guide in-class or lab activities.

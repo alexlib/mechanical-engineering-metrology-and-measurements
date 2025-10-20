@@ -1,0 +1,43 @@
+---
+title: "A2D"
+---
+
+# Analog-to-Digital (A2D) — Introduction and Learning Goals
+
+Short summary
+Sampling, aliasing, reconstruction, and practical A/D conversion examples.
+
+Learning objectives
+- Explain sampling theorem and conditions for perfect reconstruction.
+- Demonstrate aliasing and anti-aliasing requirements.
+- Implement simple reconstructions (sinc/interpolation) and study errors.
+
+Key concepts (brief)
+- Nyquist frequency and aliasing examples.
+- Reconstruction using sinc (Cardinal series) and practical limits.
+- Quantization and its effect on measurement uncertainty (intro-level).
+
+Recommended notebooks to run
+- sampling_aliasing_examples.ipynb
+- mimic_analog_to_digital_conversion.ipynb
+- reconstruct_with_sinc.ipynb
+- Reconstruction_periodic_signal_Cardinal_series.ipynb
+
+Suggested exercises
+- Create aliased and non-aliased versions of a signal and explain differences.
+- Reconstruct a band-limited signal with truncated sinc and quantify error.
+
+Prerequisites
+Basic Fourier theory and sampling concepts.
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [```{python}](Reconstruction_periodic_signal_Cardinal_series.qmd) — import numpy as np import matplotlib.pyplot as plt %matplotlib inline def reconstruct_with_sinc(ts,fd,t): n, = ts.shape dt = ts1 - ts0 fr = for k,ti in enumerate(t): # for each ti…
+- [sample and hold](create_plot_signal.qmd) — from scipy.interpolate import interp1d
+- [Analog-to-Digital (A2D) — Introduction and Learning Goals](intro.qmd) — Short summary Sampling, aliasing, reconstruction, and practical A/D conversion examples.
+- [from https://dsp.stackexchange.com/questions/33596/analog-to-digital-conversion-using-python](mimic_analog_to_digital_conversion.qmd) — import numpy as np import matplotlib.pyplot as plt
+- [if __name__ == '__main__':](reconstruct_with_sinc.qmd) — t = np.arange(0.0,0.6,0.001) fa = 1.0*np.sin(2*np.pi*10*t)+0.2*np.sin(2*np.pi*6*t) fs = 10 # Hz ts = np.arange(0.0,0.6,1./fs) # sampling time fd = 1.0*np.sin(2*np.pi*10*ts)+0.2*np…
+- [example](sampling_aliasing_examples.qmd) — t = np.linspace(0,10,10000) # almost continuous y = 9+np.sin(2*np.pi*0.1*t)
+
+<!-- AUTOGEN_END -->

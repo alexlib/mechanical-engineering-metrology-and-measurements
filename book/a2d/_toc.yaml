@@ -1,9 +1,0 @@
-format: jb-book
-root: intro
-
-chapters:
-  - file: Reconstruction_periodic_signal_Cardinal_series
-  - file: create_plot_signal
-  - file: mimic_analog_to_digital_conversion
-  - file: reconstruct_with_sinc
-  - file: sampling_aliasing_examples

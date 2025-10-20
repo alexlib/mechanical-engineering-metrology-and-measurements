@@ -1,0 +1,26 @@
+---
+title: "Data"
+---
+
+# data
+
+Pages in this chapter.
+
+
+    Short chapter summary.
+
+    ## Learning objectives
+
+    - Read the pages and run the notebooks.
+
+    ## Prerequisites
+
+    - Basic calculus and introductory statistics.
+- Comfort with Python and Jupyter notebooks (NumPy/Matplotlib helpful).
+
+    <!-- AUTOGEN_START -->
+## Pages in this chapter
+
+
+<!-- AUTOGEN_END -->
+

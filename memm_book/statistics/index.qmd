@@ -1,0 +1,54 @@
+---
+title: "Statistics"
+---
+
+# Statistics — Introduction and Learning Goals
+
+Short summary
+Hands-on statistics for measurement data: distributions, descriptive stats, hypothesis testing, outliers, and the central limit theorem.
+
+Learning objectives
+- Compute and interpret mean, variance, confidence intervals.
+- Apply t-tests, chi-square tests, and identify outliers.
+- Relate histograms to probability distributions and sampling variability (CLT).
+
+Key concepts (brief)
+- Sampling distributions and the Central Limit Theorem.
+- When to use t-distribution vs normal approximation.
+- Robust statistics and practical outlier handling.
+
+Recommended notebooks to run
+- basic_statistics.ipynb
+- distributions.ipynb
+- t-test.ipynb
+- Central_limit_theorem_illustration.ipynb
+- outliers_example.ipynb and outliers_example_pairs.ipynb
+
+Suggested exercises
+- Use bootstrap or t-test to compare two small-sample datasets.
+- Detect and justify removal/retention of outliers in a measurement series.
+
+Prerequisites
+Introductory probability and basic Python (NumPy, matplotlib).
+
+<!-- AUTOGEN_START -->
+## Pages in this chapter
+
+- [Plot the distribution of X_n and the Gaussian fit for comparison](Central_limit_theorem_illustration.qmd) — bins = np.linspace(-5, 15, 100);
+- [```{python}](Exploring+different+distribution.qmd) — #| jupyter: {outputs_hidden: false} %matplotlib inline import numpy as np import matplotlib import matplotlib.pyplot as plt import scipy.stats {python} #| jupyter: {outputs_hidden…
+- [let's create some data](Lecture_5.qmd) — x = np.array(12.1,12.3,12.2,12.2,12.4,12.3,12.2,12.4,12.2,12.5) `
+- [**Engineering Testing and Measurements**](basic_statistics.qmd) — Review of _basic statistics_ 1. Population -- the entire collection of measurements, not all of which will be analyzed statistically. Some variable $ x$, anything that is measurab…
+- [We prepare histogram with the $\Delta P = 0.05$ kPa](chi_square_test_example.qmd) — bins = arange(9.65,10.55,0.05) n,bins = histogram(y,bins=bins) # # normalization: z = n/(np.sum(n)*0.05)
+- [Mickey Atwal, Cold Spring Harbor Laboratory](distributions.qmd) — --- Here we will visualize, in Python, a few important distributions that commonly appear in science and statistics. A more exhaustive list of statistical distributions can be fou…
+- [approximate using the numerical integration](estimate_mean_variance_median_using_pdf.qmd) — print(trapz(y*x,x)) print(2.*b/3) `
+- [Simulate data](getting_started.qmd) — # (a) Accurate & Precise data_a = np.random.normal(loc=10, scale=0.3, size=25) # (b) Accurate, Not Precise data_b = np.random.normal(loc=10, scale=1.0, size=25) # (c) Precise, Not…
+- [make it yourself](histogram_to_distribution.qmd) — pos = h1:-1+diff(h1)/2. frequency = h0 bar(pos,frequency,width=1.4) `
+- [Statistics — Introduction and Learning Goals](intro.qmd) — Short summary Hands-on statistics for measurement data: distributions, descriptive stats, hypothesis testing, outliers, and the central limit theorem.
+- [Sort x](outliers_example-2.qmd) — x = np.sort(x) print(x) `
+- [new data is one point less](outliers_example.qmd) — xnew = x:-1.copy() meanx = mean(xnew) stdx = std(xnew,ddof=1) print ('x: ', xnew) print ('mean = %6.2f, std = %6.2f\n' % (meanx,stdx))
+- [best fit seems to be linear](outliers_example_pairs.qmd) — p = polyfit(x,y,1) Y = polyval(p,x) plot(x,Y,'--') text(10,5,'Y = %4.3f x + %4.3f' % (p0,p1)) `
+- [```{python}](outliers_example_two.qmd) — #| jupyter: {outputs_hidden: false} import numpy as np import matplotlib.pyplot as pl %matplotlib inline import matplotlib as mpl mpl.rcParams'lines.linewidth'=2 mpl.rcParams'line…
+- [Author: Jake VanderPlas](t-distribution.qmd) — # License: BSD # The figure produced by this code is published in the textbook # "Statistics, Data Mining, and Machine Learning in Astronomy" (2013) # For more information, see ht…
+- [From https://www.statisticshowto.com/probability-and-statistics/t-test/](t-test.qmd)
+
+<!-- AUTOGEN_END -->

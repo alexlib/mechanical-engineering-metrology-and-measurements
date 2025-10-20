@@ -1,0 +1,23 @@
+project:
+  type: book
+book:
+  title: Mechanical Engineering Metrology and Measurements
+  author: Prof. Alex Liberzon
+  chapters:
+  - index.qmd
+  - unsorted/index.qmd
+  - theory/index.qmd
+  - statistics/index.qmd
+  - signal_processing/index.qmd
+  - scripts/index.qmd
+  - img/index.qmd
+  - dynamic_signals/index.qmd
+  - data/index.qmd
+  - calibration/index.qmd
+  - archive/index.qmd
+  - a2d/index.qmd
+format:
+  html:
+    toc: true
+    toc-depth: 2
+bibliography: references.bib
