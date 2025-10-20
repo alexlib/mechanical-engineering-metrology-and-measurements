@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Mechanical Engineering Metrology and Measurements (MEMM)"
+  author: "Alex Liberzon"
+  date: "10/20/2025"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+
