@@ -1,0 +1,25 @@
+---
+title: Laboratory Notebook
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.18.1
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+
+
+It is strongly recommended to keep a good laboratory notebook for the course. Please consult a couple of sources on the meaning, importance, requirements, tips and tricks of keeping a notebook.
+
+1. [MIT](https://web.mit.edu/me-ugoffice/communication/labnotebooks.pdf)
+2. [Science buddies](https://www.sciencebuddies.org/science-fair-projects/science-fair/laboratory-notebooks-stem)
+3. [University of British Columbia](https://phas.ubc.ca/~phys259/2012-13Term1/pickyTA_ENPH259example.htm)
+4. [Wikipedia](https://phas.ubc.ca/~phys259/2012-13Term1/pickyTA_ENPH259example.htm)
+5. [Marie Sklodowska Curie notebook](https://twitter.com/NobelPrize/status/1589638816310050816/photo/1)
+

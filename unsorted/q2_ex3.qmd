@@ -1,0 +1,91 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .qmd
+      format_name: quarto
+      format_version: '1.0'
+      jupytext_version: 1.18.1
+  kernelspec:
+    display_name: mechanical-engineering-metrology-and-measurements
+    language: python
+    name: python3
+---
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+import numpy as np
+import matplotlib.pyplot as pl
+%matplotlib inline
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+data = np.loadtxt('../data/sizedistribution.dat');
+vals = data[:,1]
+num = data[:,0]
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+pl.plot(num,vals)
+```
+
+Isn't it clear that the plot is not like "random variable" ?
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+pl.hist(vals,21)
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+pl.hist(np.log(vals),21)
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+newvals = np.log(vals)
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+pl.plot(num,newvals)
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+print("Wrong:")
+print ("Average =  %.3f" %np.mean(vals))
+print ("Standard Deviation = %.3f" %np.std(vals))
+
+print ("Correct:")
+print ("Average =  %.3f" % np.exp(np.mean(newvals)))
+print ("Standard Deviation = %.3f" % np.exp(np.std(newvals,ddof=1)))
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+from scipy.stats import lognorm, norm
+param = norm.fit(newvals)
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+x = np.linspace(np.min(newvals),np.max(newvals),100)
+# fitted distribution
+pdf_fitted = norm.pdf(x,loc=param[0],scale=param[1])
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+pl.figure()
+pl.plot(x,pdf_fitted,'r-')
+pl.hist(newvals,density=1,alpha=.3)
+```
+
+```{python}
+#| jupyter: {outputs_hidden: false}
+print(param) # log normal
+print(np.exp(param))
+```

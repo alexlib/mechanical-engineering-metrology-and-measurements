@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Prof.&nbsp;Alex Liberzon">
 
-<title>Mechanical Engineering Metrology and Measurements</title>
+<title>4&nbsp; Statistics – Mechanical Engineering Metrology and Measurements</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,24 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./unsorted/index.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-49c351c5ad7c21f3f57b4ace2cd46c14.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../signal_processing/index.html" rel="next">
+<link href="../theory/index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-49c351c5ad7c21f3f57b4ace2cd46c14.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +70,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Mechanical Engineering Metrology and Measurements</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../statistics/index.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Statistics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -97,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Mechanical Engineering Metrology and Measurements</a> 
+      <a href="../">Mechanical Engineering Metrology and Measurements</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -109,67 +138,67 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Mechanical Engineering Metrology and Measurements</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./unsorted/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../unsorted/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Unsorted</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./theory/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../theory/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Theory</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./statistics/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../statistics/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Statistics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./signal_processing/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../signal_processing/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Signal Processing</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./scripts/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../scripts/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Scripts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./img/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../img/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Img</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./dynamic_signals/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../dynamic_signals/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Dynamic Signals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../data/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Data</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./calibration/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../calibration/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Calibration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./a2d/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../a2d/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">A2D</span></span></a>
   </div>
 </li>
@@ -183,8 +212,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul class="collapse">
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome"><span class="header-section-number">1</span> Welcome</a></li>
-  <li><a href="#preface" id="toc-preface" class="nav-link" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#statistics-introduction-and-learning-goals" id="toc-statistics-introduction-and-learning-goals" class="nav-link active" data-scroll-target="#statistics-introduction-and-learning-goals"><span class="header-section-number">5</span> Statistics — Introduction and Learning Goals</a>
+  <ul class="collapse">
+  <li><a href="#pages-in-this-chapter" id="toc-pages-in-this-chapter" class="nav-link" data-scroll-target="#pages-in-this-chapter"><span class="header-section-number">5.1</span> Pages in this chapter</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -193,19 +224,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Mechanical Engineering Metrology and Measurements</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Statistics</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Prof.&nbsp;Alex Liberzon </p>
-          </div>
-  </div>
     
   
     
@@ -216,30 +241,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Welcome</h1>
-<p>This book collects practical notebooks and concise explanations to teach core concepts in mechanical engineering metrology and measurements. The materials include theory, examples, and runnable Jupyter notebooks intended for undergraduate labs and lectures.</p>
-<p>Start with the Introduction page, then follow the Table of Contents on the left to navigate chapters.</p>
-<p>Quick links:</p>
+<section id="statistics-introduction-and-learning-goals" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Statistics — Introduction and Learning Goals</h1>
+<p>Short summary Hands-on statistics for measurement data: distributions, descriptive stats, hypothesis testing, outliers, and the central limit theorem.</p>
+<p>Learning objectives - Compute and interpret mean, variance, confidence intervals. - Apply t-tests, chi-square tests, and identify outliers. - Relate histograms to probability distributions and sampling variability (CLT).</p>
+<p>Key concepts (brief) - Sampling distributions and the Central Limit Theorem. - When to use t-distribution vs normal approximation. - Robust statistics and practical outlier handling.</p>
+<p>Recommended notebooks to run - basic_statistics.ipynb - distributions.ipynb - t-test.ipynb - Central_limit_theorem_illustration.ipynb - outliers_example.ipynb and outliers_example_pairs.ipynb</p>
+<p>Suggested exercises - Use bootstrap or t-test to compare two small-sample datasets. - Detect and justify removal/retention of outliers in a measurement series.</p>
+<p>Prerequisites Introductory probability and basic Python (NumPy, matplotlib).</p>
+<!-- AUTOGEN_START -->
+<section id="pages-in-this-chapter" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="pages-in-this-chapter"><span class="header-section-number">5.1</span> Pages in this chapter</h2>
 <ul>
-<li><a href="intro.qmd">Introduction</a></li>
-<li><a href="./theory/index.html">Theory</a></li>
-<li><a href="./statistics/index.html">Statistics</a></li>
-<li><a href="./calibration/index.html">Calibration</a></li>
-<li><a href="./a2d/index.html">A/D Conversion</a></li>
-<li><a href="./signal_processing/index.html">Signal Processing</a></li>
-<li><a href="./dynamic_signals/index.html">Dynamic Signals</a></li>
-<li><a href="./unsorted/index.html">Miscellaneous</a></li>
+<li><a href="Central_limit_theorem_illustration.qmd">Plot the distribution of X_n and the Gaussian fit for comparison</a> — bins = np.linspace(-5, 15, 100);</li>
+<li><a href="Exploring+different+distribution.qmd">```{python}</a> — #| jupyter: {outputs_hidden: false} %matplotlib inline import numpy as np import matplotlib import matplotlib.pyplot as plt import scipy.stats {python} #| jupyter: {outputs_hidden…</li>
+<li><a href="Lecture_5.qmd">let’s create some data</a> — x = np.array(12.1,12.3,12.2,12.2,12.4,12.3,12.2,12.4,12.2,12.5) `</li>
+<li><a href="basic_statistics.qmd"><strong>Engineering Testing and Measurements</strong></a> — Review of <em>basic statistics</em> 1. Population – the entire collection of measurements, not all of which will be analyzed statistically. Some variable $ x$, anything that is measurab…</li>
+<li><a href="chi_square_test_example.qmd">We prepare histogram with the <span class="math inline">\(\Delta P = 0.05\)</span> kPa</a> — bins = arange(9.65,10.55,0.05) n,bins = histogram(y,bins=bins) # # normalization: z = n/(np.sum(n)*0.05)</li>
+<li><a href="distributions.qmd">Mickey Atwal, Cold Spring Harbor Laboratory</a> — — Here we will visualize, in Python, a few important distributions that commonly appear in science and statistics. A more exhaustive list of statistical distributions can be fou…</li>
+<li><a href="estimate_mean_variance_median_using_pdf.qmd">approximate using the numerical integration</a> — print(trapz(y<em>x,x)) print(2.</em>b/3) `</li>
+<li><a href="getting_started.qmd">Simulate data</a> — # (a) Accurate &amp; Precise data_a = np.random.normal(loc=10, scale=0.3, size=25) # (b) Accurate, Not Precise data_b = np.random.normal(loc=10, scale=1.0, size=25) # (c) Precise, Not…</li>
+<li><a href="histogram_to_distribution.qmd">make it yourself</a> — pos = h1:-1+diff(h1)/2. frequency = h0 bar(pos,frequency,width=1.4) `</li>
+<li><a href="intro.qmd">Statistics — Introduction and Learning Goals</a> — Short summary Hands-on statistics for measurement data: distributions, descriptive stats, hypothesis testing, outliers, and the central limit theorem.</li>
+<li><a href="outliers_example-2.qmd">Sort x</a> — x = np.sort(x) print(x) `</li>
+<li><a href="outliers_example.qmd">new data is one point less</a> — xnew = x:-1.copy() meanx = mean(xnew) stdx = std(xnew,ddof=1) print (‘x:’, xnew) print (‘mean = %6.2f, std = %6.2f’ % (meanx,stdx))</li>
+<li><a href="outliers_example_pairs.qmd">best fit seems to be linear</a> — p = polyfit(x,y,1) Y = polyval(p,x) plot(x,Y,‘–’) text(10,5,‘Y = %4.3f x + %4.3f’ % (p0,p1)) `</li>
+<li><a href="outliers_example_two.qmd">```{python}</a> — #| jupyter: {outputs_hidden: false} import numpy as np import matplotlib.pyplot as pl %matplotlib inline import matplotlib as mpl mpl.rcParams’lines.linewidth’=2 mpl.rcParams’line…</li>
+<li><a href="t-distribution.qmd">Author: Jake VanderPlas</a> — # License: BSD # The figure produced by this code is published in the textbook # “Statistics, Data Mining, and Machine Learning in Astronomy” (2013) # For more information, see ht…</li>
+<li><a href="t-test.qmd">From https://www.statisticshowto.com/probability-and-statistics/t-test/</a></li>
 </ul>
-<p>If you prefer to read the book locally, run:</p>
-<pre><code>quarto render .</code></pre>
+<!-- AUTOGEN_END -->
+
+
 </section>
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
-
-
 </section>
 
 </main> <!-- /main -->
@@ -644,10 +678,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../theory/index.html" class="pagination-link" aria-label="Theory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Theory</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./unsorted/index.html" class="pagination-link" aria-label="Unsorted">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Unsorted</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../signal_processing/index.html" class="pagination-link" aria-label="Signal Processing">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Signal Processing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
