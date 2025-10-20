@@ -1,0 +1,1151 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Introduction to uncertainty analysis &#8212; Introduction to Measurements for Mechanical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory/surface_roughness_budget';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introduction to Measurements for Mechanical Engineers - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introduction to Measurements for Mechanical Engineers - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Mechanical Engineering Metrology and Measurements (MEMM)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Theory — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">Statistics — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a2d/intro.html">Analog-to-Digital (A2D) — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/intro.html">Signal Processing — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/intro.html">Dynamic Signals — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration/intro.html">Calibration — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsorted/intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/intro.html">Archive — Notes and Historical Material</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course/issues/new?title=Issue%20on%20page%20%2Ftheory/surface_roughness_budget.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/theory/surface_roughness_budget.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to uncertainty analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-uncertainty-analysis">
+<h1>Introduction to uncertainty analysis<a class="headerlink" href="#introduction-to-uncertainty-analysis" title="Link to this heading">#</a></h1>
+<p>From the great lecture on Fluke website <a class="reference external" href="https://www.fluke.com/en-us/learn/blog/electrical-calibration/introduction-iso-guide-expression-uncertainty-measurement-gum">fluke lecture on uncertainty</a></p>
+<ul class="simple">
+<li><p>True value is uknown and unpredictable - nature</p></li>
+<li><p>error is a measured quantity value minus a reference quantity value</p></li>
+<li><p>error is a physical reality, a difference between measured and true values</p></li>
+<li><p>error is not the same as <em>uncertainty</em>, error causes uncertainty</p></li>
+<li><p>not to be confused with production error or mistake</p></li>
+</ul>
+<p>Uncertainty is a number that characterizes the dispersion of values attributed to a measurand, based on the information in hand (including theory, our assumptions and our measurements)</p>
+<p>this is an interval about the measured value that we are reasonably confindent that the true value lies within. How confident? typically we would like to be confident 95%
+Our main goal is to estimate the uncertainty as correctly as possible. Only after that we might want to reduce it.</p>
+<p>quality of measurement is expressed as a comparison of the measurement uncertainty to the measured value (e.g. 1 mm uncertainty in respect 1 meter or to 1 micrometer)</p>
+<p>if uncertainty is unknown how can we judget the quality of anything? or our manufacturing? of our product? of our theory?</p>
+<p>the objective of a measurement is ALWAYS: to determine the value of the measurand, so it begins with : define a measurand,</p>
+<ul class="simple">
+<li><p>the definition has to be completed by defining the accuracy required</p></li>
+</ul>
+<p>the result of the measurement is only an estimate of the value of the measurand and is only complete when it is
+accompanied by the statement of uncertainty of that estimate.</p>
+<p>The first step in determining the uncertainty is to understand the theory, i.e. the relationship between the measurand and
+all the input quantities:</p>
+<div class="math notranslate nohighlight">
+\[ \Omega = (\Omega_R + \delta \Omega_R) \times \frac{\Omega_M}{\Omega_R}
+ + \delta \Omega_A + \delta \Omega_{random} \]</div>
+<p>Then we need to evaluate the standard uncertainty of each input quantity</p>
+<p>Standard uncertainty is defined as an uncertainty of the result of measurement expressed as standard deviation</p>
+<p>Type A - evaluated by the statistical analysis of a series of observations. - can contain operator variance, repeatibility, reproducibility, environmental conditons</p>
+<p>Type B - evaluated by other means that statistical analysis: uncertainty due to standards, resolution, data acquisition, bias corrections (thermal expansion has its own uncertainty)</p>
+<p>For <span class="math notranslate nohighlight">\(n\)</span> measurements: <span class="math notranslate nohighlight">\((x_1, x_2, x_3, ..., x_n)\)</span>
+calculate the mean: $<span class="math notranslate nohighlight">\(\bar{x} = 1/n \sum_{i=1}^{n} x_i\)</span><span class="math notranslate nohighlight">\(
+calculate the experimental standard deviation: \)</span><span class="math notranslate nohighlight">\(S(x_i) = \sqrt{\sum_{i=1}{n} \frac{(x_i - x_n)^2}{n-1}}\)</span><span class="math notranslate nohighlight">\(
+calculate experimental standard deviation of the mean: \)</span><span class="math notranslate nohighlight">\(S(\bar{x}) = \frac{S(x_i)}{\sqrt{n}} = u(x) \)</span>$</p>
+<ol class="arabic simple">
+<li><p>If your measurement is the average of a series of measurements, use standard deviation of the mean</p></li>
+<li><p>If it’s a repeatibility study that will serve as an estimate for many tests, use a standard deviation of the separate tests</p></li>
+<li><p>There are also other ways to estimate type A evaluation, e.g. linear regression</p></li>
+</ol>
+<p>68% is k = 1 under the Gaussian curve, extend it with k = 2</p>
+<p>Type B: from theory, handbooks, etc.</p>
+<ol class="arabic simple">
+<li><p>in normal distributions we used k = 1, 2, 3 to explain coverage factor</p></li>
+<li><p>in other distributions, we need to find out one sigma - standard deviation of it to make it similar to type A</p></li>
+<li><p>for each distribution we need to know how to divide from 100% confidence to 1 std: uniform distribution (digital resolution, or we have no information or little information, most conservative)
+the probabiliy under a rectangle is 100%, outside is zero, divide by <span class="math notranslate nohighlight">\(\sqrt{3}\)</span>, if manufacturer does not specify information about coverage factors, use rectanglar for worst case</p></li>
+<li><p>U-shaped (derivative of a sine function), e.g. temperature, microwave measurements, by <span class="math notranslate nohighlight">\(\sqrt{2}\)</span></p></li>
+</ol>
+<p>sensitivity coefficients:</p>
+<ol class="arabic simple">
+<li><p>start with defining the relation of measurand to the input variables. e.g. direct relation is when we calibrate a meter with voltage source: $<span class="math notranslate nohighlight">\( V_{disp} = V_{source}\)</span>, i.e. sensitivity coefficient is 1.</p></li>
+<li><p>measure power: $<span class="math notranslate nohighlight">\(P = i^2 R\)</span><span class="math notranslate nohighlight">\(, \)</span><span class="math notranslate nohighlight">\(\partial P/\partial i = 2 i R\)</span><span class="math notranslate nohighlight">\(, so the sensitivity coefficient is \)</span>2iR$</p></li>
+<li><p>how do we use sensitivity coefficients? $<span class="math notranslate nohighlight">\(u(P_i) = \partial P/\partial i \, u(i)\)</span>$</p></li>
+</ol>
+<p>We made few steps out of 8 steps:</p>
+<ol class="arabic simple">
+<li><p>defined measurand in terms of the equation, identified input variables and defined what uncertainty we want to achieve</p></li>
+<li><p>identified error components or uncertainty components due to those errors</p></li>
+<li><p>evaluated components by type A or B</p></li>
+<li><p>identified their distributions</p></li>
+<li><p>converted them to a standard deviation of the mean value or of the component</p></li>
+<li><p>Now we need to combine those to a single value of our measurand uncertainty</p></li>
+</ol>
+<p>Correlations: if quantities are unrelated they are presumably uncorrelated, if we use 10 resistors of the same value, calibrated from the same source, they might be correlated</p>
+<ol class="arabic simple">
+<li><p>if uncertainties are uncorrelated use root of squared sums $<span class="math notranslate nohighlight">\(u_c = \sqrt{u_x^2 + u_y^2 + u_z^2}\)</span>$</p></li>
+<li><p>if they are 100% correlated, then use the worst case: $<span class="math notranslate nohighlight">\(u_c  = u_x + u_y + u_z\)</span>$</p></li>
+<li><p>or use combinations: $<span class="math notranslate nohighlight">\(u_c = \sqrt{u_x^2 + (u_y + u_z)^2}\)</span>$</p></li>
+<li><p>now we have combined standard uncertainty - this represents one standard deviation of a normal distribution.</p></li>
+<li><p>note we use here a central limit theorem that different distributions all convolve to a normal distribution</p></li>
+<li><p>increase the confidence interval by coverage factor of k = 2 to get approximately 95%</p></li>
+<li><p>Often one soure of uncertainty, e.g. number of repeated measurements has low degrees of freedom and dominates the uncertainty estimate (not enough freedom to play random as expected)</p></li>
+<li><p>In this case we need to use Welch-Satterhwaite formula to determine effective degrees of freedom and use Student’s t-table</p></li>
+</ol>
+<p>GUM 8-step process paraphrased</p>
+<ol class="arabic simple">
+<li><p>Describe measured value of your measurement process</p></li>
+<li><p>List the input quantities</p></li>
+<li><p>Determine the uncertainty for each input quantity</p></li>
+<li><p>Evaluate any covariances/correlations in input quantities</p></li>
+<li><p>Calculate the measured value to report</p></li>
+<li><p>Correctly combine the uncertainty components</p></li>
+<li><p>Multiply the combined uncertainty by the coverage factor</p></li>
+<li><p>Report the result in the proper format</p></li>
+</ol>
+<p>Typical sources of uncertainty (not an inclusive list)</p>
+<ol class="arabic simple">
+<li><p>Definition of consider: if the component is not in your uncertainty budget there should be documentation as to why it was not considered to be signficant - no way to forget</p></li>
+<li><p>calibration uncertainty - always there, either you do calibration or use manufacturer’s calibration</p></li>
+<li><p>instrument long stability - no instrument works the same for a long time, things get rusty</p></li>
+<li><p>Misc. random elements - look around, Murphy is watching</p></li>
+<li><p>Resolution - always there</p></li>
+<li><p>Environment - always there, in multiple forms: temperature, pressure, humidity, dust, table water level, etc.</p></li>
+<li><p>Instrument bias - no instrument is perfect</p></li>
+<li><p>Add more - that is a chance you missed something important that will make the measurement useless at the end</p></li>
+</ol>
+<p>The course and the 8-step provides the framework for assessing uncertainty, but
+** it cannot substitute for critical thinking, intelectual honesty, and professional skill **
+the evaluation of uncertainty is neither a routine task not a purely mathematical one: it depends on detailed knowledge
+of the nature of the measurand (pressure, temperature, wind velocity, surface roughness, stresses) and the measurement process.
+The quality and utility of the uncertainty quoated for a result of measurement therefore ultimately depend on the undertsanding,
+critical analysis, and integrity of those who contribute to the assignment of its value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># JUPYTER NOTEBOOK: Surface Roughness Measurement with GUM-Based Uncertainty Analysis</span>
+<span class="c1"># Author: Alex Liberzon and Perplexity Pro</span>
+<span class="c1"># Course: Metrology for Mechanical Engineering</span>
+<span class="c1"># Purpose: Single notebook implementing surface roughness measurement and full GUM-based uncertainty analysis</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-v0_8&#39;</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>  <span class="c1"># For reproducibility</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;SURFACE ROUGHNESS MEASUREMENT WITH GUM-BASED UNCERTAINTY ANALYSIS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A Comprehensive Example for Mechanical Engineering Students&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c1"># Measurement scenario metadata</span>
+<span class="n">scenario</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Objective&quot;</span><span class="p">:</span> <span class="s2">&quot;Measure average surface roughness (Ra) of a machined steel surface&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Instrument&quot;</span><span class="p">:</span> <span class="s2">&quot;Stylus profilometer (contact method)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Evaluation length (L)&quot;</span><span class="p">:</span> <span class="s2">&quot;4.0 mm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Cutoff wavelength (λc)&quot;</span><span class="p">:</span> <span class="s2">&quot;0.8 mm&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Number of measurements (n)&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;Environment&quot;</span><span class="p">:</span> <span class="s2">&quot;20±2°C, 45±10% RH&quot;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">MEASUREMENT SCENARIO:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">scenario</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>====================================================================================================
+SURFACE ROUGHNESS MEASUREMENT WITH GUM-BASED UNCERTAINTY ANALYSIS
+A Comprehensive Example for Mechanical Engineering Students
+====================================================================================================
+
+MEASUREMENT SCENARIO:
+- Objective: Measure average surface roughness (Ra) of a machined steel surface
+- Instrument: Stylus profilometer (contact method)
+- Evaluation length (L): 4.0 mm
+- Cutoff wavelength (λc): 0.8 mm
+- Number of measurements (n): 10
+- Environment: 20±2°C, 45±10% RH
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Measurement data: 10 repeated Ra measurements (in micrometers, μm)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.58</span><span class="p">,</span> <span class="mf">1.62</span><span class="p">,</span> <span class="mf">1.59</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">,</span> <span class="mf">1.64</span><span class="p">,</span> <span class="mf">1.57</span><span class="p">,</span> <span class="mf">1.60</span><span class="p">,</span> <span class="mf">1.63</span><span class="p">,</span> <span class="mf">1.58</span><span class="p">,</span> <span class="mf">1.61</span><span class="p">])</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+<span class="n">xbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">measurements</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># sample standard deviation</span>
+<span class="n">sem</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1) MEASUREMENT DATA AND BASIC STATISTICS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measurements (μm): </span><span class="si">{</span><span class="n">measurements</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean (x̄): </span><span class="si">{</span><span class="n">xbar</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard deviation (s): </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Standard error of mean (SEM): </span><span class="si">{</span><span class="n">sem</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Range: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> – </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1) MEASUREMENT DATA AND BASIC STATISTICS
+------------------------------------------------------------
+n = 10
+Measurements (μm): [1.58 1.62 1.59 1.61 1.64 1.57 1.6  1.63 1.58 1.61]
+Mean (x̄): 1.6030 μm
+Standard deviation (s): 0.0231 μm
+Standard error of mean (SEM): 0.0073 μm
+Range: 1.57 – 1.64 μm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type A uncertainty: u_A = s / sqrt(n)</span>
+<span class="n">u_A</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">nu_A</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># degrees of freedom for Type A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2) TYPE A UNCERTAINTY (REPEATABILITY)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Formula: u_A = s / √n&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Calculation: u_A = </span><span class="si">{</span><span class="n">s</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> / √</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">u_A</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Degrees of freedom (ν_A) = </span><span class="si">{</span><span class="n">nu_A</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2) TYPE A UNCERTAINTY (REPEATABILITY)
+------------------------------------------------------------
+Formula: u_A = s / √n
+Calculation: u_A = 0.0231 / √10 = 0.00731 μm
+Degrees of freedom (ν_A) = 9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Type B uncertainties: define sources and convert to standard uncertainties</span>
+<span class="c1"># For each source: stated ±value (μm), distribution (normal or rectangular), divisor</span>
+<span class="c1"># Normal distribution with k=2 → standard uncertainty = stated / 2</span>
+<span class="c1"># Rectangular distribution → standard uncertainty = stated / √3</span>
+
+<span class="n">uncertainty_sources</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Instrument calibration&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.025</span><span class="p">,</span> <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;normal&quot;</span><span class="p">,</span> <span class="s2">&quot;divisor&quot;</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">,</span>
+                               <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Calibration certificate (k=2)&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;Stylus tip radius&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.020</span><span class="p">,</span> <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="s2">&quot;divisor&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                          <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Stylus geometry filtering effect&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;Measurement force&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.015</span><span class="p">,</span> <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="s2">&quot;divisor&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                          <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Contact force variation&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;Environmental vibration&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.012</span><span class="p">,</span> <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="s2">&quot;divisor&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                                <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Floor/acoustic disturbances&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;Temperature variation&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.008</span><span class="p">,</span> <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="s2">&quot;divisor&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                              <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Thermal expansion effects&quot;</span><span class="p">},</span>
+    <span class="s2">&quot;Digital filtering&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="mf">0.010</span><span class="p">,</span> <span class="s2">&quot;distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span> <span class="s2">&quot;divisor&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                          <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Algorithmic filtering uncertainty&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">type_b_std</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;3) TYPE B UNCERTAINTY SOURCES&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">uncertainty_sources</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">u_std</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="s2">&quot;divisor&quot;</span><span class="p">]</span>
+    <span class="n">type_b_std</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="n">u_std</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">src</span><span class="si">}</span><span class="s2">: ±</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm | </span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;distribution&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> | Divisor = </span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;divisor&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> → u = </span><span class="si">{</span><span class="n">u_std</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> μm (</span><span class="si">{</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;description&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Combine Type B components (assumed independent)</span>
+<span class="n">u_B_sq</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">type_b_std</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="n">u_B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_B_sq</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Combined Type B uncertainty: u_B = √(Σ u_i²) = </span><span class="si">{</span><span class="n">u_B</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3) TYPE B UNCERTAINTY SOURCES
+------------------------------------------------------------
+Instrument calibration: ±0.025 μm | normal | Divisor = 2.000 → u = 0.01250 μm (Calibration certificate (k=2))
+Stylus tip radius: ±0.020 μm | rectangular | Divisor = 1.732 → u = 0.01155 μm (Stylus geometry filtering effect)
+Measurement force: ±0.015 μm | rectangular | Divisor = 1.732 → u = 0.00866 μm (Contact force variation)
+Environmental vibration: ±0.012 μm | rectangular | Divisor = 1.732 → u = 0.00693 μm (Floor/acoustic disturbances)
+Temperature variation: ±0.008 μm | rectangular | Divisor = 1.732 → u = 0.00462 μm (Thermal expansion effects)
+Digital filtering: ±0.010 μm | rectangular | Divisor = 1.732 → u = 0.00577 μm (Algorithmic filtering uncertainty)
+
+Combined Type B uncertainty: u_B = √(Σ u_i²) = 0.02162 μm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combined standard uncertainty: u_c = √(u_A² + u_B²)</span>
+<span class="n">u_c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_A</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">u_B</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Welch-Satterthwaite degrees of freedom (approximation):</span>
+<span class="c1"># Type B often treated as large ν (&gt;&gt; 30), so ν_eff ≈ dominated by Type A</span>
+<span class="n">nu_eff</span> <span class="o">=</span> <span class="p">(</span><span class="n">u_c</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="p">((</span><span class="n">u_A</span><span class="o">**</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="n">nu_A</span><span class="p">)</span>  <span class="c1"># since u_B treated as large ν</span>
+<span class="n">confidence</span> <span class="o">=</span> <span class="mf">0.95</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">confidence</span>
+
+<span class="c1"># Coverage factor k: for ν_eff &gt;= ~30, k ≈ 2; else use t-distribution</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="k">if</span> <span class="n">nu_eff</span> <span class="o">&gt;=</span> <span class="mi">30</span> <span class="k">else</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="n">nu_eff</span><span class="p">)</span>
+<span class="n">U</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">u_c</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;4) COMBINED STANDARD UNCERTAINTY AND EXPANDED UNCERTAINTY&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Combined standard uncertainty: u_c = √(u_A² + u_B²) = </span><span class="si">{</span><span class="n">u_c</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Effective degrees of freedom (ν_eff) ≈ </span><span class="si">{</span><span class="n">nu_eff</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Coverage factor (k) for </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">confidence</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% confidence: </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expanded uncertainty: U = k × u_c = </span><span class="si">{</span><span class="n">U</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">FINAL RESULT: Ra = </span><span class="si">{</span><span class="n">xbar</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">U</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm (k = </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">confidence</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="si">}</span><span class="s2">% confidence)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relative expanded uncertainty: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">U</span><span class="o">/</span><span class="n">xbar</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4) COMBINED STANDARD UNCERTAINTY AND EXPANDED UNCERTAINTY
+------------------------------------------------------------
+Combined standard uncertainty: u_c = √(u_A² + u_B²) = 0.02282 μm
+Effective degrees of freedom (ν_eff) ≈ 854.29
+Coverage factor (k) for 95% confidence: 2.00
+Expanded uncertainty: U = k × u_c = 0.0456 μm
+
+FINAL RESULT: Ra = 1.603 ± 0.046 μm (k = 2.0, 95% confidence)
+Relative expanded uncertainty: 2.8%
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build full budget table with contributions</span>
+<span class="n">variance_total</span> <span class="o">=</span> <span class="n">u_c</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+    <span class="s2">&quot;Uncertainty Source&quot;</span><span class="p">:</span> <span class="s2">&quot;Repeatability (Type A)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Distribution&quot;</span><span class="p">:</span> <span class="s2">&quot;Normal&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Standard Uncertainty (μm)&quot;</span><span class="p">:</span> <span class="n">u_A</span><span class="p">,</span>
+    <span class="s2">&quot;Contribution (%)&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">u_A</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">variance_total</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="p">})</span>
+
+<span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">type_b_std</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s2">&quot;Uncertainty Source&quot;</span><span class="p">:</span> <span class="n">src</span><span class="p">,</span>
+        <span class="s2">&quot;Type&quot;</span><span class="p">:</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Distribution&quot;</span><span class="p">:</span> <span class="n">uncertainty_sources</span><span class="p">[</span><span class="n">src</span><span class="p">][</span><span class="s2">&quot;distribution&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">title</span><span class="p">(),</span>
+        <span class="s2">&quot;Standard Uncertainty (μm)&quot;</span><span class="p">:</span> <span class="n">u</span><span class="p">,</span>
+        <span class="s2">&quot;Contribution (%)&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">variance_total</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="p">})</span>
+
+<span class="n">budget_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+<span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Standard Uncertainty (μm)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Standard Uncertainty (μm)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Contribution (%)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Contribution (%)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;5) UNCERTAINTY BUDGET TABLE&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">budget_df</span><span class="p">)</span>
+
+<span class="c1"># Save to CSV for reporting</span>
+<span class="n">budget_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;uncertainty_budget.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">summary_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Parameter&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Mean Ra&quot;</span><span class="p">,</span> <span class="s2">&quot;Std deviation&quot;</span><span class="p">,</span> <span class="s2">&quot;Type A&quot;</span><span class="p">,</span> <span class="s2">&quot;Type B&quot;</span><span class="p">,</span> <span class="s2">&quot;Combined (u_c)&quot;</span><span class="p">,</span> <span class="s2">&quot;Coverage k&quot;</span><span class="p">,</span> <span class="s2">&quot;Expanded (U)&quot;</span><span class="p">,</span> <span class="s2">&quot;Relative U %&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;Value&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">xbar</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">u_A</span><span class="p">,</span> <span class="n">u_B</span><span class="p">,</span> <span class="n">u_c</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">U</span><span class="o">/</span><span class="n">xbar</span><span class="p">],</span>
+    <span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;μm&quot;</span><span class="p">,</span> <span class="s2">&quot;μm&quot;</span><span class="p">,</span> <span class="s2">&quot;μm&quot;</span><span class="p">,</span> <span class="s2">&quot;μm&quot;</span><span class="p">,</span> <span class="s2">&quot;μm&quot;</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;μm&quot;</span><span class="p">,</span> <span class="s2">&quot;%&quot;</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">summary_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;surface_roughness_uncertainty_analysis.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Saved:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- uncertainty_budget.csv&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;- surface_roughness_uncertainty_analysis.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5) UNCERTAINTY BUDGET TABLE
+------------------------------------------------------------
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Uncertainty Source</th>
+      <th>Type</th>
+      <th>Distribution</th>
+      <th>Standard Uncertainty (μm)</th>
+      <th>Contribution (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Repeatability (Type A)</td>
+      <td>A</td>
+      <td>Normal</td>
+      <td>0.007311</td>
+      <td>10.3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Instrument calibration</td>
+      <td>B</td>
+      <td>Normal</td>
+      <td>0.012500</td>
+      <td>30.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Stylus tip radius</td>
+      <td>B</td>
+      <td>Rectangular</td>
+      <td>0.011547</td>
+      <td>25.6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Measurement force</td>
+      <td>B</td>
+      <td>Rectangular</td>
+      <td>0.008660</td>
+      <td>14.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Environmental vibration</td>
+      <td>B</td>
+      <td>Rectangular</td>
+      <td>0.006928</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Temperature variation</td>
+      <td>B</td>
+      <td>Rectangular</td>
+      <td>0.004619</td>
+      <td>4.1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Digital filtering</td>
+      <td>B</td>
+      <td>Rectangular</td>
+      <td>0.005774</td>
+      <td>6.4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Saved:
+- uncertainty_budget.csv
+- surface_roughness_uncertainty_analysis.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Horizontal bar chart of contributions</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span> <span class="k">if</span> <span class="n">t</span> <span class="o">==</span> <span class="s2">&quot;A&quot;</span> <span class="k">else</span> <span class="s2">&quot;C1&quot;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Type&quot;</span><span class="p">]]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Uncertainty Source&quot;</span><span class="p">],</span> <span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Contribution (%)&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Contribution to total variance (%)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Uncertainty Budget for Surface Roughness Measurement&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">budget_df</span><span class="p">[</span><span class="s2">&quot;Contribution (%)&quot;</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c63d75c48c3727f1d2ae4be0739b6980e9f70badf73fb5f4d592a98ce39da1a6.png" src="../_images/c63d75c48c3727f1d2ae4be0739b6980e9f70badf73fb5f4d592a98ce39da1a6.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulate a surface profile and compute Ra to illustrate the concepts</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;6) SURFACE PROFILE SIMULATION AND Ra CALCULATION&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Simulation parameters</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">4.0</span>               <span class="c1"># evaluation length (mm)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.001</span>            <span class="c1"># sampling interval (mm) = 1 μm</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># Components (μm-scale amplitudes)</span>
+<span class="n">form</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>          <span class="c1"># low freq form</span>
+<span class="n">waviness</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">rough</span> <span class="o">=</span> <span class="mf">0.8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">rough</span> <span class="o">+=</span> <span class="mf">0.6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="mf">0.05</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>  <span class="c1"># machining periodicity</span>
+
+<span class="n">profile</span> <span class="o">=</span> <span class="n">form</span> <span class="o">+</span> <span class="n">waviness</span> <span class="o">+</span> <span class="n">rough</span>  <span class="c1"># arbitrary μm-scale composite</span>
+
+<span class="c1"># High-pass filtering via moving average subtraction to isolate roughness</span>
+<span class="n">lc</span> <span class="o">=</span> <span class="mf">0.8</span>  <span class="c1"># cutoff wavelength (mm)</span>
+<span class="n">window_pts</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">lc</span> <span class="o">/</span> <span class="n">dx</span><span class="p">)))</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">window_pts</span><span class="p">)</span> <span class="o">/</span> <span class="n">window_pts</span>
+<span class="n">profile_lp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">profile</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+<span class="n">roughness_profile</span> <span class="o">=</span> <span class="n">profile</span> <span class="o">-</span> <span class="n">profile_lp</span>
+<span class="n">roughness_profile</span> <span class="o">-=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">)</span>  <span class="c1"># remove mean line</span>
+
+<span class="c1"># Calculate Ra (arithmetic mean of absolute deviations)</span>
+<span class="c1"># Discrete approximation: Ra ≈ (1/N) * Σ |z_i|</span>
+<span class="n">Ra_sim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">))</span>
+
+<span class="n">Rq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">roughness_profile</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Rt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">)</span>
+<span class="n">skew</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">)</span>
+<span class="n">kurt</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sampling interval: </span><span class="si">{</span><span class="n">dx</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> μm | Points: </span><span class="si">{</span><span class="n">N</span><span class="si">}</span><span class="s2"> | λc: </span><span class="si">{</span><span class="n">lc</span><span class="si">}</span><span class="s2"> mm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulated Ra: </span><span class="si">{</span><span class="n">Ra_sim</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rq: </span><span class="si">{</span><span class="n">Rq</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm | Rt: </span><span class="si">{</span><span class="n">Rt</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm | Skewness: </span><span class="si">{</span><span class="n">skew</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> | Kurtosis: </span><span class="si">{</span><span class="n">kurt</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plots: raw profile, filtered roughness, and histogram</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">profile</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Raw profile&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">profile_lp</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Low-pass (form+waviness)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Raw Surface Profile and Low-Pass Component&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Position x (mm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">roughness_profile</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C3&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtered Roughness Profile (Ra ≈ </span><span class="si">{</span><span class="n">Ra_sim</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Position x (mm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height (μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">roughness_profile</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C2&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Height Distribution of Roughness Profile&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Height (μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6) SURFACE PROFILE SIMULATION AND Ra CALCULATION
+------------------------------------------------------------
+Sampling interval: 1 μm | Points: 4002 | λc: 0.8 mm
+Simulated Ra: 0.367 μm
+Rq: 0.458 μm | Rt: 3.395 μm | Skewness: 0.091 | Kurtosis: -0.108
+</pre></div>
+</div>
+<img alt="../_images/8325cb23204dcaedc3d35ce8740025a516237b1a9c17565477bdacfe4f8289a9.png" src="../_images/8325cb23204dcaedc3d35ce8740025a516237b1a9c17565477bdacfe4f8289a9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sensitivity analysis: illustrate how choices affect uncertainty</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;7) SENSITIVITY ANALYSIS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="c1"># Effect of number of measurements on Type A</span>
+<span class="n">n_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">uA_list</span> <span class="o">=</span> <span class="n">s</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n_i</span><span class="p">,</span> <span class="n">uA_i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">n_list</span><span class="p">,</span> <span class="n">uA_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n = </span><span class="si">{</span><span class="n">n_i</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2"> → u_A = </span><span class="si">{</span><span class="n">uA_i</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+
+<span class="c1"># Effect of calibration uncertainty on expanded uncertainty</span>
+<span class="n">cal_list</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.010</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.030</span><span class="p">,</span> <span class="mf">0.035</span><span class="p">])</span>  <span class="c1"># ± values, μm</span>
+<span class="n">U_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">cal</span> <span class="ow">in</span> <span class="n">cal_list</span><span class="p">:</span>
+    <span class="n">u_cal</span> <span class="o">=</span> <span class="n">cal</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># normal, k=2</span>
+    <span class="n">u_B_temp_sq</span> <span class="o">=</span> <span class="n">u_cal</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">u</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">src</span><span class="p">,</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">type_b_std</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">src</span> <span class="o">!=</span> <span class="s2">&quot;Instrument calibration&quot;</span><span class="p">)</span>
+    <span class="n">u_B_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_B_temp_sq</span><span class="p">)</span>
+    <span class="n">u_c_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">u_A</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">u_B_temp</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">U_temp</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">u_c_temp</span>
+    <span class="n">U_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">U_temp</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Calibration uncertainty vs. expanded uncertainty (all else constant):&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cal</span><span class="p">,</span> <span class="n">Uv</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">cal_list</span><span class="p">,</span> <span class="n">U_list</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;±</span><span class="si">{</span><span class="n">cal</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm → U = </span><span class="si">{</span><span class="n">Uv</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> μm&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot sensitivity results</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_list</span><span class="p">,</span> <span class="n">uA_list</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Effect of Number of Measurements on u_A&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Number of measurements (n)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;u_A (μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cal_list</span><span class="p">,</span> <span class="n">U_list</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;s&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C3&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Effect of Calibration Uncertainty on U&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Calibration uncertainty (± μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Expanded uncertainty U (μm)&quot;</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7) SENSITIVITY ANALYSIS
+------------------------------------------------------------
+n =  3 → u_A = 0.01335 μm
+n =  5 → u_A = 0.01034 μm
+n = 10 → u_A = 0.00731 μm
+n = 15 → u_A = 0.00597 μm
+n = 20 → u_A = 0.00517 μm
+n = 30 → u_A = 0.00422 μm
+
+Calibration uncertainty vs. expanded uncertainty (all else constant):
+±0.010 μm → U = 0.0395 μm
+±0.015 μm → U = 0.0410 μm
+±0.020 μm → U = 0.0431 μm
+±0.025 μm → U = 0.0456 μm
+±0.030 μm → U = 0.0486 μm
+±0.035 μm → U = 0.0518 μm
+</pre></div>
+</div>
+<img alt="../_images/693b8f4f628333b90f405aa0e5a545cba20a1f1c76af71e03deb2fa229e56b3e.png" src="../_images/693b8f4f628333b90f405aa0e5a545cba20a1f1c76af71e03deb2fa229e56b3e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;8) SUMMARY AND KEY LEARNING POINTS&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">60</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final result: Ra = </span><span class="si">{</span><span class="n">xbar</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> ± </span><span class="si">{</span><span class="n">U</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2"> μm (k = </span><span class="si">{</span><span class="n">k</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, 95% confidence)&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Relative expanded uncertainty: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">U</span><span class="o">/</span><span class="n">xbar</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">)</span>
+
+<span class="c1"># Identify top contributors</span>
+<span class="n">top</span> <span class="o">=</span> <span class="n">budget_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;Contribution (%)&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Top contributors to uncertainty:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">top</span><span class="p">[[</span><span class="s2">&quot;Uncertainty Source&quot;</span><span class="p">,</span> <span class="s2">&quot;Contribution (%)&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Key learning points:&quot;</span><span class="p">)</span>
+<span class="n">points</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;GUM provides a systematic framework for uncertainty evaluation.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Type A uncertainty captures random repeatability (u_A = s/√n).&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Type B uncertainty aggregates systematic effects from known sources.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Combine independent components using root-sum-of-squares: u_c = √(u_A² + u_B²).&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Use coverage factor k (e.g., ~2 for 95%) to report expanded uncertainty U = k × u_c.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Focus improvement efforts on the largest contributors in the uncertainty budget.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Surface roughness measurement is sensitive to calibration, stylus geometry, and force control.&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Always report the coverage factor and confidence level along with the result.&quot;</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">points</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8) SUMMARY AND KEY LEARNING POINTS
+------------------------------------------------------------
+Final result: Ra = 1.603 ± 0.046 μm (k = 2.0, 95% confidence)
+Relative expanded uncertainty: 2.8%
+
+Top contributors to uncertainty:
+     Uncertainty Source  Contribution (%)
+ Instrument calibration              30.0
+      Stylus tip radius              25.6
+      Measurement force              14.4
+ Repeatability (Type A)              10.3
+Environmental vibration               9.2
+
+Key learning points:
+- GUM provides a systematic framework for uncertainty evaluation.
+- Type A uncertainty captures random repeatability (u_A = s/√n).
+- Type B uncertainty aggregates systematic effects from known sources.
+- Combine independent components using root-sum-of-squares: u_c = √(u_A² + u_B²).
+- Use coverage factor k (e.g., ~2 for 95%) to report expanded uncertainty U = k × u_c.
+- Focus improvement efforts on the largest contributors in the uncertainty budget.
+- Surface roughness measurement is sensitive to calibration, stylus geometry, and force control.
+- Always report the coverage factor and confidence level along with the result.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./theory"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alex Liberzon
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

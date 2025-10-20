@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Significant digits &#8212; Introduction to Measurements for Mechanical Engineers</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'theory/significant_digits';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Introduction to Measurements for Mechanical Engineers - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Introduction to Measurements for Mechanical Engineers - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Mechanical Engineering Metrology and Measurements (MEMM)
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Theory — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../statistics/intro.html">Statistics — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../a2d/intro.html">Analog-to-Digital (A2D) — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../signal_processing/intro.html">Signal Processing — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dynamic_signals/intro.html">Dynamic Signals — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calibration/intro.html">Calibration — Introduction and Learning Goals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unsorted/intro.html">Unsorted — Guide and How to Use These Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../archive/intro.html">Archive — Notes and Historical Material</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/alexlib/engineering_experiments_measurements_course/issues/new?title=Issue%20on%20page%20%2Ftheory/significant_digits.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/theory/significant_digits.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Significant digits</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-one-extra-digit-in-intermediate-answers">Keep One Extra Digit in Intermediate Answers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example">An example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="significant-digits">
+<h1>Significant digits<a class="headerlink" href="#significant-digits" title="Link to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Engineering measurements are generally accurate to at most only a
+few digits – three digits of accuracy is considered ‘’standard’’
+for engineering analysis</p></li>
+<li><p>The number of significant digits is defined as the number of
+<strong>relevant or useful digits</strong> in a measurement.</p></li>
+<li><p>The number of significant digits is meaningful: 0.9, 0.90, 0.900 are
+all different</p></li>
+<li><p>The <strong>best way</strong> is the standard exponential (scientific) notation
+(count the number of digits), <span class="math notranslate nohighlight">\(1.23\times 10^{4}\)</span></p></li>
+</ul>
+<p>Why it is important for measurements</p>
+<p><img alt="image" src="../_images/scale_at_53.png" /></p>
+<p>The rightmost zero after the decimal point counts, 53.0 means we know more than just 53, we could also find 53.1 or 52.9.</p>
+<p>if the rightmost zero is before the decimal point, e.g. in integeres 53200, we have difficulty to distinguish what is meaningfull so we better use scientific notation <span class="math notranslate nohighlight">\(5.32 \times 10^4\)</span></p>
+<p>The value is about 53, we can say even it’s 53.2 - by adding .2 we mean
+it’s a meaningful digit, i.e. we can measure things using this tool to
+the level of one digit after a decimal point, i.e.
+<span class="math notranslate nohighlight">\(5.32 \times 10^{1}=0.532 \times 10^{2}\)</span></p>
+<p>– So if the measure will be precisely on 53, we’ll still write 53.0
+– that’s the important difference, it’s not an integer value 53 and not
+<span class="math notranslate nohighlight">\(0.53 \times 10^{2}\)</span> , but <span class="math notranslate nohighlight">\(0.530 \times 10^{2}\)</span> - three significant digits</p>
+<section id="rules">
+<h2>Rules<a class="headerlink" href="#rules" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Non-zero digits are always significant. Thus, 2.2 has two significant digits, and 22.3 has three significant digits.</p></li>
+<li><p>Zeroes:</p>
+<ol class="arabic simple">
+<li><p>Zeroes placed <strong>before</strong> other digits are <strong>not</strong> significant;
+0.046 has <strong>two</strong> significant digits.</p></li>
+<li><p>Zeroes placed <strong>between</strong> <strong>other digits</strong> are always
+significant; 4009 kg has <strong>four</strong> significant digits.</p></li>
+<li><p>Zeroes placed after other digits but <strong>behind a decimal point</strong>
+are significant; 7.90 has <strong>three</strong> significant digits.</p></li>
+<li><p>Zeroes <strong>at the end of a number</strong>: USE scientific notation to be
+clear:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(8.200\times10^{3}\)</span> has four significant digits</p></li>
+<li><p><span class="math notranslate nohighlight">\(8.20\times10^{3}\)</span> has three significant digits</p></li>
+<li><p><span class="math notranslate nohighlight">\(8.2\times10^{3}\)</span> has two significant digits</p></li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p>Calculations</p>
+<p>In a calculation involving <strong>multiplication</strong>, <strong>division</strong>,
+<strong>trigonometric</strong> functions, etc., the number of significant digits in
+an answer should equal <strong>the least number of significant digits</strong> in any
+<strong>one of the numbers</strong> being multiplied, divided etc.</p>
+<ul class="simple">
+<li><p>Thus in evaluating <span class="math notranslate nohighlight">\(\sin(kx)\)</span> where k = 0.097 m<span class="math notranslate nohighlight">\(^{-1}\)</span> (two
+significant digits) and x = 4.73 m (three significant digits), the
+answer should have <strong>two</strong> significant digits.</p></li>
+<li><p><strong>integers</strong> have <span class="math notranslate nohighlight">\(\infty\)</span> significant digits, e.g. a devices uses
+1.2 kW, 2 devices use 2.4 kW.</p></li>
+<li><p>When quantities are being <em>added or subtracted</em>,<strong>[ the number of
+decimal places]{style=”color: blue”}</strong> (not significant digits) in
+the answer should be the same as <strong>the least number of decimal
+places in any of the numbers</strong> being added or subtracted.</p></li>
+</ul>
+</section>
+<section id="keep-one-extra-digit-in-intermediate-answers">
+<h2>Keep One Extra Digit in Intermediate Answers<a class="headerlink" href="#keep-one-extra-digit-in-intermediate-answers" title="Link to this heading">#</a></h2>
+<p>When doing multi-step calculations, [keep at least one more significant
+digit in intermediate results than needed in your final answer]{.alert}.</p>
+<ul class="simple">
+<li><p>For instance, if a final answer requires 2 s.d., then carry at least
+3 s.d. in calculations.</p></li>
+<li><p>If you round-off intermediate answers to only two digits, a result
+the second digit in your final answer might be incorrect. (This
+phenomenon is known as round-off error.)</p></li>
+</ul>
+<p><strong>The Two Greatest Mistakes Regarding Significant
+Digits:</strong></p>
+<ol class="arabic simple">
+<li><p>Writing more digits in an answer (intermediate or final) than justified by the number of digits in the data.</p></li>
+<li><p>Rounding-off, say, to two digits in an intermediate answer, and then writing three digits in the final answer.</p></li>
+</ol>
+</section>
+<section id="an-example">
+<h2>An example<a class="headerlink" href="#an-example" title="Link to this heading">#</a></h2>
+<p>Atmospheric pressure <span class="math notranslate nohighlight">\(P_{atm}=101.3\)</span> kPa</p>
+<p>Gage pressure measured at point 1 is 1,3[5]{.underline}0 Pa</p>
+<p>Gage pressure is defined as <span class="math notranslate nohighlight">\(P_{gage}=P-P_{atm}\)</span></p>
+<p>Calculate and report the absolute pressure at position 1:</p>
+<p><span class="math notranslate nohighlight">\(P_{1}=101.\underline{3}+1.3\underline{5}0=\)</span> (aligned at decimal point)
+= <span class="math notranslate nohighlight">\(102.\underline{6}50\)</span> kPa, i.e. the answer is:</p>
+<p><span class="math notranslate nohighlight">\(P_{1}=102.6\)</span> kPa</p>
+<p>if you use the value for other estimates, e.g. density or temperature,
+use 102.65 kPa</p>
+<p>Operations with signficant digits</p>
+<ul class="simple">
+<li><p>Multiplication, division = first calculate, keep more significant
+digits, then round to the least number of significant digits (there
+is impossible to get “new” information beyond the known):</p></li>
+<li><p>Division example:<br />
+<span class="math notranslate nohighlight">\(\underline{3.0}\times10^{4}/1.15\times10^{4}=2.608695...=\underline{2.6}\)</span></p></li>
+<li><p>Multiplication example:<br />
+<span class="math notranslate nohighlight">\(2.8723\times\underline{1.6}=4.59568=\underline{4.6}\)</span></p></li>
+<li><p>Integers do not matter:<br />
+<span class="math notranslate nohighlight">\(3\times0.5=1.5\)</span><br />
+<span class="math notranslate nohighlight">\(222\times22=4884\)</span></p></li>
+</ul>
+<p>Summation/subtraction</p>
+<p>Summation, subtraction - keep similar order of magnitude (all big ones
+separately from the small ones)</p>
+<p>Work with the decimal point - shift first, then after the operation,
+round:</p>
+<p><span class="math notranslate nohighlight">\(3.76+14.83+2.\underline{1}=20.69 \Rightarrow 20.\underline{7}\)</span></p>
+<p><span class="math notranslate nohighlight">\(4.7832+1.234+2.\underline{02}=8.0372 \Rightarrow 8.\underline{04}\)</span></p>
+<p>Problems are unavoidable when sum very different orders of magnitude:</p>
+<p><span class="math notranslate nohighlight">\(1.2\underline{3}\times 10^{5}+0.5=12\underline{3}000.0+0.5=12\underline{3}000.5 \Rightarrow 12 \underline{3}000=1.23 \times 10^{5}\)</span></p>
+</section>
+<section id="summary-table">
+<h2>Summary table<a class="headerlink" href="#summary-table" title="Link to this heading">#</a></h2>
+<p><img alt="image" src="../_images/significant_digits_table.png" /></p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<p>603 vs 603. vs 6<u>0</u>3 <span class="math notranslate nohighlight">\((\infty,3,2)\)</span></p>
+<p>0.007 =<span class="math notranslate nohighlight">\(7.\times10^{-3}\)</span> (1), 1.005 (4)</p>
+<p>0.01070 = <span class="math notranslate nohighlight">\(1.070\times10^{-2}\)</span> (4)</p>
+<p>2.00/3.0=0.666666<span class="math notranslate nohighlight">\(\ldots\)</span>=0.67 = 6.7 <span class="math notranslate nohighlight">\(\times10^{-1}\)</span> but if you use it
+for other estimates, do not round now (!), 0.66667</p>
+<p>134,2<u>9</u>0, 0.287<u>5</u>, 29.47<u>3</u> -
+round to 3 digits: 134,000 = 1.34 <span class="math notranslate nohighlight">\(\times 10^{5}\)</span>, 0.288 =
+2.88 <span class="math notranslate nohighlight">\(\times10^{-3}\)</span>, 29.5</p>
+<p>sum and answer to the proper number of significant digits:</p>
+<p>134,290 + 0.2875 + 29.473 = ?</p>
+<p>Solution, align decimal places: get 134319.7605 and round to the left-most least significant digits () = 134,320 = 1.3432 <span class="math notranslate nohighlight">\(\times 10^{5}\)</span></p>
+<p>multiply the first two and report: 134,290
+<span class="math notranslate nohighlight">\( \times\)</span> 0.2875 = 38608.375 (if its
+intermediate, otherwise 5 digits <span class="math notranslate nohighlight">\( \times \)</span> 4 digits = 4 digits) =
+38610</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./theory"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rules">Rules</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keep-one-extra-digit-in-intermediate-answers">Keep One Extra Digit in Intermediate Answers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example">An example</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-table">Summary table</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Alex Liberzon
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
