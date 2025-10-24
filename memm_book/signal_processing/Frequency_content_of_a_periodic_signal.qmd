@@ -19,6 +19,7 @@ jupyter:
 #| jupyter: {outputs_hidden: false}
 from numpy import *
 from numpy.fft import fft
+import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
 
@@ -28,11 +29,40 @@ mpl.rc('font', size=16)
 mpl.rc('figure',figsize=(12,10))
 mpl.rc('lines', linewidth=1, color='lightblue',linestyle=':',marker='o')
 ```
+```{python}
+#| jupyter: {outputs_hidden: false}
+def create_signal(fs,N):
+    """ create a secret periodic signal with a Gaussian noise"""
+    dt = 1./fs
+    t = np.linspace(0,N*dt,N)
+    y = 3.0+3.0*np.sin(2*np.pi*10*t)+1.2*np.sin(2*np.pi*24*t) # this is a secret function 
+    noise = np.random.normal(0,1,N)
+    y += noise
+    return t, y
+```
+```{python}
+def spectrum(y,Fs):
+    """
+    Plots a Single-Sided Amplitude Spectrum of a sampled
+    signal y(t), sampling frequency Fs (lenght of a signal 
+    provides the number of samples recorded)
+    
+    Following: http://goo.gl/wRoUn
+    """
+    n = len(y) # length of the signal
+    k = np.arange(n)
+    T = n/Fs
+    frq = k/T # two sides frequency range
+    frq = frq[range(int(n/2))] # one side frequency range
+    Y = 2*fft(y)/n # fft computing and normalization
+    Y = Y[range(int(n/2))]
+    return (frq, Y)
+```
 
 ```{python}
 import sys
 sys.path.append('../scripts')
-from signal_processing import create_signal, spectrum
+from signal_processing import create_signal
 ```
 
 ```{python}
@@ -148,7 +178,7 @@ plot_signal_with_fft(t,y,fs,N)
 
 ```{python}
 #| jupyter: {outputs_hidden: false}
-from scipy.signal import hann  # Hanning window
+from scipy.signal.windows import hann  # Hanning window
 ```
 
 ```{python}
