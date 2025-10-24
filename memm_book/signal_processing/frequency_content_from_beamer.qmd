@@ -1,0 +1,355 @@
+---
+title: "Spectrum analysis"
+subtitle: "Mechanical Engineering Metrology and Measurements"
+author: "Tel Aviv University"
+format: html
+editor: visual
+---
+
+## Introduction
+
+*   If the frequency content of a signal is known or at least approximately known, it is easy to choose the sampling frequency - slightly larger than the maximum expected frequency of the signal, using the Nyquist criterion.
+*   We learn the way to deal with the signal with an unknown frequency content (typical of laboratory measurements) - **how can we avoid aliasing errors?**
+
+## Option 1: low-pass filter
+
+The best way to eliminate aliasing errors entirely is to **filter the signal before taking the digital data**. A low-pass filter is often called an **anti-aliasing filter**:
+
+*   An ideal low-pass filter abruptly cuts off the high frequency content of the signal – all content of the signal at frequencies greater than the cutoff frequency is removed.
+*   Ideally then, the **cutoff frequency** of the ideal low-pass filter is set to **one-half of the sampling frequency** to avoid aliasing (following the Nyquist criterion).
+*   Real-life data acquisition systems employ a cutoff frequency **several times smaller than the sampling frequency** to ensure proper anti-aliasing.
+
+## Option 2: sample at different fₛ
+
+Without a low-pass anti-aliasing filter, analyze the frequency content of the signal by **sampling** at several different sampling frequencies (fₛ), and **comparing** the corresponding frequency spectra:
+
+*   If we sample at two different sampling frequencies, and the peaks in the frequency spectra appear at different frequencies, we can be sure that aliasing errors are occurring.
+*   In this case, the sampling frequency must be continually increased until the peaks in the spectra do not change, and the aliased peaks can be consistently explained.
+
+## Example
+
+How to correctly find the frequency content of a signal, a voltage signal with more than one frequency component, along with some random noise, is measured using digital data acquisition.
+
+*   We do not know the frequency content of the signal, but we expect a frequency component around 15 Hz.
+*   We **sample at more than one frequency**, as discussed above, to illustrate the technique.
+*   In general, we start with a sampling frequency greater than **twice the maximum expected frequency of the signal**, in order to avoid potential aliasing problems.
+
+### Case 1: Sampling at fₛ = 30 Hz
+
+The first case is sampled at **fₛ = 30 Hz** with **N = 256** data points. The time trace and frequency spectrum are shown below.
+
+```{python}
+#| label: fig-case1
+#| fig-cap: "Time domain signal and frequency spectrum for fₛ = 30 Hz."
+#| warning: false
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.fft import fft
+
+# --- Define Signal Parameters ---
+# These are the "true" properties of our hidden signal
+f1 = 10.0   # 10 Hz component
+f2 = 35.7   # 35.7 Hz component (this will be aliased)
+amp1 = 1.0
+amp2 = 1.5
+noise_level = 1.5
+
+# --- Simulation Parameters for Case 1 ---
+fs_1 = 30  # Sampling frequency in Hz
+N_1 = 256  # Number of data points
+T_1 = N_1 / fs_1 # Total time period
+t_1 = np.linspace(0.0, T_1, N_1, endpoint=False) # Time vector
+
+# --- Generate the Signal ---
+# This is the underlying analog signal we are measuring
+# We add two sine waves and some random noise
+y_1 = (amp1 * np.sin(2 * np.pi * f1 * t_1) +
+       amp2 * np.sin(2 * np.pi * f2 * t_1) +
+       noise_level * np.random.randn(N_1))
+
+# --- Perform Fast Fourier Transform (FFT) ---
+# Calculate the FFT of the signal
+yf_1 = fft(y_1)
+# Create the frequency axis for the plot. It goes up to the Nyquist frequency (fs/2).
+xf_1 = np.linspace(0.0, 1.0/(2.0 * (1/fs_1)), N_1//2)
+# Get the magnitude of the FFT. We normalize by N for the correct amplitude.
+y_magnitude_1 = 2.0/N_1 * np.abs(yf_1[0:N_1//2])
+
+
+# --- Plotting ---
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+
+# Plot 1: Time Domain Signal
+axs[0].plot(t_1, y_1, 'b.', markersize=4, linestyle=':', linewidth=0.5, alpha=0.7)
+# Highlight first and last points like in the presentation
+axs[0].plot(t_1, y_1, 'r.', markersize=8)
+axs[0].plot(t_1[-1], y_1[-1], 'r.', markersize=8)
+axs[0].set_title('Time Domain Signal (fₛ = 30 Hz)')
+axs[0].set_xlabel('t [s]')
+axs[0].set_ylabel('Y [V]')
+axs[0].set_xlim(-0.5, T_1 + 0.5)
+axs[0].grid(True)
+
+# Plot 2: Frequency Spectrum
+axs[1].plot(xf_1, y_magnitude_1, 'r.:', label=f'N = {N_1}, fₛ = {fs_1} Hz')
+axs[1].set_title('Frequency Spectrum')
+axs[1].set_xlabel('f (Hz)')
+axs[1].set_ylabel('|Y(f)|')
+axs[1].set_xlim(0, fs_1/2) # Show frequencies up to Nyquist
+axs[1].grid(True)
+axs[1].legend()
+
+plt.tight_layout()
+plt.show()
+
+```
+
+#### Analysis of the first case (fₛ = 30 Hz)
+
+*   There appears to be a strong 10 Hz component of this signal, along with an even stronger component at around 5.7 Hz.
+*   The rest of the frequency spectrum shows random noise.
+*   Can this spectrum be trusted? In other words, is there possibly some aliasing error? One quick way to tell is to sample at a higher frequency.
+
+### Case 2: Sampling at fₛ = 66 Hz
+
+Now, we sample the same signal at a higher frequency of **fₛ = 66 Hz**, keeping N = 256.
+
+```{python}
+#| label: fig-case2
+#| fig-cap: "Time domain signal and frequency spectrum for fₛ = 66 Hz."
+#| warning: false
+
+# --- Simulation Parameters for Case 2 ---
+fs_2 = 66  # New sampling frequency in Hz
+N_2 = 256  # Number of data points
+T_2 = N_2 / fs_2 # Total time period
+t_2 = np.linspace(0.0, T_2, N_2, endpoint=False) # Time vector
+
+# --- Generate the Signal (using the same underlying function) ---
+y_2 = (amp1 * np.sin(2 * np.pi * f1 * t_2) +
+       amp2 * np.sin(2 * np.pi * f2 * t_2) +
+       noise_level * np.random.randn(N_2))
+
+# --- Perform Fast Fourier Transform (FFT) ---
+yf_2 = fft(y_2)
+xf_2 = np.linspace(0.0, 1.0/(2.0 * (1/fs_2)), N_2//2)
+y_magnitude_2 = 2.0/N_2 * np.abs(yf_2[0:N_2//2])
+
+# --- Plotting ---
+fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+
+# Plot 1: Time Domain Signal
+axs[0].plot(t_2, y_2, 'b.', markersize=4, linestyle=':', linewidth=0.5, alpha=0.7)
+axs[0].plot(t_2, y_2, 'r.', markersize=8)
+axs[0].plot(t_2[-1], y_2[-1], 'r.', markersize=8)
+axs[0].set_title('Time Domain Signal (fₛ = 66 Hz)')
+axs[0].set_xlabel('t [s]')
+axs[0].set_ylabel('Y [V]')
+axs[0].set_xlim(-0.1, T_2 + 0.1)
+axs[0].grid(True)
+
+# Plot 2: Frequency Spectrum
+axs[1].plot(xf_2, y_magnitude_2, 'r.:', label=f'N = {N_2}, fₛ = {fs_2} Hz')
+axs[1].set_title('Frequency Spectrum')
+axs[1].set_xlabel('f (Hz)')
+axs[1].set_ylabel('|Y(f)|')
+axs[1].set_xlim(0, fs_2/2)
+axs[1].grid(True)
+axs[1].legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+#### Analysis of the second case (fₛ = 66 Hz)
+
+*   The peak at 10 Hz is present, but the peak at 5.7 Hz moved to 30.3 Hz. This strongly suggests **aliasing**.
+*   Let's examine for consistency. If the peak at 30.3 Hz were real, the Nyquist criterion (fₛ > 2 * f_max) would be satisfied since 66 > 2 * 30.3 = 60.6.
+*   However, if the real frequency were 30.3 Hz, when sampling at fₛ = 30 Hz (our first case), we would predict an aliased frequency of `|30.3 - 30.0| = 0.3 Hz`.
+*   This is not consistent with the observed frequency of 5.7 Hz in the first case.
+*   Therefore, the sampling rate of 66 Hz is still **not high enough** to avoid aliasing. We must increase the sampling frequency again.
+
+### Case 3: Sampling at fₛ = 100 Hz
+
+We must sample at an even higher frequency. Let's choose **fₛ = 100 Hz**, which is not an integer multiple of the previous frequencies.
+
+```{python}
+#| label: fig-case3
+#| fig-cap: "Time domain signal and frequency spectrum for fₛ = 100 Hz."
+#| warning: false
+
+# --- Simulation Parameters for Case 3 ---
+fs_3 = 100  # New sampling frequency in Hz
+N_3 = 256   # Number of data points
+T_3 = N_3 / fs_3 # Total time period
+t_3 = np.linspace(0.0, T_3, N_3, endpoint=False) # Time vector
+
+# --- Generate the Signal (using the same underlying function) ---
+y_3 = (amp1 * np.sin(2 * np.pi * f1 * t_3) +
+       amp2 * np.sin(2 * np.pi * f2 * t_3) +
+       noise_level * np.random.randn(N_3))
+
+# --- Perform Fast Fourier Transform (FFT) ---
+yf_3 = fft(y_3)
+xf_3 = np.linspace(0.0, 1.0/(2.0 * (1/fs_3)), N_3//2)
+y_magnitude_3 = 2.0/N_3 * np.abs(yf_3[0:N_3//2])
+
+# --- Plotting ---
+fig, axs = plt.subplots(2, 1, figsize=(10, 8))
+
+# Plot 1: Time Domain Signal
+axs[0].plot(t_3, y_3, 'b.', markersize=4, linestyle=':', linewidth=0.5, alpha=0.7)
+axs[0].plot(t_3, y_3, 'r.', markersize=8)
+axs[0].plot(t_3[-1], y_3[-1], 'r.', markersize=8)
+axs[0].set_title('Time Domain Signal (fₛ = 100 Hz)')
+axs[0].set_xlabel('t [s]')
+axs[0].set_ylabel('Y [V]')
+axs[0].grid(True)
+
+# Plot 2: Frequency Spectrum
+axs[1].plot(xf_3, y_magnitude_3, 'r.:', label=f'N = {N_3}, fₛ = {fs_3} Hz')
+axs[1].set_title('Frequency Spectrum')
+axs[1].set_xlabel('f (Hz)')
+axs[1].set_ylabel('|Y(f)|')
+axs[1].set_xlim(0, fs_3/2)
+axs[1].grid(True)
+axs[1].legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+#### Analysis of the third case (fₛ = 100 Hz)
+
+*   The peak at 10 Hz remains, making us more confident that it is a real frequency component.
+*   The second peak moved again, this time to about **35.7 Hz**.
+*   This means the previous peaks at 5.7 Hz and 30.3 Hz were indeed **aliased**.
+*   Let's check for consistency. If the true frequency is 35.7 Hz:
+    *   When sampling at fₛ = 66 Hz, the aliased frequency is f_alias = |f_true - fₛ| = |35.7 - 66| = **30.3 Hz**. This is consistent with Case 2.
+    *   When sampling at fₛ = 30 Hz, the aliased frequency is f_alias = |f_true - fₛ| = |35.7 - 30| = **5.7 Hz**. This is consistent with Case 1.
+*   Since everything is now consistent, we can conclude that the sampling rate of **100 Hz is high enough**.
+
+The bottom line -- the signal contains:
+
+1.  A component at 10 Hz.
+2.  A component at 35.7 Hz.
+
+## Why not to start at a very high frequency?
+
+Why didn't we just sample at a very high frequency, like 500 Hz, from the beginning? Let's analyze this case, keeping N=256.
+
+```{python}
+#| label: fig-case4
+#| fig-cap: "Frequency spectrum for a high sampling rate, fₛ = 500 Hz."
+#| warning: false
+
+# --- Simulation Parameters for Case 4 ---
+fs_4 = 500  # High sampling frequency in Hz
+N_4 = 256   # Number of data points
+T_4 = N_4 / fs_4 # Total time period
+t_4 = np.linspace(0.0, T_4, N_4, endpoint=False) # Time vector
+
+# --- Generate the Signal ---
+y_4 = (amp1 * np.sin(2 * np.pi * f1 * t_4) +
+       amp2 * np.sin(2 * np.pi * f2 * t_4) +
+       noise_level * np.random.randn(N_4))
+
+# --- Perform FFT ---
+yf_4 = fft(y_4)
+xf_4 = np.linspace(0.0, 1.0/(2.0 * (1/fs_4)), N_4//2)
+y_magnitude_4 = 2.0/N_4 * np.abs(yf_4[0:N_4//2])
+
+# --- Plotting ---
+plt.figure(figsize=(10, 5))
+plt.plot(xf_4, y_magnitude_4, 'r.:', label=f'N = {N_4}, fₛ = {fs_4} Hz')
+plt.title('Frequency Spectrum (fₛ = 500 Hz)')
+plt.xlabel('f (Hz)')
+plt.ylabel('|Y(f)|')
+plt.xlim(0, fs_4/2)
+plt.grid(True)
+plt.legend()
+plt.show()
+
+```
+
+### Analysis of High Sampling Frequency
+
+If this were the first spectrum we created, there would be several problems:
+
+*   The **frequency resolution has been reduced significantly**. The frequency resolution, Δf, is the spacing between points in the FFT plot, calculated as `Δf = fₛ / N`.
+    *   For fₛ = 100 Hz: Δf = 100 / 256 = **0.391 Hz**.
+    *   For fₛ = 500 Hz: Δf = 500 / 256 = **1.953 Hz**.
+*   Because of this poor resolution, the peaks in the spectrum appear at 9.76 Hz and 35.2 Hz instead of 10.0 Hz and 35.7 Hz. We lose precision.
+*   Data sampled at frequencies much greater than twice the highest frequency component (35.7 Hz) are "wasted", as they only serve to decrease the frequency resolution without adding new information about the signal.
+
+## The Best Solution: Anti-aliasing filter
+
+One way to remove the high frequency noise and definitively avoid aliasing is to **low-pass filter** the signal. We use a cutoff frequency somewhat above the maximum frequency of interest (35.7 Hz).
+
+To illustrate, the signal is filtered with an eighth-order low-pass Butterworth filter with a cutoff frequency of 50 Hz. Data are then sampled at **fₛ = 150 Hz** with N = 256.
+
+```{python}
+#| label: fig-case5
+#| fig-cap: "Frequency spectrum of a signal after applying a low-pass anti-aliasing filter."
+#| warning: false
+from scipy import signal
+
+# --- Filter and Simulation Parameters ---
+fs_5 = 150 # Sampling Freq (must be > 2*cutoff)
+N_5 = 256
+cutoff_freq = 50 # Cutoff frequency of the filter
+filter_order = 8
+
+# We need a longer time series to apply the filter correctly without edge effects
+# So we generate more points and then select N_5 from the middle
+N_long = 2048
+T_long = N_long / fs_5
+t_long = np.linspace(0.0, T_long, N_long, endpoint=False)
+
+# --- Generate the "analog" signal with high-frequency noise ---
+# For this example, let's add noise across the entire spectrum
+noise_long = np.random.randn(N_long) * noise_level
+y_analog = (amp1 * np.sin(2 * np.pi * f1 * t_long) +
+            amp2 * np.sin(2 * np.pi * f2 * t_long) +
+            noise_long)
+
+# --- Design and Apply the Butterworth Filter ---
+# Get filter coefficients
+b, a = signal.butter(filter_order, cutoff_freq, fs=fs_5, btype='low', analog=False)
+# Apply the filter
+y_filtered_long = signal.filtfilt(b, a, y_analog)
+
+# Select the final 256 points for analysis
+y_final = y_filtered_long[500:500+N_5]
+
+# --- Perform FFT on the filtered signal ---
+yf_final = fft(y_final)
+xf_final = np.linspace(0.0, fs_5/2.0, N_5//2)
+y_magnitude_final = 2.0/N_5 * np.abs(yf_final[0:N_5//2])
+
+# --- Plotting ---
+plt.figure(figsize=(10, 5))
+plt.plot(xf_final, y_magnitude_final)
+plt.title('Frequency Spectrum with Anti-Aliasing Filter')
+plt.xlabel('frequency, f (Hz)')
+plt.ylabel('|F| (volts)')
+plt.axvline(x=cutoff_freq, color='r', linestyle='--', label='Cutoff Frequency')
+plt.text(cutoff_freq + 2, 0.8, 'Cutoff\nfrequency', color='k', backgroundcolor='yellow')
+plt.text(fs_5/2 - 20, 1.25, f'fₛ = {fs_5} Hz', color='k', backgroundcolor='yellow')
+plt.grid(True)
+plt.xlim(0, fs_5/2)
+plt.ylim(0, 1.5)
+plt.show()
+
+```
+
+### Final Analysis
+
+*   Notice how the magnitude of the frequency spectrum drops off sharply beyond the 50 Hz cutoff frequency, as desired. All high-frequency noise has been eliminated.
+*   **Only now can we completely trust the results of the frequency spectrum**:
+    *   There is a frequency component at 10 Hz.
+    *   There is an even stronger frequency component at 35.7 Hz.
+    *   There is random noise over the rest of the frequency range up to the cutoff.
+*   This example illustrates some of the problems associated with FFT spectral analysis. You must be very careful when applying FFTs so that the frequency spectrum yields the correct frequency content of the signal!
+
