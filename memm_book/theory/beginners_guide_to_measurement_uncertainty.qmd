@@ -1,0 +1,401 @@
+---
+title: "A Beginner's Guide to Uncertainty of Measurement"
+subtitle: "Measurement Good Practice Guide No. 11 (Issue 2)"
+author: "Stephanie Bell"
+institute: "National Physical Laboratory"
+date: "March 2001"
+format:
+  html:
+    toc: true
+    code-fold: true
+---
+
+# ![Cover Image](page_1_image_0.png)
+
+## Abstract
+
+The aim of this Beginner's Guide is to introduce the subject of measurement uncertainty. Every measurement is subject to some uncertainty. A measurement result is only complete if it is accompanied by a statement of the uncertainty in the measurement. Measurement uncertainties can come from the measuring instrument, from the item being measured, from the environment, from the operator, and from other sources. Such uncertainties can be estimated using statistical analysis of a set of measurements, and using other kinds of information about the measurement process. There are established rules for how to calculate an overall estimate of uncertainty from these individual pieces of information. The use of good practice – such as traceable calibration, careful calculation, good record keeping, and checking – can reduce measurement uncertainties. When the uncertainty in a measurement is evaluated and stated, the fitness for purpose of the measurement can be properly judged.
+
+
+
+## Foreword
+
+This is a beginner's guide for people who know little or nothing about uncertainty of measurement, but need to learn about it. It is for technicians and managers in testing and calibration laboratories, technicians and managers in manufacturing, technical salespeople, research scientists, students, teachers, and everyone who has an interest in measurement.
+
+This Beginner's Guide will not teach you all you will need to know to perform your own uncertainty analysis. But it explains the most important things you need to understand before you can master the subject. It will prepare you to read the more advanced and authoritative texts on uncertainty. In particular, this Guide will be useful preparation for reading the United Kingdom Accreditation Service (UKAS) Publication M 3003, ‘The Expression of Uncertainty and Confidence in Measurement', and the Publication EA-4/02 of the European co-operation for Accreditation (EA), ‘Expression of the Uncertainty in Measurement and Calibration'.
+
+Many people are daunted by the subject of measurement uncertainty. It is a subject that is widely misunderstood, from the factory floor to the highest academic circles. It is a complicated subject, and still evolving. So there is a great need for a guide that provides clear, down-to-earth explanations, easy enough for non-expert readers.
+
+This Beginner's Guide is not the 'last word' on uncertainty of measurement - far from it. It gives only the basic concepts. Although what you can read here is correct and in line with good practice, it is not complete or rigorous. It does not cover any difficult or special cases. For more complete information, the references detailed in the ‘Further reading' Section should be consulted.
+
+In the first sections of this Beginner's Guide, the concept and importance of measurement uncertainty are introduced. Following this, details are given of how to estimate uncertainties in real measurement situations. The main steps involved in calculating the uncertainty for a measurement are outlined with easy to follow examples. Finally a glossary, some cautionary remarks and list of publications for further reading are given, to direct you towards the next steps in understanding and calculating measurement uncertainties.
+
+## 1 Measurement
+
+### 1.1 What is a measurement?
+A measurement tells us about a property of something. It might tell us how heavy an object is, or how hot, or how long it is. A measurement gives a number to that property. Measurements are always made using an instrument of some kind. Rulers, stopwatches, weighing scales, and thermometers are all measuring instruments. The result of a measurement is normally in two parts: a number and a unit of measurement, e.g. ‘How long is it? ... 2 metres.'
+
+### 1.2 What is not a measurement?
+There are some processes that might seem to be measurements, but are not. For example, comparing two pieces of string to see which is longer is not really a measurement. Counting is not normally viewed as a measurement. Often, a test is not a measurement: tests normally lead to a 'yes/no' answer or a ‘pass/fail' result. (However, measurements may be part of the process leading up to a test result.)
+
+## 2 Uncertainty of measurement
+
+### 2.1 What is uncertainty of measurement?
+The uncertainty of a measurement tells us something about its quality.
+
+**Uncertainty of measurement** is the doubt that exists about the result of any measurement. You might think that well-made rulers, clocks and thermometers should be trustworthy, and give the right answers. But for every measurement - even the most careful - there is always a margin of doubt. In everyday speech, this might be expressed as ‘give or take' ... e.g. a stick might be two metres long 'give or take a centimetre'.
+
+### 2.2 Expressing uncertainty of measurement
+Since there is always a margin of doubt about any measurement, we need to ask 'How big is the margin?' and 'How bad is the doubt?' Thus, two numbers are really needed in order to quantify an uncertainty. One is the width of the margin, or **interval**. The other is a **confidence level**, and states how sure we are that the ‘true value' is within that margin.
+
+For example:
+We might say that the length of a certain stick measures 20 centimetres plus or minus 1 centimetre, at the 95 percent confidence level. This result could be written:
+`20 cm ±1 cm, at a level of confidence of 95%.`
+
+### 2.3 Error versus uncertainty
+It is important not to confuse the terms 'error' and 'uncertainty'.
+
+**Error** is the difference between the measured value and the ‘true value' of the thing being measured.
+**Uncertainty** is a quantification of the doubt about the measurement result.
+
+Whenever possible we try to correct for any known errors: for example, by applying corrections from calibration certificates. But any error whose value we do not know is a source of uncertainty.
+
+### 2.4 Why is uncertainty of measurement important?
+You may be interested in uncertainty of measurement simply because you wish to make good quality measurements and to understand the results. However, there are other more particular reasons for thinking about measurement uncertainty. You may be making the measurements as part of a:
+
+*   **calibration** - where the uncertainty of measurement must be reported on the certificate
+*   **test** - where the uncertainty of measurement is needed to determine a pass or fail
+*   **tolerance** - where you need to know the uncertainty before you can decide whether the tolerance is met
+
+## 3 Basic statistics on sets of numbers
+
+### 3.1 'Measure thrice, cut once' ... operator error
+There is a saying among craftsmen, ‘Measure thrice, cut once'. This means that you can reduce the risk of making a mistake in the work by checking the measurement a second or third time before you proceed. It is wise to make any measurement at least three times to guard against gross mistakes, or operator error.
+
+### 3.2 Basic statistical calculations
+You can increase the amount of information you get from your measurements by taking a number of readings and carrying out some basic statistical calculations. The two most important statistical calculations are to find the **average** or **arithmetic mean**, and the **standard deviation** for a set of numbers.
+
+### 3.3 Getting the best estimate - taking the average of a number of readings
+If there is variation in readings when they are repeated, it is best to take many readings and take an average. An average gives you an estimate of the ‘true' value.
+
+##### Example 1. Taking the average or arithmetic mean of a number of values
+Suppose you have a set of 10 readings. To find the average, add them together and divide by the number of values (10 in this case).
+The readings are: 16, 19, 18, 16, 17, 19, 20, 15, 17 and 13.
+The sum of these is: 170.
+The average of the 10 readings is: 170 / 10 = 17.
+
+```{python}
+# Example 1: Taking the average or arithmetic mean of a number of values
+import numpy as np
+readings = np.array([16, 19, 18, 16, 17, 19, 20, 15, 17, 13])
+
+# Calculate the sum
+sum_of_readings = sum(readings)
+
+# Calculate the number of readings
+num_of_readings = len(readings)
+
+# Calculate the average
+average = sum_of_readings / num_of_readings
+
+print(f"The readings are: {readings}")
+print(f"The sum of these is: {sum_of_readings}")
+print(f"The average of the {num_of_readings} readings is: {average}")
+```
+
+### 3.4 How many readings should you average?
+Broadly speaking, the more measurements you use, the better the estimate you will have of the 'true' value. As a rule of thumb usually between 4 and 10 readings is sufficient.
+
+### 3.5 Spread ... standard deviation
+When repeated measurements give different results, we want to know how widely *spread* the readings are. The usual way to quantify spread is **standard deviation**. The standard deviation of a set of numbers tells us about how different the individual readings typically are from the average of the set.
+
+As a 'rule of thumb', roughly two thirds of all readings will fall between plus and minus (±) one standard deviation of the average. Roughly 95% of all readings will fall within two standard deviations.
+
+The 'true' value for the standard deviation can only be found from a very large (infinite) set of readings. From a moderate number of values, only an **estimate of the standard deviation** can be found. The symbol *s* is usually used for the *estimated standard deviation*.
+
+### 3.6 Calculating an estimated standard deviation
+The complete process of calculating the estimated standard deviation for a series of n measurements can be expressed mathematically as:
+$$
+s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}
+$$
+
+##### Example 2. Calculating the estimated standard deviation of a set of values
+For the set of readings we used before, 16, 19, 18, 16, 17, 19, 20, 15, 17 and 13, the average is 17.
+1.  Find the difference between each reading and the average: -1, +2, +1, -1, 0, +2, +3, -2, 0, -4.
+2.  Square each of these: 1, 4, 1, 1, 0, 4, 9, 4, 0, 16.
+3.  Find the total and divide by n-1 (which is 9): (1+4+1+1+0+4+9+4+0+16) / 9 = 40 / 9 ≈ 4.44.
+4.  The estimated standard deviation, s, is found by taking the square root: s = √4.44 ≈ 2.1.
+
+```{python}
+import math
+import numpy as np
+
+# Example 2: Calculating the estimated standard deviation of a set of values
+readings = [16, 19, 18, 16, 17, 19, 20, 15, 17, 13]
+n = len(readings)
+average = sum(readings) / n
+
+# Find the difference between each reading and the average, and square it
+differences_squared = [(x - average) ** 2 for x in readings]
+
+# Sum the squared differences
+sum_of_squares = sum(differences_squared)
+
+# Divide by n-1 to get the variance
+variance = sum_of_squares / (n - 1)
+
+# Take the square root to get the estimated standard deviation
+std_dev = math.sqrt(variance)
+
+print(f"Readings: {readings}")
+print(f"Average: {average}")
+print(f"Sum of squared differences: {sum_of_squares}")
+print(f"Value before square root (variance): {variance:.2f}")
+print(f"Estimated standard deviation (s): {std_dev:.1f}")
+
+# Using a library like numpy is much easier
+# ddof=1 specifies to divide by (n-1) for the sample standard deviation
+std_dev_numpy = np.std(readings, ddof=1)
+print(f"\nCalculated using numpy: {std_dev_numpy:.1f}")
+```
+
+## 4 Where do errors and uncertainties come from?
+
+Because real measurements are never made under perfect conditions, errors and uncertainties can come from:
+
+*   **The measuring instrument** - bias, changes due to ageing, wear, drift, poor readability, noise.
+*   **The item being measured** - which may not be stable.
+*   **The measurement process** - the measurement itself may be difficult to make.
+*   **'Imported' uncertainties** - uncertainty from the calibration of your instrument.
+*   **Operator skill** - some measurements depend on the skill and judgement of the operator.
+*   **Sampling issues** - the measurements must be properly representative of the process you are trying to assess.
+*   **The environment** - temperature, air pressure, humidity and other conditions.
+
+## 5 The general kinds of uncertainty in any measurement
+
+### 5.1 Random or systematic
+*   **random** - where repeating the measurement gives a randomly different result. Averaging more measurements can improve the estimate.
+*   **systematic** - where the same influence affects the result for each of the repeated measurements. Repeating measurements does not help.
+
+### 5.2 Distribution - the 'shape' of the errors
+The spread of a set of values can take different forms, or *probability distributions*.
+
+#### 5.2.1 Normal distribution
+Sometimes values are more likely to fall near the average than further away. This is typical of a **normal** or **Gaussian** distribution.
+
+#### 5.2.2 Uniform or rectangular distribution
+When measurements are quite evenly spread between the highest and the lowest values, a **rectangular** or **uniform** distribution is produced.
+
+### 5.3 What is not a measurement uncertainty?
+*   **Mistakes** made by operators are not measurement uncertainties.
+*   **Tolerances** are not uncertainties. They are acceptance limits.
+*   **Specifications** are not uncertainties. A specification tells you what you can expect from a product.
+*   **Accuracy** is a qualitative term, while uncertainty is quantitative.
+*   **Errors** are not the same as uncertainties. An error has a single value, whereas uncertainty is a range.
+
+## 6 How to calculate uncertainty of measurement
+
+To calculate the uncertainty of a measurement, you must first identify the sources of uncertainty, then estimate the size of the uncertainty from each source. Finally, the individual uncertainties are combined to give an overall figure.
+
+### 6.1 The two ways to estimate uncertainties
+*   **Type A evaluations** - uncertainty estimates using statistics (usually from repeated readings).
+*   **Type B evaluations** - uncertainty estimates from any other information (e.g., past experience, calibration certificates, manufacturer's specifications).
+
+### 6.2 Eight main steps to evaluating uncertainty
+1.  Decide what you need to find out from your measurements.
+2.  Carry out the measurements needed.
+3.  Estimate the uncertainty of each input quantity. Express all uncertainties in similar terms (standard uncertainties).
+4.  Decide whether the errors of the input quantities are independent of each other.
+5.  Calculate the result of your measurement.
+6.  Find the combined standard uncertainty from all the individual aspects.
+7.  Express the uncertainty in terms of a coverage factor (expanded uncertainty), together with a size of the uncertainty interval, and state a level of confidence.
+8.  Write down the measurement result and the uncertainty, and state how you got both.
+
+## 7 Other things you should know before making an uncertainty calculation
+
+### 7.1 Standard uncertainty
+All contributing uncertainties should be expressed at the same confidence level, by converting them into **standard uncertainties**. A standard uncertainty is a margin whose size can be thought of as 'plus or minus one standard deviation'. A standard uncertainty is usually shown by the symbol *u*.
+
+#### 7.1.1 Calculating standard uncertainty for a Type A evaluation
+For a set of *n* repeated readings, the standard uncertainty of the mean, *u*, is calculated from the estimated standard deviation, *s*:
+$$
+u = \frac{s}{\sqrt{n}}
+$$
+
+#### 7.1.2 Calculating standard uncertainty for a Type B evaluation
+If you can only estimate the upper and lower limits of uncertainty (a semi-range of *a*), you can assume a rectangular distribution. The standard uncertainty is found from:
+$$
+u = \frac{a}{\sqrt{3}}
+$$
+
+### 7.2 Combining standard uncertainties
+Individual standard uncertainties are combined by **summation in quadrature** (also known as ‘root sum of the squares’). The result is called the **combined standard uncertainty**, shown by *u<sub>c</sub>*.
+
+#### 7.2.1 Summation in quadrature for addition and subtraction
+If a result is the sum or difference of a series of values with standard uncertainties *a, b, c...*, the combined uncertainty is:
+$$
+u_c = \sqrt{a^2 + b^2 + c^2 + \dots}
+$$
+
+#### 7.2.2 Summation in quadrature for multiplication or division
+For more complicated cases, it can be useful to work in terms of relative or fractional uncertainties. For a result $A = L \times W$, the relative uncertainty is given by:
+$$
+\frac{u(A)}{A} = \sqrt{\left(\frac{u(L)}{L}\right)^2 + \left(\frac{u(W)}{W}\right)^2}
+$$
+This same form applies for division.
+
+### 7.3 Correlation
+The equations above are only correct if the input standard uncertainties are not inter-related or **correlated**. If they are not independent, extra calculations are needed.
+
+### 7.4 Coverage factor *k*
+We may wish to re-scale the combined standard uncertainty to a different level of confidence (e.g., 95 percent). This is done using a **coverage factor, *k***. The result is the **expanded uncertainty, *U***.
+$$
+U = k \times u_c
+$$
+Most commonly, we use *k* = 2, to give a level of confidence of approximately 95 percent.
+
+## 8 How to express the answer
+It is important to express the answer so that a reader can use the information. The main things to mention are:
+*   The measurement result, together with the uncertainty figure, e.g. 'The length of the stick was 20 cm ±1 cm.'
+*   The statement of the coverage factor and the level of confidence. A recommended wording is: 'The reported uncertainty is based on a standard uncertainty multiplied by a coverage factor *k* = 2, providing a level of confidence of approximately 95%.'
+*   How the uncertainty was estimated.
+
+## 9 Example - a basic calculation of uncertainty
+
+### 9.1 The measurement - how long is a piece of string?
+
+Let's follow the steps for a careful estimate of the length of a piece of string.
+
+**Step 1. Identify sources of uncertainty.**
+*   **Tape measure errors:** Calibration uncertainty, stretching, bending, resolution.
+*   **Item errors:** String not lying straight, effect of temperature/humidity, frayed ends.
+*   **Process errors:** Lining up the start/end, tape not parallel, repeatability.
+
+**Step 2. Carry out the measurements.**
+Suppose we repeat the measurement 10 times and calculate the mean to be 5.017 metres (m), and the estimated standard deviation to be 0.0021 m (2.1 mm).
+
+**Step 3. Estimate standard uncertainty for each source.**
+Let's assume the following for our example (all converted to standard uncertainties, *u*):
+*   **Calibration:** Uncertainty is 0.1% of reading at k=2. For 5.017 m, this is ~5 mm. The standard uncertainty is 5 mm / 2 = 2.5 mm.
+*   **Resolution:** Tape divisions are 1 mm. Reading to the nearest division gives an error of no more than ±0.5 mm. Assuming a rectangular distribution, the standard uncertainty is 0.5 mm / √3 ≈ 0.3 mm.
+*   **String Bends:** We guess the string's crookedness causes an underestimate of about 0.2% (10 mm) and this has a rectangular uncertainty of ±10 mm. The standard uncertainty is 10 mm / √3 ≈ 5.8 mm.
+*   **Repeatability (Type A):** From Step 2, the standard deviation was 2.1 mm for 10 readings. The standard uncertainty of the mean is 2.1 mm / √10 ≈ 0.7 mm.
+
+**Step 4. Check for correlations.**
+In this case, we assume they are all independent.
+
+**Step 5. Calculate the result.**
+The mean reading was 5.017 m. We also apply the correction for the string bends (10 mm or 0.010 m).
+Result = 5.017 m + 0.010 m = 5.027 m.
+
+**Step 6 & 7. Combine uncertainties and expand.**
+We combine the standard uncertainties in quadrature and then multiply by k=2 for the expanded uncertainty.
+
+```{python}
+import math
+
+# Step 3 & 6: Uncertainty calculation for the string measurement example
+
+# Individual standard uncertainties (in mm)
+u_cal = 2.5  # From calibration (normal distribution)
+u_res = 0.5 / math.sqrt(3) # From resolution (rectangular)
+u_bends = 10.0 / math.sqrt(3) # From string bends (rectangular)
+u_repeat = 2.1 / math.sqrt(10) # From repeatability of mean (Type A)
+
+print(f"Standard uncertainty from resolution: {u_res:.1f} mm")
+print(f"Standard uncertainty from string bends: {u_bends:.1f} mm")
+print(f"Standard uncertainty from repeatability: {u_repeat:.1f} mm")
+
+
+# Step 6: Combine in quadrature
+# List of standard uncertainties to be combined
+uncertainties = [u_cal, u_res, u_bends, u_repeat]
+combined_std_uncertainty_sq = sum(u**2 for u in uncertainties)
+combined_std_uncertainty = math.sqrt(combined_std_uncertainty_sq)
+
+print(f"\nCombined standard uncertainty: {combined_std_uncertainty:.1f} mm")
+
+# Step 7: Calculate expanded uncertainty
+k = 2 # Coverage factor
+expanded_uncertainty = combined_std_uncertainty * k
+
+print(f"Expanded uncertainty (k=2): {expanded_uncertainty:.1f} mm")
+
+# Final Result (Step 5 and 8)
+mean_reading_m = 5.017
+correction_m = 0.010
+final_length_m = mean_reading_m + correction_m
+expanded_uncertainty_m = expanded_uncertainty / 1000
+
+# Using g-format to round appropriately
+print(f"\nFinal result: {final_length_m:.3f} m ± {expanded_uncertainty_m:.3f} m")
+
+```
+
+**Step 8. Write down the answer.**
+'The length of the string was 5.027 m ± 0.013 m. The reported expanded uncertainty is based on a standard uncertainty multiplied by a coverage factor k = 2, providing a level of confidence of approximately 95%.'
+
+### 9.2 Analysis of uncertainty - spreadsheet model
+It can be useful to summarise the uncertainty analysis or 'uncertainty budget' in a spreadsheet.
+
+| Source of uncertainty                                 | Value (±) | Probability distribution | Divisor | Standard uncertainty (mm) |
+|-------------------------------------------------------|-----------|--------------------------|---------|---------------------------|
+| Calibration uncertainty                               | 5.0 mm    | Normal                   | 2       | 2.5                       |
+| Resolution (size of divisions)                        | 0.5 mm    | Rectangular              | √3      | 0.3                       |
+| String not lying perfectly straight                   | 10.0 mm   | Rectangular              | √3      | 5.8                       |
+| Standard uncertainty of mean of 10 repeated readings  | 0.7 mm    | Normal                   | 1       | 0.7                       |
+| **Combined standard uncertainty**                     |           | Assumed normal           |         | **6.4**                   |
+| **Expanded uncertainty**                              |           | Assumed normal (k = 2)   |         | **12.8**                  |
+
+
+## 10 How to reduce uncertainty in measurement
+*   Calibrate measuring instruments and use the corrections.
+*   Choose the best measuring instruments, and use calibration facilities with the smallest uncertainties.
+*   Check measurements by repeating them or using a different method.
+*   Check calculations.
+*   Use an uncertainty budget to identify the worst uncertainties, and address these.
+*   Be aware that in a successive chain of calibrations, the uncertainty increases at every step of the chain.
+
+## Annex A - Understanding the terminology
+
+**accuracy**
+: closeness of the agreement between measurement result and true value. (Accuracy is a qualitative term only.)
+
+**bias** (of a measuring instrument)
+: systematic error of the indication of a measuring instrument
+
+**calibration**
+: comparison of an instrument against a reference or standard, to find any errors in the values indicated by the instrument.
+
+**confidence level**
+: number (e.g. 95%) expressing the degree of confidence in a result
+
+**coverage factor**
+: number which is multiplied by the combined standard uncertainty to give an expanded uncertainty for a particular level of confidence
+
+**error**
+: offset or deviation (either positive or negative) from the correct value
+
+**estimated standard deviation**
+: estimate of the standard deviation of the ‘population' based on a limited sample
+
+**expanded uncertainty**
+: standard uncertainty multiplied by a coverage factor *k*, to give a particular level of confidence
+
+**normal distribution**
+: distribution of values in a characteristic pattern of spread (Gaussian curve) with values more likely to fall near the mean than away from it
+
+**standard uncertainty**
+: uncertainty of a measurement expressed as a margin equivalent to plus and minus (±) one standard deviation.
+
+**Type A evaluation of uncertainty**
+: evaluation of uncertainty by statistical methods
+
+**Type B evaluation of uncertainty**
+: evaluation of uncertainty by non-statistical methods
+
+**uncertainty budget**
+: summary of the uncertainty calculations
+
+**uncertainty of measurement**
+: quantified doubt about the result of a measurement
