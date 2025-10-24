@@ -1,0 +1,291 @@
+---
+title: "Visualizing a Rectangular Distribution"
+format: html
+engine: jupyter
+---
+
+## Rectangular (Uniform) Distribution
+
+When we can assume that a source of error has an equal probability of lying anywhere between two bounds, we model it using a rectangular (or uniform) distribution. This is a common scenario in metrology, for example, when reading a digital instrument to its last digit or when a manufacturer specifies a tolerance range without a confidence level.
+
+-   The total width of the distribution is **2a**.
+-   The value is equally likely to be anywhere in the range **[xᵢ - a, xᵢ + a]**.
+-   The standard uncertainty (equivalent to one standard deviation) for this distribution is calculated by dividing the half-width **a** by the square root of 3.
+
+The Python code below generates a visual representation of this concept.
+
+```{python}
+#| label: fig-rectangular-dist
+#| fig-cap: "A rectangular probability distribution with its associated uncertainty."
+#| warning: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# --- Define Distribution Parameters ---
+xi = 10  # Center of the distribution
+a = 2    # Half-width of the distribution
+
+# --- Define the points for plotting ---
+# The distribution exists from xi-a to xi+a
+x = np.linspace(xi - 2*a, xi + 2*a, 500)
+# The probability density function (PDF)
+# Height is 1 / (total width) = 1 / (2a)
+p = 1.0 / (2 * a)
+pdf = np.where((x >= xi - a) & (x <= xi + a), p, 0)
+
+# --- Create the Plot ---
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, ax = plt.subplots(figsize=(8, 5))
+
+# Plot the distribution and fill the area
+ax.plot(x, pdf, color='limegreen')
+ax.fill_between(x, pdf, color='limegreen', alpha=0.5)
+
+# --- Add Annotations and Labels ---
+
+# 1. Uncertainty Formula
+# Use LaTeX for a clean mathematical look
+uncertainty_text = r'$u(x_i) = \frac{a}{\sqrt{3}}$'
+ax.text(xi + a, p * 1.5, uncertainty_text, fontsize=18,
+        verticalalignment='bottom', horizontalalignment='left')
+
+# 2. Vertical lines and ticks for key points
+ax.axvline(xi - a, color='k', linestyle='-', lw=0.7)
+ax.axvline(xi, color='k', linestyle='-', lw=0.7)
+ax.axvline(xi + a, color='k', linestyle='-', lw=0.7)
+
+# 3. Annotation for the half-width 'a'
+ax.annotate(
+    '', xy=(xi, p*1.2), xytext=(xi-a, p*1.2),
+    arrowprops=dict(arrowstyle='<->', color='black')
+)
+ax.text(xi - a/2, p*1.25, 'a', fontsize=14, ha='center')
+
+ax.annotate(
+    '', xy=(xi+a, p*1.2), xytext=(xi, p*1.2),
+    arrowprops=dict(arrowstyle='<->', color='black')
+)
+ax.text(xi + a/2, p*1.25, 'a', fontsize=14, ha='center')
+
+
+# --- Final Plot Styling ---
+ax.set_xlabel('Measured Value')
+ax.set_ylabel('Probability p', rotation=0, labelpad=50)
+
+# Set custom x-ticks to show the bounds and center
+ax.set_xticks([xi - a, xi, xi + a])
+ax.set_xticklabels([r'$x_i - a$', r'$x_i$', r'$x_i + a$'], fontsize=12)
+
+# Clean up y-axis for clarity
+ax.set_yticks([])
+ax.spines['left'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+# Set plot limits
+ax.set_ylim(0, p * 2.5)
+ax.set_xlim(xi - 1.8*a, xi + 1.8*a)
+
+ax.set_title('Rectangular (Uniform) Probability Distribution', fontsize=16)
+plt.tight_layout()
+plt.show()
+```
+
+
+In uncertainty analysis, we often need to make assumptions about the probability distribution of an error source. The choice of distribution impacts how we calculate its standard uncertainty. Here are visualizations for three common distributions beyond the simple rectangular one.
+
+## Triangular Distribution
+
+A triangular distribution is used when we know the upper and lower limits of an error (like a rectangular distribution), but we also have reason to believe that values are **most likely to be at the center** of the range. The probability decreases linearly towards the limits. This is often a more realistic estimate than the rectangular distribution.
+
+-   The total width of the distribution is **2a**.
+-   The value is most likely to be at the center **xᵢ**.
+-   The standard uncertainty is calculated by dividing the half-width **a** by the square root of 6.
+
+```{python}
+#| label: fig-triangular-dist
+#| fig-cap: "A triangular probability distribution."
+#| warning: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import triang
+
+# --- Define Distribution Parameters ---
+xi = 10  # Center (peak) of the distribution
+a = 2    # Half-width of the distribution
+
+# --- Define the points for plotting ---
+x = np.linspace(xi - 1.5*a, xi + 1.5*a, 500)
+# For a symmetric triangle, the shape parameter 'c' is 0.5.
+# 'loc' is the start point, 'scale' is the total width.
+pdf = triang.pdf(x, c=0.5, loc=xi-a, scale=2*a)
+
+# --- Create the Plot ---
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, ax = plt.subplots(figsize=(8, 5))
+
+# Plot the distribution and fill the area
+ax.plot(x, pdf, color='dodgerblue')
+ax.fill_between(x, pdf, color='dodgerblue', alpha=0.5)
+
+# --- Add Annotations and Labels ---
+
+# 1. Uncertainty Formula
+uncertainty_text = r'$u(x_i) = \frac{a}{\sqrt{6}}$'
+ax.text(xi + a * 0.2, max(pdf) * 0.8, uncertainty_text, fontsize=18)
+
+# 2. Vertical lines for key points
+ax.axvline(xi - a, color='k', linestyle='--', lw=0.7)
+ax.axvline(xi, color='k', linestyle='-', lw=0.7)
+ax.axvline(xi + a, color='k', linestyle='--', lw=0.7)
+
+# --- Final Plot Styling ---
+ax.set_xlabel('Measured Value')
+ax.set_ylabel('Probability p', rotation=0, labelpad=50)
+
+ax.set_xticks([xi - a, xi, xi + a])
+ax.set_xticklabels([r'$x_i - a$', r'$x_i$', r'$x_i + a$'], fontsize=12)
+
+ax.set_yticks([])
+ax.spines['left'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_ylim(0)
+ax.set_xlim(xi - 1.5*a, xi + 1.5*a)
+ax.set_title('Triangular Probability Distribution', fontsize=16)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Bimodal (U-Shaped) Distribution
+
+The bimodal or U-shaped distribution (specifically, the arcsine distribution) is used in situations where the value is **most likely to be at the extremes** of the range and least likely in the center. A classic example is the uncertainty in a sine-wave signal's amplitude if there's an uncertainty in its phase. Another is thermal cycling where an object spends most of its time at two temperature extremes.
+
+-   The distribution is bounded by **[xᵢ - a, xᵢ + a]**.
+-   The value is most likely to be at **xᵢ - a** or **xᵢ + a**.
+-   The standard uncertainty is calculated by dividing the half-width **a** by the square root of 2.
+
+```{python}
+#| label: fig-bimodal-dist
+#| fig-cap: "A bimodal (U-shaped) probability distribution."
+#| warning: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import arcsine
+
+# --- Define Distribution Parameters ---
+xi = 10  # Center of the distribution
+a = 2    # Half-width of the distribution
+
+# --- Define the points for plotting ---
+# Avoid the exact endpoints to prevent division by zero in the PDF
+x = np.linspace(xi - a + 0.001, xi + a - 0.001, 500)
+# 'loc' is the start point, 'scale' is the total width.
+pdf = arcsine.pdf(x, loc=xi-a, scale=2*a)
+
+# --- Create the Plot ---
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, ax = plt.subplots(figsize=(8, 5))
+
+# Plot the distribution and fill the area
+ax.plot(x, pdf, color='darkorange')
+ax.fill_between(x, pdf, color='darkorange', alpha=0.5)
+
+# --- Add Annotations and Labels ---
+
+# 1. Uncertainty Formula
+uncertainty_text = r'$u(x_i) = \frac{a}{\sqrt{2}}$'
+ax.text(xi, max(pdf)*0.8, uncertainty_text, fontsize=18, ha='center')
+
+# 2. Vertical lines for key points
+ax.axvline(xi - a, color='k', linestyle='-', lw=0.7)
+ax.axvline(xi + a, color='k', linestyle='-', lw=0.7)
+
+# --- Final Plot Styling ---
+ax.set_xlabel('Measured Value')
+ax.set_ylabel('Probability p', rotation=0, labelpad=50)
+
+ax.set_xticks([xi - a, xi, xi + a])
+ax.set_xticklabels([r'$x_i - a$', r'$x_i$', r'$x_i + a$'], fontsize=12)
+
+ax.set_yticks([])
+ax.spines['left'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+# Clip the y-axis to keep the plot tidy as the PDF approaches infinity at the edges
+ax.set_ylim(0, np.percentile(pdf, 98) * 1.2) # Show up to the 98th percentile
+ax.set_xlim(xi - 1.5*a, xi + 1.5*a)
+ax.set_title('Bimodal (U-Shaped) Probability Distribution', fontsize=16)
+
+plt.tight_layout()
+plt.show()
+```
+
+## Student's t-distribution
+
+The t-distribution is fundamental for **Type A uncertainties**, which are evaluated using statistical methods. When we have a **small number of repeated measurements** (typically n < 30), we cannot assume the sample mean is normally distributed. The t-distribution, which is bell-shaped like the normal distribution but with "heavier" tails, accounts for the additional uncertainty from our small sample size.
+
+-   It is used to describe the distribution of sample means.
+-   The shape is defined by the **degrees of freedom (df = n - 1)**, where *n* is the number of measurements.
+-   The uncertainty of the mean (also called the standard error) is the sample standard deviation, *s*, divided by the square root of the number of samples, *n*.
+
+```{python}
+#| label: fig-t-dist
+#| fig-cap: "Student's t-distribution for a small sample size, compared to a normal distribution."
+#| warning: false
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import t, norm
+
+# --- Define Distribution Parameters ---
+n = 5  # Number of measurements (a small sample size)
+df = n - 1  # Degrees of freedom
+
+# --- Define the points for plotting ---
+x = np.linspace(-4, 4, 500)
+
+# Calculate the PDF for the t-distribution
+pdf_t = t.pdf(x, df)
+# Calculate the PDF for a standard normal distribution for comparison
+pdf_norm = norm.pdf(x)
+
+# --- Create the Plot ---
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, ax = plt.subplots(figsize=(8, 5))
+
+# Plot the distributions
+ax.plot(x, pdf_t, color='purple', label=f't-dist (n={n}, df={df})')
+ax.fill_between(x, pdf_t, color='purple', alpha=0.4)
+ax.plot(x, pdf_norm, color='black', linestyle='--', label='Normal dist.')
+
+# --- Add Annotations and Labels ---
+
+# 1. Uncertainty Formula
+# This is the standard uncertainty of the mean
+uncertainty_text = r'$u(\bar{x}) = \frac{s}{\sqrt{n}}$'
+ax.text(1.5, 0.3, uncertainty_text, fontsize=18)
+
+# --- Final Plot Styling ---
+ax.set_xlabel('Value (in standard deviations from the mean)')
+ax.set_ylabel('Probability p', rotation=0, labelpad=50)
+
+ax.set_yticks([])
+ax.spines['left'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+ax.set_ylim(0)
+ax.set_xlim(-4, 4)
+ax.legend(fontsize=12)
+ax.set_title("Student's t-distribution", fontsize=16)
+
+plt.tight_layout()
+plt.show()
+```

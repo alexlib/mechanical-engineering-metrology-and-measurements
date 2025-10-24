@@ -1,0 +1,207 @@
+---
+title: "Evaluating Measurement Uncertainty"
+author: "Tel Aviv University"
+format: 
+  html:
+    toc: true
+    code-fold: true
+editor: visual
+---
+
+## 8 Main Steps to Evaluating Uncertainty
+
+Following a structured approach is crucial for a reliable uncertainty analysis. The Guide to the Expression of Uncertainty in Measurement (GUM) outlines a clear process, which can be summarized in eight main steps.
+
+| Step | Description |
+|:-----------------------------------|:-----------------------------------|
+| **1** | Decide what you need to find from your measurements. Decide what actual measurements and calculations are needed to produce the final result. |
+| **2** | Carry out the measurements needed. |
+| **3** | Evaluate the uncertainty of each input quantity that feeds in to the final result (Type A and Type B evaluations). Express all uncertainties in similar terms (standard uncertainties). |
+| **4** | Decide whether the errors of the input quantities are independent of each other. |
+| **5** | Calculate the result of your measurement (including any known corrections for things such as calibrations). |
+| **6** | Find the combined standard uncertainty from all the individual aspects. |
+| **7** | Express the uncertainty in terms of a coverage factor together with an expanded uncertainty at a stated level of confidence. |
+| **8** | Record the measurement result and the uncertainty, and state how you got both of these. |
+
+## Uncertainty for Indirect Measurement
+
+Often, we cannot measure a quantity directly. Instead, we measure several other quantities and calculate our desired result from them. This is an **indirect measurement**.
+
+-   We measure *N* physical quantities (variables), $x_1, x_2, ..., x_N$. These could be voltage, resistance, length, etc.
+-   Each of these measurements has its own uncertainty, $u_{x_i}$, which we call the component uncertainty. The true value of each measurement is expressed as: $$
+    x_i = \bar{x_i} \pm u_{x_i}
+    $$
+-   We want to estimate the uncertainty of the final result, *y*, which is a function of our measured quantities: $$
+    y = f(x_1, x_2, ..., x_N)
+    $$
+-   Our goal is to estimate the uncertainty of the result, $u_y$, to express the final measurement as: $$
+    y = \bar{y} \pm u_y
+    $$
+
+## The Root-Sum-Squared (RSS) Method
+
+To combine the individual component uncertainties ($u_{x_i}$) into the final uncertainty ($u_y$), we use a method derived from a Taylor series expansion of the function $y = f(x_1, ..., x_N)$. By taking the first-order terms, we arrive at the standard method for propagating uncertainty.
+
+This method is known as the **Root-Sum-Squared (RSS) method** and is the ISO standard. It calculates the combined uncertainty, $u_y$, as the square root of the sum of the squares of the individual uncertainty components, each multiplied by its sensitivity coefficient.
+
+The formula is: $$
+u_{y,RSS} = \sqrt{\sum_{i=1}^{N} \left( u_{x_i} \frac{\partial y}{\partial x_i} \right)^2}
+$$
+
+The term $\frac{\partial y}{\partial x_i}$ is the **sensitivity coefficient**, which describes how much the output, *y*, changes for a small change in the input, $x_i$.
+
+## Example: Measuring a Bolt with Calipers
+
+Let's apply these steps to a practical example: measuring the length of an aluminum bolt using digital calipers.
+
+![](fig/caliper.png)
+
+### Step 1 & 3: Identify Sources of Uncertainty
+
+First, we identify all potential sources of error and uncertainty in our measurement. For this example, we consider:
+
+-   **Calibration error (**$x_{cal}$): The calipers may not be perfectly calibrated. This is typically found on the calibration certificate.
+-   **Resolution error (**$x_{res}$)": The limited resolution of the digital display.
+-   **Cosine error (**$x_{\cos}$): Error from angular misalignment of the calipers with the bolt.
+-   **Temperature error (**$x_T$): The bolt and calipers may be at a temperature different from the standard 20°C, causing thermal expansion or contraction.
+-   **Repeatability error (**$x_{rep}$): Variation in repeated measurements taken by the same operator.
+
+### Step 5: Define the Measurement Model
+
+The final measured length, *y*, is a function of the true length, $\bar{y}$, and the sum of all these error sources. We can write a measurement model:
+
+$$
+\Delta y = x_{cal} + x_{res} + \bar{y}(1 - \cos(x_{\cos})) + \bar{y} \cdot x_T \cdot \alpha + x_{rep}
+$$
+
+where $\alpha$ is the coefficient of thermal expansion (CTE).
+
+### Step 6: Create an Uncertainty Budget
+
+Now we create an uncertainty budget table to systematically evaluate each component's contribution to the final uncertainty.
+
+Let's assume we measured the bolt length $\bar{y} \approx 100 \text{ mm}$. The bolt is made of **Aluminum** with a Coefficient of Thermal Expansion (CTE) of **23 ppm/**°C.
+
+The following Python code builds the uncertainty budget from scratch.
+
+```{python}
+#| label: tbl-uncertainty-budget
+#| tbl-cap: "Uncertainty Budget for Bolt Measurement"
+import numpy as np
+import pandas as pd
+
+# --- Initial Values and Assumptions ---
+y_bar = 100  # Measured length in mm
+cte = 23e-6  # CTE for Aluminium in /°C
+
+# --- Create a DataFrame for the budget ---
+budget = pd.DataFrame({
+    'Source': [
+        'Calibration', 
+        'Resolution', 
+        'Cosine error', 
+        'Temperature', 
+        'Repeatability'
+    ],
+    'Value (a_i)': [0.01, 0.005, 3.0, 2.0, 0.02],
+    'Units': ['mm', 'mm', 'deg', '°C', 'mm'],
+    'Distribution': ['Normal (k=2)', 'Triangular', 'Rectangular', 'Rectangular', 'Normal (k=1)'],
+})
+
+# --- Calculate Divisor based on Distribution ---
+# The divisor converts the input value into a standard uncertainty (1-sigma)
+def get_divisor(dist):
+    if 'Normal (k=2)' in dist:
+        return 2
+    elif 'Normal (k=1)' in dist:
+        return 1
+    elif 'Rectangular' in dist:
+        return np.sqrt(3)
+    elif 'Triangular' in dist:
+        return np.sqrt(6)
+    return 1
+
+budget['Divisor'] = budget['Distribution'].apply(get_divisor)
+
+# --- Calculate Sensitivity Coefficients (c_i) ---
+# Sensitivity coefficients convert the uncertainty of the input quantity
+# into the units of the output quantity (mm).
+# c_i = ∂y / ∂x_i
+
+# For Calibration, Resolution, Repeatability, c_i = 1 (already in mm)
+# For Cosine Error and Temperature, we need to calculate them.
+
+# Cosine Error Sensitivity: c_cos = y_bar * sin(theta_rad)
+# For small angles, we can approximate as ΔL/Δθ
+# ΔL = 100 * (1 - cos(3°)) = 0.137 mm. c_cos = 0.137 / 3 = 0.0457
+c_cos = y_bar * (1 - np.cos(np.deg2rad(budget.loc[2, 'Value (a_i)']))) / budget.loc[2, 'Value (a_i)']
+
+# Temperature Sensitivity: c_T = y_bar * CTE
+c_temp = y_bar * cte
+
+budget['Sensitivity (c_i)'] = [1.0, 1.0, c_cos, c_temp, 1.0]
+
+# --- Calculate Standard Uncertainty in mm ---
+# Standard Uncertainty = (Value / Divisor) * Sensitivity
+budget['Std. Uncertainty u_i(y) (mm)'] = (budget['Value (a_i)'] / budget['Divisor']) * budget['Sensitivity (c_i)']
+
+# --- Calculate Combined Uncertainty ---
+# u_c(y) = sqrt( sum( u_i(y)^2 ) )
+u_c = np.sqrt(np.sum(budget['Std. Uncertainty u_i(y) (mm)']**2))
+
+# --- Calculate Expanded Uncertainty (Step 7) ---
+k = 2 # Coverage factor for ~95% confidence
+U = k * u_c
+
+# --- Display the results ---
+print("--- Uncertainty Budget Calculation ---")
+display(budget.style.format({
+    'Value (a_i)': '{:.3f}',
+    'Divisor': '{:.3f}',
+    'Sensitivity (c_i)': '{:.4f}',
+    'Std. Uncertainty u_i(y) (mm)': '{:.4f}'
+}))
+
+print(f"\n--- Final Results ---")
+print(f"Combined Standard Uncertainty u_c(y) = {u_c:.4f} mm")
+print(f"Expanded Uncertainty (k=2) U = {U:.4f} mm")
+print(f"\nFinal Result: L = {y_bar} ± {U:.3f} mm (with 95% confidence)")
+
+```
+
+### Explanation of the Budget Columns
+
+1.  **Source**: The source of uncertainty.
+2.  **Value (aᵢ)**: The estimated magnitude of the error. For calibration, this comes from the spec sheet. For repeatability, from the standard deviation of measurements. For temperature, it's the estimated range of temperature deviation.
+3.  **Distribution**: The assumed probability distribution of the error. This is a critical step.
+    -   **Normal**: Used for errors that are themselves a combination of many small effects, like calibration or repeatability statistics. `k=2` means the value is given for a 95% confidence level.
+    -   **Rectangular**: Used when we only know the bounds of an error (e.g., temperature is within ±2°C) and assume any value within that range is equally likely.
+    -   **Triangular**: A better estimate than rectangular if we know the value is more likely to be near the center of the range. Used here for resolution.
+4.  **Divisor**: This converts the error value into a standard uncertainty (equivalent to one standard deviation). The divisor depends on the distribution:
+    -   Normal (k=2): Divisor is 2.
+    -   Rectangular: Divisor is $\sqrt{3}$.
+    -   Triangular: Divisor is $\sqrt{6}$.
+5.  **Sensitivity (cᵢ)**: This coefficient translates the uncertainty from its native units (like °C or degrees) into the units of our final measurement (mm).
+    -   For **cosine error**, the effect on length is $L_{err} = \bar{y} \cdot (1 - \cos(\theta))$. The sensitivity is $\frac{\partial L_{err}}{\partial \theta} = \bar{y} \cdot \sin(\theta)$. At $\theta=0$, this is 0, which is incorrect. So we use a linear approximation over the range: $c_{\cos} \approx \frac{\Delta L}{\Delta \theta} = \frac{100 \cdot (1 - \cos(3^\circ))}{3^\circ} \approx 0.046 \text{ mm/degree}$.
+    -   For **temperature**, the effect on length is $\Delta L = \bar{y} \cdot \alpha \cdot \Delta T$. The sensitivity is $c_T = \frac{\partial(\Delta L)}{\partial(\Delta T)} = \bar{y} \cdot \alpha = 100 \text{ mm} \cdot 23 \times 10^{-6} /^\circ C = 0.0023 \text{ mm}/^\circ C$.
+6.  **Std. Uncertainty uᵢ(y) (mm)**: This is the final contribution of each source to the total uncertainty, in mm. It is calculated as: $$
+    u_i(y) = \frac{\text{Value } (a_i)}{\text{Divisor}} \times \text{Sensitivity } (c_i)
+    $$
+
+### Step 7 & 8: Combine and State the Final Result
+
+The individual standard uncertainties are combined using the Root-Sum-Squared (RSS) method: $$
+u_c(y) = \sqrt{\sum u_i(y)^2} = \sqrt{0.005^2 + 0.002^2 + 0.080^2 + 0.003^2 + 0.020^2} \approx 0.082 \text{ mm}
+$$
+
+This $u_c(y)$ is the **Combined Standard Uncertainty**, representing one standard deviation. To provide a result with a specific confidence level (e.g., 95%), we calculate the **Expanded Uncertainty (U)**: $$
+U = k \cdot u_c(y)
+$$ where *k* is the coverage factor. For a 95% confidence level, we typically use **k=2**.
+
+$$
+U = 2 \times 0.082 = 0.164 \text{ mm}
+$$
+
+The final result is recorded as:
+
+**L = 100 ± 0.165 mm (with 95% confidence)**
