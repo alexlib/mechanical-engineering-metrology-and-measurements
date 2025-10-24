@@ -1,0 +1,227 @@
+---
+title: "Analysis of Pressure Transducer Calibration Data"
+author: "Engineering Metrology Example"
+format: 
+  html:
+    toc: true
+    code-fold: true
+editor: visual
+---
+
+## Introduction
+
+This document provides a detailed analysis of calibration data for a pressure transducer. The goal is to take a set of raw measurements and use statistical tools to understand the transducer's performance.
+
+The process involves two main stages:
+1.  **Graphical Analysis:** Visualizing the data distribution with a histogram and comparing it to a theoretical model.
+2.  **Analytical Analysis:** Calculating key statistical properties and performing a formal Chi-Square ($\chi^2$) Goodness-of-Fit test to quantitatively determine if the measurement errors follow a Normal (Gaussian) distribution.
+
+### Given Measurement Data and Conditions
+
+A known, true pressure is applied to a transducer, and 20 readings are recorded.
+
+*   **True Pressure:** 10.000 ± 0.001 kPa
+*   **Total Number of Trials (N):** 20
+*   **Ambient Temperature:** 20 ± 1°C
+*   **Vibration and Acceleration:** 0
+
+The following Python snippet contains the raw scale readings from the 20 trials.
+
+```{python}
+#| label: data-setup
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm, chi2
+import pandas as pd
+
+# Raw data from the 20 trials
+readings = np.array([
+    10.02, 10.20, 10.26, 10.20, 10.22, 10.13, 9.97, 10.12, 10.09, 9.90,
+    10.05, 10.17, 10.42, 10.21, 10.23, 10.11, 9.98, 10.10, 10.04, 9.81
+])
+
+N = len(readings)
+true_mean_pressure = 10.000
+
+# Display the data
+print(f"Number of readings (N) = {N}")
+print("Raw Readings (kPa):")
+print(readings)
+```
+
+## 1. Graphical Method: Histogram and Normal Distribution Overlay
+
+The first step in analyzing any dataset is to visualize it. A histogram allows us to see the shape, center, and spread of the data. To check for normality, we can overlay a perfect Normal (Gaussian) distribution curve on top of the histogram. The parameters of this curve (mean and standard deviation) will be estimated from our sample data.
+
+### Normalized Frequency
+
+To properly compare the histogram (which counts discrete items) to a continuous probability density function (PDF), we must normalize the histogram's y-axis. The height of each bar, `Z`, is calculated as:
+$$ Z = \frac{n(y)}{N \cdot \Delta y} $$
+where `n(y)` is the number of readings in a bin, `N` is the total number of readings, and `Δy` is the bin width. This is handled automatically by the `density=True` argument in Matplotlib.
+
+```{python}
+#| label: fig-histogram
+#| fig-cap: "Histogram of transducer readings with a theoretical Normal distribution overlay."
+
+# --- Calculate sample statistics to define the normal curve ---
+sample_mean = np.mean(readings)
+sample_std = np.std(readings, ddof=1) # Use ddof=1 for sample standard deviation
+
+# --- Create the plot ---
+plt.style.use('seaborn-v0_8-whitegrid')
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Plot the histogram with normalized density
+# We'll use a bin width of 0.05 kPa, as in the presentation
+bin_width = 0.05
+bins = np.arange(9.75, 10.5, bin_width)
+ax.hist(readings, bins=bins, density=True, color='skyblue', edgecolor='black', label='Observed Frequency (Histogram)')
+
+# Plot the PDF of the normal distribution
+x_curve = np.linspace(sample_mean - 4*sample_std, sample_mean + 4*sample_std, 200)
+y_curve = norm.pdf(x_curve, loc=sample_mean, scale=sample_std)
+ax.plot(x_curve, y_curve, 'r-', lw=2, label='Normal Distribution (PDF)')
+
+# --- Formatting ---
+ax.set_title('Pressure Transducer Reading Distribution', fontsize=16)
+ax.set_xlabel('Scale Reading (kPa)', fontsize=12)
+ax.set_ylabel('Probability Density', fontsize=12)
+ax.legend()
+ax.grid(True, which='both', linestyle='--', linewidth=0.5)
+
+plt.show()
+
+print(f"Sample Mean used for curve: {sample_mean:.4f} kPa")
+print(f"Sample Std Dev used for curve: {sample_std:.4f} kPa")
+```
+
+**Observation:** The histogram roughly follows the shape of the bell curve. This provides visual evidence that the measurement errors might be normally distributed, but a formal analytical test is needed to confirm this.
+
+## 2. Analytical Method: Statistical Calculations
+
+We now move to a quantitative analysis. This involves calculating key statistical parameters and then performing a formal "goodness-of-fit" test.
+
+### Calculating Key Statistical Properties
+
+We calculate three important metrics from our data:
+
+1.  **Sample Mean ($\tilde{\mu}$):** Our best estimate of the true average reading of the transducer.
+2.  **Sample Standard Deviation ($\tilde{\sigma}$):** Our best estimate of the measurement's precision or repeatability. We use Bessel's correction (`N-1`) for an unbiased estimate.
+3.  **Root Mean Square (RMS) Error:** Measures the total error relative to the *known true pressure*. This metric combines both systematic error (bias) and random error (precision).
+
+```{python}
+#| label: calc-stats
+
+# Sample Mean
+sample_mean = np.mean(readings)
+
+# Sample Standard Deviation (using N-1 denominator)
+sample_std = np.std(readings, ddof=1)
+
+# RMS Error
+rms_error = np.sqrt(np.mean((readings - true_mean_pressure)**2))
+
+print("--- Calculated Statistical Properties ---")
+print(f"Sample Mean (μ̃):          {sample_mean:.4f} kPa")
+print(f"Sample Std Dev (σ̃):       {sample_std:.4f} kPa")
+print(f"Root Mean Square (RMS) Error: {rms_error:.4f} kPa")
+```
+Notice that the sample mean (10.1095 kPa) is slightly different from the true pressure (10.000 kPa). This difference is the **bias** or **systematic error**.
+
+### The Chi-Square ($\chi^2$) Goodness-of-Fit Test
+
+This test provides a formal, numerical way to answer the question: "Are the differences between my observed data and a theoretical Normal distribution small enough to be due to random chance?"
+
+The test statistic is calculated as:
+$$ \chi^2 = \sum_{i=1}^{k} \frac{(\text{Observed}_i - \text{Expected}_i)^2}{\text{Expected}_i} $$
+
+```{python}
+#| label: calc-chi-square
+
+# 1. Define bins and get OBSERVED frequencies
+# Use consistent bin edges from the histogram plot
+bin_edges = np.arange(9.75, 10.5, bin_width)
+observed_freq, _ = np.histogram(readings, bins=bin_edges)
+
+# 2. Determine the active range for the test.
+# The Chi-Square test procedure requires including empty bins that are
+# between the first and last bins containing data.
+non_zero_indices = np.where(observed_freq > 0)[0]
+first_active_idx = non_zero_indices[0]
+last_active_idx = non_zero_indices[-1]
+active_slice = slice(first_active_idx, last_active_idx + 1)
+# print(active_slice)
+
+# Get the observed frequencies for the test range
+observed_active = observed_freq[active_slice]
+k = len(observed_active)  # Number of bins (k) for the test
+
+# 3. Calculate EXPECTED frequencies for the same active bins
+active_bin_edges = bin_edges[first_active_idx : last_active_idx + 2]
+bin_probabilities = np.diff(norm.cdf(active_bin_edges, loc=sample_mean, scale=sample_std))
+expected_active = N * bin_probabilities
+
+# 4. Calculate the Chi-Square statistic
+# Note: It's good practice to ensure expected counts are not too small (e.g., >5).
+# For this example, we proceed as in the presentation.
+chi_square_stat = np.sum((observed_active - expected_active)**2 / expected_active)
+
+# --- Display results in a table for clarity ---
+results_df = pd.DataFrame({
+    'Bin Center': (active_bin_edges[:-1] + active_bin_edges[1:]) / 2,
+    'Observed n(y)': observed_active,
+    'Expected n(y)': expected_active
+})
+print("--- Chi-Square Test Data ---")
+display(results_df.round(3))
+print(f"\nCalculated Chi-Square Statistic (χ²): {chi_square_stat:.4f}")
+```
+
+### Interpreting the Chi-Square Result
+
+The $\chi^2$ value is meaningless on its own. We must compare it to the theoretical Chi-Square distribution, which depends on the **degrees of freedom (m)**.
+
+*   **Degrees of Freedom (m):** Represents the number of independent bins in our test.
+    $$ m = k - 1 - p $$
+    *   `k` = number of bins
+    *   `-1` is for the constraint that the sum of frequencies must equal `N`.
+    *   `p` = number of parameters estimated from the data to build the model. We estimated the *mean* and *standard deviation*, so `p=2`.
+
+The **P-value** is the final output. It tells us the probability of getting a $\chi^2$ value as large as the one we calculated (or larger), assuming the data really does come from a Normal distribution.
+
+*   A **small P-value (typically < 0.05)** means our result is unlikely. We would **reject** the hypothesis that the data is normal.
+*   A **large P-value (typically > 0.05)** means our result is quite plausible. We **fail to reject** the hypothesis that the data is normal.
+
+```{python}
+#| label: interpret-chi-square
+
+# Degrees of freedom m = k - 1 - p
+p = 2 # Number of estimated parameters (mean, std dev)
+degrees_freedom = k - 1 - p
+
+# Calculate the P-value
+# The survival function (sf) is 1 - CDF, which is exactly what we need.
+p_value = chi2.sf(chi_square_stat, df=degrees_freedom)
+
+print("--- Chi-Square Test Interpretation ---")
+print(f"Number of Bins (k): {k}")
+print(f"Degrees of Freedom (m): {degrees_freedom}")
+print(f"Chi-Square Statistic (χ²): {chi_square_stat:.4f}")
+print(f"P-value: {p_value:.4f}")
+
+# State the final conclusion
+alpha = 0.05
+print(f"\nSignificance Level (α) = {alpha}")
+if p_value < alpha:
+    print(f"Conclusion: The P-value ({p_value:.4f}) is LESS than {alpha}. We REJECT the hypothesis that the data is normally distributed.")
+else:
+    print(f"Conclusion: The P-value ({p_value:.4f}) is GREATER than {alpha}. We FAIL to reject the hypothesis that the data is normally distributed.")
+
+```
+
+## Final Conclusion
+
+Both the graphical inspection and the formal Chi-Square test support the same conclusion. The calculated P-value is significantly larger than the standard significance level of 0.05.
+
+This means that the observed deviations of our data from a perfect bell curve are small and can be reasonably attributed to random sampling variation. Therefore, **it is statistically valid to model the random errors of this pressure transducer using a Normal (Gaussian) distribution** for any further uncertainty analysis.
