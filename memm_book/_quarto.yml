@@ -5,7 +5,7 @@ book:
   author: Alex Liberzon
   chapters:
   - index.qmd
-  - part: "Metrology theory"
+  - part: "Theory of metrology"
     chapters: 
       - theory/index.qmd
       - calibration/index.qmd
@@ -22,6 +22,10 @@ book:
   
 format:
   html:
-    toc: true
-    toc-depth: 2
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+  epub:
+    cover-image: img/logo.png
+
 bibliography: references.bib

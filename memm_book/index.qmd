@@ -12,7 +12,7 @@ This is a complementary set of Python scripts and snippets collected by [Alex Li
 This book does not replace the course materials but rather organizes them in Jupyter and Markdown notebooks, published with Quarto. Hopefully it can become useful learning material for undergraduate engineering laboratory courses. It is an open-source project, and any contribution is welcome ( contact on [Github](https://github.com/alexlib) ).
 
 
-## Textbook and relevant books: 
+## Textbook and relevant books {.unnumbered} 
 This course follows the [@textbook]. It is also recommended to consult with [@dunn_davis] and [@wheeler]
 
 
@@ -47,17 +47,13 @@ Students should be comfortable with:
 - Instructors: adopt notebooks as lab exercises, add assessment items, and redistribute with solutions for guided learning.
 
 ## Quick environment notes
-Recommended Python ecosystem: Python 3.9+, NumPy, SciPy, Matplotlib, pandas, jupyter-book, myst-nb. Add a pinned requirements.txt in the repo root for reproducible builds.
+Recommended Python ecosystem for training: Python 3.10+, NumPy, SciPy, Matplotlib, Pandas. To build the book, use Qarto.
 
 ---
 Start with the "theory", "statistics", and "a2d" chapters, then proceed to "signal_processing", "dynamic_signals", and "calibration" for lab work and examples.
 
 
-## Table of contents
-```{tableofcontents}
-```
-
-## Copyright Information
+## Copyright Information {.unnumbered}
 
 <a rel="license" href="http://creativecommons.org/publicdomain/zero/1.0/">
 <img src="http://i.creativecommons.org/p/zero/1.0/88x31.png" style="border-style: none;" alt="CC0" /> </a>
