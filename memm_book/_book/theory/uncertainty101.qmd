@@ -2,49 +2,11 @@
 
 ## Uncertainty
 
-![uncertainty](fig/uncertainty-ahead.jpg)
+Uncertainty is a **value** and it quantifies our **doubt about the measurement result**.
 
-## Not this kind of “uncertainty”
+**measurement error is not uncertainty**
 
-![](fig/uncertainty_arrows.jpg)
-
-## Measurement uncertainty
-
--   Engineers are interested in the uncertainty of measurement simply
-    because we wish to make good quality measurements and to
-    **understand** the results.
-
--   Uncertainty is a **quantification of the doubt about the measurement
-    result**.
-
--   It is important not to confuse the terms "error" and "uncertainty"
-
-**Error $\neq$ uncertainty**
-
--   Assume a rod of *true value* of 25 mm and a measured value of 24 mm,
-    here error is 1 mm.
-
--   Error is a property of this particular measurement and value.
-
-![](fig/rod_length.png" alt="image" height=300px/>
-
-
-
-**Uncertainty is a quantification of the doubt about the measurement result**
-
--   The same rod and the same measured value, but **also** the measured value depends upon environment factor that **makes the doubt** of plus or minus 1 mm.
-
--   So the true value could be ANYTHING between 23 mm or 25 mm and
-    uncertainty is 1 mm.
-
--   Our goal is to *quantify* and then to *reduce* this uncertainty
-
-![](fig/inner_diameter_2.jpg)
-
-
-## Let’s repeat: error is not uncertainty
-
-![](fig/error_vs_uncertainty.png)
+![](./fig/error_vs_uncertainty.png)
 
 Source: https://www.engineering.com/story/an-introduction-to-metrology-and-quality-in-manufacturing
 

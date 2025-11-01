@@ -14,3 +14,8 @@ uv.lock
 .vscode/settings.json
 memm_book/.posit/*
 memm_book/_book/*
+/memm_book/_book
+/memm_book/_book
+/memm_book/_book
+memm_book/index.tex
+memm_book/index.toc

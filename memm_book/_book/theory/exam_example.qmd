@@ -1,6 +1,8 @@
-# Mars Rover Temperature Measurement & Uncertainty Analysis
+---
+title: Mars Rover Temperature Measurement & Uncertainty Analysis
+---
 
-## 1. Introduction: The Challenge of Measurement in Extreme Environments
+## The Challenge of Measurement in Extreme Environments
 
 The Mars rover engineering team requires **precise temperature measurements** to ensure the proper functioning of mechanical parts in **extreme environmental conditions**, ranging from **-150°C to +60°C**. As research engineers, our task is to select the right instrument and design a robust testing and analysis plan on Earth, ultimately quantifying the measurement uncertainty.
 

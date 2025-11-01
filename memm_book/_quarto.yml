@@ -1,8 +1,12 @@
 project:
   type: book
+
 book:
   title: Mechanical Engineering Metrology and Measurements (MEMM)
   author: Alex Liberzon
+  page-footer: CC-BY-SA-4.0 (2025) Alex Liberzon
+  repo-url: https://github.com/alexlib/mechanical-engineering-metrology-and-measurements
+  page-navigation: true
   chapters:
   - index.qmd
   - part: "Theory of metrology"
@@ -19,13 +23,20 @@ book:
   - part: "Dynamic Signals"
     chapters:
       - dynamic_signals/index.qmd
+  - references.qmd
   
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
-  epub:
-    cover-image: img/logo.png
+    number-sections: true
+    number-depth: 4
+    toc-depth: 4
+
+  # pdf:
+  #   documentclass: report
+  # epub:
+  #   cover-image: img/logo.png
+
+
 
 bibliography: references.bib

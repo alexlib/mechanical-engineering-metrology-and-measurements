@@ -1,0 +1,84 @@
+## Introduction {#sec-theory-caliper}
+
+### Results in the class: rod's outer diameter is larger than the holder's inner diameter
+
+It's quite common in practice to measure the **outer diameter** (OD) of a rod and the **inner diameter** (ID) of a holder and get numbers where the OD appears larger than the ID—even when the rod clearly fits! This seems paradoxical, but can be fully explained by understanding all sources of **measurement uncertainty** in caliper use. Let's break down:
+
+### 1. **All Contributors to Uncertainty (from Caliper Case Studies and Engineers' Insight)**
+
+Here's a thorough uncertainty budget for both OD and ID measurements:
+
+
+| Source | Typical Size | Description |
+| :-- | :-- | :-- |
+| Resolution | 0.02 mm–0.05 mm | Smallest readable increment, half used for standard uncertainty[^2][^6] |
+| Calibration Error | 0.01 mm–0.03 mm | Systematic offset if the caliper is not perfectly zeroed or calibrated[^1] |
+| Parallax/Reading | 0.01 mm–0.02 mm | Eye misalignment or misreading the scale |
+| Jaw Alignment/Play | 0.02 mm–0.05 mm | Slight movement/bending when jaws close on an object[^1][^6] |
+| Force of Measurement | 0.01 mm–0.03 mm | Squeezing the instrument too hard/not enough (outer or inner jaws) |
+| Workpiece Imperfection | 0.01 mm–0.05 mm | Out-of-roundness, burrs, surface roughness, dirt |
+| Operator Variation | 0.03 mm–0.06 mm | Different persons, repeated measures, even mood/technique differences[^6] |
+| Temperature Effect | 0.01 mm–0.03 mm | Both object and caliper expand/contract, especially if not at 20°C[^1] |
+| Measurement Method | 0.02 mm–0.05 mm | "Pinching" for ID/OD can give different distortion (caliper flexibility) |
+| Jaw Thickness Effect | up to 0.10 mm | Especially for small holes: inner jaws may "bridge" and undersize the ID[^6] |
+
+**Key Insight:**
+
+- **OD (rod)**: Caliper bends less and fits snugly on a smooth, solid surface. Usually *systematic error sources* are a bit smaller.
+- **ID (holder)**: Caliper inner jaws may bridge across slight imperfections or wear, are influenced by jaw thickness, and are less able to "reach" the true diameter (so will often **underestimate** the ID).[^6]
+
+
+### 2. **Total Combined Uncertainty (as Practiced)**
+
+For typical mechanical work, with a good-quality caliper and skilled operator:
+
+- **Standard uncertainty for OD**: ~0.05 mm
+- **Standard uncertainty for ID**: ~0.06 mm
+- **Expanded uncertainty (95%, k=2):**
+    - OD: ±0.10 mm
+    - ID: ±0.12 mm[^6]
+
+This means actual size could be ahead or behind measured by up to these amounts! If the reported OD is, say, 20.05 mm and the ID is 20.00 mm, the uncertainties overlap: the rod may well fit (and the values are not truly contradictory).
+
+### 3. **Resolution vs. Real-World Fit**
+
+The caliper's resolution is not the only thing that matters. All *biases* and *uncertainty sources* must be considered, and for tight fits, *surface roughness*, *burrs*, and *measurement force* can easily tilt results back and forth.
+
+### 4. **Uncertainty Budget Table (Example for Caliper OD)**
+
+| Source | Type | Estimate (±mm) | Standard Unc. (mm) |
+| :-- | :-- | :-- | :-- |
+| Resolution (half step) | Random | 0.02 | 0.02/√3 ≈ 0.012 |
+| Calibration certificate | Systematic | 0.01 | 0.01/√3 ≈ 0.006 |
+| Operator/technique | Random | 0.05 | 0.05 |
+| Jaw pressure/flex | Random | 0.02 | 0.02 |
+| Workpiece imperfection | Random | 0.03 | 0.03 |
+| Temperature effect | Systematic | 0.02 | 0.02 |
+| -------------------------- | ------------ | ---------------- | ------------------------ |
+| **Combined uncertainty** |  |  | **≈ 0.06** |
+
+(Quadrature:  \$ \sqrt{0.012^2 + 0.006^2 + 0.05^2 + 0.02^2 + 0.03^2 + 0.02^2} ≈ 0.06 \$ mm)
+
+### 5. **How to Explain Your Result**
+
+- **Why OD > ID in numbers?** Because systematic under-measure of ID (jaw bridging) + random error + uncertainty all play a role. Within stated uncertainties, the two measured values are likely still compatible, and the physical fit confirms it. This is a classic, well-understood metrology challenge!
+- **What to tell others:** Report both the measured values *and* their uncertainties. Note that for tight fits, direct fit (assembly test) gives ultimate truth, not just the numbers.
+
+***
+#### Summary: 
+
+When you combine all sources of measurement error for caliper work, it's normal for OD and ID results to numerically overlap within uncertainty, even if the average seems paradoxical. The best practice is always to report uncertainties alongside measurements and recognize the instrument's physical limits.
+
+**Quick check:**
+
+- Can you restate two main sources of error when using calipers for IDs? (Try, then I'll give feedback!)
+- If you want to improve your accuracy, which uncertainty contributor would you try to minimize first?
+
+If you want, we can walk step-by-step through a real uncertainty calculation, or create a detailed table using your own measured numbers!
+<span style="display:none">[^3][^4][^5][^7][^8][^9]</span>
+
+<div align="center">⁂</div>
+
+[^1]: https://www.mitutoyo.com/webfoo/wp-content/uploads/15009A-caliper-uncertainty.pdf
+
+[^2]: https://www.isobudgets.com/probability-distributions-for-measurement-uncertainty/
