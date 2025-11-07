@@ -558,7 +558,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7e2cc3ceea80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f023b78fb90&gt;
 </pre></div>
 </div>
 <img alt="../_images/9332b50c45ec45991a8b55bd85e622c4eea0111110b140bab51b83e4c2ec25b7.png" src="../_images/9332b50c45ec45991a8b55bd85e622c4eea0111110b140bab51b83e4c2ec25b7.png" />
@@ -619,13 +619,64 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.2 μs ± 2.04 μs per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The slowest run took 4.72 times longer than the fastest. This could mean that an intermediate result is being cached.
+28.8 μs ± 16.2 μs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.2 μs ± 1.18 μs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.1 μs ± 1.86 μs per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># let&#39;s check how much we gain if we do it right size:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;fft(g)&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;timeit&#39;</span><span class="p">,</span> <span class="s1">&#39;fft(g[:256])   # 256 points instead of 301, not waisting much data&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># even if it&#39;s longer, but the right size with zeros at the end</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">g1</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">((</span><span class="mi">512</span><span class="p">,))</span>
+
+<span class="nn">File ~/Documents/GitHub/mechanical-engineering-metrology-and-measurements/.venv/lib/python3.12/site-packages/IPython/core/interactiveshell.py:2504,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2502</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2503</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2504</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2506</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2507</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2508</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2509</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File ~/Documents/GitHub/mechanical-engineering-metrology-and-measurements/.venv/lib/python3.12/site-packages/IPython/core/magics/execution.py:1230,</span> in <span class="ni">ExecutionMagics.timeit</span><span class="nt">(self, line, cell, local_ns)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1227</span>         <span class="k">if</span> <span class="n">time_number</span> <span class="o">&gt;=</span> <span class="mf">0.2</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1228</span>             <span class="k">break</span>
+<span class="ne">-&gt; </span><span class="mi">1230</span> <span class="n">all_runs</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">repeat</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1231</span> <span class="n">best</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">all_runs</span><span class="p">)</span> <span class="o">/</span> <span class="n">number</span>
+<span class="g g-Whitespace">   </span><span class="mi">1232</span> <span class="n">worst</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">all_runs</span><span class="p">)</span> <span class="o">/</span> <span class="n">number</span>
+
+<span class="nn">File ~/miniforge3/lib/python3.12/timeit.py:208,</span> in <span class="ni">Timer.repeat</span><span class="nt">(self, repeat, number)</span>
+<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">repeat</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">208</span>     <span class="n">t</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">209</span>     <span class="n">r</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">return</span> <span class="n">r</span>
+
+<span class="nn">File ~/Documents/GitHub/mechanical-engineering-metrology-and-measurements/.venv/lib/python3.12/site-packages/IPython/core/magics/execution.py:184,</span> in <span class="ni">Timer.timeit</span><span class="nt">(self, number)</span>
+<span class="g g-Whitespace">    </span><span class="mi">182</span> <span class="n">gc</span><span class="o">.</span><span class="n">disable</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">184</span>     <span class="n">timing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inner</span><span class="p">(</span><span class="n">it</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">185</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">186</span>     <span class="k">if</span> <span class="n">gcold</span><span class="p">:</span>
+
+<span class="nn">File &lt;magic-timeit&gt;:1,</span> in <span class="ni">inner</span><span class="nt">(_it, _timer)</span>
+
+<span class="nn">File ~/Documents/GitHub/mechanical-engineering-metrology-and-measurements/.venv/lib/python3.12/site-packages/numpy/fft/_pocketfft.py:215,</span> in <span class="ni">fft</span><span class="nt">(a, n, axis, norm, out)</span>
+<span class="g g-Whitespace">    </span><span class="mi">213</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">214</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
+<span class="ne">--&gt; </span><span class="mi">215</span> <span class="n">output</span> <span class="o">=</span> <span class="n">_raw_fft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">out</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span> <span class="k">return</span> <span class="n">output</span>
+
+<span class="nn">File ~/Documents/GitHub/mechanical-engineering-metrology-and-measurements/.venv/lib/python3.12/site-packages/numpy/fft/_pocketfft.py:101,</span> in <span class="ni">_raw_fft</span><span class="nt">(a, n, axis, is_real, is_forward, norm, out)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="k">elif</span> <span class="p">((</span><span class="n">shape</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>       <span class="ow">and</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span> <span class="ow">or</span> <span class="n">shape</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">!=</span> <span class="n">n_out</span><span class="p">)):</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;output array has wrong shape.&quot;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">101</span> <span class="k">return</span> <span class="n">ufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">fct</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">[(</span><span class="n">axis</span><span class="p">,),</span> <span class="p">(),</span> <span class="p">(</span><span class="n">axis</span><span class="p">,)],</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -654,7 +705,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(256)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>256
 </pre></div>
 </div>
 </div>
@@ -676,10 +727,10 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7e2cc40f1f40&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3803892610&gt;]
 </pre></div>
 </div>
-<img alt="../_images/53e3643141db69ff73c2cef78f26f56f87ad65fe1d5f6d6264f04c9eb6537e99.png" src="../_images/53e3643141db69ff73c2cef78f26f56f87ad65fe1d5f6d6264f04c9eb6537e99.png" />
+<img alt="../_images/4e484951da1d2dfe863b225d16b14fc7c96721a1e0cae11c06c8e90758af6826.png" src="../_images/4e484951da1d2dfe863b225d16b14fc7c96721a1e0cae11c06c8e90758af6826.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -710,10 +761,10 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7e2cc18a1010&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f3803981040&gt;
 </pre></div>
 </div>
-<img alt="../_images/278d250c89f6a0abc53b62e2f2238ba4af178ff167af7540ed6dd216b47a4721.png" src="../_images/278d250c89f6a0abc53b62e2f2238ba4af178ff167af7540ed6dd216b47a4721.png" />
+<img alt="../_images/6e0c5dbcd451d4d5483a09a8f6267f3e3556b2bda71c7232aaaaa1368e840370.png" src="../_images/6e0c5dbcd451d4d5483a09a8f6267f3e3556b2bda71c7232aaaaa1368e840370.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -724,7 +775,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.3333333333333333, np.float64(0.390625))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.3333333333333333, 0.390625)
 </pre></div>
 </div>
 </div>
@@ -771,7 +822,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/012150d6de40a08a520afa762b8c7792febdae08c891595b74f71d298f4b35a1.png" src="../_images/012150d6de40a08a520afa762b8c7792febdae08c891595b74f71d298f4b35a1.png" />
+<img alt="../_images/ae4578e6c29f8618cf0105591c2d7447a940e07ff9bc5753f8c3ab4112bdbfcd.png" src="../_images/ae4578e6c29f8618cf0105591c2d7447a940e07ff9bc5753f8c3ab4112bdbfcd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -781,7 +832,7 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(512)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>512
 </pre></div>
 </div>
 </div>
@@ -801,10 +852,10 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7e2cc3ff4d70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f38038199d0&gt;
 </pre></div>
 </div>
-<img alt="../_images/d46413338a7e65689bbaf4669407d63fd1e6dbfde5dfe668c589e58e7d3328b2.png" src="../_images/d46413338a7e65689bbaf4669407d63fd1e6dbfde5dfe668c589e58e7d3328b2.png" />
+<img alt="../_images/ac744d088ad3d1c8abf114c4c0ae2b32b8a30f6e9a646c468cd78bd1f47beb3d.png" src="../_images/ac744d088ad3d1c8abf114c4c0ae2b32b8a30f6e9a646c468cd78bd1f47beb3d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -816,10 +867,10 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7e2cc40c3c20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f38061a2b20&gt;]
 </pre></div>
 </div>
-<img alt="../_images/79a45ac7a904d7ad65ed0b9f3b6010ded7a3b9d4d10cabbd06986e49c1c9a26f.png" src="../_images/79a45ac7a904d7ad65ed0b9f3b6010ded7a3b9d4d10cabbd06986e49c1c9a26f.png" />
+<img alt="../_images/9e0ce5cd9ae685a7c063673fceb03ca761ea2f3ec15eacb4ecdc4966976b8d0c.png" src="../_images/9e0ce5cd9ae685a7c063673fceb03ca761ea2f3ec15eacb4ecdc4966976b8d0c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -860,11 +911,11 @@ b) windowing with DC treatment</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7e2cc3e96b70&gt;,
- &lt;matplotlib.lines.Line2D at 0x7e2cc3e96c30&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f380396c220&gt;,
+ &lt;matplotlib.lines.Line2D at 0x7f380396c130&gt;]
 </pre></div>
 </div>
-<img alt="../_images/3da59f97a996c5c0cbc4103151767fb9572c3e0dfe002ed590af54dc03bd9902.png" src="../_images/3da59f97a996c5c0cbc4103151767fb9572c3e0dfe002ed590af54dc03bd9902.png" />
+<img alt="../_images/261247cde1a1b4a47b130e0bbcf1acd45284e1e5fbcb5b2a7f7a5ffb457ade40.png" src="../_images/261247cde1a1b4a47b130e0bbcf1acd45284e1e5fbcb5b2a7f7a5ffb457ade40.png" />
 </div>
 </div>
 </section>
