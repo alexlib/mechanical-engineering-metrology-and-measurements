@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -587,6 +587,26 @@ signals that pass from one to another and what are the possible errors and uncer
 <li><p>The <strong>Pointer and Dial</strong> assembly <em>processes</em> this motion into a number and <em>presents</em> it visually.</p></li>
 <li><p>Finally, the <strong>Observer</strong> reads the result.</p></li>
 </ol>
+<div class="highlight-mermaid notranslate"><div class="highlight"><pre><span></span>graph TD
+    subgraph &quot; &quot;
+        direction LR
+        A[Physical quantity&lt;br/&gt;to be measured] --&gt;|Input Signal| B[Primary Sensing&lt;br/&gt;Element] --&gt; C[Variable Conversion&lt;br/&gt;Element];
+    end
+
+    subgraph &quot; &quot;
+        direction LR
+        D[Variable Manipulation&lt;br/&gt;Element] --&gt;|Amplified Signal| E[Data Transmission&lt;br/&gt;Element] --&gt; F[Data Processing&lt;br/&gt;Element];
+    end
+
+    subgraph &quot; &quot;
+        direction LR
+        G[Data Presentation&lt;br/&gt;Element] --&gt;|Human Readable Form| H[Observer];
+    end
+
+    C --&gt;|Converted Signal| D;
+    F --&gt;|Processed Signal| G;
+</pre></div>
+</div>
 </section>
 </section>
 
