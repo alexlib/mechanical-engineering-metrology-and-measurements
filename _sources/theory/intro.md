@@ -40,7 +40,7 @@ See [checklist.md](checklist.md) for a detailed 9-step checklist to guide uncert
 - [Mars Rover Temperature Measurement & Uncertainty Analysis](exam_example.md)
 - [Using AI tools to learn uncertainty](example_from_best_practice.ipynb)
 - [Engineering Example: Uncertainty Analysis in Mechanical Measurements](example_uncertainty_analysis.md)
-- [## General measurement system diagram](general_measurement_system_analysis.ipynb)
+- [General measurement system](general_measurement_system_analysis.ipynb)
 - [Uncertainty in simple terms from IAEA](iaea_uncertainty_presentation.ipynb)
 - [Laboratory Notebook](laboratory_notebook.ipynb)
 - [Significant digits](significant_digits.md)
