@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'calibration/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -383,6 +385,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-explanation-of-the-static-calibration-process">Detailed Explanation of the Static Calibration Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">1. Purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-steps">2. Procedure Steps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-and-uncertainty-categorization">Error Analysis and Uncertainty Categorization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pages-in-this-chapter">Pages in this chapter</a></li>
 </ul>
             </nav>
@@ -426,7 +434,81 @@ Calibration methods and error analysis for sensors: linear &amp; nonlinear regre
 </ul>
 <p>Prerequisites
 Basic regression, statistics, and familiarity with plotting in Python.</p>
+<hr class="docutils" />
+<section id="detailed-explanation-of-the-static-calibration-process">
+<h2>Detailed Explanation of the Static Calibration Process<a class="headerlink" href="#detailed-explanation-of-the-static-calibration-process" title="Link to this heading">#</a></h2>
+<p>Static calibration is a procedure used to characterize a measurement system by applying a known, constant input value to the system and observing the resulting output value.</p>
+<p>The term “static” refers to the fact that the variables are held constant, meaning the input is not dependent on time.</p>
+<section id="purpose">
+<h3>1. Purpose<a class="headerlink" href="#purpose" title="Link to this heading">#</a></h3>
+<p>The primary purpose of static calibration is twofold:</p>
+<ol class="arabic simple">
+<li><p><strong>Functional Relationship:</strong> To develop a functional relationship, or a correlation (<span class="math notranslate nohighlight">\(y = f(x)\)</span>), between the system’s known input (<span class="math notranslate nohighlight">\(x\)</span>) and its output (<span class="math notranslate nohighlight">\(y\)</span>). This correlation is often determined using curve fitting techniques, such as regression analysis, on the calibration curve.</p></li>
+<li><p><strong>Systematic Error Identification:</strong> To identify and quantify systematic errors (biases) such as zero error, linearity error, and hysteresis.</p></li>
+</ol>
+</section>
+<section id="procedure-steps">
+<h3>2. Procedure Steps<a class="headerlink" href="#procedure-steps" title="Link to this heading">#</a></h3>
+<p>To perform a static calibration, you generate a calibration curve by recording the output values (<span class="math notranslate nohighlight">\(y_i\)</span>) for a range of known input values (<span class="math notranslate nohighlight">\(x_i\)</span>).</p>
+<ul class="simple">
+<li><p><strong>Reference Standard:</strong> A <strong>standard</strong> (known value) that is traceable to national standards must be used. This reference instrument should have significantly lower uncertainty than the instrument being tested.</p></li>
+<li><p><strong>Controlled Points:</strong> The chamber or environment is set to a series of stable, discrete input points across the operational range.</p></li>
+<li><p><strong>Hysteresis Check:</strong> Measurements should be taken by varying the input value in both the increasing (upscale) and decreasing (downscale) directions to assess hysteresis.</p></li>
+<li><p><strong>Data Collection:</strong> At each stable point, the system is allowed to reach thermal equilibrium, and multiple readings are taken to assess repeatability.</p></li>
+<li><p><strong>Data Analysis:</strong> The data is plotted to create the calibration curve. This curve is used to determine key parameters like <strong>static sensitivity</strong> (the slope of the curve), and to quantify errors like <strong>linearity</strong> and <strong>hysteresis</strong>.</p></li>
+</ul>
+</section>
+</section>
+<section id="error-analysis-and-uncertainty-categorization">
+<h2>Error Analysis and Uncertainty Categorization<a class="headerlink" href="#error-analysis-and-uncertainty-categorization" title="Link to this heading">#</a></h2>
+<p>In metrology, an <strong>error</strong> is the quantifiable difference between an estimate and the “true value,” which can sometimes be corrected. <strong>Uncertainty</strong> is the quantification of the doubt about that measurement result.</p>
+<p>Systematic errors found during calibration, such as zero offset, can sometimes be corrected by adjustment. If the error cannot be corrected (e.g., hysteresis, remaining linearity deviation), the quantified range of that potential error must be included in the uncertainty budget as a Type B contribution.</p>
+<p>The table below outlines common error types, how they are determined, and their subsequent role in uncertainty analysis:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Error Type</p></th>
+<th class="head text-left"><p>Description &amp; Measurement Method</p></th>
+<th class="head text-left"><p>Systematic Error Correction?</p></th>
+<th class="head text-left"><p>Uncertainty Type/Source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Repeatability Error (<span class="math notranslate nohighlight">\(u_{rep}\)</span>)</strong></p></td>
+<td class="text-left"><p>The variability or scatter found when the same input is applied repeatedly. Accounts for random variations. <strong>Measured:</strong> Calculated as the standard deviation (<span class="math notranslate nohighlight">\(S_x\)</span>) from repeated readings taken during the static calibration procedure.</p></td>
+<td class="text-left"><p>No. This is a source of <strong>random error</strong>.</p></td>
+<td class="text-left"><p><strong>Type A</strong>. Calculated as the standard deviation of the mean (<span class="math notranslate nohighlight">\(S_x / \sqrt{n}\)</span>).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Static Sensitivity (<span class="math notranslate nohighlight">\(K\)</span>)</strong></p></td>
+<td class="text-left"><p>The slope of the calibration curve at any given point. <strong>Measured:</strong> Defined as <span class="math notranslate nohighlight">\(K(x_1) = (dy/dx)_{x=x_1}\)</span>.</p></td>
+<td class="text-left"><p>Used to define the functional relationship for converting output (<span class="math notranslate nohighlight">\(y\)</span>) back to input (<span class="math notranslate nohighlight">\(x\)</span>).</p></td>
+<td class="text-left"><p><strong>Type B</strong> (The Sensitivity <em>Error</em> (<span class="math notranslate nohighlight">\(u_K\)</span>) is a statistical measure of random error in the estimate of the slope).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Zero Error (<span class="math notranslate nohighlight">\(u_z\)</span>)</strong></p></td>
+<td class="text-left"><p>A vertical shift or offset from the true zero point of the instrument. <strong>Measured:</strong> Determined by checking the output when a zero input condition is applied.</p></td>
+<td class="text-left"><p>Yes. If possible, the error is reduced by physically adjusting the output under a zero input condition.</p></td>
+<td class="text-left"><p><strong>Type B</strong> (The remaining, uncorrected zero uncertainty, often related to resolution).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Linearity Error (<span class="math notranslate nohighlight">\(u_L\)</span>)</strong></p></td>
+<td class="text-left"><p>The deviation of the calibration curve from an expected straight line. <strong>Measured:</strong> Calculated as the maximum deviation between the actual output <span class="math notranslate nohighlight">\(y(x)\)</span> and the best-fit linear output <span class="math notranslate nohighlight">\(y_L(x)\)</span>.</p></td>
+<td class="text-left"><p>If the deviation is large, the correction may involve using a higher-order polynomial fit, which models the error.</p></td>
+<td class="text-left"><p><strong>Type B</strong> (If a linear fit is required, the linearity error bounds define a semi-range limit for a Type B rectangular distribution).</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Hysteresis Error (<span class="math notranslate nohighlight">\(u_h\)</span>)</strong></p></td>
+<td class="text-left"><p>The maximum difference in output value when the input is approached from increasing versus decreasing directions. Caused by friction or residual charge. <strong>Measured:</strong> Calculated as the maximum difference between upscale and downscale readings at the same input point across the full range.</p></td>
+<td class="text-left"><p>No. Typically quantified, but not corrected. It is a systematic bias that must be factored into the uncertainty estimate.</p></td>
+<td class="text-left"><p><strong>Type B</strong> (The maximum hysteresis error defines the limit for a Type B uncertainty estimate, often expressed as a percentage of the full-scale output range).</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Overall Instrument Error (<span class="math notranslate nohighlight">\(u_c\)</span>)</strong></p></td>
+<td class="text-left"><p>The total quantified uncertainty of the instrument due to known effects (e.g., combining <span class="math notranslate nohighlight">\(u_h\)</span>, <span class="math notranslate nohighlight">\(u_L\)</span>, <span class="math notranslate nohighlight">\(u_K\)</span>). <strong>Measured:</strong> Combined using the Root-Sum-Squared (RSS) method: <span class="math notranslate nohighlight">\(u_c = \sqrt{u_h^2 + u_L^2 + u_K^2 + \dots}\)</span>.</p></td>
+<td class="text-left"><p>If the calibration shows a consistent offset or non-linearity, a correction can be applied to future readings.</p></td>
+<td class="text-left"><p><strong>Combined Standard Uncertainty</strong> (<span class="math notranslate nohighlight">\(u_c\)</span>).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Does this detailed breakdown of the static calibration process and the associated errors clarify how systematic errors lead to Type B uncertainty contributions? If so, we can move on to discussing dynamic calibration or perhaps delve into how to apply sensitivity coefficients, which are often necessary after calibration!</p>
 <!-- AUTOGEN_START -->
+</section>
 <section id="pages-in-this-chapter">
 <h2>Pages in this chapter<a class="headerlink" href="#pages-in-this-chapter" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -512,6 +594,12 @@ Basic regression, statistics, and familiarity with plotting in Python.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-explanation-of-the-static-calibration-process">Detailed Explanation of the Static Calibration Process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purpose">1. Purpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#procedure-steps">2. Procedure Steps</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-analysis-and-uncertainty-categorization">Error Analysis and Uncertainty Categorization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pages-in-this-chapter">Pages in this chapter</a></li>
 </ul>
   </nav></div>

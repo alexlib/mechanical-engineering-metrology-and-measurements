@@ -27,6 +27,54 @@ Suggested exercises
 Prerequisites
 Basic regression, statistics, and familiarity with plotting in Python.
 
+-----
+
+
+### Detailed Explanation of the Static Calibration Process
+
+Static calibration is a procedure used to characterize a measurement system by applying a known, constant input value to the system and observing the resulting output value.
+
+The term "static" refers to the fact that the variables are held constant, meaning the input is not dependent on time.
+
+#### 1. Purpose
+The primary purpose of static calibration is twofold:
+
+1.  **Functional Relationship:** To develop a functional relationship, or a correlation ($y = f(x)$), between the system's known input ($x$) and its output ($y$). This correlation is often determined using curve fitting techniques, such as regression analysis, on the calibration curve.
+2.  **Systematic Error Identification:** To identify and quantify systematic errors (biases) such as zero error, linearity error, and hysteresis.
+
+#### 2. Procedure Steps
+To perform a static calibration, you generate a calibration curve by recording the output values ($y_i$) for a range of known input values ($x_i$).
+
+*   **Reference Standard:** A **standard** (known value) that is traceable to national standards must be used. This reference instrument should have significantly lower uncertainty than the instrument being tested.
+*   **Controlled Points:** The chamber or environment is set to a series of stable, discrete input points across the operational range.
+*   **Hysteresis Check:** Measurements should be taken by varying the input value in both the increasing (upscale) and decreasing (downscale) directions to assess hysteresis.
+*   **Data Collection:** At each stable point, the system is allowed to reach thermal equilibrium, and multiple readings are taken to assess repeatability.
+*   **Data Analysis:** The data is plotted to create the calibration curve. This curve is used to determine key parameters like **static sensitivity** (the slope of the curve), and to quantify errors like **linearity** and **hysteresis**.
+
+### Error Analysis and Uncertainty Categorization
+
+In metrology, an **error** is the quantifiable difference between an estimate and the "true value," which can sometimes be corrected. **Uncertainty** is the quantification of the doubt about that measurement result.
+
+Systematic errors found during calibration, such as zero offset, can sometimes be corrected by adjustment. If the error cannot be corrected (e.g., hysteresis, remaining linearity deviation), the quantified range of that potential error must be included in the uncertainty budget as a Type B contribution.
+
+The table below outlines common error types, how they are determined, and their subsequent role in uncertainty analysis:
+
+| Error Type | Description & Measurement Method | Systematic Error Correction? | Uncertainty Type/Source |
+| :--- | :--- | :--- | :--- |
+| **Repeatability Error ($u_{rep}$)** | The variability or scatter found when the same input is applied repeatedly. Accounts for random variations. **Measured:** Calculated as the standard deviation ($S_x$) from repeated readings taken during the static calibration procedure. | No. This is a source of **random error**. | **Type A**. Calculated as the standard deviation of the mean ($S_x / \sqrt{n}$). |
+| **Static Sensitivity ($K$)** | The slope of the calibration curve at any given point. **Measured:** Defined as $K(x_1) = (dy/dx)_{x=x_1}$. | Used to define the functional relationship for converting output ($y$) back to input ($x$). | **Type B** (The Sensitivity *Error* ($u_K$) is a statistical measure of random error in the estimate of the slope). |
+| **Zero Error ($u_z$)** | A vertical shift or offset from the true zero point of the instrument. **Measured:** Determined by checking the output when a zero input condition is applied. | Yes. If possible, the error is reduced by physically adjusting the output under a zero input condition. | **Type B** (The remaining, uncorrected zero uncertainty, often related to resolution). |
+| **Linearity Error ($u_L$)** | The deviation of the calibration curve from an expected straight line. **Measured:** Calculated as the maximum deviation between the actual output $y(x)$ and the best-fit linear output $y_L(x)$. | If the deviation is large, the correction may involve using a higher-order polynomial fit, which models the error. | **Type B** (If a linear fit is required, the linearity error bounds define a semi-range limit for a Type B rectangular distribution). |
+| **Hysteresis Error ($u_h$)** | The maximum difference in output value when the input is approached from increasing versus decreasing directions. Caused by friction or residual charge. **Measured:** Calculated as the maximum difference between upscale and downscale readings at the same input point across the full range. | No. Typically quantified, but not corrected. It is a systematic bias that must be factored into the uncertainty estimate. | **Type B** (The maximum hysteresis error defines the limit for a Type B uncertainty estimate, often expressed as a percentage of the full-scale output range). |
+| **Overall Instrument Error ($u_c$)** | The total quantified uncertainty of the instrument due to known effects (e.g., combining $u_h$, $u_L$, $u_K$). **Measured:** Combined using the Root-Sum-Squared (RSS) method: $u_c = \sqrt{u_h^2 + u_L^2 + u_K^2 + \dots}$. | If the calibration shows a consistent offset or non-linearity, a correction can be applied to future readings. | **Combined Standard Uncertainty** ($u_c$). |
+
+Does this detailed breakdown of the static calibration process and the associated errors clarify how systematic errors lead to Type B uncertainty contributions? If so, we can move on to discussing dynamic calibration or perhaps delve into how to apply sensitivity coefficients, which are often necessary after calibration!
+
+
+
+
+
+
 <!-- AUTOGEN_START -->
 ## Pages in this chapter
 
