@@ -91,4 +91,5 @@ Does this detailed breakdown of the static calibration process and the associate
 - [Calibration and uncertainty analysis - virtual experiment](pressure_calibration_example.ipynb)
 - [Lecture 6](regression_analysis.ipynb)
 - [Sensitivity estimate example](sensitivity_analysis.ipynb)
+- [LVDT calibration example](lvdt_calibration_example.ipynb)
 <!-- AUTOGEN_END -->

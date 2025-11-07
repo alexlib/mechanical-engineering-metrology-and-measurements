@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -418,14 +418,12 @@ From: NI reference <http://www.ni.com/white-paper/3638/en>
 <p>The LVDT will allow use to see the changing in voltage due to deflection. We will be able to find the change in AC voltage with the use of an oscilloscope. We will find several data point and plot them. From these points, we should be able to find a slope witch will be sensitivity of the LVDT. From this we can determine the voltage based on displacement or vise versa. After finding the sensitivity equation, we are able to calculate the experimental output voltage. We substitute the input, displacement in to our sensitivity equation and find the output voltage.</p>
 <p>The system is set up. We set the five-kilohertz oscillator to give one and a half volts for peak-to-peak. The beam is moved from minimum to maximum and a sketch of the output form the oscilloscope is drawn. The beam is set to minimum and peak-to-peak voltage is taken. The beam is moved one millimeter and voltage is taken again. This is done for fifteen reading. We will then find the residual voltage or the minimum output voltage.</p>
 <p>Finally, we plot our data on a graph and find the sensitivity with the slop equation. We then can find and graph our percent error over the entire distance.</p>
-<p>Sensitivity 13.295
-Displacment 15 TrueValue 100.8
-Experimental Sensitivity .Displacment 97.695 Experimental = 101.73</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pylab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
-<span class="o">%</span><span class="k">pylab</span> inline
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="n">pl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span> 
 <span class="n">pl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">18</span>
@@ -433,12 +431,6 @@ Experimental Sensitivity .Displacment 97.695 Experimental = 101.73</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;../scripts&#39;</span><span class="p">)</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">linear_regression</span><span class="w"> </span><span class="kn">import</span> <span class="n">linreg</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>%pylab is deprecated, use %matplotlib inline and import the required libraries.
-Populating the interactive namespace from numpy and matplotlib
 </pre></div>
 </div>
 </div>
@@ -458,9 +450,9 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$V$ [V]&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$V$ [V]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -473,9 +465,9 @@ Populating the interactive namespace from numpy and matplotlib
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">err</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$error$ [%]&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$error$ [%]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -496,9 +488,6 @@ data point and plot them. From these points, we should be able to find a slope w
 sensitivity of the LVDT. From this we can determine the voltage based on displacement or
 vise versa. After finding the sensitivity equation, we are able to calculate the experimental
 output voltage.</p>
-<p>Sensitivity 10.032
-Displacment .4 TrueValue 4.000
-Experimental Sensitivity .Displacment 0.01 Experimental = 4.003</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Peak-Peak Votage (mV)</span>
@@ -513,9 +502,9 @@ Experimental Sensitivity .Displacment 0.01 Experimental = 4.003</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$V$ [V]&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$V$ [V]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -528,9 +517,9 @@ Experimental Sensitivity .Displacment 0.01 Experimental = 4.003</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">err</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$error$ [%]&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span><span class="s1">&#39;--o&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$error$ [%]&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -546,7 +535,6 @@ Experimental Sensitivity .Displacment 0.01 Experimental = 4.003</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">RR</span><span class="p">,</span> <span class="n">sxy</span> <span class="o">=</span> <span class="n">linreg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
 <span class="c1"># a, b, RR, sxy</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">RR</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -562,20 +550,16 @@ y = 10.03 x + -0.01 $\pm$ 0.011 V
 10.032395070786585 -0.010013540329179014 0.9998674976195304
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.   , 0.1  , 0.2  , 0.3  , 0.325, 0.35 , 0.375, 0.4  , 0.425,
-       0.45 , 0.475, 0.5  , 0.525, 0.56 , 0.575, 0.6  , 0.7  ])
-</pre></div>
-</div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">V_est</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">K</span> <span class="o">+</span> <span class="n">b</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">V_est</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$V$ [mV]&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;best fit&#39;</span><span class="p">)</span>
-<span class="c1"># pl.legend((&#39;$x$&#39;,&#39;$c^{0.047}$&#39;),loc=&#39;best&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">V_est</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$x$ [mm]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;$V$ [mV]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;best fit&#39;</span><span class="p">)</span>
+<span class="c1"># plt.legend((&#39;$x$&#39;,&#39;$c^{0.047}$&#39;),loc=&#39;best&#39;)</span>
 </pre></div>
 </div>
 </div>
