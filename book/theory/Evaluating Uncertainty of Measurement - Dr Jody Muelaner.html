@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.muelaner.com/uncertainty-of-measurement/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<script type="text/javascript" async="" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/analytics.js"></script><script type="text/javascript" async="" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/js"></script><script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/684182519479045" async=""></script><script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/openbridge3.js" async=""></script><script async="" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/fbevents.js"></script><script>window._wca = window._wca || [];</script>
+
+	<!-- This site is optimized with the Yoast SEO plugin v26.3 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Evaluating Uncertainty of Measurement - Dr Jody Muelaner</title>
+	<meta name="description" content="Introduction to evaluating uncertainty of measurement (according to GUM) with a simple worked example. Followed by detailed uncertainty budget example...">
+	<link rel="canonical" href="https://www.muelaner.com/uncertainty-of-measurement/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Evaluating Uncertainty of Measurement - Dr Jody Muelaner">
+	<meta property="og:description" content="Introduction to evaluating uncertainty of measurement (according to GUM) with a simple worked example. Followed by detailed uncertainty budget example...">
+	<meta property="og:url" content="https://www.muelaner.com/uncertainty-of-measurement/">
+	<meta property="og:site_name" content="Dr Jody Muelaner">
+	<meta property="article:publisher" content="https://www.facebook.com/muelaner">
+	<meta property="article:modified_time" content="2017-11-01T14:46:49+00:00">
+	<meta property="og:image" content="https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem-300x149.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@JodyMuelaner">
+	<meta name="twitter:label1" content="Est. reading time">
+	<meta name="twitter:data1" content="12 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.muelaner.com/uncertainty-of-measurement/","url":"https://www.muelaner.com/uncertainty-of-measurement/","name":"Evaluating Uncertainty of Measurement - Dr Jody Muelaner","isPartOf":{"@id":"https://www.muelaner.com/#website"},"primaryImageOfPage":{"@id":"https://www.muelaner.com/uncertainty-of-measurement/#primaryimage"},"image":{"@id":"https://www.muelaner.com/uncertainty-of-measurement/#primaryimage"},"thumbnailUrl":"https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem-300x149.png","datePublished":"2013-07-18T11:04:16+00:00","dateModified":"2017-11-01T14:46:49+00:00","description":"Introduction to evaluating uncertainty of measurement (according to GUM) with a simple worked example. Followed by detailed uncertainty budget example...","breadcrumb":{"@id":"https://www.muelaner.com/uncertainty-of-measurement/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["https://www.muelaner.com/uncertainty-of-measurement/"]}]},{"@type":"ImageObject","inLanguage":"en-US","@id":"https://www.muelaner.com/uncertainty-of-measurement/#primaryimage","url":"https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem.png","contentUrl":"https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem.png","width":3175,"height":1587,"caption":"The Central Limit Theorem – One Die Gives and Equal Chance of a Number Between 1 and 6 but the Sum of 2 Dice is a Triangular Distribution between 2 and 12. More Dice tend towards a Normal Distribution"},{"@type":"BreadcrumbList","@id":"https://www.muelaner.com/uncertainty-of-measurement/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.muelaner.com/"},{"@type":"ListItem","position":2,"name":"Evaluating Uncertainty of Measurement"}]},{"@type":"WebSite","@id":"https://www.muelaner.com/#website","url":"https://www.muelaner.com/","name":"Dr Jody Muelaner","description":"simplifying complexity","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://www.muelaner.com/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"en-US"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="https://stats.wp.com/">
+<link rel="dns-prefetch" href="https://secure.gravatar.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://code.ionicframework.com/">
+<link rel="dns-prefetch" href="https://v0.wordpress.com/">
+<link rel="alternate" type="application/rss+xml" title="Dr Jody Muelaner » Feed" href="https://www.muelaner.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Dr Jody Muelaner » Comments Feed" href="https://www.muelaner.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Dr Jody Muelaner » Evaluating Uncertainty of Measurement Comments Feed" href="https://www.muelaner.com/uncertainty-of-measurement/feed/">
+<script>
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.muelaner.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.3"}};
+/*! This file is auto-generated */
+!function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+</script>
+<link rel="stylesheet" id="genesis-blocks-style-css-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/style-blocks.build.css" media="all">
+<link rel="stylesheet" id="infinity-pro-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/style.css" media="all">
+<style id="infinity-pro-inline-css">
+.has-accent-color {
+	color: #d43c67 !important;
+}
+
+.has-accent-background-color {
+	background-color: #d43c67 !important;
+}
+
+.content .wp-block-button .wp-block-button__link:focus,
+.content .wp-block-button .wp-block-button__link:hover {
+	background-color: #d43c67 !important;
+	color: #fff;
+}
+
+.content .wp-block-button.is-style-outline .wp-block-button__link:focus,
+.content .wp-block-button.is-style-outline .wp-block-button__link:hover {
+	border-color: #d43c67 !important;
+	color: #d43c67 !important;
+}
+
+
+.entry-content .wp-block-pullquote.is-style-solid-color {
+	background-color: #d43c67;
+}
+
+</style>
+<style id="wp-emoji-styles-inline-css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/style.min.css" media="all">
+<style id="classic-theme-styles-inline-css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<link rel="stylesheet" id="mediaelement-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/mediaelementplayer-legacy.min.css" media="all">
+<link rel="stylesheet" id="wp-mediaelement-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/wp-mediaelement.min.css" media="all">
+<style id="jetpack-sharing-buttons-style-inline-css">
+.jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
+</style>
+<style id="global-styles-inline-css">
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--accent: #d43c67;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 18px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 26px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 22px;--wp--preset--font-size--larger: 30px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="genesis-page-builder-frontend-styles-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/style-blocks.css" media="all">
+<link rel="stylesheet" id="woocommerce-layout-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/woocommerce-layout.css" media="all">
+<style id="woocommerce-layout-inline-css">
+
+	.infinite-scroll .woocommerce-pagination {
+		display: none;
+	}
+</style>
+<link rel="stylesheet" id="woocommerce-smallscreen-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/woocommerce-smallscreen.css" media="only screen and (max-width: 880px)">
+<link rel="stylesheet" id="woocommerce-general-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/woocommerce.css" media="all">
+<link rel="stylesheet" id="infinity-woocommerce-styles-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/infinity-woocommerce.css" media="screen">
+<style id="woocommerce-inline-inline-css">
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel="stylesheet" id="brands-styles-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/brands.css" media="all">
+<link rel="stylesheet" id="infinity-fonts-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/css" media="all">
+<link rel="stylesheet" id="infinity-ionicons-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/ionicons.min.css" media="all">
+<link rel="stylesheet" id="infinity-pro-gutenberg-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/front-end.css" media="all">
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/jquery.min.js" id="jquery-core-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/jquery.blockUI.min.js" id="wc-jquery-blockui-js" defer="" data-wp-strategy="defer"></script>
+<script id="wc-add-to-cart-js-extra">
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/www.muelaner.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/add-to-cart.min.js" id="wc-add-to-cart-js" defer="" data-wp-strategy="defer"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/js.cookie.min.js" id="wc-js-cookie-js" defer="" data-wp-strategy="defer"></script>
+<script id="woocommerce-js-extra">
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_password_show":"Show password","i18n_password_hide":"Hide password"};
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/woocommerce.min.js" id="woocommerce-js" defer="" data-wp-strategy="defer"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/s-202545.js" id="woocommerce-analytics-js" defer="" data-wp-strategy="defer"></script>
+<link rel="https://api.w.org/" href="https://www.muelaner.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://www.muelaner.com/wp-json/wp/v2/pages/592"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.muelaner.com/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.8.3">
+<meta name="generator" content="WooCommerce 10.3.4">
+<link rel="shortlink" href="https://wp.me/P3GrvS-9y">
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.muelaner.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.muelaner.com%2Funcertainty-of-measurement%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.muelaner.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.muelaner.com%2Funcertainty-of-measurement%2F&amp;format=xml">
+	<style>img#wpstats{display:none}</style>
+		<link rel="pingback" href="https://www.muelaner.com/xmlrpc.php">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/js(1)"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-42222690-1');
+</script>	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	
+<!-- Meta Pixel Code -->
+<script type="text/javascript">
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+</script>
+<!-- End Meta Pixel Code -->
+<script type="text/javascript">var url = window.location.origin + '?ob=open-bridge';
+            fbq('set', 'openbridge', '684182519479045', url);
+fbq('init', '684182519479045', {}, {
+    "agent": "wordpress-6.8.3-4.1.5"
+})</script><script type="text/javascript">
+    fbq('track', 'PageView', []);
+  </script><link rel="icon" href="https://www.muelaner.com/wp-content/uploads/2018/12/Logo-1-150x150.png" sizes="32x32">
+<link rel="icon" href="https://www.muelaner.com/wp-content/uploads/2018/12/Logo-1-300x300.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://www.muelaner.com/wp-content/uploads/2018/12/Logo-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://www.muelaner.com/wp-content/uploads/2018/12/Logo-1-300x300.png">
+</head>
+<body class="wp-singular page-template page-template-template-sidebar page-template-template-sidebar-php page page-id-592 wp-embed-responsive wp-theme-genesis wp-child-theme-infinity-pro theme-genesis woocommerce-js header-full-width full-width-content genesis-breadcrumbs-hidden genesis-footer-widgets-visible" data-new-gr-c-s-check-loaded="14.1261.0" data-gr-ext-installed="">
+<!-- Meta Pixel Code -->
+<noscript>
+<img height="1" width="1" style="display:none" alt="fbpx"
+src="https://www.facebook.com/tr?id=684182519479045&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Meta Pixel Code -->
+<div class="site-container"><ul class="genesis-skip-link"><li><a href="https://www.muelaner.com/uncertainty-of-measurement/#genesis-content" class="screen-reader-shortcut"> Skip to main content</a></li><li><a href="https://www.muelaner.com/uncertainty-of-measurement/#genesis-footer-widgets" class="screen-reader-shortcut"> Skip to footer</a></li></ul><header class="site-header"><div class="wrap"><div class="title-area"><p class="site-title"><a href="https://www.muelaner.com/">Dr Jody Muelaner</a></p><p class="site-description">simplifying complexity</p></div><button class="menu-toggle ionicons-before ion-ios-drag" aria-expanded="false" aria-pressed="false" id="genesis-mobile-nav-primary">Menu</button><nav class="nav-primary genesis-responsive-menu" aria-label="Main" id="genesis-nav-primary" style=""><div class="wrap"><ul id="menu-main-menu" class="menu genesis-nav-menu menu-primary js-superfish sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-206" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-206"><a href="https://www.muelaner.com/"><span>Home</span></a></li>
+<li id="menu-item-2301" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2301"><a href="https://www.muelaner.com/freelance-writing/"><span>Writing</span></a></li>
+<li id="menu-item-10534" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-10534"><a href="https://www.muelaner.com/design/"><span>Design</span></a></li>
+<li id="menu-item-10498" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10498"><a href="https://muelaner.com/#front-page-7/"><span>Contact</span></a></li>
+</ul></div></nav></div></header><div class="site-inner" style="margin-top: 72px;"><div class="content-sidebar-wrap"><main class="content" id="genesis-content"><article class="post-592 page type-page status-publish entry" aria-label="Evaluating Uncertainty of Measurement"><header class="entry-header"><h1 class="entry-title">Evaluating Uncertainty of Measurement</h1>
+</header><div class="entry-content"><p style="text-align: justify;">This page is the second part of a series of pages explaining the science of good measurement. In <a href="https://www.muelaner.com/metrology/">Part 1: Key Principles in Metrology and Measurement Systems Analysis (MSA)</a>&nbsp;concepts such as uncertainty of measurement, confidence and traceability were introduced. This page goes into greater depth about uncertainty of measurement introducing types of uncertainty was well as some basic statistics&nbsp;used in uncertainty evaluation. It is followed by&nbsp;<a href="https://www.muelaner.com/uncertainty-budget/">Part 3: Uncertainty Budgets</a>, <a href="https://www.muelaner.com/measurement-systems-analysis-msa/">Part 4: MSA and Gage R&amp;R</a>, and&nbsp;<a href="https://www.muelaner.com/msa-uncertainty-of-measurement/">Part 5: Uncertainty Evaluation using MSA Tools</a>.</p>
+<blockquote>
+<p style="text-align: justify;">All measurements have uncertainty which arises from many sources such as repeatability, calibration and environment. Calculating the total uncertainty resulting from all sources&nbsp;involves first estimating the contribution from each source and then determining how these will combine to give a combined standard uncertainty.</p>
+</blockquote>
+<h2>Type A and Type B Sources of Uncertainty</h2>
+<p style="text-align: justify;">Sources of uncertainty are classified as Type A if they are estimated by statistical analysis of repeated measurements or Type B if they are estimated using any other available information. For example to find the repeatability of an instrument we could simply measure the same quantity 20 times and analyse the different results we got, this would be a Type A uncertainty. To find the uncertainty in our calibration reference standard&nbsp;by this method would be impractical, for this we simply look up the uncertainty on it’s calibration certificate, this is a Type B uncertainty.</p>
+<h2>Basic Statistics required for Uncertainty Evaluation</h2>
+<p style="text-align: justify;">In order to give values for the uncertainties an understanding of basic statistics is required; standard deviations, probability distributions such as the normal distribution and the central limit theorem. These are explained below.</p>
+<h3>Standard Deviation</h3>
+<p style="text-align: justify;">In order to find the repeatability of an instrument we might measure the same quantity 20 times. We will then have 20 slightly different measurement results which give an idea of how much the instrument varies when measuring the same thing, we need to find a number which represents&nbsp;this variation. The simplest number to find&nbsp;would be the range in the data; the biggest value minus the smallest value, but this wouldn’t really represent the spread of all the measurements very well and the more measurements we made the bigger it would get which suggests it is not a reliable method. The <em>standard deviation</em>&nbsp;is a number which can be calculated which is essentially the mean average of how far each individual measurement is from the mean average of all measurements. This is best understood with an example….</p>
+<p style="text-align: justify;">The standard measure of uncertainty is the standard deviation so one ‘<em>standard uncertainty</em>‘ means one standard deviation in the measurement.</p>
+<h3>Probability Distributions and the Central Limit Theorem</h3>
+<p style="text-align: justify;">I’m going to explain what a&nbsp;probability distribution is by asking you to imagine rolling some dice. First just roll one dice. You can roll a 1, 2, 3, 4, 5 or 6, and you have an equal chance of rolling any one of them. If you roll the dice 100 times and plot a bar graph of the score against the frequency (the number of times you got that score) then you will end up with 6 bars all of equal height. These bars form a rectangular shape and this is known as a rectangular distribution; the result can be any value between some limits. Uncertainty due to rounding to the nearest increment on an instrument’s scale has a rectangular distribution.</p>
+<p style="text-align: justify;">Now consider rolling 2 dice; A and B. you can&nbsp;score anywhere between 2 and 12. But now there is not an equal chance of getting any score. There is only one way to score 2 (A=1 and B=1), there are two ways to score 3 (A=1 and B=2, A=2 and B=1) and so on. The chances keep increasing until you get to a score of 7, which can arise from&nbsp;six different permutations of dice, and then the odds decrease until we get to a score of 12 for which there is again only one way to roll it; both dice must be sixes. If we plot these scores on a bar chart we get a triangular distribution. This is interesting because it doesn’t only apply to dice,&nbsp;if we combine the effects of any two random events with rectangular distributions or similar magnitude then we get a triangular distribution.</p>
+<p style="text-align: justify;">If we add more dice things get even more interesting. The peak of the triangle starts to flatten and the ends start to trail off to form a bell shape known as the normal distribution. In fact the central limit theorem states that a number of independent distributions of any shape will combine to give a normal distribution.&nbsp;Combined uncertainty can&nbsp;therefore generally assumed to be normally distributed even when many of the components of uncertainty are not. This is useful as if we know our uncertainty is normally distributed then we know what the probability is of a measurement being in error by more than one standard uncertainty (68%), by more than two standard uncertainties (95%) etc</p>
+<figure id="attachment_601" aria-describedby="caption-attachment-601" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem.png"><img decoding="async" class="size-medium wp-image-601" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/central-limit-theorem-300x149.png" alt="The Central Limit Theorem – One Die Gives and Equal Chance of a Number Between 1 and 6 but the Sum of 2 Dice is a Triangular Distribution between 2 and 12. More Dice tend towards a Normal Distribution" width="300" height="149" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem-300x149.png 300w, https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem-750x375.png 750w, https://www.muelaner.com/wp-content/uploads/2013/07/central-limit-theorem-1024x511.png 1024w" sizes="(max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-601" class="wp-caption-text">The Central Limit Theorem – One Die Gives and Equal Chance of a Number Between 1 and 6 but the Sum of 2 Dice is a Triangular Distribution between 2 and 12. More Dice tend towards a Normal Distribution</figcaption></figure>
+<p>&nbsp;</p>
+<h2>Some typical sources of uncertainty</h2>
+<p style="text-align: justify;">Uncertainty of measurement can arise&nbsp;from many&nbsp;sources. I tend to focus on dimensional measurements but the principles of uncertainty evaluation and many of the sources of uncertainty can be applied to any measurement for example time, temperature, mass etc. Some sources of uncertainty which found in all virtually all traceable measurements are the uncertainty of the reference standard used for calibration, the repeatability of the calibration process and the repeatability of the actual measurement. Environmental uncertainties such as the temperature will be significant sources of uncertainty for many measurements. Resolution or rounding may not be a significant source of uncertainty for digital instruments reading out to many decimal places beyond the repeatability of the system but is often significant for instruments with a manually read scale such as rulers, dial gauges etc. Alignment is often a major source of uncertainty for dimensional measurements.</p>
+<h3>Alignment Errors</h3>
+<p style="text-align: justify;">Alignment is a common source of uncertainty in <a href="https://www.muelaner.com/dimensional-measurement/">dimensional measurement</a>. For example when a measurement of the distance between two parallel surfaces is made it should be perpendicular to the surfaces. Any angular deviation from the perpendicular measurement path will result in a cosine error in which the actual distance is the measured distance multiplied by the cosine of the angular deviation.</p>
+<figure id="attachment_593" aria-describedby="caption-attachment-593" style="width: 600px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/Cosine-Error.jpg"><img decoding="async" class=" wp-image-593 " src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/Cosine-Error-1024x489.jpg" alt="Cosine Error, Common Source of Uncertainty of Measurement" width="600" height="286" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/Cosine-Error-1024x489.jpg 1024w, https://www.muelaner.com/wp-content/uploads/2013/07/Cosine-Error-750x359.jpg 750w, https://www.muelaner.com/wp-content/uploads/2013/07/Cosine-Error-300x143.jpg 300w, https://www.muelaner.com/wp-content/uploads/2013/07/Cosine-Error.jpg 1363w" sizes="(max-width: 600px) 100vw, 600px"></a><figcaption id="caption-attachment-593" class="wp-caption-text">Cosine Error is a Common Source of Uncertainty of Measurement</figcaption></figure>
+<p style="text-align: justify;">Another common alignment error is parallax error. This results from viewing a marker, which is separated by some distance from the scale or object being measured, at an incorrect angle. Parallax error commonly observed when a passenger in a car reads the speedometer. Another common example is when the markings on the upper surface of a ruler are used to measure between edges on a surface. If the viewing angle is not perpendicular to the ruler this will result in parallax error.</p>
+<figure id="attachment_596" aria-describedby="caption-attachment-596" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/Parallax-error-combined.jpg"><img loading="lazy" decoding="async" class="size-medium wp-image-596" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/Parallax-error-combined-300x205.jpg" alt="Parallax error is commonly observed when a passenger in a car reads the speedometer or when using a ruler with the markings on the upper surface" width="300" height="205" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/Parallax-error-combined-300x205.jpg 300w, https://www.muelaner.com/wp-content/uploads/2013/07/Parallax-error-combined-750x514.jpg 750w, https://www.muelaner.com/wp-content/uploads/2013/07/Parallax-error-combined.jpg 771w" sizes="auto, (max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-596" class="wp-caption-text">Parallax error is commonly observed when a passenger in a car reads the speedometer or when using a ruler with the markings on the upper surface</figcaption></figure>
+<p style="text-align: justify;">Abbe Error is similar to parallax error but rather than resulting from alignment of viewing angles it results from alignment of machine axes. The distance between the axis along which an object is being measured and the axis of the instruments measurement scale is known as the Abbe Offset. If the distance along the object is not transferred to the distance along the scale in a direction perpendicular to the scale then this will result in an error. The size of this error will be the tangent of the angular error multiplied by the Abbe Offset. Instruments such as Vernier callipers are susceptible to Abbe Error as the measurement scale is not co-axial with the object being measured. Micrometers are not susceptible to Abbe Error.</p>
+<figure id="attachment_597" aria-describedby="caption-attachment-597" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Abbe.png"><img loading="lazy" decoding="async" class="size-medium wp-image-597" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/Calipers-Abbe-300x106.png" alt="Calipers are susceptible to Abbe Error since the Measurement Scale is not Co-Axial with the Axis of Measurement" width="300" height="106" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Abbe-300x106.png 300w, https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Abbe-750x267.png 750w, https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Abbe-1024x364.png 1024w, https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Abbe.png 1200w" sizes="auto, (max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-597" class="wp-caption-text">An Instrument is Susceptible to Abbe Error if the Measurement Scale is not Co-Axial with the Axis of Measurement</figcaption></figure>
+<h3>Repeatability and Reproducibility</h3>
+<p style="text-align: justify;">Repeatability is estimated by making a series of measurements, generally by the same person and under the same conditions, and then finding the standard deviation of these measurements. Reproducibility is estimated by making a series of measurements, each by a different person.</p>
+<p style="text-align: justify;">One challenge in evaluating uncertainty of measurement is determining which sources of uncertainty contribute to the observed repeatability. For example it may be that alignment errors vary randomly, contributing to repeatability, and therefore do not need to be evaluated as a separate component of uncertainty. Experience and judgement often play a role in such evaluations.</p>
+<p style="text-align: justify;">One method of establishing both repeatability and reproducibility in a single test is a ‘Gage Repeatability and Reproducibility (Gage R&amp;R) Analysis of Variance (ANOVA)’. Using this method several different parts are measured by a number of different people but each part is usually only measured 2 or 3 times by each person. The order of the parts is randomized. The ANOVA statistical analysis is then used to separate out the variation in the results which is due to three sources; the actual component variation; the repeatability of the measurement system; and the reproducibility of results between different people. Gage R&amp;R is a very good way to establish the repeatability and reproducibility components of measurement uncertainty but effort spent on this should not be seen as a substitute for evaluating other sources of uncertainty such as calibration and environment.</p>
+<h3>Resolution</h3>
+<p style="text-align: justify;">Uncertainty of measurement due to resolution is a result of rounding errors. For many digital instruments the readout resolution is many times smaller than the actual instrument uncertainty. In such cases rounding errors due the instrument resolution are insignificant.</p>
+<p style="text-align: justify;">For more traditional instruments resolution is often a significant source of uncertainty. The maximum possible error due to rounding is half of the resolution. For example when measuring with a ruler which has a resolution of 1 mm the rounding error will be +/- 0.5 mm which has a rectangular distribution. Converting a tolerance with a rectangular distribution into a standard uncertainty is covered later.</p>
+<figure id="attachment_599" aria-describedby="caption-attachment-599" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/Resolution.jpg"><img loading="lazy" decoding="async" class="size-medium wp-image-599" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/Resolution-300x187.jpg" alt="Rounding Errors Can be up to Half of the Resolution of an Instrument" width="300" height="187" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/Resolution-300x187.jpg 300w, https://www.muelaner.com/wp-content/uploads/2013/07/Resolution.jpg 736w" sizes="auto, (max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-599" class="wp-caption-text">Rounding Errors Can be up to Half of the Resolution of an Instrument</figcaption></figure>
+<h3>Temperature</h3>
+<p style="text-align: justify;">Temperature variations effect measurements in a number of ways:-</p>
+<ul>
+<li style="text-align: justify;">Thermal expansion of the object being measured and of the instrument used to measure it</li>
+<li style="text-align: justify;">For interferometric measurements changes in the refractive index</li>
+<li style="text-align: justify;">For optical measurements which depend on light following a straight line path temperature gradients will cause refraction leading to bending of the light and therefore distortions</li>
+</ul>
+<h3>Calibration</h3>
+<p style="text-align: justify;">Any errors in the reference standard used to calibrate a measurement instrument are transferred during calibration. Instruments therefore inherit uncertainty from their calibration standard. The actual process of calibration is also not perfectly repeatable; therefore additional uncertainty is introduced through the calibration process.</p>
+<p style="text-align: justify;">If calibration has been carried out by an accredited calibration lab then an uncertainty will be given on the calibration certificate. This is not the uncertainty for measurements made using the instrument; it is simply the component of uncertainty due to calibration. This point is often overlooked.</p>
+<p style="text-align: justify;">When carrying out a calibration a complete uncertainty evaluation must be carried out for the calibration process. The combined uncertainty for the calibration then becomes a component of uncertainty for measurements taken using the instrument.</p>
+<h2>Combining individual sources of Uncertainty of Measurement</h2>
+<p style="text-align: justify;">Once the individual sources for the uncertainty of a measurement have been identified and quantified a combined uncertainty should be calculated. This is the actual uncertainty of measurement for the process being considered.</p>
+<p style="text-align: justify;">As an introduction to the process of combining uncertainty we will first assume that all sources are normally distributed. Considering the measurement of a bolt, let’s assume that there are just two sources of uncertainty, the thermal expansion of the bolt and the uncertainty of the calliper measurement itself. The measurement result (y) will therefore be given by</p>
+<p style="text-align: justify;">y=X+Δx<sub>T</sub>+Δx<sub>C</sub><br>
+where x is the true length, Δx<sub>T</sub> is the error due to thermal expansion and Δx<sub>C</sub> is the error due to the calliper measurement itself.</p>
+<figure id="attachment_602" aria-describedby="caption-attachment-602" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Bolt2.png"><img loading="lazy" decoding="async" class="size-medium wp-image-602" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/Calipers-Bolt2-300x106.png" alt="A Simple Example of Combining Uncertainty for the Measurement of a Bolt using Callipers" width="300" height="106" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Bolt2-300x106.png 300w, https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Bolt2-750x267.png 750w, https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Bolt2-1024x364.png 1024w, https://www.muelaner.com/wp-content/uploads/2013/07/Calipers-Bolt2.png 2000w" sizes="auto, (max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-602" class="wp-caption-text">A Simple Example of Combining Uncertainty for the Measurement of a Bolt using Callipers</figcaption></figure>
+<p style="text-align: justify;">The error due to each source is not known; each error source has an uncertainty which defines the range of values which we might expect it to take. The probability that both errors will be maximal or minimal at the same time is very small. Therefore to simply add up the uncertainties would be overly pessimistic. Instead the component uncertainties are combined statistically to give a combined uncertainty.</p>
+<p style="text-align: justify;">The measurement result is given by y=f(x) where x1, x2 etc are inputs such as the true length and the various errors. Each input has an associated uncertainty u(xi). The combined uncertainty is then given by:-</p>
+<p style="text-align: left;"><img decoding="async" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/latex.php" alt=" U_{c} ^{} \left(y\right)=\sqrt{\sum _{i=1}^{N}\left[\frac{\partial f}{\partial x_{i} } \right]^{2} u^{2} \left(x_{i} \right) }" class="latex"></p>
+<p style="text-align: justify;">For simple cases, such as our example of the callipers measuring the bolt, where<br>
+y = x<sub>1</sub> + x<sub>2</sub>2 … x<sub>n</sub><br>
+The partial derivatives will all be equal to one so that</p>
+<img decoding="async" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/latex(1).php" alt=" \begin{array}{l} {\frac{\partial f}{\partial x_{i} } =1\quad \Rightarrow } \\ {U_{c} ^{} \left(y\right)=\sqrt{\sum _{i=1}^{N}\left[\frac{\partial f}{\partial x_{i} } \right]^{2} u^{2} \left(x_{i} \right) } =\sqrt{\sum _{i=1}^{N}u^{2} \left(x_{i} \right) } } \end{array}" class="latex">
+<p>Applying this to the example</p>
+<p>y=X+Δx<sub>T</sub>+Δx<sub>C</sub></p>
+<p style="text-align: justify;">The true length (<i>X</i>) has no uncertainty, leaving two sources of uncertainty; the uncertainty in the error due to thermal expansion <i>u(Δx<sub>T</sub>)</i>; and the uncertainty in the error due to the calliper measurement itself <i>u(Δx<sub>C</sub>)</i>. The combined uncertainty is therefore simply</p>
+<img decoding="async" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/latex(2).php" alt="U_{c} ^{} \left(y\right)=\sqrt{u^{2} \left(\Delta x_{T} \right)+u^{2} \left(\Delta x_{C} \right)}" class="latex">
+<p style="text-align: justify;">This information can be used to create a simple uncertainty budget. First the standard uncertainty for each source of uncertainty is estimated.</p>
+<p>&nbsp;</p>
+<figure id="attachment_621" aria-describedby="caption-attachment-621" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/uncertainty-budget-1a.png"><img loading="lazy" decoding="async" class="size-medium wp-image-621 " src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/uncertainty-budget-1a-300x234.png" alt="A table listing the standard uncertainty for each source of uncertainty of measurement" width="300" height="234" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/uncertainty-budget-1a-300x234.png 300w, https://www.muelaner.com/wp-content/uploads/2013/07/uncertainty-budget-1a.png 558w" sizes="auto, (max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-621" class="wp-caption-text">In this simple uncertainty budget for a calliper measurement each source of uncertainty is first estimated</figcaption></figure>
+<p style="text-align: justify;">There is a simple functional relationship where the errors are simply added to the true value to give the measurement result. The combined uncertainty is therefore simply the square root of the sum of each component uncertainty squared (RSS). The combined uncertainty is multiplied by a coverage factor to give the uncertainty at a required confidence level (the expanded uncertainty).</p>
+<figure id="attachment_622" aria-describedby="caption-attachment-622" style="width: 300px" class="wp-caption aligncenter"><a href="https://www.muelaner.com/wp-content/uploads/2013/07/uncertainty-budget-1b.png"><img loading="lazy" decoding="async" class="size-medium wp-image-622" src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/uncertainty-budget-1b-300x234.png" alt="The simple uncertainty budget is completed by calculating the combined standard uncertainty and expanded uncertainty" width="300" height="234" srcset="https://www.muelaner.com/wp-content/uploads/2013/07/uncertainty-budget-1b-300x234.png 300w, https://www.muelaner.com/wp-content/uploads/2013/07/uncertainty-budget-1b.png 558w" sizes="auto, (max-width: 300px) 100vw, 300px"></a><figcaption id="caption-attachment-622" class="wp-caption-text">The simple uncertainty budget is completed by calculating the combined standard uncertainty and expanded uncertainty</figcaption></figure>
+<p style="text-align: justify;">The example on this page was a simplification to introduce the concepts. An example of a proper uncertainty budget is given in the next section.</p>
+<p><a href="https://www.muelaner.com/uncertainty-budget/"><strong>Part 3: Calculating an Uncertainty Budget…</strong></a></p>
+</div></article></main></div></div><div class="footer-widgets" id="genesis-footer-widgets"><h2 class="genesis-sidebar-title screen-reader-text">Footer</h2><div class="wrap"><div class="widget-area footer-widgets-1 footer-widget-area"><section id="custom_html-6" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><a href="https://www.muelaner.com/copyright-and-terms-of-use/">Terms and Conditions</a></div></div></section>
+</div><div class="widget-area footer-widgets-2 footer-widget-area"><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><a href="https://www.muelaner.com/privacy-policy/">Privacy Policy</a></div></div></section>
+</div></div></div><footer class="site-footer"><div class="wrap"><nav class="nav-secondary" aria-label="Secondary"><div class="wrap"><ul id="menu-social-links" class="menu genesis-nav-menu menu-secondary js-superfish sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-1007" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1007"><a href="https://www.facebook.com/muelaner"><span>Facebook</span></a></li>
+<li id="menu-item-1008" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1008"><a href="https://twitter.com/JodyMuelaner"><span>Twitter</span></a></li>
+<li id="menu-item-1009" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1009"><a href="https://uk.linkedin.com/in/jody-muelaner-24946a77"><span>Linkedin</span></a></li>
+<li id="menu-item-1010" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1010"><a href="http://www.researchgate.net/profile/J_Muelaner"><span>Research Gate</span></a></li>
+<li id="menu-item-1760" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1760"><a href="https://plus.google.com/b/107161055214359694524/+Muelaner"><span>Google+</span></a></li>
+</ul></div></nav><p>Copyright ©&nbsp;2025 · <a href="http://my.studiopress.com/themes/infinity/">Infinity Pro</a> on <a href="https://www.studiopress.com/">Genesis Framework</a> · <a href="https://wordpress.org/">WordPress</a> · <a rel="nofollow" href="https://www.muelaner.com/wp-login.php">Log in</a></p></div></footer></div><script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/infinity-pro\/*","\/wp-content\/themes\/genesis\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+	<script type="text/javascript">
+		function genesisBlocksShare( url, title, w, h ){
+			var left = ( window.innerWidth / 2 )-( w / 2 );
+			var top  = ( window.innerHeight / 2 )-( h / 2 );
+			return window.open(url, title, 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=600, top='+top+', left='+left);
+		}
+	</script>
+	    <!-- Meta Pixel Event Code -->
+    <script type="text/javascript">
+        document.addEventListener( 'wpcf7mailsent', function( event ) {
+        if( "fb_pxl_code" in event.detail.apiResponse){
+            eval(event.detail.apiResponse.fb_pxl_code);
+        }
+        }, false );
+    </script>
+    <!-- End Meta Pixel Event Code -->
+        <div id="fb-pxl-ajax-code"></div>	<script>
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<link rel="stylesheet" id="wc-stripe-blocks-checkout-style-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/upe-blocks.css" media="all">
+<link rel="stylesheet" id="wc-blocks-style-css" href="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/wc-blocks.css" media="all">
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/dismiss.js" id="genesis-blocks-dismiss-js-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/hoverIntent.min.js" id="hoverIntent-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/superfish.min.js" id="superfish-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/superfish.args.min.js" id="superfish-args-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/skip-links.min.js" id="skip-links-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/match-height.js" id="infinity-match-height-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/global.js" id="infinity-global-js"></script>
+<script id="infinity-responsive-menu-js-extra">
+var genesis_responsive_menu = {"mainMenu":"Menu","menuIconClass":"ionicons-before ion-ios-drag","subMenu":"Submenu","subMenuIconClass":"ionicons-before ion-chevron-down","menuClasses":{"others":[".nav-primary"]}};
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/responsive-menus.min.js" id="infinity-responsive-menu-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/hooks.min.js" id="wp-hooks-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/i18n.min.js" id="wp-i18n-js"></script>
+<script id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/wp-polyfill.min.js" id="wp-polyfill-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/url.min.js" id="wp-url-js"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/api-fetch.min.js" id="wp-api-fetch-js"></script>
+<script id="wp-api-fetch-js-after">
+wp.apiFetch.use( wp.apiFetch.createRootURLMiddleware( "https://www.muelaner.com/wp-json/" ) );
+wp.apiFetch.nonceMiddleware = wp.apiFetch.createNonceMiddleware( "51d2498216" );
+wp.apiFetch.use( wp.apiFetch.nonceMiddleware );
+wp.apiFetch.use( wp.apiFetch.mediaUploadMiddleware );
+wp.apiFetch.nonceEndpoint = "https://www.muelaner.com/wp-admin/admin-ajax.php?action=rest-nonce";
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/woocommerce-analytics-client.js" id="woocommerce-analytics-client-js" defer="" data-wp-strategy="defer"></script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/sourcebuster.min.js" id="sourcebuster-js-js"></script>
+<script id="wc-order-attribution-js-extra">
+var wc_order_attribution = {"params":{"lifetime":1.0e-5,"session":30,"base64":false,"ajaxurl":"https:\/\/www.muelaner.com\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":true},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}};
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/order-attribution.min.js" id="wc-order-attribution-js"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"54444548\",\"post\":\"592\",\"tz\":\"0\",\"srv\":\"www.muelaner.com\",\"j\":\"1:15.2\"}") ]);
+_stq.push([ "clickTrackerInit", "54444548", "592" ]);
+</script>
+<script src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/e-202545.js" id="jetpack-stats-js" defer="" data-wp-strategy="defer"></script>
+		<script type="text/javascript">
+			(function() {
+				window.wcAnalytics = window.wcAnalytics || {};
+				const wcAnalytics = window.wcAnalytics;
+
+				// Set the assets URL for webpack to find the split assets.
+				wcAnalytics.assets_url = 'https://www.muelaner.com/wp-content/plugins/jetpack/jetpack_vendor/automattic/woocommerce-analytics/src/../build/';
+
+				// Set common properties for all events.
+				wcAnalytics.commonProps = {"blog_id":54444548,"store_id":"e335409a-2d5d-4c59-b4a2-cd2a81b1e86d","ui":null,"url":"https://www.muelaner.com","woo_version":"10.3.4","wp_version":"6.8.3","store_admin":0,"device":"desktop","store_currency":"GBP","timezone":"+00:00","is_guest":1};
+
+				// Set the event queue.
+				wcAnalytics.eventQueue = [];
+
+				// Features.
+				wcAnalytics.features = {
+					ch: false,
+					sessionTracking: false,
+					proxy: false,
+				};
+
+				wcAnalytics.breadcrumbs = ["Evaluating Uncertainty of Measurement"];
+
+				// Page context flags.
+				wcAnalytics.pages = {
+					isAccountPage: false,
+					isCart: false,
+				};
+			})();
+		</script>
+		
+<img src="./Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/g.gif" alt="" width="6" height="5" id="wpstats"><div class="widget_shopping_cart_live_region screen-reader-text" role="status"></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

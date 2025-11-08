@@ -16,3 +16,4 @@ uv.lock
 
 # MyST build outputs
 _build
+book/calibration/Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/*
