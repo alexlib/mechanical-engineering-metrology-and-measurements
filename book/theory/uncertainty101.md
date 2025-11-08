@@ -1,5 +1,7 @@
 # Uncertainty 101
 
+Original source of graphics is the website of Dr. Jody Muelaner https://www.muelaner.com/uncertainty-budget/
+
 ## Uncertainty
 
 ![uncertainty](fig/uncertainty-ahead.jpg)
