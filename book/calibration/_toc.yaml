@@ -15,3 +15,4 @@ chapters:
   - file: pressure_calibration_example
   - file: regression_analysis
   - file: sensitivity_analysis
+  - file: weight_scale_example_Wheeler

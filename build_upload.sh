@@ -2,5 +2,5 @@
 # edm shell -e mdd
 # or 
 # conda activate mdd
-jupyter-book build book
-ghp-import -n -p -f book/_build/html
+jupyter book build --html
+ghp-import -n -p -f _build/html

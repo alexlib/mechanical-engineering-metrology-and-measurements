@@ -13,3 +13,6 @@ uv.lock
 /book/theory/uncertainty101_files
 .vscode/settings.json
 /memm_book/.quarto
+
+# MyST build outputs
+_build

@@ -73,13 +73,11 @@ Does this detailed breakdown of the static calibration process and the associate
 
 
 
-
-
 <!-- AUTOGEN_START -->
 ## Pages in this chapter
 
-- [Linearity error example](Lineariy_error_example.ipynb)
-- [Calibration of non-linear (logarithmic) function](calibration_curve_log_log.ipynb)
+- [Linearity error example](Lineariy_error_example)
+- [Calibration of non-linear (logarithmic) function](calibration_curve_log_log)
 - [Hysteresis example](calibration_error_analysis 2.ipynb)
 - [Hysteresis and regression analysis example](calibration_error_analysis_pressure.ipynb)
 - [Calibration of non-linear relations](calibration_non_linear_relations.ipynb)
