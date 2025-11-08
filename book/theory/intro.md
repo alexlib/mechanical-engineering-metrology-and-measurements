@@ -49,7 +49,6 @@ See [checklist.md](checklist.md) for a detailed 9-step checklist to guide uncert
 - [Standardization](standartization.ipynb)
 - [Teaching Measurement in the Introductory Physics Laboratory](teaching_measurement_introductory_physics_lab.md)
 - [Teaching uncertainty in mechanical measurements](teaching_measurement_uncertainty.ipynb)
-- [Uncertainty 101](uncertainty101.md)
 - [Uncertainty Analysis](uncertainty_analysis_NASA.ipynb)
 - [uncertainty_example](uncertainty_example.ipynb)
 - [How to estimate the uncertainty of a slope for static calibration or regression](uncertainty_of_a_slope.ipynb)

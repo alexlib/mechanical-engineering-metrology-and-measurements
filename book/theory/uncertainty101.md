@@ -108,8 +108,7 @@ Different categories require different uncertainty approach:
 -   regulation - to check that that an item is within specification:
     pass/fail
 
-In all cases, a measurement is **only** useful if: a) has high quality,
-b) if suitable for the **intended purpose**.
+In all cases, a measurement is **only** useful if: 1 - has high quality, 2 - if suitable for the **intended purpose**.
 
 Lord Kelvin said once: 
 
@@ -117,9 +116,9 @@ Lord Kelvin said once:
 
 ## Measurement is as good as its uncertainty
 
-<span style="color:red">measurement = best estimate ± uncertainty</span>
+**measurement = best estimate $\pm$ uncertainty**
 
-$L = 2.35 \pm 0.03$  mm  (95% confidence)
+$$L = 2.35 \pm 0.03$$  mm  (95% confidence)
 
 **We report:** what is measured $L$, its most probable value (2.35), its uncertainty range (0.03) and the best known confidence range (95%)
 
