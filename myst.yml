@@ -31,8 +31,9 @@ project:
     
 site:
   template: book-theme
-  # options:
-  #   favicon: favicon.ico
-  #   logo: site_logo.png
+  title: Mechanical Engineering Metrology and Measurements
+  options:
+     favicon: favicon.ico
+     logo: logo.png
 
 
