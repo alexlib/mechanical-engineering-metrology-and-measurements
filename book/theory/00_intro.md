@@ -1,35 +1,19 @@
-# Theory — Introduction and Learning Goals
+# Metrology theory — Introduction and Learning Goals
 
-Short summary
-This chapter covers measurement theory: uncertainty concepts, best practices, measurement-system analysis, and worked Monte Carlo examples.
+This chapter covers measurement theory or *metrology*: uncertainty concepts, best practices, analytical measurement system analysis, examples of measurement systems.
 
-Learning objectives
-- Understand types of measurement uncertainty and how to report them.
+### Learning objectives
+- Understand types of *measurement uncertainty* and how to report them.
 - Distinguish repeatability vs reproducibility, bias, and systematic errors.
-- Apply basic uncertainty propagation (analytical and Monte Carlo).
+- Apply basic uncertainty propagation.
 - Recognize good-practice recommendations for lab notebooks and reporting.
 
-Key concepts (brief)
+### Key concepts 
 - GUM-style uncertainty vs Type A/B estimates.
-- Propagation of uncertainty for slopes and model parameters.
-- Role of simulations (Monte Carlo) to validate analytical propagation.
+- Propagation of uncertainty in complex measurements
 
-Recommended notebooks to run
-- uncertainty_example.ipynb
-- uncertainty_of_a_slope.ipynb
-- uncertainty_propagation_monte_carlo_gum.ipynb
-- teaching_measurement_uncertainty.ipynb
-- best_practice_summary.ipynb
-
-Suggested exercises
-- Compute and compare analytical and Monte Carlo propagation on a simple function.
-- Prepare a short lab report following the best-practice notebook checklist.
-
-Prerequisites
-Basic probability, calculus, and comfort with Python arrays.
-
-### Checklist for the 8-step uncertainty analysis process
-See [checklist.md](checklist.md) for a detailed 9-step checklist to guide uncertainty analyses.
+### Prerequisites
+Basic probability, calculus, and comfort with Python, Numpy, Matplotlib, Scipy, Jupyter.
 
 
 <!-- AUTOGEN_START -->
