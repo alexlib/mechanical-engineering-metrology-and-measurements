@@ -95,32 +95,37 @@ Aero-engines are built to a very high accuracy and require about
 ![](fig/engine.jpeg)  
 <https://www.af.mil/News/Photos/igphoto/2000589434/>
 
-## Categories of experiments
+## Categories of experiments:
 
-Different categories require different uncertainty approach:
+Different categories require different uncertainty analysis approach:
 
--   basic science - to learn something new about nature
-
--   applied science - to verify a theoretical model
-
--   design - to make sure two parts will fit
-
--   production - to determine the correct price
-
--   regulation - to check that that an item is within specification:
+1. _basic science_ - to learn something new about nature
+2. *applied science* - to verify a theoretical model
+3. *design* - to make sure two parts will fit
+4. *production* - to determine the correct price
+5. *regulation* - to check that that an item is within specification:
     pass/fail
 
-In all cases, a measurement is **only** useful if: 1 - has high quality, 2 - if suitable for the **intended purpose**.
 
-Lord Kelvin said once: 
 
-![image](fig/kelvin_quote.jpeg)
+![Lord Kelvin](fig/kelvin_quote.jpeg)
 
-## Measurement is as good as its uncertainty
 
-**measurement = best estimate $\pm$ uncertainty**
 
-$$L = 2.35 \pm 0.03$$  mm  (95% confidence)
+```{note}
+Measurement is **only** useful if:
+
+1. It has high quality, i.e. carefully estimated uncertainty
+2. It is suitable for the **intended purpose**.
+```
+
+---
+
+```{warning}
+Measurement has no meaning without uncertainty:
+```
+
+$$ L =2.35 \pm 0.03 \; \mathrm{mm\; (95\% \; confidence)} $$
 
 **We report:** what is measured $L$, its most probable value (2.35), its uncertainty range (0.03) and the best known confidence range (95%)
 
@@ -219,7 +224,8 @@ notebooks</span>
     take the average of the other 24.
 
 -   This gives your best estimate of the length as:
-    (21.53 + 21.51 + 21.47 + 21.43 + ...)/24 = 21.493 *m**m*
+
+    (21.53 + 21.51 + 21.47 + 21.43 + ...)/24 = 21.493 mm
 
 ## 3. Evaluate the uncertainty of each input quantity that feeds in to the final result (Type A and Type B evaluations). Express all uncertainties in similar terms (standard uncertainties)
 
@@ -247,15 +253,13 @@ notebooks</span>
 
 ## Type A uncertainty evaluation
 
-For <span style="color:red">Type A</span>: characterize the variability of
-*n* readings by their **standard deviation**, given by the formula below
+For <span style="color:red">Type A</span>: characterize the variability of $n$ readings by their **standard deviation**, given by the formula below:
 
 $$\mathrm{STD} = \sqrt{\frac{\sum\limits_{i=1}^{n} \left( x_i - \bar{x} \right)^2 }{n-1}}$$
 
 $$= \sqrt{\frac{\left( 21.53 - 21.493 \right)^2  + \left( 21.51 - 21.493 \right)^2 + ... }{24 -1 }}  = 0.1044$$
 
-This is <span style="color:red">standard deviation of a single measurement
-!</span>
+This is **standard deviation of a single measurement**, a so-called *sample standard deviation*.
 
 ## Write it clear in your notebook 
 
@@ -268,8 +272,7 @@ notebook
 
 **Average (mean) is the random variable by itself.**
 
-For *n* readings the <span style="color:red">standard uncertainty associated
-with the **average**</span>:
+For *n* readings the <span style="color:red">standard uncertainty associated with the **average**</span>:
 
 <span style="color:red">standard uncertainty</span> = STD / $\sqrt{n}$
 
@@ -289,10 +292,9 @@ estimate the position of the centre of the distribution</span>.
 
 ## Type B uncertainty evaluation
 
--   Type B uncertainty evaluation is needed to assess uncertainties
+-   **Type B** uncertainty evaluation is needed to assess uncertainties
     where statistics are not applicable, **for example** where there are
-    <span style="color:red">biases</span> – **errors which always affect the
-    reading in the same way**.
+    <span style="color:red">biases</span> – **errors which always affect the reading in the same way**.
 
 -   In order to compare the uncertainty from Type A and Type B
     evaluation you need to convert **the range of the rectangular
@@ -365,7 +367,7 @@ Triangular distribution
 standard uncertainty = half range/$\sqrt{3}$
 
 -   In this example, the calibration certificate simply states that the
-    device will read within  ± 0.02 mm of the correct value, if it is
+    device will read within ±0.02 mm of the correct value, if it is
     used correctly and the temperature is within the range
     0<sup>∘</sup>C to 40<sup>∘</sup>C.
 
@@ -457,15 +459,88 @@ The main things to mention are:
 
     The reported uncertainty is based on a standard uncertainty multiplied by coverage factor $k=2$, providing a level of confidence of approximately 95%, assuming normality.
 
-## An example 1/2
+## An example of uncertainty budget, 1/2
 
-![](fig/uncertainty_budget.png)
+### Uncertainty Budget Table
+
+| Source of Uncertainty | Value $a_i$ | Units | Probability Distribution | Divisor | Sensitivity Coefficient $c_i$ | Standard Uncertainty $U_i(y)$ (mm) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Calibration Uncertainty | 0.01 | mm | Normal ($k=2$) | 2 | 1 | 0.005 |
+| Resolution | 0.005 | mm | Triangular | $\sqrt{6}$ | 1 | 0.002 |
+| Cosine error\* | 3 | deg | Rectangular | $\sqrt{3}$ | 0.046 | 0.080 |
+| Temperature\*\* | 2 | C | Rectangular | $\sqrt{3}$ | 0.0023 | 0.003 |
+| Repeatability | 0.02 | mm | Normal ($k=1$) | 1 | 1 | 0.020 |
+| **Combined Standard Uncertainty $u_c(y)$** | | | | | | **0.082** |
+| **Expanded Uncertainty ($k=2$, 95% confidence) $U$** | | | | | | 0.165 |
+
+### Explanation of Key Terms and Formula
+
+The image illustrates the fundamental formula for calculating each component's **Standard Uncertainty** $U_i(y)$ from its initial estimated value:
+
+$$\text{Standard Uncertainty } U_i(y) = \left( \frac{\text{Value } a_i}{\text{Divisor}} \right) \times \text{Sensitivity Coefficient } c_i$$
+
+### 1. Standard Uncertainty $U_i(y)$ (mm)
+
+This is the standard deviation (or 1-sigma value) of the estimated uncertainty from a specific source, expressed in the final measured unit (millimeters, mm).
+
+#### 2. Value $a_i$
+
+This is the estimated half-width of the probability distribution for a given source of uncertainty.
+
+*   For a rectangular distribution (like Resolution), $a_i$ is half the range ($\pm a_i$).
+*   For a normal distribution (like Calibration Uncertainty), $a_i$ is often an already *expanded* uncertainty.
+
+#### 3. Probability Distribution and Divisor
+
+The Divisor is used to convert the estimated range $a_i$ into a **Standard Uncertainty** (standard deviation). The choice of Divisor depends on the assumed probability distribution:
+
+| Probability Distribution | Divisor | Rationale (Conversion to Standard Deviation) |
+| :--- | :--- | :--- |
+| **Normal ($k=2$)** | 2 | The stated $a_i$ is an Expanded Uncertainty with a coverage factor $k=2$. Dividing by $k=2$ yields the Standard Uncertainty. |
+| **Rectangular** | $\sqrt{3}$ | This applies when the true value is equally likely to be anywhere within a range $\pm a_i$. The standard deviation is $a_i / \sqrt{3}$. |
+| **Triangular** | $\sqrt{6}$ | This applies when the probability peaks at the center and tails off linearly to zero at the limits $\pm a_i$. The standard deviation is $a_i / \sqrt{6}$. |
+| **Normal ($k=1$)** | 1 | The stated $a_i$ is already considered a standard uncertainty (coverage factor $k=1$), typically derived from statistical analysis (Type A evaluation). |
+
+#### 4. Sensitivity Coefficient $c_i$
+
+The Sensitivity Coefficient is the partial derivative of the measurement function with respect to the input quantity. It serves two purposes:
+
+1.  **Unit Conversion:** It converts the unit of the individual uncertainty source (e.g., deg, C) into the final desired unit (mm).
+    *   For **Calibration, Resolution, and Repeatability**, the units are already in mm, so $c_i=1$.
+    *   For **Cosine error** (in deg) and **Temperature** (in C), $c_i$ is the value that converts the effect of the input change into an output change in mm.
+
+#### 5. Combined and Expanded Uncertainty
+
+*   **Combined Standard Uncertainty $u_c(y)$:** Calculated by the Root Sum of Squares (RSS) of all individual Standard Uncertainty components $U_i(y)$ (assuming they are uncorrelated):
+    $$u_c(y) = \sqrt{\sum_{i=1}^{N} U_i(y)^2}$$
+*   **Expanded Uncertainty $U$:** Calculated by multiplying the Combined Standard Uncertainty $u_c(y)$ by a coverage factor $k$.
+    $$\text{Expanded Uncertainty } U = k \times u_c(y)$$
+    The value $k=2$ is commonly used, which corresponds to an approximate 95% confidence level for a normally distributed result.
+
 
 Source: https://www.muelaner.com/uncertainty-budget
 
 ## An example, 2/2
 
-![](fig/combined_uncertainty.png)
+| Source of Uncertainty | Value $a_i$ | Units | Probability Distribution | Divisor | Sensitivity Coefficient $c_i$ | Standard Uncertainty $U_i(y)$ (mm) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| Calibration Uncertainty | 0.01 | mm | Normal ($k=2$) | 2 | 1 | 0.005 |
+| Resolution | 0.005 | mm | Triangular | $\sqrt{6}$ | 1 | 0.002 |
+| Cosine error\* | 3 | deg | Rectangular | $\sqrt{3}$ | 0.046 | 0.080 |
+| Temperature\*\* | 2 | C | Rectangular | $\sqrt{3}$ | 0.0023 | 0.003 |
+| Repeatability | 0.02 | mm | Normal ($k=1$) | 1 | 1 | 0.020 |
+| **Combined Standard Uncertainty $u_c(y)$** | | | | | | **0.082** |
+| **Expanded Uncertainty ($k=2$, 95% confidence) $U$** | | | | | | 0.165 |
+
+**Notes:**
+\* The sensitivity coefficient $c_i$ for Cosine error would convert the uncertainty from degrees to $\text{mm}$.
+\*\* The sensitivity coefficient $c_i$ for Temperature would convert the uncertainty from ${}^\circ\text{C}$ to $\text{mm}$.
+
+The equations for calculating the combined standard uncertainty are:
+
+$$\begin{aligned} u_c^2(y) &\approx \sum_{i=1}^{N} u_i^2(y) \\ u_c(y) &\approx \sqrt{0.005^2 + 0.002^2 + 0.080^2 + 0.003^2 + 0.020^2} = 0.082 \end{aligned}$$
+
+
 
 Source: https://www.muelaner.com/uncertainty-budget/
 
@@ -527,7 +602,7 @@ $$u_{R,\mathrm{RSS}}=\sqrt{\sum_{i=1}^{i=N}\left(u_{x_{i}}\frac{\partial R}{\par
     variables (using different instruments, randomization)
 
 -   ISO standard if not stated otherwise:
-    *u*<sub>*R*</sub> = *u*<sub>*R*, RSS</sub>
+    *u*<sub>*R*</sub> = *u*<sub>*R*, RSS</sub>
 
 -   We known that $R=\overline{R}+u_{R}$ at the same confidence level
     as the components, typically 95% confidence level
@@ -536,9 +611,9 @@ $$u_{R,\mathrm{RSS}}=\sqrt{\sum_{i=1}^{i=N}\left(u_{x_{i}}\frac{\partial R}{\par
 
 Detailed example Measure volume flow rate, *Q* using the “bucket”
 method, measure the time it takes to fill some volume ∀
-*Q* = ∀/*t*
+*Q* = ∀/*t*
 
--   Measured: ∀ = 1.15 ± 0.05 liter, *t* = 33.0 ± 0.1 sec, both with 95%
+-   Measured: ∀ = 1.15 ± 0.05 liter, *t* = 33.0 ± 0.1 sec, both with 95%
     confidence
 
 -   *Q* = ∀/*t* = 1.15/33.0(60 s/min) = 2.0909 ⇒ 2.09 liter/min (lpm)
