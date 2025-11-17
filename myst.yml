@@ -22,9 +22,16 @@ project:
         - file: book/calibration/weight_scale_example_Wheeler.ipynb
         - file: book/calibration/orifice_calibration_example.ipynb
     - file: book/statistics/intro.md
+    - file: book/dynamic_signals/intro.md
+      children:
+        - file: book/dynamic_signals/first_order_time_response.ipynb
+        - file: book/dynamic_signals/step_response.ipynb
+        - file: book/dynamic_signals/2nd_order_system_step_function_log_decrement.ipynb
+        - file: book/dynamic_signals/mass_measurement_using_vibrations.ipynb
+        - file: book/dynamic_signals/design_choice_2nd_order_pressure_transducer.ipynb
     - file: book/a2d/intro.md
     - file: book/signal_processing/intro.md
-    - file: book/dynamic_signals/intro.md
+  
 
 
   bibliography:
