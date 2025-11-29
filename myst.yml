@@ -17,6 +17,7 @@ project:
       children:
         - file: book/theory/01_uncertainty101.md
         - file: book/theory/02_basic_error_analysis.ipynb
+        - file: book/theory/comparing_two_methods_cylinder_volume.md
     - file: book/calibration/intro.md
       children:
         - file: book/calibration/weight_scale_example_Wheeler.ipynb
