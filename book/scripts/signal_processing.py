@@ -33,9 +33,9 @@ def spectrum(y, Fs):
     k = np.arange(n)
     T = n/Fs
     frq = k/T  # two sides frequency range
-    frq = frq[range(np.int(n/2))]  # one side frequency range
+    frq = frq[range(int(n/2))]  # one side frequency range
     Y = 2*fft.fft(y)/n  # fft computing and normalization
-    Y = Y[range(np.int(n/2))]
+    Y = Y[range(int(n/2))]
     return (frq, Y)
 
 
