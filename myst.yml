@@ -57,7 +57,7 @@ project:
         # Module 2: Error Analysis
         - file: book/calibration/hysteresis_error_analysis.ipynb
         - file: book/calibration/Lineariy_error_example.ipynb
-        - file: book/calibration/calibration_error_analysis 2.ipynb
+        - file: book/calibration/calibration_error_analysis_2.ipynb
         - file: book/calibration/calibration_error_analysis_pressure.ipynb
         - file: book/calibration/calibration_non_linear_relations.ipynb
         # Module 3: Examples

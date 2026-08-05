@@ -4,7 +4,7 @@ root: intro
 chapters:
   - file: Lineariy_error_example
   - file: calibration_curve_log_log
-  - file: calibration_error_analysis 2
+  - file: calibration_error_analysis_2
   - file: calibration_error_analysis_pressure
   - file: calibration_non_linear_relations
   - file: full_calibration_analysis_example
