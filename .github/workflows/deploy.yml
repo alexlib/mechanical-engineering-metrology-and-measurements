@@ -42,7 +42,7 @@ jobs:
       - name: Install Python dependencies (marimo plugin)
         run: uv sync
       - name: Fix marimo plugin path for Linux
-        run: sed -i 's|.venv/Scripts/jupyter-book-marimo.exe|.venv/bin/jupyter-book-marimo|' myst.yml
+        run: sed -i 's|\.venv/Scripts/jupyter-book-marimo\.exe|\.venv/bin/jupyter-book-marimo|' myst.yml
       - name: Build HTML Assets
         run: jupyter-book build --html
       - name: Upload artifact
