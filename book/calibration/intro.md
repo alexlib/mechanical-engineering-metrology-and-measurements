@@ -13,43 +13,46 @@ Key concepts (brief)
 - Hysteresis and repeatability characterization.
 - Sensitivity analysis and combining calibration with measurement uncertainty.
 
-Recommended notebooks to run
-- micrometer_calibration.ipynb
-- regression_analysis.ipynb
-- full_calibration_analysis_example.ipynb
-- hysteresis_error_analysis.ipynb
-- calibration_non_linear_relations.ipynb
-
-Suggested exercises
-- Calibrate a sample dataset, report calibration equation and uncertainty.
-- Compare linear vs nonlinear fits and discuss choice and impact on measurements.
-
 Prerequisites
 Basic regression, statistics, and familiarity with plotting in Python.
 
------
+---
 
+## Ordered reading (suggested)
 
-### Detailed Explanation of the Static Calibration Process
+Follow this sequence to learn calibration from theory to practice. The order moves from foundational regression concepts, through systematic error characterization, to applied examples on real instruments.
 
-Static calibration is a procedure used to characterize a measurement system by applying a known, constant input value to the system and observing the resulting output value.
+1. [introduction_linear_regression.ipynb](introduction_linear_regression.ipynb) — linear regression fundamentals for sensor calibration
+2. [regression_analysis.ipynb](regression_analysis.ipynb) — detailed regression analysis with uncertainty in slope and intercept
+3. [sensitivity_analysis.ipynb](sensitivity_analysis.ipynb) — how to estimate sensitivity coefficients from calibration data
+4. [hysteresis_error_analysis.ipynb](hysteresis_error_analysis.ipynb) — identifying and quantifying hysteresis as a Type B uncertainty source
+5. [calibration_non_linear_relations.ipynb](calibration_non_linear_relations.ipynb) — polynomial and logarithmic fits when linearity fails
+6. **[Calibration Examples: Real Sensors & Instruments](calibration_sensor_examples.md)** — Comprehensive reference guide with links to all sensor calibration notebooks (LVDT, pressure, micrometer, orifice, weight scale). Choose examples matching your lab instruments.
 
-The term "static" refers to the fact that the variables are held constant, meaning the input is not dependent on time.
+Rationale: Students first master linear regression theory, then learn to identify and quantify systematic errors from the calibration process (hysteresis, linearity, repeatability). The consolidated examples guide at the end shows how to apply all these concepts to real sensors and helps students navigate to the right example for their needs. This hands-on, practical focus grounds the theory in authentic measurement scenarios.
 
-#### 1. Purpose
+---
+
+## The Static Calibration Process
+
+Static calibration is a procedure used to characterize a measurement system by applying a known, constant input value to the system and observing the resulting output value. The term "static" refers to the fact that the variables are held constant, meaning the input is not dependent on time.
+
+### Purpose
+
 The primary purpose of static calibration is twofold:
 
-1.  **Functional Relationship:** To develop a functional relationship, or a correlation ($y = f(x)$), between the system's known input ($x$) and its output ($y$). This correlation is often determined using curve fitting techniques, such as regression analysis, on the calibration curve.
-2.  **Systematic Error Identification:** To identify and quantify systematic errors (biases) such as zero error, linearity error, and hysteresis.
+1. **Functional Relationship:** To develop a functional relationship, or a correlation ($y = f(x)$), between the system's known input ($x$) and its output ($y$). This correlation is often determined using curve fitting techniques, such as regression analysis, on the calibration curve.
+2. **Systematic Error Identification:** To identify and quantify systematic errors (biases) such as zero error, linearity error, and hysteresis.
 
-#### 2. Procedure Steps
+### Procedure Steps
+
 To perform a static calibration, you generate a calibration curve by recording the output values ($y_i$) for a range of known input values ($x_i$).
 
-*   **Reference Standard:** A **standard** (known value) that is traceable to national standards must be used. This reference instrument should have significantly lower uncertainty than the instrument being tested.
-*   **Controlled Points:** The chamber or environment is set to a series of stable, discrete input points across the operational range.
-*   **Hysteresis Check:** Measurements should be taken by varying the input value in both the increasing (upscale) and decreasing (downscale) directions to assess hysteresis.
-*   **Data Collection:** At each stable point, the system is allowed to reach thermal equilibrium, and multiple readings are taken to assess repeatability.
-*   **Data Analysis:** The data is plotted to create the calibration curve. This curve is used to determine key parameters like **static sensitivity** (the slope of the curve), and to quantify errors like **linearity** and **hysteresis**.
+* **Reference Standard:** A **standard** (known value) that is traceable to national standards must be used. This reference instrument should have significantly lower uncertainty than the instrument being tested.
+* **Controlled Points:** The chamber or environment is set to a series of stable, discrete input points across the operational range.
+* **Hysteresis Check:** Measurements should be taken by varying the input value in both the increasing (upscale) and decreasing (downscale) directions to assess hysteresis.
+* **Data Collection:** At each stable point, the system is allowed to reach thermal equilibrium, and multiple readings are taken to assess repeatability.
+* **Data Analysis:** The data is plotted to create the calibration curve. This curve is used to determine key parameters like **static sensitivity** (the slope of the curve), and to quantify errors like **linearity** and **hysteresis**.
 
 ### Error Analysis and Uncertainty Categorization
 
@@ -68,7 +71,11 @@ The table below outlines common error types, how they are determined, and their 
 | **Hysteresis Error ($u_h$)** | The maximum difference in output value when the input is approached from increasing versus decreasing directions. Caused by friction or residual charge. **Measured:** Calculated as the maximum difference between upscale and downscale readings at the same input point across the full range. | No. Typically quantified, but not corrected. It is a systematic bias that must be factored into the uncertainty estimate. | **Type B** (The maximum hysteresis error defines the limit for a Type B uncertainty estimate, often expressed as a percentage of the full-scale output range). |
 | **Overall Instrument Error ($u_c$)** | The total quantified uncertainty of the instrument due to known effects (e.g., combining $u_h$, $u_L$, $u_K$). **Measured:** Combined using the Root-Sum-Squared (RSS) method: $u_c = \sqrt{u_h^2 + u_L^2 + u_K^2 + \dots}$. | If the calibration shows a consistent offset or non-linearity, a correction can be applied to future readings. | **Combined Standard Uncertainty** ($u_c$). |
 
-Does this detailed breakdown of the static calibration process and the associated errors clarify how systematic errors lead to Type B uncertainty contributions? If so, we can move on to discussing dynamic calibration or perhaps delve into how to apply sensitivity coefficients, which are often necessary after calibration!
+---
+
+## What comes next?
+
+Calibration tells you how to *characterize and reduce* uncertainty in your instruments — but instruments exist in the real world, where dynamic effects, noise, and signal acquisition choices matter. The **Dynamic Signals** chapter teaches you how measurement systems actually respond to inputs, and **Signal Processing** shows you frequency-domain tools to separate true signals from noise.
 
 
 

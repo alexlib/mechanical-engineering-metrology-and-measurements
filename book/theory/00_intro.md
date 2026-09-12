@@ -59,3 +59,9 @@ Follow this sequence when teaching or self-studying. The order moves from founda
 14. [Watch the 1 hr video by Fluke - leading measurement equipment company](https://www.fluke.com/en-us/learn/blog/electrical-calibration/introduction-iso-guide-expression-uncertainty-measurement-gum)
 
 Rationale: this ordering lets students first acquire good lab habits and reporting skills, then build a conceptual toolbox for system analysis, then learn measurement uncertainty in increasing rigor (examples → slope propagation → Monte Carlo → case studies). Use the checklists added to notebooks to guide in-class or lab activities.
+
+---
+
+## What comes next?
+
+Now that you understand *what* uncertainty is and where it comes from, the **Statistics** chapter teaches you how to *quantify* it from real measurement data. You'll learn to use histograms, distributions, and statistical tests to characterize the variability in your measurements — which feeds directly into Type A uncertainty budgets.
