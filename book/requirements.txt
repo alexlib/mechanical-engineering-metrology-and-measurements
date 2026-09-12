@@ -1,4 +1,16 @@
+# Legacy pip mirror of the direct dependencies in the root pyproject.toml.
+# The source of truth is pyproject.toml (+ uv.lock); prefer `uv sync`.
+ghp-import
+ipywidgets
+jupyter-book-marimo
 jupyter-book
+jupytext
 matplotlib
+myst-nb
+myst-parser
 numpy
+pandoc
+plotnine
+scipy
+seaborn
 sympy
