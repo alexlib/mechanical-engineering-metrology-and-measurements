@@ -1,19 +1,30 @@
-
 .ipynb_checkpoints/*
-index.py
+__marimo__/
 *.pyc
-notebooks/**/.ipynb_checkpoints/*
-book/**/.ipynb_checkpoints/*
-.vscode/settings.json
-book/_build/*
-.vscode/PythonImportHelper-v2-Completion.json
+index.py
+
+.venv/
+.venv-*/
 uv.lock
 .python-version
-/book/theory/uncertainty101_files/libs/bootstrap
-/book/theory/uncertainty101_files
-.vscode/settings.json
-/memm_book/.quarto
 
-# MyST build outputs
-_build
-book/calibration/Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/*
+.vscode/settings.json
+.vscode/PythonImportHelper-v2-Completion.json
+
+# marimo-book build outputs
+_site/
+_site_src/
+.marimo_book_cache/
+_rendered/
+
+# Migration scratch files
+.convert_tmp/
+.convert_check.ipynb
+
+# Legacy Jupyter Book artifacts
+book/_build/*
+_build/
+legacy/calibration/Evaluating Uncertainty of Measurement - Dr Jody Muelaner_files/*
+
+# CSV reports written by notebooks that execute with the book root as cwd
+/*.csv

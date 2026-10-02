@@ -1,0 +1,170 @@
+# marimo-book configuration.
+# See https://marimobook.org/book_yml/ for every field.
+#
+# `content/` is deliberately flat (chapter-prefixed names rather than
+# subdirectories): marimo-book rewrites `../images/` -> `images/` for pages
+# one level below `content/`, so a nested layout would leave image links a
+# directory too deep.
+title: Mechanical Engineering Metrology and Measurements
+description: An open-source book on measurement uncertainty for the undergraduate course Mechanical Engineering
+  Metrology and Measurements at Tel Aviv University.
+authors:
+- name: Alex Liberzon
+  affiliation: Tel Aviv University
+copyright: Licensed CC0 1.0 Universal (public domain dedication).
+license: CC0-1.0
+repo: https://github.com/alexlib/mechanical-engineering-metrology-and-measurements
+branch: master
+logo: images/logo.png
+favicon: images/favicon.ico
+theme:
+  palette:
+    primary: '#1F4E79'
+    accent: '#E07B39'
+launch_buttons:
+  molab: true
+  github: true
+  download: true
+dependencies:
+  mode: env
+bibliography:
+- references.bib
+cite_style: apa
+defaults:
+  hide_author_line: true
+  show_source_link: true
+  hide_first_code_cell: true
+  suppress_warnings: true
+
+# Gives discrete marimo widgets (`mo.ui.slider` with explicit steps, dropdowns,
+# switches) real reactivity without shipping a Python kernel: the notebook is
+# re-executed once per value at build time and the results ship as a JSON lookup
+# table that a small JS shim swaps on input.
+#
+# Only `theory-uncertainty_of_a_slope` has a widget today, and it has exactly one
+# — multi-widget pages fall back to static in v1, so keep new widgets one-per-page
+# or opt those pages into `mode: wasm` instead.
+precompute:
+  enabled: true
+  max_values_per_widget: 30
+  max_combinations_per_page: 30
+  max_seconds_per_page: 60
+  max_bytes_per_page: 10485760
+
+toc:
+- file: content/intro.md
+- section: Theory
+  children:
+  - file: content/theory-intro.md
+  - file: content/theory-laboratory_notebook.py
+  - file: content/theory-significant_digits.md
+  - file: content/theory-best_practice_summary.py
+  - file: content/theory-standartization.py
+  - file: content/theory-general_measurement_system_analysis.py
+  - file: content/theory-01_uncertainty101.md
+  - file: content/theory-checklist.md
+  - file: content/theory-simulations_for_uncertainty.py
+  - file: content/theory-02_basic_error_analysis.py
+  - file: content/theory-example_uncertainty_analysis.md
+  - file: content/theory-uncertainty_of_a_slope.py
+  - file: content/theory-uncertainty_propagation_monte_carlo_gum.py
+  - file: content/theory-comparing_two_methods_cylinder_volume.md
+  - file: content/theory-volume_cylinder_undertainty_example.py
+  - file: content/theory-hot-wire_uncertainty_budget.py
+- section: Calibration
+  children:
+  - file: content/calibration-intro.md
+  - file: content/calibration-calibration_simulation.py
+  - file: content/calibration-sensitivity_analysis.py
+  - file: content/calibration-linear_regression.py
+  - file: content/calibration-regression_analysis.py
+  - file: content/calibration-hysteresis_error_analysis.py
+  - file: content/calibration-Lineariy_error_example.py
+  - file: content/calibration-calibration_error_analysis_2.py
+  - file: content/calibration-calibration_error_analysis_pressure.py
+  - file: content/calibration-calibration_non_linear_relations.py
+  - file: content/calibration-weight_scale_example_Wheeler.py
+  - file: content/calibration-orifice_calibration_example.py
+  - file: content/calibration-pressure_calibration_example.py
+  - file: content/calibration-lvdt_calibration_example.py
+  - file: content/calibration-lvdt_calibration_2.py
+  - file: content/calibration-micrometer_calibration.py
+  - file: content/calibration-several_calibration_examples.py
+- section: Statistics
+  children:
+  - file: content/statistics-intro.md
+  - file: content/statistics-basic_statistics.py
+  - file: content/statistics-getting_started.py
+  - file: content/statistics-Lecture_5.py
+  - file: content/statistics-distributions.py
+  - file: content/statistics-histogram_to_distribution.py
+  - file: content/statistics-Exploring+different+distribution.py
+  - file: content/statistics-t-distribution.py
+  - file: content/statistics-t-test.py
+  - file: content/statistics-chi_square_test_example.py
+  - file: content/statistics-estimate_mean_variance_median_using_pdf.py
+  - file: content/statistics-outliers_example.py
+  - file: content/statistics-outliers_example-2.py
+  - file: content/statistics-outliers_example_pairs.py
+  - file: content/statistics-outliers_example_two.py
+  - file: content/statistics-Central_limit_theorem_illustration.py
+- section: Dynamic Signals
+  children:
+  - file: content/dynamic_signals-intro.md
+  - file: content/dynamic_signals-first_order_time_response.py
+  - file: content/dynamic_signals-step_response.py
+  - file: content/dynamic_signals-2nd_order_system_step_function_log_decrement.py
+  - file: content/dynamic_signals-mass_measurement_using_vibrations.py
+  - file: content/dynamic_signals-design_choice_2nd_order_pressure_transducer.py
+  - file: content/dynamic_signals-simple_fft_two_sine.py
+  - file: content/dynamic_signals-symbolic_evaluation_Fourier_coefficients.py
+  - file: content/dynamic_signals-load_plot_spectrum_turbulent_data_jet.py
+  - file: content/dynamic_signals-spectrum_example.py
+- section: A/D Conversion
+  children:
+  - file: content/a2d-intro.md
+  - file: content/a2d-mimic_analog_to_digital_conversion.py
+  - file: content/a2d-sampling_aliasing_examples.py
+  - file: content/a2d-reconstruct_with_sinc.py
+  - file: content/a2d-Reconstruction_periodic_signal_Cardinal_series.py
+  - file: content/a2d-create_plot_signal.py
+- section: Signal Processing
+  children:
+  - file: content/signal_processing-intro.md
+  - file: content/signal_processing-Frequency_content_of_a_periodic_signal.py
+  - file: content/signal_processing-Fourier_coefficients_analytical_evaluation_periodic_ramp_function.py
+  - file: content/signal_processing-Fourier_transforms_pure_sine.py
+  - file: content/signal_processing-proving_periods.py
+  - file: content/signal_processing-Fourier_transform_with_windowing.py
+  - file: content/signal_processing-fft_of_multi_frequency_signal_window.py
+  - file: content/signal_processing-FFT_based_filtering.py
+  - file: content/signal_processing-fft_filter_interactive.md
+- section: Theory — Supplementary Notes
+  children:
+  - file: content/theory-Sensitivity_Coefficients_Uncertainty.md
+  - file: content/theory-exam_example.md
+  - file: content/theory-teaching_measurement_introductory_physics_lab.md
+  - file: content/theory-simple_example.py
+  - file: content/theory-example_from_best_practice.py
+  - file: content/theory-iaea_uncertainty_presentation.py
+  - file: content/theory-uncertainty_example.py
+  - file: content/theory-uncertainty_analysis_NASA.py
+  - file: content/theory-uncertainty_sources_notebook.py
+  - file: content/theory-surface_roughness_budget.py
+  - file: content/theory-teaching_measurement_uncertainty.py
+- section: Calibration — Supplementary Notes
+  children:
+  - file: content/calibration-calibration_sensor_examples.md
+  - file: content/calibration-calibration_curve_log_log.py
+  - file: content/calibration-full_calibration_analysis_example.py
+  - file: content/calibration-calibration_simulation_interactive.md
+- section: Homework and Exploration
+  children:
+  - file: content/unsorted-intro.md
+  - file: content/unsorted-homework_1.py
+  - file: content/unsorted-homework_example_1.py
+  - file: content/unsorted-q2_ex3.py
+  - file: content/unsorted-input_output_sin_1st_order.py
+  - file: content/unsorted-doppler.py
+  - file: content/unsorted-normal_vs_lognormal.py
+  - file: content/unsorted-random_data_for_hw_1.py

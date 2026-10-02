@@ -1,11 +1,17 @@
 # Mechanical Engineering Metrology and Measurements
 
-A [Jupyter Book](https://jupyterbook.org) (built with [MyST](https://mystmd.org)) of
-Python examples and notes for the undergraduate course *Mechanical Engineering
-Metrology and Measurements* at Tel Aviv University.
+A [marimo book](https://marimobook.org) of interactive Python notebooks and notes
+for the undergraduate course *Mechanical Engineering Metrology and Measurements*
+at Tel Aviv University, built with
+[marimo-book](https://github.com/ljchang/marimo-book).
 
-The book covers measurement theory and uncertainty, calibration, statistics,
+The book covers measurement theory and uncertainty, statistics, calibration,
 dynamic signals, analog-to-digital conversion, and signal processing.
+
+Every notebook page is executed at build time and published as a static,
+searchable page — no kernel runs in the reader's browser. Each page also carries
+**Open in molab**, **View on GitHub** and **Download `.py`** buttons, so any
+chapter can be picked up as a live, editable notebook.
 
 ## Getting started
 
@@ -29,16 +35,16 @@ See <https://docs.astral.sh/uv/getting-started/installation/> for other options.
 
 ### 2. Install the dependencies
 
-Dependencies are declared in [`pyproject.toml`](pyproject.toml) and locked in
-[`uv.lock`](uv.lock). `uv` will create a virtual environment (`.venv`) and
-install everything for you:
+Dependencies are declared in [`pyproject.toml`](pyproject.toml). One environment
+does both jobs: it builds the site and provides the scientific stack that the
+notebooks execute against (`book.yml` sets `dependencies.mode: env`).
 
 ```bash
 uv sync
 ```
 
-This book is tested with Python 3.13. If you want to pin the interpreter to an
-already-installed version (to avoid downloading a new one), run:
+This book is tested with Python 3.13. To pin the interpreter to an
+already-installed version:
 
 ```bash
 uv sync --python 3.13
@@ -46,55 +52,107 @@ uv sync --python 3.13
 
 ### 3. Build the book
 
-Build the static HTML website from the `myst.yml` project configuration:
-
 ```bash
-uv run jupyter-book build --html
+uv run marimo-book build
 ```
 
-The rendered site is written to `_build/html/` (this is the command used by the
-GitHub Pages workflow in `.github/workflows/deploy.yml`). The `--site` flag
-instead produces a MyST site bundle under `_build/site/` for hosting on
-mystmd.org.
+The rendered site is written to `_site/`.
 
-To also (re)execute the notebooks and regenerate their figures/outputs, add
-`--execute` (this is slower):
+- `--strict` — fail the build on broken in-tree links or anchors. This is what CI
+  uses; run it before pushing.
+- `--rebuild` — re-execute every notebook, ignoring the build cache. Needed after
+  changing a `data/` file or upgrading a dependency, neither of which the cache
+  can detect.
+- `uv run marimo-book serve` — live-reload dev server on <http://127.0.0.1:8000/>.
 
-```bash
-uv run jupyter-book build --html --execute
-```
+Builds are incremental: `marimo-book` keeps a content-hashed cache in
+`.marimo_book_cache/` and only re-executes notebooks whose source changed. The
+first build executes all 60+ notebooks and takes a few minutes; later builds take
+seconds. `uv run marimo-book clean` resets everything.
 
 ### 4. Preview locally
 
-Open the generated site in your browser, for example:
-
-```powershell
-Start-Process _build\html\index.html
-```
-
-Or serve it with a static file server:
-
 ```bash
-uv run python -m http.server -d _build/html 8000
+uv run python -m http.server -d _site 8000
 # then visit http://localhost:8000
 ```
 
+Or just open `_site/index.html` in a browser.
+
 ## Project layout
 
-- `myst.yml` — book project configuration and table of contents
-- `book/` — the content, organized into sections:
-  - `theory/` — lab habits, uncertainty, error analysis, Monte Carlo / GUM
-  - `calibration/` — regression, hysteresis, worked examples (LVDT, orifice, micrometer…)
-  - `statistics/` — distributions, t-tests, outliers, central limit theorem
-  - `dynamic_signals/` — 1st/2nd order responses, FFT, spectra
-  - `a2d/` — sampling, aliasing, sinc reconstruction
-  - `signal_processing/` — Fourier analysis, windowing, FFT filtering
-- `pyproject.toml` / `uv.lock` — dependency declarations and lockfile
+```
+book.yml            book configuration: TOC, theme, launch buttons, bibliography
+content/            the book itself — marimo notebooks (.py) and pages (.md)
+images/             figures, referenced from content/ as ../images/<name>
+data/               data files the notebooks read at build time (repo-root relative)
+references.bib      bibliography
+tools/              one-shot migration scripts (see below)
+legacy/             the original Jupyter Book sources, archived for reference
+```
+
+### Why `content/` is flat
+
+Pages are named `<chapter>-<page>` (for example `theory-uncertainty_of_a_slope.py`)
+rather than nested in per-chapter folders. marimo-book rewrites `../images/` to
+`images/` for pages exactly one level below `content/`; a nested layout would leave
+every image link a directory too deep. The chapter prefix keeps names unique —
+seven chapters each ship an `intro` page.
 
 ## Notes
 
-- The source of truth for dependencies is `pyproject.toml`; `uv.lock` pins exact
-  versions for reproducible installs. There is no `requirements.txt` — use
-  `uv export -o requirements.txt` if you need one for a non-`uv` workflow.
-- The book is also built and published automatically via GitHub Pages; see
-  `.github/` for the workflow.
+- **Notebooks are executed on every build.** There are no stored outputs in this
+  repository; `content/*.py` are sources, and their figures are generated during
+  `marimo-book build`. That is why the first build is slow and why CI caches
+  `.marimo_book_cache/`.
+- **Notebooks must stay execution-order independent.** marimo rejects a name that
+  is bound in two cells and executes cells in dependency order, not top-to-bottom.
+  Shared helpers live in their own cell, and imports are not repeated.
+- **Assets are addressed from the book root.** A notebook reads `images/foo.png` or
+  `data/bar.txt` because the build runs with the book root as the working
+  directory — not relative to the notebook.
+- **`book.yml` is the source of truth for the table of contents.** The
+  autogenerated "Pages in this chapter" lists inside each chapter's intro page
+  were regenerated from it during the migration.
+- The site is published automatically by `.github/workflows/deploy.yml` on every
+  push to `master`. Enable it under **Settings → Pages → Source: GitHub Actions**.
+
+## Interactive pages
+
+Most pages are static: the notebook runs at build time and the reader gets a
+finished figure. A page with a **discrete** `marimo.ui` widget (`mo.ui.slider`
+with an explicit `step` or `steps`, dropdowns, switches) is additionally
+interactive via `precompute` in `book.yml`:
+
+- the notebook is re-executed once per widget value during the build,
+- the results ship as a JSON lookup table,
+- a small JS shim swaps the affected cells when the reader moves the control.
+
+No Python kernel runs in the browser, so the page stays fast.
+
+[`theory-uncertainty_of_a_slope`](content/theory-uncertainty_of_a_slope.py) is
+the worked example: one slider for the current reading's standard uncertainty,
+driving the error-bar plot and the steepest/shallowest acceptable lines.
+
+**Constraint to respect:** v1 handles **one** precomputable widget per page —
+two widgets that share a downstream cell fall back to static. For a page that
+needs several controls, either keep them independent or set `mode: wasm` on that
+TOC entry and ship marimo + Pyodide instead (heavier first load, full
+reactivity).
+
+## Migration from Jupyter Book
+
+This book was previously a MyST/Jupyter Book. The `legacy/` directory holds the
+original sources, and `tools/` holds the one-shot scripts used to convert them.
+They are kept for provenance and are not part of the build.
+
+| Script | Purpose |
+|---|---|
+| `tools/convert_legacy.py` | `.ipynb` → marimo `.py`, applying the compatibility fixups in `tools/nb_migrate.py` (`--validate` also executes each result) |
+| `tools/nb_migrate.py` | The fixups: star-import expansion, magics, local-module inlining, cross-notebook helpers |
+| `tools/convert_markdown.py` | MyST Markdown → Material/MkDocs Markdown |
+| `tools/make_book_yml.py` | Regenerates `book.yml` from `legacy/myst.yml` |
+
+## License
+
+Content is released under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
