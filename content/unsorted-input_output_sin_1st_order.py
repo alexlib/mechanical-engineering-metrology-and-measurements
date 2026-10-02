@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Amplitude, frequency, period, and phase
+    # Input-Output Relation of a First-Order System
+
     """)
     return
 

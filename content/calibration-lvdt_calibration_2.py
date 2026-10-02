@@ -14,6 +14,14 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # LVDT Calibration Curve and Its Uncertainty
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## LVDT example
 
     Use of static calibration curve and estimate of uncertainty.
@@ -40,6 +48,14 @@ def _(mo):
     Finally, we plot our data on a graph and find the sensitivity with the slop equation. We then can find and graph our percent error over the entire distance.
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # LVDT Calibration Curve and Its Uncertainty
+    """)
+    return
+
+
 
 
 @app.cell

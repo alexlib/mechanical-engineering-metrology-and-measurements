@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Statistics example
+    # Chi-square Test: Worked Example
+
     ## Testing for normal distribution
     ### pressure transducer *calibration* example
 

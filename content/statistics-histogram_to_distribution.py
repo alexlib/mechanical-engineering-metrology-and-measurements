@@ -12,6 +12,15 @@ def _():
     return arange, bar, diff, hist, plot, random, xlabel, ylabel
 
 
+@app.cell(hide_code=True)
+def _():
+    import marimo as mo
+    mo.md(r"""
+    # From Histogram to Distribution
+    """)
+    return (mo,)
+
+
 @app.cell
 def _(random):
     x = random.normal(10.0, 3.0,size=200)

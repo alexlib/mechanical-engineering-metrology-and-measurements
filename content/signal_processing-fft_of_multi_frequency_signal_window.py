@@ -14,11 +14,27 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # FFT of a Real Periodic Signal: Naive versus Windowed
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## FFT demo of a real, periodic signal
     a) naive way
     b) windowing with DC treatment
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # FFT of a Real Periodic Signal: Naive versus Windowed
+    """)
+    return
+
+
 
 
 @app.cell

@@ -43,6 +43,14 @@ def _(mo):
     * ...
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Exploring Different Probability Distributions
+    """)
+    return
+
+
 
 
 @app.cell

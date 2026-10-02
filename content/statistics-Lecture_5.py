@@ -14,11 +14,27 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # Chi-square Test
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Lecture 5 - probability and statistics
 
     In this notebook we will collect all the examples from Lecture 5 ``Probability and statistics''
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Chi-square Test
+    """)
+    return
+
+
 
 
 @app.cell(hide_code=True)

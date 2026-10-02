@@ -1,3 +1,5 @@
+# Comparing Two Methods: Cylinder Volume
+
 This example demonstrates two distinct approaches for measuring the volume of a cylinder, rigorously applying the principles of uncertainty analysis established by the Guide to the Expression of Uncertainty in Measurement (GUM). This process requires formulating the measurement model, evaluating all input standard uncertainties (Type A and Type B), propagating those uncertainties using sensitivity analysis, and reporting a final result with expanded uncertainty.
 
 ## Example: Volume Measurement Uncertainty Budget

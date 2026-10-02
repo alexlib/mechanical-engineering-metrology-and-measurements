@@ -14,6 +14,14 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # LVDT Calibration: Linearity, Hysteresis and Repeatability
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     That is a fantastic goal! To perform a comprehensive analysis, we need data that reflects the key procedures of static calibration: multiple points across the range, sequential upscale/downscale readings, and repeat readings at specific points,,.
 
     Since the provided sources describe the necessary data elements and calibration procedures (such as using a micrometer to apply known displacement to an LVDT, and the requirements for a sequential test), but do not contain a single complete dataset with all required error components (linearity, hysteresis, repeatability) simultaneously, I will use a synthesized dataset based on these principles to demonstrate the required error calculations.
@@ -40,6 +48,14 @@ def _(mo):
     The following script calculates the five key static error types required:
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # LVDT Calibration: Linearity, Hysteresis and Repeatability
+    """)
+    return
+
+
 
 
 @app.cell

@@ -13,6 +13,9 @@ authors:
   affiliation: Tel Aviv University
 copyright: Licensed CC0 1.0 Universal (public domain dedication).
 license: CC0-1.0
+# Chapter structure and topic sequencing follow MEGN 300 course materials by
+# Adam W. Duran, Colorado School of Mines, used under CC BY 4.0. See the
+# Attribution section of content/intro.md for the required credit statement.
 repo: https://github.com/alexlib/mechanical-engineering-metrology-and-measurements
 branch: master
 logo: images/logo.png
@@ -53,118 +56,216 @@ precompute:
 
 toc:
 - file: content/intro.md
+  title: "Mechanical Engineering Metrology and Measurements (MEMM)"
 - section: Theory
   children:
   - file: content/theory-intro.md
+    title: "Metrology theory — Introduction and Learning Goals"
   - file: content/theory-laboratory_notebook.py
+    title: "Laboratory Notebook"
   - file: content/theory-significant_digits.md
+    title: "Significant digits"
   - file: content/theory-best_practice_summary.py
+    title: "Short summary of the ``Measurement good practice guide '' by NPL"
   - file: content/theory-standartization.py
+    title: "Standardization and Traceability"
   - file: content/theory-general_measurement_system_analysis.py
+    title: "The Generalized Measurement System"
   - file: content/theory-01_uncertainty101.md
+    title: "Uncertainty 101"
   - file: content/theory-checklist.md
+    title: "The Engineer's 9-Step Uncertainty Analysis Checklist"
   - file: content/theory-simulations_for_uncertainty.py
+    title: "Using simulations to explain uncertainty"
   - file: content/theory-02_basic_error_analysis.py
+    title: "Basic error analysis"
   - file: content/theory-example_uncertainty_analysis.md
+    title: "Engineering Example: Uncertainty Analysis in Mechanical Measurements"
   - file: content/theory-uncertainty_of_a_slope.py
+    title: "How to estimate the uncertainty of a slope for static calibration or regression"
   - file: content/theory-uncertainty_propagation_monte_carlo_gum.py
+    title: "Propagating uncertainty using Monte-Carlo simulations"
   - file: content/theory-comparing_two_methods_cylinder_volume.md
+    title: "Comparing Two Methods: Cylinder Volume"
   - file: content/theory-volume_cylinder_undertainty_example.py
+    title: "Cylinder Volume: Nominal Values and Uncertainty"
   - file: content/theory-hot-wire_uncertainty_budget.py
+    title: "Full Uncertainty Budget of a Hot-Wire Anemometer for Isothermal Turbulent Air Flow in a Wind Tunnel"
 - section: Calibration
   children:
   - file: content/calibration-intro.md
+    title: "Calibration — Introduction and Learning Goals"
   - file: content/calibration-calibration_simulation.py
+    title: "Simulation of Calibration Errors"
   - file: content/calibration-sensitivity_analysis.py
+    title: "Sensitivity estimate example"
   - file: content/calibration-linear_regression.py
+    title: "Estimate $a,b$ and also $\\Delta a$ and $\\Delta b$"
   - file: content/calibration-regression_analysis.py
+    title: "Regression Analysis with Uncertainty"
   - file: content/calibration-hysteresis_error_analysis.py
+    title: "Sensitivity error example"
   - file: content/calibration-Lineariy_error_example.py
+    title: "Linearity error example"
   - file: content/calibration-calibration_error_analysis_2.py
+    title: "Hysteresis example"
   - file: content/calibration-calibration_error_analysis_pressure.py
+    title: "Hysteresis and regression analysis example"
   - file: content/calibration-calibration_non_linear_relations.py
+    title: "Calibration of non-linear relations"
   - file: content/calibration-weight_scale_example_Wheeler.py
+    title: "Weighing Scale Calibration (Wheeler and Ganji)"
   - file: content/calibration-orifice_calibration_example.py
+    title: "GUM Budgets: Orifice Flow Meter and Storage Tank"
   - file: content/calibration-pressure_calibration_example.py
+    title: "Calibration and Uncertainty: Virtual Experiment, Abridged"
   - file: content/calibration-lvdt_calibration_example.py
+    title: "LVDT Calibration: Linearity, Hysteresis and Repeatability"
   - file: content/calibration-lvdt_calibration_2.py
+    title: "LVDT Calibration Curve and Its Uncertainty"
   - file: content/calibration-micrometer_calibration.py
+    title: "Micrometer calibration using gage block"
   - file: content/calibration-several_calibration_examples.py
+    title: "Uncertainty Budget Examples (SWGDRUG SD-3)"
 - section: Statistics
   children:
   - file: content/statistics-intro.md
+    title: "Statistics — Introduction and Learning Goals"
   - file: content/statistics-basic_statistics.py
+    title: "Very basic review of some statistics terms"
   - file: content/statistics-getting_started.py
+    title: "Getting started with measurement uncertainty"
   - file: content/statistics-Lecture_5.py
+    title: "Chi-square Test"
   - file: content/statistics-distributions.py
+    title: "Probability Distributions and the Central Limit Theorem"
   - file: content/statistics-histogram_to_distribution.py
+    title: "From Histogram to Distribution"
   - file: content/statistics-Exploring+different+distribution.py
+    title: "Exploring Different Probability Distributions"
   - file: content/statistics-t-distribution.py
+    title: "\"Student\" t-distribution"
   - file: content/statistics-t-test.py
+    title: "t-test"
   - file: content/statistics-chi_square_test_example.py
+    title: "Chi-square Test: Worked Example"
   - file: content/statistics-estimate_mean_variance_median_using_pdf.py
+    title: "Statistical parameters using probability density function"
   - file: content/statistics-outliers_example.py
+    title: "Outlier Detection: Modified Thompson Test"
   - file: content/statistics-outliers_example-2.py
+    title: "Outlier Detection: Modified Thompson Test, Second Version"
   - file: content/statistics-outliers_example_pairs.py
+    title: "Outlier Detection in Regression Residuals"
   - file: content/statistics-outliers_example_two.py
+    title: "Outlier Detection: Comparing Tests"
   - file: content/statistics-Central_limit_theorem_illustration.py
+    title: "Central limit theorem (or why errors often look Gaussian)"
 - section: Dynamic Signals
   children:
   - file: content/dynamic_signals-intro.md
+    title: "Dynamic Signals — Introduction and Learning Goals"
   - file: content/dynamic_signals-first_order_time_response.py
+    title: "1st order dynamic system"
   - file: content/dynamic_signals-step_response.py
+    title: "Step responses of dynamical systems"
   - file: content/dynamic_signals-2nd_order_system_step_function_log_decrement.py
+    title: "Log decrement method"
   - file: content/dynamic_signals-mass_measurement_using_vibrations.py
+    title: "Lab Worksheet: Measurement of Unknown Mass using Vibrating Beam"
   - file: content/dynamic_signals-design_choice_2nd_order_pressure_transducer.py
+    title: "Example of pre-measurement design"
   - file: content/dynamic_signals-simple_fft_two_sine.py
+    title: "Fast Fourier Transform (FFT) of a sum of two sine signals"
   - file: content/dynamic_signals-symbolic_evaluation_Fourier_coefficients.py
+    title: "Symbolic evaluation of Fourier series coefficients"
   - file: content/dynamic_signals-load_plot_spectrum_turbulent_data_jet.py
+    title: "Plot power spectrum of experimental data"
   - file: content/dynamic_signals-spectrum_example.py
+    title: "Spectrum example"
 - section: A/D Conversion
   children:
   - file: content/a2d-intro.md
+    title: "Analog-to-Digital (A2D) — Introduction and Learning Goals"
   - file: content/a2d-mimic_analog_to_digital_conversion.py
+    title: "Mimic A/D conversion"
   - file: content/a2d-sampling_aliasing_examples.py
+    title: "Sampling, clipping and aliasing"
   - file: content/a2d-reconstruct_with_sinc.py
+    title: "Digital to Analog conversion using sinc"
   - file: content/a2d-Reconstruction_periodic_signal_Cardinal_series.py
+    title: "Analog to digital (A/D) and Digital to Analog (d/A) conversion example"
   - file: content/a2d-create_plot_signal.py
+    title: "Signal construction and helper functions for the frequency content class"
 - section: Signal Processing
   children:
   - file: content/signal_processing-intro.md
+    title: "Signal Processing — Introduction and Learning Goals"
   - file: content/signal_processing-Frequency_content_of_a_periodic_signal.py
+    title: "Using FFT the right way to find the correct spectrum"
   - file: content/signal_processing-Fourier_coefficients_analytical_evaluation_periodic_ramp_function.py
+    title: "Symbolic evaluation of Fourier coefficients"
   - file: content/signal_processing-Fourier_transforms_pure_sine.py
+    title: "Fourier transforms"
   - file: content/signal_processing-proving_periods.py
+    title: "Digitizing the signal using pure Python"
   - file: content/signal_processing-Fourier_transform_with_windowing.py
+    title: "Fourier transforms with windowing"
   - file: content/signal_processing-fft_of_multi_frequency_signal_window.py
+    title: "FFT of a Real Periodic Signal: Naive versus Windowed"
   - file: content/signal_processing-FFT_based_filtering.py
+    title: "Using FFT-based filter to reduce noise"
   - file: content/signal_processing-fft_filter_interactive.md
+    title: "Interactive FFT Filtering"
 - section: Theory — Supplementary Notes
   children:
   - file: content/theory-Sensitivity_Coefficients_Uncertainty.md
+    title: "Sensitivity Coefficients in Uncertainty Budgets"
   - file: content/theory-exam_example.md
+    title: "Mars Rover Temperature Measurement & Uncertainty Analysis"
   - file: content/theory-teaching_measurement_introductory_physics_lab.md
+    title: "Teaching Measurement in the Introductory Physics Laboratory"
   - file: content/theory-simple_example.py
+    title: "Simple example of mechanical measurement with uncertainty analysis"
   - file: content/theory-example_from_best_practice.py
+    title: "Using AI tools to learn uncertainty"
   - file: content/theory-iaea_uncertainty_presentation.py
+    title: "Uncertainty in simple terms from IAEA"
   - file: content/theory-uncertainty_example.py
+    title: "Uncertainty Example: Cylinder Volume from Caliper and Micrometer"
   - file: content/theory-uncertainty_analysis_NASA.py
+    title: "Uncertainty Analysis"
   - file: content/theory-uncertainty_sources_notebook.py
+    title: "Sources of Uncertainty in Measurement for Every Uncertainty Budget"
   - file: content/theory-surface_roughness_budget.py
+    title: "Introduction to uncertainty analysis"
   - file: content/theory-teaching_measurement_uncertainty.py
+    title: "Teaching uncertainty in mechanical measurements"
 - section: Calibration — Supplementary Notes
   children:
   - file: content/calibration-calibration_sensor_examples.md
+    title: "Calibration Examples: Real Sensors and Instruments"
   - file: content/calibration-calibration_curve_log_log.py
+    title: "Calibration of non-linear (logarithmic) function"
   - file: content/calibration-full_calibration_analysis_example.py
+    title: "Calibration and Uncertainty: Virtual Experiment"
   - file: content/calibration-calibration_simulation_interactive.md
+    title: "Interactive Calibration Simulation"
 - section: Homework and Exploration
   children:
   - file: content/unsorted-intro.md
+    title: "Unsorted — Guide and How to Use These Notebooks"
   - file: content/unsorted-homework_1.py
+    title: "Self-training exercises"
   - file: content/unsorted-homework_example_1.py
+    title: "Homework 1: Example Solution"
   - file: content/unsorted-q2_ex3.py
+    title: "Exercise: Question 2, Example 3"
   - file: content/unsorted-input_output_sin_1st_order.py
+    title: "Input-Output Relation of a First-Order System"
   - file: content/unsorted-doppler.py
+    title: "Doppler Shift"
   - file: content/unsorted-normal_vs_lognormal.py
+    title: "Compare normal and log-normal random variables"
   - file: content/unsorted-random_data_for_hw_1.py
+    title: "Run the random data generator and plot the scatter"

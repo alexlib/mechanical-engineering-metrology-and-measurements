@@ -17,17 +17,3 @@ Suggested activity
 
 Prerequisites
 Complete core chapters first (theory, statistics, a2d).
-
-<!-- AUTOGEN_START -->
-## Pages in this chapter
-
-- [Self-training exercises](unsorted-homework_1.md)
-- [unsorted-homework_example_1](unsorted-homework_example_1.md)
-- [unsorted-q2_ex3](unsorted-q2_ex3.md)
-- [unsorted-input_output_sin_1st_order](unsorted-input_output_sin_1st_order.md)
-- [unsorted-doppler](unsorted-doppler.md)
-- [Compare normal and log-normal random variables](unsorted-normal_vs_lognormal.md)
-- [Run the random data generator and plot the scatter](unsorted-random_data_for_hw_1.md)
-
-<!-- AUTOGEN_END -->
-

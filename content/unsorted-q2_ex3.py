@@ -39,6 +39,14 @@ def _(mo):
     Isn't it clear that the plot is not like "random variable" ?
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Exercise: Question 2, Example 3
+    """)
+    return
+
+
 
 
 @app.cell

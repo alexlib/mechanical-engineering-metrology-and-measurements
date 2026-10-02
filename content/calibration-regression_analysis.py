@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Lecture 6
+    # Regression Analysis with Uncertainty
+
     ## Regression analysis
     """)
     return

@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Calibration and uncertainty analysis - virtual experiment
+    # Calibration and Uncertainty: Virtual Experiment, Abridged
+
     """)
     return
 
