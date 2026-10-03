@@ -14,6 +14,14 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # Weighing Scale Calibration (Wheeler and Ganji)
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Example of Weighing Scale Calibration Analysis
 
     This document meticulously recreates the analysis of a weighing scale calibration as presented in "Chapter 2: General Characteristics of Measurement Systems." @wheeler
@@ -21,6 +29,14 @@ def _(mo):
      We will extract the data from the provided tables, use Python to perform the calculations, and generate the figures to validate the error estimates described in the text. The analysis covers the determination of accuracy, linearity, hysteresis, repeatability, and systematic errors.
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Weighing Scale Calibration (Wheeler and Ganji)
+    """)
+    return
+
+
 
 
 @app.cell

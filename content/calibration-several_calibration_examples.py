@@ -18,7 +18,8 @@ def _(mo):
 
     ***
 
-    # Measurement Uncertainty Budget Examples (SWGDRUG SD-3)
+    # Uncertainty Budget Examples (SWGDRUG SD-3)
+
 
     This notebook details three examples of uncertainty budget calculations following the principles of the **Guide to the Expression of Uncertainty in Measurement (GUM)**, as outlined in the SWGDRUG Supplemental Document SD-3.
 

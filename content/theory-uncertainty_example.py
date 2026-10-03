@@ -75,5 +75,14 @@ def _():
     return
 
 
+@app.cell(hide_code=True)
+def _():
+    import marimo as mo
+    mo.md(r"""
+    # Uncertainty Example: Cylinder Volume from Caliper and Micrometer
+    """)
+    return (mo,)
+
+
 if __name__ == "__main__":
     app.run()

@@ -10,6 +10,15 @@ def _():
     return
 
 
+@app.cell(hide_code=True)
+def _():
+    import marimo as mo
+    mo.md(r"""
+    # Doppler Shift
+    """)
+    return (mo,)
+
+
 @app.cell
 def _():
     import math

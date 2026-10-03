@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ## Simulation of calibration errors
+    # Simulation of Calibration Errors
+
     """)
     return
 

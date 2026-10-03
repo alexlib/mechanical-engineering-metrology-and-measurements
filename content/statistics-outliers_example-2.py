@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Outliers
+    # Outlier Detection: Modified Thompson Test, Second Version
+
 
     ## example of outlier test using modified Thompson technique
     """)

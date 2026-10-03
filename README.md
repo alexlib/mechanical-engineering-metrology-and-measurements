@@ -156,3 +156,15 @@ They are kept for provenance and are not part of the build.
 ## License
 
 Content is released under [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+
+The chapter structure and topic sequencing follow
+[MEGN 300: Instrumentation & Automation](https://github.com/professor-duran/MEGN300)
+course materials by Adam W. Duran, Colorado School of Mines, used under
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/):
+
+> MEGN 300: Instrumentation & Automation course materials by Adam W. Duran,
+> Colorado School of Mines, used under CC BY 4.0.
+> Source: [https://github.com/professor-duran/MEGN300](https://github.com/professor-duran/MEGN300)
+
+All content, code, and worked examples in this repository are our own; the
+attribution covers the course structure and sequencing only.

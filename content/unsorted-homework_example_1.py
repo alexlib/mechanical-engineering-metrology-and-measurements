@@ -14,6 +14,14 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # Homework 1: Example Solution
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Homework no. 1 example
 
     Use of static calibration curve and estimate of uncertainty.
@@ -31,6 +39,14 @@ def _(mo):
     Required: Following calibration, a sample of concentration was analyzed and the measured transmittance was 35.6%. Report the concentration of analyte in the form of a confidence interval.
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # Homework 1: Example Solution
+    """)
+    return
+
+
 
 
 @app.cell

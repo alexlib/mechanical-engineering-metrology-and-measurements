@@ -14,11 +14,27 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    # GUM Budgets: Orifice Flow Meter and Storage Tank
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Static Calibration Errors: Engineering Testing & Measurements
 
     This notebook demonstrates the application of the Guide to the Expression of Uncertainty in Measurement (GUM) framework for static calibration errors in two examples: an Orifice Flow Meter and a Cylindrical Storage Tank.
     """)
     return
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    # GUM Budgets: Orifice Flow Meter and Storage Tank
+    """)
+    return
+
+
 
 
 @app.cell(hide_code=True)

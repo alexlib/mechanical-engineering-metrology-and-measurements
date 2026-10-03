@@ -14,7 +14,8 @@ def _():
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # Outliers example 2
+    # Outlier Detection in Regression Residuals
+
 
     ## example of outlier test for the pairs of values, $y=f(x)$
     """)

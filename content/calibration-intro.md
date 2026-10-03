@@ -22,13 +22,28 @@ Basic regression, statistics, and familiarity with plotting in Python.
 
 Follow this sequence to learn calibration from theory to practice. The order moves from foundational regression concepts, through systematic error characterization, to applied examples on real instruments.
 
-2. [calibration-regression_analysis.md](calibration-regression_analysis.md) — detailed regression analysis with uncertainty in slope and intercept
-3. [calibration-sensitivity_analysis.md](calibration-sensitivity_analysis.md) — how to estimate sensitivity coefficients from calibration data
-4. [calibration-hysteresis_error_analysis.md](calibration-hysteresis_error_analysis.md) — identifying and quantifying hysteresis as a Type B uncertainty source
-5. [calibration-calibration_non_linear_relations.md](calibration-calibration_non_linear_relations.md) — polynomial and logarithmic fits when linearity fails
-6. **[Calibration Examples: Real Sensors & Instruments](calibration-calibration_sensor_examples.md)** — Comprehensive reference guide with links to all sensor calibration notebooks (LVDT, pressure, micrometer, orifice, weight scale). Choose examples matching your lab instruments.
+1. [Simulation of Calibration Errors](calibration-calibration_simulation.md) — see how bias, noise, and hysteresis show up in a calibration curve.
+2. [Regression Analysis with Uncertainty](calibration-regression_analysis.md) — detailed regression analysis with uncertainty in slope and intercept.
+3. [Estimate $a,b$ and also $\Delta a$ and $\Delta b$](calibration-linear_regression.md) — linear fit parameters and their uncertainties.
+4. [Sensitivity estimate example](calibration-sensitivity_analysis.md) — how to estimate sensitivity coefficients from calibration data.
+5. [Sensitivity error example](calibration-hysteresis_error_analysis.md) — identifying and quantifying hysteresis as a Type B uncertainty source.
+6. [Linearity error example](calibration-Lineariy_error_example.md) — deviation from a straight line, quantified.
+7. [Hysteresis example](calibration-calibration_error_analysis_2.md) — upscale vs downscale differences.
+8. [Hysteresis and regression analysis example](calibration-calibration_error_analysis_pressure.md) — pressure-sensor example combining both.
+9. [Calibration of non-linear relations](calibration-calibration_non_linear_relations.md) — polynomial and logarithmic fits when linearity fails.
+10. [Calibration of non-linear (logarithmic) function](calibration-calibration_curve_log_log.md) — log-log calibration workflow.
+11. [Weighing Scale Calibration (Wheeler and Ganji)](calibration-weight_scale_example_Wheeler.md) — textbook scale example.
+12. [GUM Budgets: Orifice Flow Meter and Storage Tank](calibration-orifice_calibration_example.md) — full GUM budgets for flow and volume.
+13. [Micrometer calibration using gage block](calibration-micrometer_calibration.md) — length calibration against a standard.
+14. [LVDT Calibration: Linearity, Hysteresis and Repeatability](calibration-lvdt_calibration_example.md) — LVDT worked example.
+15. [LVDT Calibration Curve and Its Uncertainty](calibration-lvdt_calibration_2.md) — LVDT curve with uncertainty bands.
+16. [Calibration and Uncertainty: Virtual Experiment, Abridged](calibration-pressure_calibration_example.md) — short virtual pressure-calibration lab.
+17. [Calibration and Uncertainty: Virtual Experiment](calibration-full_calibration_analysis_example.md) — full virtual experiment with complete analysis.
+18. [Uncertainty Budget Examples (SWGDRUG SD-3)](calibration-several_calibration_examples.md) — additional budget examples.
+19. [Calibration Examples: Real Sensors and Instruments](calibration-calibration_sensor_examples.md) — reference guide with links to all sensor calibration notebooks (LVDT, pressure, micrometer, orifice, weight scale). Choose examples matching your lab instruments.
+20. [Interactive Calibration Simulation](calibration-calibration_simulation_interactive.md) — hands-on exploration of calibration errors.
 
-Rationale: Students first master linear regression theory, then learn to identify and quantify systematic errors from the calibration process (hysteresis, linearity, repeatability). The consolidated examples guide at the end shows how to apply all these concepts to real sensors and helps students navigate to the right example for their needs. This hands-on, practical focus grounds the theory in authentic measurement scenarios.
+Rationale: Students first master linear regression theory, then learn to identify and quantify systematic errors from the calibration process (hysteresis, linearity, repeatability). The consolidated examples guide at the end shows how to apply all these concepts to real sensors.
 
 ---
 
@@ -75,31 +90,3 @@ The table below outlines common error types, how they are determined, and their 
 ## What comes next?
 
 Calibration tells you how to *characterize and reduce* uncertainty in your instruments — but instruments exist in the real world, where dynamic effects, noise, and signal acquisition choices matter. The **Dynamic Signals** chapter teaches you how measurement systems actually respond to inputs, and **Signal Processing** shows you frequency-domain tools to separate true signals from noise.
-
-
-
-
-<!-- AUTOGEN_START -->
-## Pages in this chapter
-
-- [calibration-calibration_simulation](calibration-calibration_simulation.md)
-- [Sensitivity estimate example](calibration-sensitivity_analysis.md)
-- [Estimate $a,b$ and also $\Delta a$ and $\Delta b$](calibration-linear_regression.md)
-- [Lecture 6](calibration-regression_analysis.md)
-- [Sensitivity error example](calibration-hysteresis_error_analysis.md)
-- [Linearity error example](calibration-Lineariy_error_example.md)
-- [Hysteresis example](calibration-calibration_error_analysis_2.md)
-- [Hysteresis and regression analysis example](calibration-calibration_error_analysis_pressure.md)
-- [Calibration of non-linear relations](calibration-calibration_non_linear_relations.md)
-- [Calculate averages for the plot](calibration-weight_scale_example_Wheeler.md)
-- [--- Input Values (Slide 4) ---](calibration-orifice_calibration_example.md)
-- [Calibration and uncertainty analysis - virtual experiment](calibration-pressure_calibration_example.md)
-- [calibration-lvdt_calibration_example](calibration-lvdt_calibration_example.md)
-- [calibration-lvdt_calibration_2](calibration-lvdt_calibration_2.md)
-- [Micrometer calibration using gage block](calibration-micrometer_calibration.md)
-- [Measurement Uncertainty Budget Examples (SWGDRUG SD-3)](calibration-several_calibration_examples.md)
-- [Calibration of non-linear (logarithmic) function](calibration-calibration_curve_log_log.md)
-- [Calibration and uncertainty analysis - virtual experiment](calibration-full_calibration_analysis_example.md)
-
-<!-- AUTOGEN_END -->
-
