@@ -57,7 +57,7 @@ precompute:
 toc:
 - file: content/intro.md
   title: "Mechanical Engineering Metrology and Measurements (MEMM)"
-- section: Theory
+- section: Uncertainty
   children:
   - file: content/theory-intro.md
     title: "Metrology theory — Introduction and Learning Goals"
@@ -91,6 +91,28 @@ toc:
     title: "Cylinder Volume: Nominal Values and Uncertainty"
   - file: content/theory-hot-wire_uncertainty_budget.py
     title: "Full Uncertainty Budget of a Hot-Wire Anemometer for Isothermal Turbulent Air Flow in a Wind Tunnel"
+  - file: content/theory-Sensitivity_Coefficients_Uncertainty.md
+    title: "Sensitivity Coefficients in Uncertainty Budgets"
+  - file: content/theory-exam_example.md
+    title: "Mars Rover Temperature Measurement & Uncertainty Analysis"
+  - file: content/theory-teaching_measurement_introductory_physics_lab.md
+    title: "Teaching Measurement in the Introductory Physics Laboratory"
+  - file: content/theory-simple_example.py
+    title: "Simple example of mechanical measurement with uncertainty analysis"
+  - file: content/theory-example_from_best_practice.py
+    title: "Using AI tools to learn uncertainty"
+  - file: content/theory-iaea_uncertainty_presentation.py
+    title: "Uncertainty in simple terms from IAEA"
+  - file: content/theory-uncertainty_example.py
+    title: "Uncertainty Example: Cylinder Volume from Caliper and Micrometer"
+  - file: content/theory-uncertainty_analysis_NASA.py
+    title: "Uncertainty Analysis"
+  - file: content/theory-uncertainty_sources_notebook.py
+    title: "Sources of Uncertainty in Measurement for Every Uncertainty Budget"
+  - file: content/theory-surface_roughness_budget.py
+    title: "Introduction to uncertainty analysis"
+  - file: content/theory-teaching_measurement_uncertainty.py
+    title: "Teaching uncertainty in mechanical measurements"
 - section: Calibration
   children:
   - file: content/calibration-intro.md
@@ -127,6 +149,14 @@ toc:
     title: "Micrometer calibration using gage block"
   - file: content/calibration-several_calibration_examples.py
     title: "Uncertainty Budget Examples (SWGDRUG SD-3)"
+  - file: content/calibration-calibration_sensor_examples.md
+    title: "Calibration Examples: Real Sensors and Instruments"
+  - file: content/calibration-calibration_curve_log_log.py
+    title: "Calibration of non-linear (logarithmic) function"
+  - file: content/calibration-full_calibration_analysis_example.py
+    title: "Calibration and Uncertainty: Virtual Experiment"
+  - file: content/calibration-calibration_simulation_interactive.md
+    title: "Interactive Calibration Simulation"
 - section: Statistics
   children:
   - file: content/statistics-intro.md
@@ -183,7 +213,7 @@ toc:
     title: "Plot power spectrum of experimental data"
   - file: content/dynamic_signals-spectrum_example.py
     title: "Spectrum example"
-- section: A/D Conversion
+- section: Analog vs Digital
   children:
   - file: content/a2d-intro.md
     title: "Analog-to-Digital (A2D) — Introduction and Learning Goals"
@@ -217,40 +247,6 @@ toc:
     title: "Using FFT-based filter to reduce noise"
   - file: content/signal_processing-fft_filter_interactive.md
     title: "Interactive FFT Filtering"
-- section: Theory — Supplementary Notes
-  children:
-  - file: content/theory-Sensitivity_Coefficients_Uncertainty.md
-    title: "Sensitivity Coefficients in Uncertainty Budgets"
-  - file: content/theory-exam_example.md
-    title: "Mars Rover Temperature Measurement & Uncertainty Analysis"
-  - file: content/theory-teaching_measurement_introductory_physics_lab.md
-    title: "Teaching Measurement in the Introductory Physics Laboratory"
-  - file: content/theory-simple_example.py
-    title: "Simple example of mechanical measurement with uncertainty analysis"
-  - file: content/theory-example_from_best_practice.py
-    title: "Using AI tools to learn uncertainty"
-  - file: content/theory-iaea_uncertainty_presentation.py
-    title: "Uncertainty in simple terms from IAEA"
-  - file: content/theory-uncertainty_example.py
-    title: "Uncertainty Example: Cylinder Volume from Caliper and Micrometer"
-  - file: content/theory-uncertainty_analysis_NASA.py
-    title: "Uncertainty Analysis"
-  - file: content/theory-uncertainty_sources_notebook.py
-    title: "Sources of Uncertainty in Measurement for Every Uncertainty Budget"
-  - file: content/theory-surface_roughness_budget.py
-    title: "Introduction to uncertainty analysis"
-  - file: content/theory-teaching_measurement_uncertainty.py
-    title: "Teaching uncertainty in mechanical measurements"
-- section: Calibration — Supplementary Notes
-  children:
-  - file: content/calibration-calibration_sensor_examples.md
-    title: "Calibration Examples: Real Sensors and Instruments"
-  - file: content/calibration-calibration_curve_log_log.py
-    title: "Calibration of non-linear (logarithmic) function"
-  - file: content/calibration-full_calibration_analysis_example.py
-    title: "Calibration and Uncertainty: Virtual Experiment"
-  - file: content/calibration-calibration_simulation_interactive.md
-    title: "Interactive Calibration Simulation"
 - section: Homework and Exploration
   children:
   - file: content/unsorted-intro.md

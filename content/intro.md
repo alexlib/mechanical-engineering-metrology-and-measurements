@@ -1,5 +1,67 @@
 # Mechanical Engineering Metrology and Measurements (MEMM)
 
+## TLDR; Uncertainty
+
+Every measurement has doubt. Error is not doubt. Repeat the test to get Type A. Use certificates and limits to get Type B. Combine them. Report the result with the doubt and the confidence.
+
+Do not start a measurement if you do not have a plan to quantify the uncertainty. Without a plan, the result has no meaning. See steps 1 through 3 below.
+
+Report every result in this form:
+
+$$ L = \bar{L} \pm U \;\; \mathrm{(units, \; 95\% \; confidence)} $$
+
+Example:
+
+$$ L = 21.49 \pm 0.05 \; \mathrm{mm\;(k=2,\;95\%)} $$
+
+Where the terms are:
+
+* $\bar{L}$ is the mean, the best estimate
+* $U$ is the expanded uncertainty, the range of doubt
+* $k=2$ is the coverage factor for 95% confidence
+
+Get Type A from repeated readings:
+
+$$ s = \sqrt{\frac{\sum_{i=1}^{n}(x_i - \bar{x})^2}{n-1}}, \qquad u_A = \frac{s}{\sqrt{n}} $$
+
+Example: $n=24$, $\bar{x}=21.493\;\mathrm{mm}$, $u_A = 0.021\;\mathrm{mm}$.
+
+Get Type B from other information, for rectangular limits $\pm a$:
+
+$$ u_B = \frac{a}{\sqrt{3}} $$
+
+Example: $a = 0.02\;\mathrm{mm}$, $u_B = 0.012\;\mathrm{mm}$.
+
+Combine them, uncorrelated:
+
+$$ u_c = \sqrt{u_A^2 + u_B^2} $$
+
+Example: $u_c = \sqrt{0.021^2 + 0.012^2} = 0.024\;\mathrm{mm}$.
+
+Expand to 95% confidence:
+
+$$ U = k \cdot u_c, \qquad k=2 $$
+
+Example: $U = 2 \times 0.024 \approx 0.05\;\mathrm{mm}$.
+
+For a result $y = f(x_1, x_2, \dots)$:
+
+$$ u_{c}(y) = \sqrt{\sum_{i=1}^{N}\left(u_{x_i}\frac{\partial y}{\partial x_i}\right)^2} $$
+
+Example: $Q = V/t$, $V = 1.15 \pm 0.05\;\mathrm{L}$, $t = 33.0 \pm 0.1\;\mathrm{s}$, then $Q = 2.09 \pm 0.09\;\mathrm{L/min\;(95\%)}$. Volume causes almost all the doubt. Improve volume first.
+
+Rules:
+
+1. Do not start a measurement if you do not have a plan to quantify the uncertainty. Without a plan, the result has no meaning.
+2. Record the date, the name, the instrument, and the temperature.
+3. Repeat the measurement.
+4. Calculate Type A from data.
+5. Get Type B from certificates and limits.
+6. Combine the values.
+7. Report the result, the uncertainty, $k$, and the confidence.
+
+---
+
 An open-source book of interactive notebooks and worked examples, prepared by
 [Prof. Alex Liberzon](https://turbulencelab.sites.tau.ac.il), School of
 Mechanical Engineering, Faculty of Engineering, Tel Aviv University, for the
