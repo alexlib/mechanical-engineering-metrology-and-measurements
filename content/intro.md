@@ -110,7 +110,7 @@ Every measurement has uncertainty — whether you quantify it or not. This book 
 3. **Reduce it where possible** — through careful calibration and experimental design
 4. **Report it correctly** — so others know how much to trust your results
 
-This is the journey of a metrologist: **Theory → Statistics → Calibration → Real-world Systems → Uncertainty Budget → Informed Reporting**.
+This is the journey of a metrologist: **Metrology and Uncertainty → Statistics → Calibration → Real-world Systems → Uncertainty Budget → Informed Reporting**.
 
 ---
 
@@ -120,22 +120,22 @@ Each chapter builds on the previous one, all focused on the central goal of mana
 
 | Chapter | Purpose | Contributes to Understanding |
 |---------|---------|------------------------------|
-| **Theory** | Foundational concepts: where errors come from, how uncertainty is defined | *What is uncertainty?* |
+| **Metrology and Uncertainty** | Foundational concepts: where errors come from, how uncertainty is defined | *What is uncertainty?* |
 | **Statistics** | Tools to quantify data variability, detect outliers, compute confidence intervals | *How do I measure uncertainty from data?* |
 | **Calibration** | Use statistics to characterize instruments, reduce systematic errors, build calibration curves | *How do I reduce and control uncertainty in my instruments?* |
 | **Dynamic Signals** | Understand how measurement systems respond to changes; recognize when you're measuring the system, not the quantity | *What affects the fidelity of my measurement?* |
 | **Signal Processing** | Separate true signals from noise using frequency-domain tools; understand sampling and filtering trade-offs | *How do I extract clean measurements from noisy data?* |
-| **A/D Conversion** | Understand how analog signals are digitized; manage aliasing and quantization effects | *How do I capture measurements without introducing new errors?* |
+| **Analog vs Digital** | Understand how analog signals are digitized; manage aliasing and quantization effects | *How do I capture measurements without introducing new errors?* |
 
 ---
 
 ## Key Insights You'll Build
 
-- **After Theory:** You understand what uncertainty *is*, where it comes from, and that every measurement has a "confidence zone" around it
+- **After Metrology and Uncertainty:** You understand what uncertainty *is*, where it comes from, and that every measurement has a "confidence zone" around it
 - **After Statistics:** You can *quantify* uncertainty from real data using Type A (statistical) methods and recognize when your sample size is adequate
 - **After Calibration:** You can *characterize* and *reduce* systematic errors in instruments, and you understand Type B (systematic) uncertainty sources
 - **After Dynamic Signals & Signal Processing:** You understand that your measurement system itself affects the result — bandwidth, frequency response, and noise filtering all matter
-- **After A/D Conversion:** You know how to capture signals digitally without losing information or introducing aliasing artifacts
+- **After Analog vs Digital:** You know how to capture signals digitally without losing information or introducing aliasing artifacts
 - **Capstone:** You can plan a complete measurement workflow: identify uncertainty sources → design an experiment → collect data → analyze with appropriate statistical rigor → propagate and report uncertainty
 
 ---

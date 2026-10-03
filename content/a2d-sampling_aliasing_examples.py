@@ -19,7 +19,7 @@ def _(mo):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _():
     from scipy.interpolate import interp1d
     import matplotlib.pyplot as plt
@@ -41,7 +41,7 @@ def _():
     return interp1d, np, plt, sampling
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(np):
     def quantization(ys,N):
         """quantization of a signal
@@ -61,23 +61,27 @@ def _(np):
     return (quantization,)
 
 
-@app.function
-def clipping(y,miny=-5,maxy=5):
-    """ clipping of signal 
-    inputs: 
-        y - signal [V] array of floats
-        miny, maxy - lowest, highest values [V], scalar floats, default -5 ..+5 [Volt]
-    outputs:
-        y - clipped signal [V]
-    better use: numpy.clip 
-    """
-    y[y < miny] = miny
-    y[y > maxy] = maxy
-    return y
+@app.cell(hide_code=True)
+def _():
+    def clipping(y,miny=-5,maxy=5):
+        """ clipping of signal
+        inputs:
+            y - signal [V] array of floats
+            miny, maxy - lowest, highest values [V], scalar floats, default -5 ..+5 [Volt]
+        outputs:
+            y - clipped signal [V]
+        better use: numpy.clip
+        """
+        y = y.copy()
+        y[y < miny] = miny
+        y[y > maxy] = maxy
+        return y
+
+    return (clipping,)
 
 
-@app.cell
-def _(interp1d, np, quantization, sampling):
+@app.cell(hide_code=True)
+def _(clipping, interp1d, np, quantization, sampling):
     def adc(t,y,fs=1.,N=4,miny=-5.,maxy=5.,method=None):
         """ A/D conversion
         Inputs:
@@ -127,20 +131,20 @@ def _(interp1d, np, quantization, sampling):
     return (adc,)
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(adc, np, plt):
     # example
     t = np.linspace(0, 10, 10000)  # almost continuous
     y = 9 + np.sin(2 * np.pi * 0.1 * t)
     _ts, _yq, _tr, _yr = adc(t, y, fs=1, N=4, miny=0, maxy=10, method='soh')
-    plt.figure()  # monopolar
+    plt.figure(figsize=(5.1, 3.3))  # monopolar
     plt.plot(t, y, 'k--', lw=0.1)
     plt.plot(_ts, _yq, 'ro')
     plt.plot(_tr, _yr, 'b-')
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(np):
     # an example from the A/D lecture
     t_1 = np.linspace(0, 1, 1000)  # almost continuous
@@ -151,72 +155,60 @@ def _(np):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ### sample at 15 Hz
+    ### Interactive: pick a sampling frequency
+
+    The dense signal above is $y = 3 + 3\sin(2\pi \cdot 10 t)$ — a 10 Hz tone.
+    Pick $f_s$ below. Red dots are the samples; the blue line joins them, so you see
+    the (possibly aliased) frequency the digital system believes in. Nyquist says
+    $f_s > 2f = 20$ Hz keeps the true 10 Hz.
     """)
-    return
-
-
-@app.cell
-def _(adc, plt, t_1, y_1):
-    _ts, _yq, _tr, _yr = adc(t_1, y_1, fs=15.0, N=24, miny=0, maxy=10, method=None)
-    plt.figure(figsize=(10, 8))
-    plt.plot(t_1, y_1, 'm--', lw=0.1)
-    plt.plot(_ts, _yq, 'ro')
-    plt.plot(_tr, _yr, 'b-')
-    plt.xlabel('$t$ [s]', fontsize=18)
-    plt.ylabel('$y$ [V]', fontsize=18)
-    plt.xlim([0, 1.0])
-    plt.title('$f_s = 15 $ Hz ', fontsize=22)
     return
 
 
 @app.cell(hide_code=True)
 def _(mo):
-    mo.md(r"""
-    ### sample at 11 Hz
-    """)
+    fs_choice = mo.ui.dropdown(
+        options=["4 Hz", "6 Hz", "9 Hz", "11 Hz", "15 Hz", "30 Hz (no aliasing)"],
+        value="15 Hz",
+        label="Sampling frequency $f_s$",
+    )
+    fs_choice
+    return (fs_choice,)
+
+
+@app.cell(hide_code=True)
+def _(adc, fs_choice, mo, np, plt, t_1, y_1):
+    # fs_choice.value is the selected label ("15 Hz"); the number leads it.
+    _fs = float(str(fs_choice.value).split()[0])
+    _f = 10.0
+    _fa = abs(_f - _fs * round(_f / _fs))
+    _ts, _yq, _tr, _yr = adc(t_1, y_1, fs=_fs, N=24, miny=0, maxy=10, method=None)
+    _fig, _ax = plt.subplots(figsize=(5.1, 3.3))
+    _ax.plot(t_1, y_1, "k--", lw=0.5, label="true 10 Hz tone")
+    _ax.plot(_ts, _yq, "ro", markersize=5, label="samples")
+    _ax.plot(_tr, _yr, "b-", lw=1.0, label=f"seen at {_fa:.0f} Hz")
+    _ax.set_xlabel("$t$ [s]", fontsize=12)
+    _ax.set_ylabel("$y$ [V]", fontsize=12)
+    _ax.set_xlim([0, 1.0])
+    if _fa == _f:
+        _ax.set_title(f"$f_s = {_fs:.0f}$ Hz — no aliasing, true 10 Hz kept", fontsize=12)
+    else:
+        _ax.set_title(f"$f_s = {_fs:.0f}$ Hz — aliased: 10 Hz appears as {_fa:.0f} Hz", fontsize=12)
+    _ax.legend(fontsize=9, loc="upper right")
+    _ax.grid(alpha=0.3)
+    _fig
     return
 
 
-@app.cell
-def _(adc, plt, t_1, y_1):
-    _ts, _yq, _tr, _yr = adc(t_1, y_1, fs=11.0, N=24, miny=0, maxy=10)
-    plt.figure(figsize=(10, 8))
-    plt.plot(t_1, y_1, 'k--', lw=0.1)
-    plt.plot(_ts, _yq, 'ro')
-    plt.plot(_tr, _yr, 'b-', lw=0.5)
-    plt.xlabel('$t$ [s]', fontsize=18)
-    plt.ylabel('$y$ [V]', fontsize=18)
-    plt.xlim([0, 1.0])
-    plt.title('$f_s = 11$ Hz', fontsize=22)
-    return
-
-
-@app.cell
-def _(adc, plt, t_1, y_1):
-    _ts, _yq, _tr, _yr = adc(t_1, y_1, fs=9.0, N=24, miny=0, maxy=10)
-    plt.figure(figsize=(10, 8))
-    plt.plot(t_1, y_1, 'k--', lw=0.1)
-    plt.plot(_ts, _yq, 'ro')
-    plt.plot(_tr, _yr, 'b-', lw=0.5)
-    plt.xlabel('$t$ [s]', fontsize=18)
-    plt.ylabel('$y$ [V]', fontsize=18)
-    plt.xlim([0, 1.0])
-    plt.title('$f_s = 9$ Hz', fontsize=22)
-    return
-
-
-@app.cell
-def _(adc, plt, t_1, y_1):
-    _ts, _yq, _tr, _yr = adc(t_1, y_1, fs=6.0, N=24, miny=0, maxy=10)
-    plt.figure(figsize=(10, 8))
-    plt.plot(t_1, y_1, 'k--', lw=0.1)
-    plt.plot(_ts, _yq, 'ro')
-    plt.plot(_tr, _yr, 'b-', lw=0.5)
-    plt.xlabel('$t$ [s]', fontsize=18)
-    plt.ylabel('$y$ [V]', fontsize=18)
-    plt.xlim([0, 1.0])
-    plt.title('$f_s = 6$ Hz', fontsize=22)
+@app.cell(hide_code=True)
+def _(fs_choice, mo, np):
+    _fs = float(str(fs_choice.value).split()[0])
+    _fa = abs(10.0 - _fs * round(10.0 / _fs))
+    if _fa == 10.0:
+        _msg = f"At $f_s = {_fs:.0f}$ Hz you are above Nyquist ($> 20$ Hz): $f_a = {_fa:.0f}$ Hz — the true tone survives."
+    else:
+        _msg = f"At $f_s = {_fs:.0f}$ Hz: $f_a = |10 - {_fs:.0f} \\times \\mathrm{{NINT}}(10/{_fs:.0f})| = {_fa:.0f}$ Hz — aliasing. Try 30 Hz to fix it, or 4 Hz to see the $2$ Hz twin of the $6$ Hz case."
+    mo.md(_msg)
     return
 
 
@@ -259,26 +251,6 @@ def _(mo):
 
     3. it can be also lower than 6Hz and we got 2Hz for instance if we sampled f = 4Hz
     """)
-    return
-
-
-@app.cell
-def _(np):
-    np.abs(10 - 6 * np.round(10./6.))
-    return
-
-
-@app.cell
-def _(adc, plt, t_1, y_1):
-    _ts, _yq, _tr, _yr = adc(t_1, y_1, fs=4.0, N=24, miny=0, maxy=10)
-    plt.figure(figsize=(10, 8))
-    plt.plot(t_1, y_1, 'k--', lw=0.1)
-    plt.plot(_ts, _yq, 'ro')
-    plt.plot(_tr, _yr, 'b-', lw=0.5)
-    plt.xlabel('$t$ [s]', fontsize=18)
-    plt.ylabel('$y$ [V]', fontsize=18)
-    plt.xlim([0, 1.0])
-    plt.title('$f_s = 4$ Hz', fontsize=22)
     return
 
 

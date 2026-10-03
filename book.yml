@@ -57,62 +57,46 @@ precompute:
 toc:
 - file: content/intro.md
   title: "Mechanical Engineering Metrology and Measurements (MEMM)"
-- section: Uncertainty
+- section: Metrology and Uncertainty
   children:
   - file: content/theory-intro.md
-    title: "Metrology theory — Introduction and Learning Goals"
-  - file: content/theory-laboratory_notebook.py
-    title: "Laboratory Notebook"
+    title: "Metrology and Uncertainty — Introduction and Learning Goals"
   - file: content/theory-significant_digits.md
     title: "Significant digits"
+  - file: content/theory-standardization.py
+    title: "Standardization and Traceability"
   - file: content/theory-best_practice_summary.py
     title: "Short summary of the ``Measurement good practice guide '' by NPL"
-  - file: content/theory-standartization.py
-    title: "Standardization and Traceability"
   - file: content/theory-general_measurement_system_analysis.py
     title: "The Generalized Measurement System"
+  - file: content/theory-02_basic_error_analysis.py
+    title: "Basic error analysis"
   - file: content/theory-01_uncertainty101.md
     title: "Uncertainty 101"
   - file: content/theory-checklist.md
     title: "The Engineer's 9-Step Uncertainty Analysis Checklist"
-  - file: content/theory-simulations_for_uncertainty.py
-    title: "Using simulations to explain uncertainty"
-  - file: content/theory-02_basic_error_analysis.py
-    title: "Basic error analysis"
   - file: content/theory-example_uncertainty_analysis.md
     title: "Engineering Example: Uncertainty Analysis in Mechanical Measurements"
+  - file: content/theory-simple_example.py
+    title: "Simple example of mechanical measurement with uncertainty analysis"
+  - file: content/theory-uncertainty_sources_notebook.py
+    title: "Sources of Uncertainty in Measurement for Every Uncertainty Budget"
+  - file: content/theory-comparing_two_methods_cylinder_volume.md
+    title: "Comparing Two Methods: Cylinder Volume"
   - file: content/theory-uncertainty_of_a_slope.py
     title: "How to estimate the uncertainty of a slope for static calibration or regression"
   - file: content/theory-uncertainty_propagation_monte_carlo_gum.py
     title: "Propagating uncertainty using Monte-Carlo simulations"
-  - file: content/theory-comparing_two_methods_cylinder_volume.md
-    title: "Comparing Two Methods: Cylinder Volume"
-  - file: content/theory-volume_cylinder_undertainty_example.py
-    title: "Cylinder Volume: Nominal Values and Uncertainty"
-  - file: content/theory-hot-wire_uncertainty_budget.py
-    title: "Full Uncertainty Budget of a Hot-Wire Anemometer for Isothermal Turbulent Air Flow in a Wind Tunnel"
   - file: content/theory-Sensitivity_Coefficients_Uncertainty.md
     title: "Sensitivity Coefficients in Uncertainty Budgets"
+  - file: content/theory-surface_roughness_budget.py
+    title: "Introduction to uncertainty analysis"
+  - file: content/theory-hot-wire_uncertainty_budget.py
+    title: "Full Uncertainty Budget of a Hot-Wire Anemometer for Isothermal Turbulent Air Flow in a Wind Tunnel"
   - file: content/theory-exam_example.md
     title: "Mars Rover Temperature Measurement & Uncertainty Analysis"
   - file: content/theory-teaching_measurement_introductory_physics_lab.md
     title: "Teaching Measurement in the Introductory Physics Laboratory"
-  - file: content/theory-simple_example.py
-    title: "Simple example of mechanical measurement with uncertainty analysis"
-  - file: content/theory-example_from_best_practice.py
-    title: "Using AI tools to learn uncertainty"
-  - file: content/theory-iaea_uncertainty_presentation.py
-    title: "Uncertainty in simple terms from IAEA"
-  - file: content/theory-uncertainty_example.py
-    title: "Uncertainty Example: Cylinder Volume from Caliper and Micrometer"
-  - file: content/theory-uncertainty_analysis_NASA.py
-    title: "Uncertainty Analysis"
-  - file: content/theory-uncertainty_sources_notebook.py
-    title: "Sources of Uncertainty in Measurement for Every Uncertainty Budget"
-  - file: content/theory-surface_roughness_budget.py
-    title: "Introduction to uncertainty analysis"
-  - file: content/theory-teaching_measurement_uncertainty.py
-    title: "Teaching uncertainty in mechanical measurements"
 - section: Calibration
   children:
   - file: content/calibration-intro.md
@@ -216,7 +200,7 @@ toc:
 - section: Analog vs Digital
   children:
   - file: content/a2d-intro.md
-    title: "Analog-to-Digital (A2D) — Introduction and Learning Goals"
+    title: "Analog vs Digital — Introduction and Learning Goals"
   - file: content/a2d-mimic_analog_to_digital_conversion.py
     title: "Mimic A/D conversion"
   - file: content/a2d-sampling_aliasing_examples.py

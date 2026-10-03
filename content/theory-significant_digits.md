@@ -171,3 +171,20 @@ multiply the first two and report: 134,290
 $ \times$ 0.2875 = 38608.375 (if its
 intermediate, otherwise 5 digits $ \times $ 4 digits = 4 digits) =
 38610
+
+### Reporting uncertainty: always TWO numbers
+
+To express uncertainty you need **two** numbers: the width of the margin of doubt
+(the **interval**) and the **confidence level** (how sure you are the true value is
+inside). Always write $x_\mathrm{best} \pm u_x$ and state both.
+
+Rules for stating uncertainties (after IAEA):
+
+1. State the uncertainty to **1 significant figure**: $x = 31.25 \pm 0.034953$ m/s is
+   **wrong**; write $x = 3.25 \pm 0.03$ m/s. The uncertainty is only an estimate — it
+   cannot be more precise than the measurement itself.
+2. The last significant figure of the answer sits where the uncertainty sits:
+   $a = 1261.29 \pm 200$ cm/s$^2$ is **wrong**; write $a = 1300 \pm 200$ cm/s$^2$.
+
+Rules of thumb: uncertainty of a scale device (ruler, caliper) ≈ smallest increment
+divided by 2; of a digital device ≈ smallest increment. State assumptions explicitly.

@@ -40,6 +40,91 @@ def _(np):
     return x, y
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### Interactive: walk through the regression in 4 steps
+
+    Drag the slider below. Each step adds one idea: data → trial line and residuals → best-fit line → uncertainty of the fit.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    reg_step = mo.ui.slider(
+        start=1,
+        stop=4,
+        step=1,
+        value=3,
+        label="Regression step: 1=data, 2=trial line, 3=best fit, 4=uncertainty",
+    )
+    reg_step
+    return (reg_step,)
+
+
+@app.cell(hide_code=True)
+def _(mo, np, plt, reg_step, x, y):
+    # Best-fit line (ordinary least squares) for the 5 demo points.
+    _b_best, _a_best = np.polyfit(x, y, 1)
+    _y_best = _b_best * x + _a_best
+    # One fixed trial line, so step 2 shows non-zero residuals.
+    _b_trial, _a_trial = 0.425, 0.785
+    _y_trial = _b_trial * x + _a_trial
+    # Residual scatter of the best fit, for the uncertainty band in step 4.
+    _res = y - _y_best
+    _s_fit = float(np.sqrt(np.sum(_res ** 2) / (len(x) - 2)))
+    _xg = np.linspace(0.0, 6.0, 200)
+    _yg_best = _b_best * _xg + _a_best
+
+    _fig, _ax = plt.subplots(figsize=(6.4, 4.1))
+    _ax.plot(x, y, "o", markersize=9, color="tab:blue", label="measurements")
+    _ax.set_xlim([0.0, 6.0])
+    _ax.set_ylim([0.0, 4.0])
+    _ax.set_xlabel("$x$", fontsize=14)
+    _ax.set_ylabel("$y$", fontsize=14)
+    _ax.grid(alpha=0.3)
+
+    _step = int(reg_step.value)
+    if _step == 1:
+        _ax.set_title("Step 1: the data — no line yet")
+        _ax.legend(fontsize=10, loc="upper left")
+    elif _step == 2:
+        _ax.plot(x, _y_trial, "-", lw=2, color="tab:gray",
+                 label=f"trial line $y'={_b_trial}x+{_a_trial}$")
+        for _xi, _yi, _yti in zip(x, y, _y_trial):
+            _ax.plot([_xi, _xi], [_yi, _yti], "r-", lw=1.5)
+        _ax.set_title("Step 2: trial line — vertical lines are residuals $y-y'$")
+        _ax.legend(fontsize=10, loc="upper left")
+    elif _step == 3:
+        _ax.plot(_xg, _yg_best, "k-", lw=2,
+                 label=f"least squares $y'={_b_best:.3f}x+{_a_best:.3f}$")
+        _ax.set_title("Step 3: best-fit line minimizes $\\sum (y-y')^2$")
+        _ax.legend(fontsize=10, loc="upper left")
+    else:
+        _ax.plot(_xg, _yg_best, "k-", lw=2,
+                 label=f"best fit $y'={_b_best:.3f}x+{_a_best:.3f}$")
+        _ax.fill_between(_xg, _yg_best - _s_fit, _yg_best + _s_fit,
+                         color="tab:orange", alpha=0.25,
+                         label=f"$\\pm s_{{fit}}$, $s_{{fit}}={_s_fit:.3f}$")
+        _ax.set_title("Step 4: scatter around the line is Type A uncertainty")
+        _ax.legend(fontsize=10, loc="upper left")
+    _fig
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo, reg_step):
+    _texts = {
+        1: "Step 1 — look at the scatter. No model yet. Ask: does a straight line make sense?",
+        2: "Step 2 — pick any trial line. Each vertical segment is a residual $e_i=y_i-y'_i$. A bad line leaves large residuals.",
+        3: "Step 3 — the least-squares line makes $Q=\\sum e_i^2$ smallest. Closed form: $b=R\\,S_y/S_x$, $a=\\bar{y}-b\\bar{x}$.",
+        4: "Step 4 — the leftover scatter $s_{fit}=\\sqrt{\\sum e_i^2/(n-2)}$ is the Type A uncertainty of the fit. It feeds $\\Delta a$ and $\\Delta b$ below.",
+    }
+    mo.md(_texts.get(int(reg_step.value), ""))
+    return
+
+
 @app.cell
 def _(plt, x, y):
     plt.plot(x,y,'o',markersize=10)

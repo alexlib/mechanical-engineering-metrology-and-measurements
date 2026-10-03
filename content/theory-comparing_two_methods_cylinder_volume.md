@@ -136,4 +136,18 @@ By quantifying the specific contributions of each input quantity via sensitivity
 1.  **Precision:** Converting Method B's uncertainty to $\text{mm}^3$ ($0.72 \text{ cm}^3 = 720 \text{ mm}^3$), we see that Method A ($U \approx 134 \text{ mm}^3$) is significantly more precise than Method B ($U \approx 720 \text{ mm}^3$) under these assumptions.
 2.  **Dominant Errors:** In Method B, the density reference ($u(\rho)$) contributes overwhelmingly to the total uncertainty ($0.12888 \text{ cm}^6$) compared to the mass measurement ($3.6 \times 10^{-5} \text{ cm}^6$). To improve Method B, efforts must be focused on increasing the precision of the density value, not the precision of the mass balance.
 
-Would you like to explore another metrological example, such as evaluating uncertainty for a thermocouple calibration system, or dive deeper into the use of tools like the NIST Uncertainty Machine (NUM) for Monte Carlo simulations?
+## Appendix: Quick Check with Fractional Uncertainties
+
+The same propagation can be written in fractional (relative) form, which keeps units consistent. For $V = \pi r^2 l$:
+
+$$\frac{u(V)}{V} = \sqrt{\left(\frac{2}{r} u_r\right)^2 + \left(\frac{1}{l} u_l\right)^2}$$
+
+because $\frac{1}{V}\frac{\partial V}{\partial r} = \frac{2}{r}$ and $\frac{1}{V}\frac{\partial V}{\partial l} = \frac{1}{l}$.
+
+Quick check with $r = 15.0 \pm 0.1 \text{ m}$, $l = 50.0 \pm 0.5 \text{ m}$ (after Dr. Steimel's video example):
+
+$$V = \pi (15.0)^2 (50.0) \approx 35342.9 \text{ m}^3$$
+$$\frac{u(V)}{V} = \sqrt{\left(\frac{2 \times 0.1}{15.0}\right)^2 + \left(\frac{0.5}{50.0}\right)^2} \approx 0.0167 = 1.67\%$$
+$$V = (35342.9 \pm 589.8) \text{ m}^3 \quad (\pm 1.67\%)$$
+
+Same partial derivatives, same RSS idea as Methods A and B above — only the algebra is shorter.

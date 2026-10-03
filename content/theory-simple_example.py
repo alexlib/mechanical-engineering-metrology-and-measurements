@@ -150,7 +150,19 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
- 
+    ## Study tip: use AI tools on the guides — but check every number
+
+    1. Get a free PDF of a recommended guide (e.g. NPL MGPG No. 11, UKAS M3003,
+       EA 4/02, JCGM 100:2008, NIST TN 1297).
+    2. Upload it to an AI assistant and ask for a worked calculation.
+
+    AI answers follow the right 8 steps but routinely mix up numbers, units, and
+    divisors (a past answer reported $U = 0.0506$ m for this same string example —
+    wrong). Always recompute by hand using the recipe above before trusting it.
+
+    Useful sources: [NPL MGPG No. 11](https://www.npl.co.uk/resources/gpgs),
+    [UKAS M3003](https://www.ukas.com/), [JCGM 100:2008 (GUM)](https://www.bipm.org/en/publications/guides/gum.html),
+    [NIST TN 1297](https://www.nist.gov/), [NASA-HDBK-8739.19-3](https://standards.nasa.gov/).
     """)
     return
 

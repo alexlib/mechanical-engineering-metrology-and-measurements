@@ -39,34 +39,6 @@ Why this approach helps students - It teaches that measurements are not single f
 
 Further reading (short) - "Guide to the Expression of Uncertainty in Measurement (GUM)" — the standard source for these rules (useful later, not required now). - Try small lab tasks above and compare what happens if you repeat measurements or change instruments.
 
-\`\`\`// filepath: book/theory/teaching_measurement_simple.md \# Teaching Measurement — Simple Guide for High‑School Students
-
-This short guide explains the key ideas from the paper "Teaching Measurement in the Introductory Physics Laboratory" using plain language and easy examples. No prior knowledge of advanced statistics is needed.
-
-Why measurements need an uncertainty - A measurement (for example: length = 10.2 cm) is never perfectly exact. There is always some doubt about the true value. - Saying "10.2 cm" without telling how sure you are can be misleading. We give a measurement plus an uncertainty (for example: 10.2 ± 0.1 cm) so others know how reliable it is.
-
-Think of it like target shooting - Hitting near the center means accurate. Bullets spread around the center because of small random effects (wind, aim). The spread is like measurement uncertainty. - If all shots are tightly grouped but far from the bullseye, the shooter is precise but biased. Similarly, measurements can be precise but off from the true value because of a systematic error.
-
-Two simple ways to estimate uncertainty 1. Using repeated measurements (what you can observe) - Do the same measurement several times. - Calculate the average (mean) and the spread (standard deviation). - Example: times of a pendulum period measured 20 times give an average 1.015 s and spread 0.146 s. The uncertainty of the average is smaller: 0.146 / √20 ≈ 0.033 s. This tells you how well you know the average value.
-
-2.  Using instrument limits or prior knowledge (what you know about the tools)
-    -   If you have only one reading (one measurement), you can use what you know about the instrument to estimate uncertainty.
-    -   Example: a digital meter shows numbers to the nearest 0.01 V. That last digit means the true value could be anywhere within ±0.005 V of the shown number. If you assume all values inside that range are equally likely, a common rule gives a standard uncertainty of half-width divided by √3: 0.005 / √3 ≈ 0.0029 V.
-
-Combining different uncertainty sources - Real measurements have several small uncertainty sources (instrument resolution, accuracy, environment). Combine them with this simple rule: Combined uncertainty = sqrt(u1\^2 + u2\^2 + u3\^2 + ...) - Example: scale uncertainty 0.0029 V and accuracy uncertainty 0.0143 V combine to sqrt(0.0029\^2 + 0.0143\^2) ≈ 0.0146 V. So you would report 2.470 ± 0.015 V (rounded uncertainty).
-
-What does the uncertainty number mean? - A common interpretation: about 68% confidence that the true value lies within ± one standard uncertainty (this matches the familiar "one standard deviation"). - So 2.470 ± 0.015 V means the measurand most likely lies between 2.455 and 2.485 V, and roughly 68% of the time you'd expect the true value to be inside that range.
-
-Simple classroom examples - Single digital reading: meter shows 2.470 V, resolution ±0.005 V (gives 0.0029 V standard uncertainty). If meter accuracy adds ±1% (\~0.0247 V, standard \~0.0143 V), combine both to get the final uncertainty ≈ 0.0146 V. - Repeated stopwatch readings: measure period 20 times → compute mean and standard deviation → standard error = std / √20 gives uncertainty of the mean.
-
-A short practical checklist for a measurement 1. Decide what you need: how precise must the measurement be? 2. List possible uncertainty sources (instrument, reading, environment). 3. If you have many readings: compute mean and standard deviation. Use std/√N for uncertainty of the mean. 4. If you have a single reading: use instrument specs and the last-digit rule to estimate uncertainty. 5. Combine all uncertainty contributions using the square-root-of-sum-of-squares rule. 6. Report the result as: best value ± uncertainty (and state units).
-
-Short exercises - Ruler example: a ruler shows mm marks. You measure 123 mm. Using the last-digit rule (±0.5 mm), estimate the standard uncertainty (0.5 / √3 ≈ 0.29 mm). Report the result. - Battery example: a meter reads 2.47 V. Resolution ±0.005 V and rated accuracy ±1% → compute combined uncertainty and report the result. - Repeats example: take 10 repeat measurements of something, compute mean, standard deviation, and standard error (std/√10). Interpret the result.
-
-Why this approach helps students - It teaches that measurements are not single fixed numbers but estimates with a level of confidence. - Using simple rules and examples builds good lab habits (list sources of uncertainty, do repeats when possible, and show your work). - The methods described are practical and widely used in science and engineering.
-
-Further reading (short) - "Guide to the Expression of Uncertainty in Measurement (GUM)" — the standard source for these rules (useful later, not required now). - Try small lab tasks above and compare what happens if you repeat measurements or change instruments.
-
 ## Extended version for instructors and advanced students
 
 ### **A Probabilistic and Metrological Approach to Measurement**

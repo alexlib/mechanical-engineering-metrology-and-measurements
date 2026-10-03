@@ -2,6 +2,8 @@
 
 This checklist provides a systematic framework for conducting a thorough uncertainty analysis. It begins with the strategic purpose (Step 0) and moves through the tactical execution of the calculation, providing technical details, engineering insights, and exam tips at each stage.
 
+> **Sidebar — the same workflow in 5 steps (NASA-HDBK-8739.19-3):** 1. Define the measurement process (measurand, setup, environment, instruments). 2. Identify error sources and their distributions. 3. Estimate uncertainties — Type A from data, Type B from knowledge; uncertainty equals the standard deviation of the error distribution. 4. Combine uncertainties by the *variance addition rule*, accounting for correlations and tracking degrees of freedom. 5. Report the value, its combined uncertainty and degrees of freedom, the model equation, and every source with its estimation method. The 9 steps below expand this same backbone.
+
 ### Step 0: Define Purpose, Context, and Requirements
 
 **Objective:** To establish *why* the measurement is being performed and what "good enough" means. This step defines the required precision and the governing rules before any work begins.

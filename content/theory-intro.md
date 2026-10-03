@@ -1,4 +1,4 @@
-# Uncertainty — Introduction and Learning Goals
+# Metrology and Uncertainty — Introduction and Learning Goals
 
 This chapter covers measurement theory or *metrology*: uncertainty concepts, best practices, analytical measurement system analysis, examples of measurement systems.
 
@@ -15,43 +15,39 @@ This chapter covers measurement theory or *metrology*: uncertainty concepts, bes
 ### Prerequisites
 Basic probability, calculus, and comfort with Python, Numpy, Matplotlib, Scipy, Jupyter.
 
+### Laboratory notebook
+
+Keep a good laboratory notebook for the course: date, name, instruments and their
+calibration stickers, temperature, and every reading, laid out so outliers stand out.
+Guides: [MIT](https://web.mit.edu/me-ugoffice/communication/labnotebooks.pdf),
+[Science Buddies](https://www.sciencebuddies.org/science-fair-projects/science-fair/laboratory-notebooks-stem),
+[UBC](https://phas.ubc.ca/~phys259/2012-13Term1/pickyTA_ENPH259example.htm).
+
 ## Ordered reading (suggested)
 
-Follow this sequence when teaching or self-studying. Start with lab practice and best-practice guidance, then measurement-system analysis and elementary worked examples, then uncertainty concepts and quantitative propagation methods (analytical & Monte Carlo), and finish with supplementary case studies.
+Foundations first, then the core lecture and workflow, then worked examples of increasing
+difficulty, finishing with two full real-world budgets and capstones.
 
-Core path:
+1. [Significant digits](theory-significant_digits.md) — how many digits to keep, and how to report $x \pm u$ (1 sig. fig. for $u$).
+2. [Standardization and Traceability](theory-standardization.md) — standards, traceability chains, common terminology.
+3. [Short summary of the ``Measurement good practice guide '' by NPL](theory-best_practice_summary.md) — error vs uncertainty, Type A/B in one precis.
+4. [The Generalized Measurement System](theory-general_measurement_system_analysis.md) — system-level thinking: stages, signals, error sources at each block.
+5. [Basic error analysis](theory-02_basic_error_analysis.md) — systematic vs random errors, RSS combination, $P$/$B$ notation, small-sample $t$ note.
+6. [Uncertainty 101](theory-01_uncertainty101.md) — the core lecture: Type A/B, divisors, combined and expanded uncertainty on the caliper example ($\ell = 21.49 \pm 0.05$ mm, $k=2$).
+7. [The Engineer's 9-Step Uncertainty Analysis Checklist](theory-checklist.md) — the workflow (with the NASA 5-step variant as sidebar).
+8. [Engineering Example: Uncertainty Analysis in Mechanical Measurements](theory-example_uncertainty_analysis.md) — full 8-step shaft measurement.
+9. [Simple example of mechanical measurement with uncertainty analysis](theory-simple_example.md) — string and tape measure, plus how to (carefully) use AI tools on the guides.
+10. [Sources of Uncertainty in Measurement for Every Uncertainty Budget](theory-uncertainty_sources_notebook.md) — the 8-source catalog with instrument examples.
+11. [Comparing Two Methods: Cylinder Volume](theory-comparing_two_methods_cylinder_volume.md) — geometric vs gravimetric, dominant contributors, fractional-form appendix.
+12. [How to estimate the uncertainty of a slope for static calibration or regression](theory-uncertainty_of_a_slope.md) — **interactive**: drag $u(I)$ and watch the slope interval change.
+13. [Propagating uncertainty using Monte-Carlo simulations](theory-uncertainty_propagation_monte_carlo_gum.md) — **interactive**: non-normal outputs, cube/thermal/cosine/density examples, best practices.
+14. [Sensitivity Coefficients in Uncertainty Budgets](theory-Sensitivity_Coefficients_Uncertainty.md) — partial derivatives as weights, building-height example.
+15. [Introduction to uncertainty analysis](theory-surface_roughness_budget.md) — full surface-roughness budget with Welch–Satterthwaite.
+16. [Full Uncertainty Budget of a Hot-Wire Anemometer for Isothermal Turbulent Air Flow in a Wind Tunnel](theory-hot-wire_uncertainty_budget.md) — complete 24-source real-world budget.
+17. [Mars Rover Temperature Measurement & Uncertainty Analysis](theory-exam_example.md) — capstone: instrument selection, static/dynamic calibration design, full 8-step exam answer.
+18. [Teaching Measurement in the Introductory Physics Laboratory](theory-teaching_measurement_introductory_physics_lab.md) — pedagogy capstone: plain-language guide plus instructor material.
 
-1. [Laboratory Notebook](theory-laboratory_notebook.md) — practical lab notebook practices and data recording.
-2. [Significant digits](theory-significant_digits.md) — how many digits to keep and report.
-3. [Short summary of the ``Measurement good practice guide '' by NPL](theory-best_practice_summary.md) — concise recommendations for reporting and reproducibility.
-4. [Standardization and Traceability](theory-standartization.md) — standards and common terminology.
-5. [The Generalized Measurement System](theory-general_measurement_system_analysis.md) — system-level thinking and error sources.
-6. [Uncertainty 101](theory-01_uncertainty101.md) — what uncertainty is, Type A vs Type B, combined and expanded uncertainty.
-7. [The Engineer's 9-Step Uncertainty Analysis Checklist](theory-checklist.md) — step-by-step workflow for an uncertainty budget.
-8. [Basic error analysis](theory-02_basic_error_analysis.md) — errors, propagation, worst-case vs RSS.
-9. [Engineering Example: Uncertainty Analysis in Mechanical Measurements](theory-example_uncertainty_analysis.md) — full worked example.
-10. [Using simulations to explain uncertainty](theory-simulations_for_uncertainty.md) — simulation-driven exploration of uncertainty.
-11. [How to estimate the uncertainty of a slope for static calibration or regression](theory-uncertainty_of_a_slope.md) — propagation for regression-derived quantities.
-12. [Propagating uncertainty using Monte-Carlo simulations](theory-uncertainty_propagation_monte_carlo_gum.md) — Monte Carlo propagation following GUM ideas.
-13. [Comparing Two Methods: Cylinder Volume](theory-comparing_two_methods_cylinder_volume.md) — two ways to get the same volume, compared.
-14. [Cylinder Volume: Nominal Values and Uncertainty](theory-volume_cylinder_undertainty_example.md) — nominal values and uncertainty calculation.
-15. [Full Uncertainty Budget of a Hot-Wire Anemometer for Isothermal Turbulent Air Flow in a Wind Tunnel](theory-hot-wire_uncertainty_budget.md) — complete real-world budget.
-
-Supplementary notes and case studies:
-
-16. [Sensitivity Coefficients in Uncertainty Budgets](theory-Sensitivity_Coefficients_Uncertainty.md) — what sensitivity coefficients do and how to use them.
-17. [Simple example of mechanical measurement with uncertainty analysis](theory-simple_example.md) — a short worked example linking practice and theory.
-18. [Uncertainty Example: Cylinder Volume from Caliper and Micrometer](theory-uncertainty_example.md) — basic uncertainty calculations and interpretation.
-19. [Sources of Uncertainty in Measurement for Every Uncertainty Budget](theory-uncertainty_sources_notebook.md) — checklist of sources for every budget.
-20. [Introduction to uncertainty analysis](theory-surface_roughness_budget.md) — surface-roughness budget example.
-21. [Uncertainty Analysis](theory-uncertainty_analysis_NASA.md) — applied example from NASA guidance.
-22. [Uncertainty in simple terms from IAEA](theory-iaea_uncertainty_presentation.md) — community presentation and advanced perspectives.
-23. [Mars Rover Temperature Measurement & Uncertainty Analysis](theory-exam_example.md) — exam-style temperature example.
-24. [Teaching uncertainty in mechanical measurements](theory-teaching_measurement_uncertainty.md) — pedagogical overview of uncertainty.
-25. [Teaching Measurement in the Introductory Physics Laboratory](theory-teaching_measurement_introductory_physics_lab.md) — teaching perspective from physics labs.
-26. [Using AI tools to learn uncertainty](theory-example_from_best_practice.md) — illustrated application of best practices.
-
-Rationale: this ordering lets students first acquire good lab habits and reporting skills, then build a conceptual toolbox for system analysis, then learn measurement uncertainty in increasing rigor (examples → slope propagation → Monte Carlo → case studies).
+Rationale: students first acquire reporting habits and vocabulary, then the propagation toolbox, then the canonical workflow — each worked example reuses the same 8 steps on harder systems until the capstones.
 
 ---
 

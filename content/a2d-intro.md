@@ -35,7 +35,7 @@ Rationale: Students first see the consequences of undersampling (aliasing), then
 ## You've Completed the Toolkit
 
 You now have a complete understanding of measurement uncertainty:
-- **Uncertainty**: What uncertainty is and where it comes from
+- **Metrology and Uncertainty**: What uncertainty is and where it comes from
 - **Statistics**: How to quantify uncertainty from data
 - **Calibration**: How to reduce and control instrument uncertainty
 - **Dynamic Signals & Signal Processing**: How systems and signal analysis affect measurements

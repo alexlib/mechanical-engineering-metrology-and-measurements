@@ -25,14 +25,6 @@ def _(mo):
     ## General measurement system diagram
     """)
     return
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    # The Generalized Measurement System
-    """)
-    return
-
-
 
 
 @app.cell(hide_code=True)

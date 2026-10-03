@@ -6,10 +6,10 @@ Collection of homework examples, exploratory notebooks, and early drafts. Use af
 How to use this chapter
 - Treat items here as worked problems or extra practice.
 - Instructors can adapt these as homework with minor edits.
-- Work through core chapters first (Uncertainty, Statistics, Calibration, Analog vs Digital).
+- Work through core chapters first (Metrology and Uncertainty, Statistics, Calibration, Analog vs Digital).
 
 Prerequisites
-Complete core chapters first (Uncertainty, Statistics, Calibration).
+Complete core chapters first (Metrology and Uncertainty, Statistics, Calibration).
 
 ---
 

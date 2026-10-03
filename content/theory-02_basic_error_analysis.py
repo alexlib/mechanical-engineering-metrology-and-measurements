@@ -44,6 +44,19 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    ### Accuracy vs precision
+
+    Low systematic errors make a measurement *accurate* (centered on the true value).
+    Low random errors make it *precise* (tightly grouped). You need both:
+
+    ![Accuracy vs precision, random vs systematic error](../images/accuracy_vs_precision.png)
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ### Example:
 
     Digital voltemeter measures 10.32 kV, its precision is 0.01kV.
@@ -168,6 +181,35 @@ def _(mo):
     ### Note: if $x_1$ and $x_2$ are dependent, then
 
     $$\Delta_y=\left|\frac{\partial f}{\partial x_1} \Delta x_1 \right| + \left|\frac{\partial f}{\partial x_2} \Delta x_2 \right| $$
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### Note: $P$ and $B$ notation
+
+    Some labs (e.g. Bluestein's Lab A) write Type A as *probability* $P$ (or $u_P$) and
+    Type B as *bias* $B$ (or $u_B$). It is the same idea in shorter symbols:
+
+    $$ u = \sqrt{B^2 + P^2} = \sqrt{u_B^2 + u_P^2} $$
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ### Note: fewer than 30 readings — use Student $t$
+
+    The factors above (68% for $1\sigma$, 1.96 for 95%) come from the normal distribution
+    and hold for many readings ($m > 30$). With fewer readings, replace $z$ by Student $t$
+    with $\nu = m - 1$ degrees of freedom:
+
+    $$ u_y = (t_{1-c, \, \nu = m-1}/\sqrt{m}) \left[ \sum (y_j - \bar{y})^2/(m-1) \right]^{0.5} $$
+
+    (See the Statistics chapter for the $t$-distribution and how to look up $t$.)
     """)
     return
 
